@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import Layout from '@/components/layout';
+import Seo from '@/components/Seo';
 
 export const query = graphql`
 	query frontPage($id: String!) {
@@ -26,6 +27,7 @@ export default ({ data }) => {
 	const { page } = data;
 	return (
 		<Layout>
+			<Seo title={data.title} />
 			<h1>{page.title}</h1>
 		</Layout>
 	);
