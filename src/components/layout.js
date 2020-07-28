@@ -1,21 +1,19 @@
-import React from "react"
-import { Box, Grid } from "@chakra-ui/core"
-import Header from "./header"
-import Menu from "./menu"
+import React from 'react';
 
-import "../assets/style.css"
+import Seo from '@/components/Seo';
+import Header from '@/components/Header';
 
-const Layout = ({ children }) => (
-  <div>
-    <Grid style={{ margin: `0 auto` }} maxW="90%" w={900} alignSelf="center">
-      <Box mb={10} mt={20}>
-        <Header />
-      </Box>
-      <Menu />
+import '@/stylesheets/styles.scss';
 
-      <Box mb={100}>{children}</Box>
-    </Grid>
-  </div>
-)
+const Layout = ({ children }) => {
+	return (
+		<div>
+			<Seo title={children.props.children} />
+			<Header />
 
-export default Layout
+			{children}
+		</div>
+	);
+};
+
+export default Layout;

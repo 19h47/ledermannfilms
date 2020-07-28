@@ -1,0 +1,40 @@
+/**
+ * Base
+ */
+
+html {
+	scroll-behavior: smooth;
+	background-color: the_color(gray, very-dark);
+	color: the_color(white);
+}
+
+body {
+	@extend %font-weight-regular, %font-family-body;
+
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+
+	text-rendering: optimizeLegibility;
+
+	font-size: #{$base-font-size}px;
+	line-height: $base-line-height / $base-font-size;
+}
+
+a,
+button {
+	cursor: pointer;
+	outline: none;
+}
+
+a {
+	color: currentColor;
+	text-decoration: none;
+}
+
+p {
+	@include margin(top 0 bottom 1em);
+}
+
+strong {
+	@extend %font-weight-bold;
+}

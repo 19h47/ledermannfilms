@@ -1,0 +1,63 @@
+/**
+ * Basic typography style for copy text
+ */
+
+// @include reset-selection( get_color( black ), get_color( white ) );
+
+h1,
+.h1 {
+	@extend %font-family-title, %font-weight-regular;
+	@include letter-spacing(100);
+	@include margin(top 1em bottom 2em);
+	@include font-sizes(50, 75);
+
+	line-height: (90 / 75);
+}
+
+h2,
+.h2 {
+	@extend %font-weight-regular, %font-family-body;
+	@include font-sizes(30);
+	@include margin(top 1em bottom 1em);
+
+	line-height: (40/30);
+}
+
+h3,
+.h3 {
+	@extend %font-weight-regular, %font-style-italic, %font-family-title;
+	@include font-sizes(35);
+	@include margin(top 1em bottom 0);
+
+	line-height: (45/30);
+}
+
+h4,
+.h4 {
+	@extend %font-weight-regular, %font-family-title;
+	@include font-sizes(35);
+	@include margin(top 1em bottom 0);
+
+	line-height: (45/30);
+}
+
+h5,
+.h5 {
+	@extend %font-weight-regular, %font-family-title;
+	@include font-sizes(18);
+
+	line-height: (30/30);
+
+	@include margin(top 1em bottom 0);
+}
+
+h6,
+.h6 {
+}
+
+.smallcaps {
+	@extend %font-weight-regular, %text-transform-uppercase;
+	@include font-sizes(14);
+
+	line-height: $base-line-height-px;
+}

@@ -1,0 +1,35 @@
+/**
+ * Menu
+ *
+ *
+ *
+ *
+ *
+ */
+.Menu {
+	@extend .d-flex, .flex-row;
+
+	&__items {
+		@extend %list-style-type-none;
+		@extend .d-flex, .flex-row;
+	}
+
+	&__item {
+		@extend .d-block;
+		@include margin(right 16px left 16px);
+
+		&:first-child {
+			@include margin(left 0);
+		}
+
+		&:last-child {
+			@include margin(right 0);
+		}
+
+		a,
+		button {
+			@extend .d-block;
+			@include padding(right 12px left 12px);
+		}
+	}
+}

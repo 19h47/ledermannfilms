@@ -1,24 +1,39 @@
-import React from "react"
-import { Heading, Box, Grid } from "@chakra-ui/core"
-import { Link } from "gatsby"
-import GatsbyLogo from "../assets/svg/gatsby.inline.svg"
+import React from 'react';
+import { Link, useStaticQuery, graphql } from 'gatsby';
 
-export default () => (
-  <Heading as="h1">
-    <Link to="/">
-      <Grid gridTemplateColumns="50px 1fr" gridGap="20px">
-        <Box maxW={50}>
-          <GatsbyLogo />
-        </Box>
-        <span
-          style={{
-            transform: `translateY(5px)`,
-            display: `inline-block`,
-          }}
-        >
-          Gatsby Source WordPress V4 demo
-        </span>
-      </Grid>
-    </Link>
-  </Heading>
-)
+import Menu from './Menu';
+
+const Header = () => {
+	const { wp } = useStaticQuery(graphql`
+		{
+			wp {
+				generalSettings {
+					title
+					description
+				}
+			}
+		}
+	`);
+
+	return (
+		<header className="Header">
+			<div className="Site-container">
+				<div className="row">
+					<div className="col-5">
+						<Link className="smallcaps d-inline-block" to="/">
+							{wp.generalSettings.title}
+						</Link>
+					</div>
+					<div className="col-5">
+						<div className="smallcaps">{wp.generalSettings.description}</div>
+					</div>
+					<div className="col-4">
+						<Menu className="justify-content-end" />
+					</div>
+				</div>
+			</div>
+		</header>
+	);
+};
+
+export default Header;
