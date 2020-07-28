@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 
-import Menu from './Menu';
+import Menu from '@/components/menu';
 
 const Header = () => {
 	const { wp } = useStaticQuery(graphql`
