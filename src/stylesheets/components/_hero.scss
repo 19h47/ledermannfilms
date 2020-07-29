@@ -1,0 +1,36 @@
+/**
+ *
+ *
+ *
+ *
+ *
+ */
+.Hero {
+	&__body {
+		@extend %overflow-hidden, %position-relative;
+
+		border-radius: $base-line-height-px;
+		height: 111px * 8;
+	}
+
+	&__content {
+		@extend %position-relative;
+
+		z-index: 2;
+	}
+
+	&__thumbnail {
+		@include absolute(top 0 right 0 bottom 0 left 0);
+
+		z-index: 1;
+	}
+
+	&__title {
+		@extend %font-weight-fine;
+		@include font-sizes(232);
+		@include margin(top 18 * 8px);
+
+		line-height: (($base-line-height * 8) / 232);
+		font-feature-settings: 'salt' on;
+	}
+}

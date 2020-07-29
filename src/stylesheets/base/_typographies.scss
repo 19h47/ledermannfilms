@@ -7,7 +7,6 @@
 h1,
 .h1 {
 	@extend %font-family-title, %font-weight-regular;
-	@include letter-spacing(100);
 	@include margin(top 1em bottom 2em);
 	@include font-sizes(50, 75);
 
