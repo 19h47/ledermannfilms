@@ -6,7 +6,7 @@
  */
 @mixin font-sizes($mobile, $desktop: $mobile, $base: $base-font-size) {
 	font-size: #{($mobile / $base)}em;
-	font-size: #{($mobile * 100) / $prototype-width-unitless}vw;
+	// font-size: #{($mobile * 100) / $prototype-width-unitless}vw;
 
 	@include media-breakpoint-up(md) {
 		font-size: #{($desktop / $base)}em;

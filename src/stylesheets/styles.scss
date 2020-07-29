@@ -39,6 +39,9 @@
 @import 'components/header';
 @import 'components/menu';
 @import 'components/hero';
+@import 'components/button';
+@import 'components/socials';
+@import 'components/logo';
 
 // Pages
 @import 'pages/page';
@@ -60,5 +63,5 @@
 @import '~@19h47/architecture/src/stylesheets/utilities/text-transforms';
 // @import '~@19h47/architecture/src/stylesheets/utilities/vertical-aligns';
 // @import '~@19h47/architecture/src/stylesheets/utilities/visibilities';
-// @import '~@19h47/architecture/src/stylesheets/utilities/white-spaces';
+@import '~@19h47/architecture/src/stylesheets/utilities/white-spaces';
 @import '~@19h47/architecture/src/stylesheets/utilities/lists';

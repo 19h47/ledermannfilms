@@ -7,5 +7,9 @@
  *
  */
 .Header {
-	@include margin(top #{7 * 8}px bottom #{6 * 8}px);
+	@include margin(top #{7 * 8}px bottom #{3 * 8}px);
+
+	@include media-breakpoint-up(md) {
+		@include margin(bottom #{6 * 8}px);
+	}
 }
