@@ -14,18 +14,40 @@ export const query = graphql`
 		page: wpPage(id: { eq: $id }) {
 			title
 			content
+			featuredImage {
+				node {
+					localFile {
+						...HeroImage
+					}
+				}
+			}
 			customFields {
 				hero {
 					title
-					thumbnail {
-						localFile {
-							...HeroImage
-						}
-					}
 				}
 				content {
 					text {
 						en
+					}
+				}
+			}
+		}
+		projects: allWpProject {
+			nodes {
+				title
+				terms {
+					nodes {
+						... on WpProjectCategory {
+							id
+							name
+						}
+					}
+				}
+				featuredImage {
+					node {
+						localFile {
+							...HeroImage
+						}
 					}
 				}
 			}
@@ -45,13 +67,15 @@ export const query = graphql`
 export default ({ data }) => {
 	const {
 		page,
+		projects: { nodes: projects },
 		wp: { generalSettings: socials },
 	} = data;
 	const {
 		title,
 		customFields: { hero, content },
+		featuredImage: { node: thumbnail },
 	} = page;
-	console.log(socials);
+	console.log(projects);
 
 	return (
 		<Layout>
@@ -137,7 +161,7 @@ export default ({ data }) => {
 						</footer>
 
 						<div className="Hero__thumbnail">
-							<Img fluid={hero.thumbnail.localFile.childImageSharp.fluid} />
+							<Img fluid={thumbnail.localFile.childImageSharp.fluid} />
 						</div>
 					</div>
 				</div>
@@ -166,7 +190,7 @@ export default ({ data }) => {
 						</div>
 						<div className="row">
 							<div className="col-5 d-none d-md-block">
-								<div class="Label">
+								<div className="Label">
 									<Label />
 									Work
 								</div>
@@ -180,6 +204,22 @@ export default ({ data }) => {
 						</div>
 					</div>
 				</header>
+
+				<ul>
+					{projects.map((project, index) => {
+						return (
+							<li key={index}>
+								<p>{project.title}</p>
+								<p>{project.terms.nodes.map(term => term.name)}</p>
+								<Img
+									fluid={
+										project.featuredImage.node.localFile.childImageSharp.fluid
+									}
+								/>
+							</li>
+						);
+					})}
+				</ul>
 			</div>
 		</Layout>
 	);
