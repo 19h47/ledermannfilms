@@ -7,6 +7,7 @@ import Seo from '@/components/seo';
 
 import Play from '@/assets/svg/play.inline.svg';
 import Flag from '@/assets/svg/flag.inline.svg';
+import Label from '@/assets/svg/label.inline.svg';
 
 export const query = graphql`
 	query frontPage($id: String!) {
@@ -20,6 +21,11 @@ export const query = graphql`
 						localFile {
 							...HeroImage
 						}
+					}
+				}
+				content {
+					text {
+						en
 					}
 				}
 			}
@@ -43,7 +49,7 @@ export default ({ data }) => {
 	} = data;
 	const {
 		title,
-		customFields: { hero },
+		customFields: { hero, content },
 	} = page;
 	console.log(socials);
 
@@ -136,7 +142,45 @@ export default ({ data }) => {
 					</div>
 				</div>
 			</div>
-			<h1>{page.title}</h1>
+
+			<div className="Content">
+				<div className="Site-container">
+					<div className="row">
+						<div className="col-14 offset-md-5 col-md-9">
+							<div
+								className="Content__text"
+								dangerouslySetInnerHTML={{ __html: content.text.en }}
+							/>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div className="Section Projects">
+				<header className="Section__header">
+					<div className="Site-container">
+						<div className="row">
+							<div className="col-14">
+								<hr />
+							</div>
+						</div>
+						<div className="row">
+							<div className="col-5 d-none d-md-block">
+								<div class="Label">
+									<Label />
+									Work
+								</div>
+							</div>
+							<div className="col-5">
+								<h2>Main projects</h2>
+							</div>
+							<div className="col-4">
+								<div className="Section__header__diamond text-align-right">◈</div>
+							</div>
+						</div>
+					</div>
+				</header>
+			</div>
 		</Layout>
 	);
 };

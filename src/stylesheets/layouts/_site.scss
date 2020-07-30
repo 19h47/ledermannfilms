@@ -21,4 +21,7 @@
 
 		@include padding(right $grid-outer-gutter-width left $grid-outer-gutter-width);
 	}
+
+	&-wrapper {
+	}
 }

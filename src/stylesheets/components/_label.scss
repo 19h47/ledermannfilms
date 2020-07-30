@@ -1,0 +1,36 @@
+/**
+ * Label
+ *
+ *
+ *
+ *
+ *
+ */
+.Label {
+	@extend .d-flex, .align-items-center;
+	@extend %text-transform-uppercase;
+
+	@include font-sizes(11);
+
+	line-height: (16/11);
+
+	&::before {
+		@extend .d-inline-block;
+		@include margin(right 8px);
+
+		content: '(';
+	}
+	&::after {
+		@extend .d-inline-block;
+		@include margin(left 8px);
+
+		content: ')';
+	}
+
+	svg {
+		@include margin(right 8px left 8px);
+		@include size(16px, 8px);
+
+		min-width: 16px;
+	}
+}

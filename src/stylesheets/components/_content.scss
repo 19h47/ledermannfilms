@@ -1,0 +1,26 @@
+/**
+ * Content
+ *
+ *
+ *
+ *
+ *
+ */
+.Content {
+	&__text {
+		p {
+			@extend %font-weight-light;
+			@include font-sizes(26, 54);
+
+			font-feature-settings: 'salt' on;
+			line-height: (60/54);
+
+			&:first-child {
+				@include margin(top 0);
+			}
+			&:last-child {
+				@include margin(bottom 0);
+			}
+		}
+	}
+}

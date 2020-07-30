@@ -1,0 +1,31 @@
+/**
+ *
+ *
+ *
+ *
+ *
+ */
+.Section {
+	&__header {
+		hr {
+			@include margin(bottom $base-line-height-px);
+			@include size(100%, 1px);
+
+			background-color: the_color(white);
+		}
+
+		h2 {
+			@include font-sizes(14);
+			@include margin(top 0 bottom 0);
+			@extend %text-transform-uppercase;
+
+			line-height: (16/14);
+		}
+
+		&__diamond {
+			@include font-sizes(14);
+
+			line-height: (16/14);
+		}
+	}
+}

@@ -7,7 +7,13 @@
  *
  */
 .Header {
-	@include margin(top #{7 * 8}px bottom #{3 * 8}px);
+	@include padding(top #{7 * 8}px bottom #{3 * 8}px);
+
+	position: sticky;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 2;
 
 	@include media-breakpoint-up(md) {
 		@include margin(bottom #{6 * 8}px);
