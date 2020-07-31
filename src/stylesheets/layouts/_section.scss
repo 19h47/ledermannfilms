@@ -6,6 +6,30 @@
  *
  */
 .Section {
+	&#{ & }--projects {
+		$this: &;
+
+		.Section--projects__items {
+			@extend %list-style-type-none;
+		}
+
+		.Section--projects__item {
+			@warn &;
+			@include margin(top 8 * 11.5px bottom 8 * 11.5px);
+
+			&:nth-child(6n + 3) {
+				.Card-project {
+					@include margin(top 8 * 28px);
+				}
+			}
+			&:nth-child(6n + 5) {
+				.Card-project {
+					@include margin(top 8 * 12px);
+				}
+			}
+		}
+	}
+
 	&__header {
 		hr {
 			@include margin(bottom $base-line-height-px);

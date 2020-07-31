@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { Link, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
 import Layout from '@/components/layout';
@@ -8,6 +8,16 @@ import Seo from '@/components/seo';
 import Play from '@/assets/svg/play.inline.svg';
 import Flag from '@/assets/svg/flag.inline.svg';
 import Label from '@/assets/svg/label.inline.svg';
+
+const gridClassNames = [
+	'col-14 col-md-9 offset-md-5',
+	'col-14 col-md-4',
+	'col-14 col-md-4 offset-md-3',
+	'col-14 col-md-9',
+	'col-14 col-md-4 offset-md-2',
+	'col-14 col-md-4 offset-md-4',
+	'col-14 col-md-9 offset-md-5',
+];
 
 export const query = graphql`
 	query frontPage($id: String!) {
@@ -35,6 +45,7 @@ export const query = graphql`
 		projects: allWpProject {
 			nodes {
 				title
+				link
 				terms {
 					nodes {
 						... on WpProjectCategory {
@@ -45,6 +56,13 @@ export const query = graphql`
 				}
 				featuredImage {
 					node {
+						localFile {
+							...HeroImage
+						}
+					}
+				}
+				customFields {
+					gallery {
 						localFile {
 							...HeroImage
 						}
@@ -180,7 +198,7 @@ export default ({ data }) => {
 				</div>
 			</div>
 
-			<div className="Section Projects">
+			<div className="Section Section--projects">
 				<header className="Section__header">
 					<div className="Site-container">
 						<div className="row">
@@ -205,21 +223,57 @@ export default ({ data }) => {
 					</div>
 				</header>
 
-				<ul>
-					{projects.map((project, index) => {
-						return (
-							<li key={index}>
-								<p>{project.title}</p>
-								<p>{project.terms.nodes.map(term => term.name)}</p>
-								<Img
-									fluid={
-										project.featuredImage.node.localFile.childImageSharp.fluid
-									}
-								/>
-							</li>
-						);
-					})}
-				</ul>
+				<div>
+					<div className="Site-container">
+						<div className="row">
+							<div className="col-12">
+								Featured
+								<br />
+								Works
+							</div>
+						</div>
+						<ul className="Section--projects__items row">
+							{projects.map((project, index) => {
+								const children = (
+									<React.Fragment>
+										<div className="Card-project__thumbnail">
+											<Img
+												fluid={
+													project.featuredImage.node.localFile
+														.childImageSharp.fluid
+												}
+											/>
+										</div>
+
+										<header className="Card-project__header">
+											<p>{project.title}</p>
+											{project.terms && (
+												<p>{project.terms.nodes.map(term => term.name)}</p>
+											)}
+											<p>({index + 1})</p>
+										</header>
+									</React.Fragment>
+								);
+
+								return (
+									<li
+										className={`Section--projects__item ${
+											gridClassNames[index % 6]
+										}`}
+										key={index}>
+										{project.customFields.gallery ? (
+											<Link className="Card-project" to={project.link}>
+												{children}
+											</Link>
+										) : (
+											<div className="Card-project">{children}</div>
+										)}
+									</li>
+								);
+							})}
+						</ul>
+					</div>
+				</div>
 			</div>
 		</Layout>
 	);

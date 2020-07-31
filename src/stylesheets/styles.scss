@@ -46,6 +46,7 @@
 @import 'components/logo';
 @import 'components/content';
 @import 'components/label';
+@import 'components/card-project';
 
 // Pages
 @import 'pages/page';
@@ -57,7 +58,7 @@
 // @import '~@19h47/architecture/src/stylesheets/utilities/displays';
 // @import '~@19h47/architecture/src/stylesheets/utilities/floats';
 @import '~@19h47/architecture/src/stylesheets/utilities/fonts';
-// @import '~@19h47/architecture/src/stylesheets/utilities/margins';
+@import '~@19h47/architecture/src/stylesheets/utilities/margins';
 @import '~@19h47/architecture/src/stylesheets/utilities/overflows';
 // @import '~@19h47/architecture/src/stylesheets/utilities/paddings';
 @import '~@19h47/architecture/src/stylesheets/utilities/positions';

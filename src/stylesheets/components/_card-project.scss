@@ -1,0 +1,32 @@
+/**
+ * Card project
+ *
+ *
+ *
+ *
+ *
+ */
+.Card-project {
+	@extend .d-block;
+
+	&__thumbnail {
+		@include size(100%, auto);
+		@extend %overflow-hidden;
+
+		border-radius: $base-line-height-px;
+		max-width: 100%;
+	}
+
+	&__header {
+		@include font-sizes(14);
+		@extend .d-flex, .justify-content-between;
+		@extend %text-transform-uppercase;
+		@include margin(top 8 * 3px);
+
+		line-height: (16/14);
+
+		p {
+			@extend %margin-0;
+		}
+	}
+}
