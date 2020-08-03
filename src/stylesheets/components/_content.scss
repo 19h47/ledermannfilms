@@ -7,6 +7,8 @@
  *
  */
 .Content {
+	@include margin(top 26 * 8px bottom 36 * 8px);
+
 	&__text {
 		p {
 			@extend %font-weight-light;

@@ -1,0 +1,45 @@
+/**
+ * Footer
+ *
+ *
+ *
+ *
+ */
+.Footer {
+	@include margin(top 38 * 8px);
+
+	&__items {
+		@extend %list-style-type-none;
+	}
+
+	&__item {
+		@extend %font-weight-fine;
+		@include font-sizes(232);
+		@include padding(top 32px bottom 32px);
+
+		line-height: (192/232);
+		border-bottom: 1px solid the_color(white);
+
+		&:nth-child(1) {
+			@extend %text-align-center;
+		}
+
+		&:nth-child(2) {
+			@extend %text-align-left;
+		}
+
+		&:nth-child(3) {
+			@extend %text-align-right;
+		}
+	}
+
+	&__copyright {
+		@extend %list-style-type-none, %text-transform-uppercase;
+		@include margin(top 30px bottom 62px);
+		@extend .d-flex, .justify-content-between;
+
+		@include font-sizes(14);
+
+		line-height: (16/14);
+	}
+}

@@ -227,15 +227,17 @@ export default ({ data }) => {
 					<div className="Site-container">
 						<div className="row">
 							<div className="col-12">
-								Featured
-								<br />
-								Works
+								<h2 className="Section__title">
+									Featured
+									<br />
+									Works
+								</h2>
 							</div>
 						</div>
 						<ul className="Section--projects__items row">
 							{projects.map((project, index) => {
 								const children = (
-									<React.Fragment>
+									<>
 										<div className="Card-project__thumbnail">
 											<Img
 												fluid={
@@ -252,7 +254,7 @@ export default ({ data }) => {
 											)}
 											<p>({index + 1})</p>
 										</header>
-									</React.Fragment>
+									</>
 								);
 
 								return (

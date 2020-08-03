@@ -12,14 +12,6 @@ export default ({ className }) => {
 						label
 						url
 						id
-						parentId
-						connectedNode {
-							node {
-								... on WpContentNode {
-									uri
-								}
-							}
-						}
 					}
 				}
 			}
@@ -30,10 +22,6 @@ export default ({ className }) => {
 		<div className={`Menu${className ? ` ${className}` : ''}`}>
 			<ul className="Menu__items">
 				{wpMenu.menuItems.nodes.map(menuItem => {
-					if (menuItem.parentId) {
-						return null;
-					}
-
 					const path = menuItem?.connectedNode?.node?.uri ?? menuItem.url;
 
 					return (

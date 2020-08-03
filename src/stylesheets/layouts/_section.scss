@@ -11,6 +11,7 @@
 
 		.Section--projects__items {
 			@extend %list-style-type-none;
+			@include margin(top #{-28 * 8}px);
 		}
 
 		.Section--projects__item {
@@ -27,10 +28,24 @@
 					@include margin(top 8 * 12px);
 				}
 			}
+			&:first-child {
+				@include margin(top 0);
+			}
+			&:last-child {
+				@include margin(bottom 0);
+			}
 		}
 	}
 
+	&__title {
+		@include font-sizes(232);
+		@extend %font-weight-fine, %margin-0;
+
+		line-height: (192/232);
+	}
+
 	&__header {
+		@include margin(bottom 8 * 26px);
 		hr {
 			@include margin(bottom $base-line-height-px);
 			@include size(100%, 1px);
