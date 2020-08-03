@@ -15,7 +15,8 @@
 	},
 	"dependencies": {
 		"@19h47/architecture": "19h47/architecture",
-		"bootstrap": "^4.5.0"
+		"bootstrap": "^4.5.0",
+		"locomotive-scroll": "^3.5.4"
 	},
 	"devDependencies": {
 		"@19h47/prettier-config": "^1.0.0",

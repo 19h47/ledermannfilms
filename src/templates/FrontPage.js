@@ -227,7 +227,7 @@ export default ({ data }) => {
 					<div className="Site-container">
 						<div className="row">
 							<div className="col-12">
-								<h2 className="Section__title">
+								<h2 className="Section__title" data-scroll data-scroll-speed="1">
 									Featured
 									<br />
 									Works
