@@ -41,15 +41,6 @@
 		z-index: 1;
 	}
 
-	&__title {
-		@extend %font-weight-fine;
-		@include font-sizes(54, 232);
-		@include margin(top 0 bottom 0);
-
-		line-height: (($base-line-height * 8) / 232);
-		font-feature-settings: 'salt' on;
-	}
-
 	&__footer {
 		@extend %position-relative;
 		@include margin(top 16 * 8px);

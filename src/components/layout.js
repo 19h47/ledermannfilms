@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 
-import Scroll from '@/components/locomotiveScroll';
+import Scroll from '@/components/scroll';
 
 import '@/stylesheets/styles.scss';
 

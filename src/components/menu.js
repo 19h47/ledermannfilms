@@ -19,7 +19,7 @@ export default ({ className }) => {
 	`);
 
 	return !!wpMenu && !!wpMenu.menuItems && !!wpMenu.menuItems.nodes ? (
-		<div className={`Menu${className ? ` ${className}` : ''}`}>
+		<div className={`Menu${className ? ` ${className}` : ''}`} data-scroll>
 			<ul className="Menu__items">
 				{wpMenu.menuItems.nodes.map(menuItem => {
 					const path = menuItem?.connectedNode?.node?.uri ?? menuItem.url;
@@ -27,14 +27,14 @@ export default ({ className }) => {
 					return (
 						<li className="Menu__item" key={menuItem.id}>
 							<Link className="smallcaps" to={path}>
-								{menuItem.label}
+								<span>{menuItem.label}</span>
 							</Link>
 						</li>
 					);
 				})}
 				<li className="Menu__item">
 					<button className="smallcaps" type="button">
-						Contact
+						<span>Contact</span>
 					</button>
 				</li>
 			</ul>

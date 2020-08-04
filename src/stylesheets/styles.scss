@@ -45,10 +45,12 @@
 @import 'components/hero';
 @import 'components/button';
 @import 'components/socials';
-@import 'components/logo';
 @import 'components/content';
 @import 'components/label';
 @import 'components/card-project';
+@import 'components/h0';
+@import 'components/site-name';
+@import 'components/site-description';
 
 // Pages
 @import 'pages/page';
@@ -68,7 +70,7 @@
 @import '~@19h47/architecture/src/stylesheets/utilities/text-aligns';
 // @import '~@19h47/architecture/src/stylesheets/utilities/text-decorations';
 @import '~@19h47/architecture/src/stylesheets/utilities/text-transforms';
-// @import '~@19h47/architecture/src/stylesheets/utilities/vertical-aligns';
+@import '~@19h47/architecture/src/stylesheets/utilities/vertical-aligns';
 // @import '~@19h47/architecture/src/stylesheets/utilities/visibilities';
 @import '~@19h47/architecture/src/stylesheets/utilities/white-spaces';
 @import '~@19h47/architecture/src/stylesheets/utilities/lists';

@@ -15,7 +15,6 @@
 		}
 
 		.Section--projects__item {
-			@warn &;
 			@include margin(top 8 * 11.5px bottom 8 * 11.5px);
 
 			&:nth-child(6n + 3) {
@@ -35,13 +34,6 @@
 				@include margin(bottom 0);
 			}
 		}
-	}
-
-	&__title {
-		@include font-sizes(232);
-		@extend %font-weight-fine, %margin-0;
-
-		line-height: (192/232);
 	}
 
 	&__header {

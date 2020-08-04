@@ -1,0 +1,43 @@
+/**
+ * H0
+ *
+ *
+ *
+ *
+ *
+ */
+.H0 {
+	@include font-sizes(54, 232);
+	@include margin(top 0 bottom 0);
+	@extend %font-weight-fine, %margin-0;
+
+	font-feature-settings: 'salt' on;
+	line-height: (192/232);
+	perspective: 600px;
+
+	&__line {
+		@extend .d-block;
+		@extend %overflow-hidden;
+
+		span {
+			@extend .d-inline-block;
+			transform-origin: center top;
+			transform-style: preserve-3d;
+			transform: translateY(100%);
+
+			transition: transform 0.8s map-get($easings, ease-out-cubic);
+		}
+	}
+
+	&.is-inview {
+		.H0__line span {
+			transform: none;
+		}
+
+		@for $i from 1 through 4 {
+			.H0__line:nth-child(#{$i}) span {
+				transition-delay: 0.3 + $i * 0.1s;
+			}
+		}
+	}
+}

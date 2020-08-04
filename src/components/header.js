@@ -1,32 +1,19 @@
 import React from 'react';
-import { Link, useStaticQuery, graphql } from 'gatsby';
 
 import Menu from '@/components/menu';
+import SiteName from '@/components/site-name';
+import SiteDescription from '@/components/site-description';
 
 const Header = () => {
-	const { wp } = useStaticQuery(graphql`
-		{
-			wp {
-				generalSettings {
-					title
-					description
-				}
-			}
-		}
-	`);
-
 	return (
 		<header className="Header">
 			<div className="Site-container">
 				<div className="row">
 					<div className="col-10 col-md-5">
-						<Link className="Logo smallcaps d-inline-block" to="/">
-							<span>✦</span>
-							{wp.generalSettings.title}
-						</Link>
+						<SiteName delay="0.04" />
 					</div>
-					<div className="col-5 d-none d-md-block">
-						<div className="smallcaps">{wp.generalSettings.description}</div>
+					<div className="col-5 d-none d-md-block" data-scroll>
+						<SiteDescription delay="0.4" />
 					</div>
 					<div className="col-4 d-none d-md-block">
 						<Menu className="justify-content-end" />

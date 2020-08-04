@@ -4,6 +4,7 @@ import Img from 'gatsby-image';
 
 import Layout from '@/components/layout';
 import Seo from '@/components/seo';
+import H0 from '@/components/h0';
 
 import Play from '@/assets/svg/play.inline.svg';
 import Flag from '@/assets/svg/flag.inline.svg';
@@ -93,7 +94,6 @@ export default ({ data }) => {
 		customFields: { hero, content },
 		featuredImage: { node: thumbnail },
 	} = page;
-	console.log(projects);
 
 	return (
 		<Layout>
@@ -105,10 +105,7 @@ export default ({ data }) => {
 						<div className="Hero__content">
 							<div className="row">
 								<div className="col-14 col-md-12 offset-md-1">
-									<h1
-										className="Hero__title"
-										dangerouslySetInnerHTML={{ __html: hero.title }}
-									/>
+									<H0 className="" texts={hero.title} />
 								</div>
 							</div>
 						</div>
@@ -227,11 +224,7 @@ export default ({ data }) => {
 					<div className="Site-container">
 						<div className="row">
 							<div className="col-12">
-								<h2 className="Section__title" data-scroll data-scroll-speed="1">
-									Featured
-									<br />
-									Works
-								</h2>
+								<H0 texts={['Featured', 'Works']} />
 							</div>
 						</div>
 						<ul className="Section--projects__items row">
