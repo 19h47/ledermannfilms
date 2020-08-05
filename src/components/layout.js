@@ -4,8 +4,6 @@ import Footer from '@/components/footer';
 
 import LocomotiveScroll from 'locomotive-scroll';
 
-// import Scroll from '@/components/scroll';
-
 import '@/stylesheets/styles.scss';
 
 const Layout = ({ children }) => {
@@ -13,7 +11,7 @@ const Layout = ({ children }) => {
 
 	useEffect(() => {
 		const scroll = new LocomotiveScroll({
-			el: scrollRef.current,
+			el: document.querySelector('#___gatsby'),
 			smooth: true,
 			smoothMobile: false,
 			getDirection: true,
@@ -21,11 +19,15 @@ const Layout = ({ children }) => {
 			lerp: 0.15,
 		});
 
-		return () => {
-			if (scroll) {
-				scroll.update();
-			}
-		};
+		scroll.update();
+
+		window.scroll = scroll;
+
+		scroll.on('scroll', ({ direction }) => {
+			document.documentElement.setAttribute('data-direction', direction);
+		});
+
+		return () => scroll.destroy();
 	}, []);
 
 	return (

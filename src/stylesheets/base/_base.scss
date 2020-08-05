@@ -9,7 +9,7 @@ html {
 }
 
 body {
-	@extend %font-weight-regular, %font-family-body;
+	@extend %font-weight-regular, %font-family-body, %overflow-hidden;
 
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;

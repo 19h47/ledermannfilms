@@ -25,6 +25,7 @@ export default ({ className }) => {
 			x: 100,
 			duration: length,
 			opacity: 0,
+			onComplete: () => window.scroll.update(),
 		});
 	};
 
@@ -36,6 +37,7 @@ export default ({ className }) => {
 				x: 0,
 				duration: length,
 				opacity: 1,
+				onComplete: () => window.scroll.update(),
 			},
 		);
 	};
