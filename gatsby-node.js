@@ -1,7 +1,8 @@
 const { resolve } = require(`path`);
+
 const path = require(`path`);
 const glob = require(`glob`);
-const chunk = require(`lodash/chunk`);
+
 const { dump } = require(`dumper.js`);
 
 const getTemplates = () => {
@@ -11,6 +12,8 @@ const getTemplates = () => {
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
 	const templates = getTemplates();
+
+	// dump(templates);
 
 	const {
 		data: {
@@ -42,13 +45,15 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 		}
 	`);
 
+	// dump(contentNodes);
+
 	const contentTypeTemplateDirectory = `./src/templates/`;
 	const contentTypeTemplates = templates.filter(path =>
 		path.includes(contentTypeTemplateDirectory),
 	);
 
 	await Promise.all(
-		contentNodes.map(async (node, i) => {
+		contentNodes.map(async node => {
 			const { nodeType, uri, id } = node;
 
 			const templatePath = `${contentTypeTemplateDirectory}${nodeType}.js`;

@@ -8,11 +8,8 @@
  */
 .Header {
 	@include padding(top #{7 * 8}px bottom #{3 * 8}px);
+	@extend %position-relative;
 
-	position: sticky;
-	top: 0;
-	right: 0;
-	left: 0;
 	z-index: 2;
 
 	@include media-breakpoint-up(md) {

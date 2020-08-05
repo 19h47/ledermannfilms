@@ -16,6 +16,8 @@
 	"dependencies": {
 		"@19h47/architecture": "19h47/architecture",
 		"bootstrap": "^4.5.0",
+		"gatsby-plugin-transition-link": "^1.20.2",
+		"gsap": "^3.4.2",
 		"locomotive-scroll": "^3.5.4"
 	},
 	"devDependencies": {

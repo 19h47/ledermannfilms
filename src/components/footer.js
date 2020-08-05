@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link, useStaticQuery } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
+import Link from 'gatsby-plugin-transition-link';
 
 const Footer = () => {
 	const { wpMenu } = useStaticQuery(graphql`

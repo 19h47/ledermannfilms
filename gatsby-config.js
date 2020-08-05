@@ -16,6 +16,7 @@ module.exports = {
 		author: `@19h47`,
 	},
 	plugins: [
+		`gatsby-plugin-transition-link`,
 		`gatsby-plugin-sass`,
 		`gatsby-plugin-sharp`,
 		{

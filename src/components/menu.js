@@ -1,6 +1,8 @@
 import React from 'react';
+import gsap from 'gsap';
 
-import { Link, useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
+import TransitionLink from 'gatsby-plugin-transition-link';
 
 export default ({ className }) => {
 	const { wpMenu } = useStaticQuery(graphql`
@@ -18,6 +20,23 @@ export default ({ className }) => {
 		}
 	`);
 
+	const fadeOut = ({ length }, node) => {
+		return gsap.to(node, { x: 100, duration: length, opacity: 0 });
+	};
+
+	const fadeIn = ({ length }, node) => {
+		return gsap.fromTo(
+			node,
+			{ x: -100, opacity: 0 },
+			{
+				x: 0,
+				duration: length,
+				opacity: 1,
+				// onComplete: () => window.scroll.update(),
+			},
+		);
+	};
+
 	return !!wpMenu && !!wpMenu.menuItems && !!wpMenu.menuItems.nodes ? (
 		<div className={`Menu${className ? ` ${className}` : ''}`} data-scroll>
 			<ul className="Menu__items">
@@ -26,9 +45,20 @@ export default ({ className }) => {
 
 					return (
 						<li className="Menu__item" key={menuItem.id}>
-							<Link className="smallcaps" to={path}>
+							<TransitionLink
+								className="smallcaps"
+								to={path}
+								exit={{
+									length: 2,
+									trigger: ({ exit, node }) => fadeOut(exit, node),
+								}}
+								entry={{
+									delay: 0.1,
+									length: 1,
+									trigger: ({ exit, node }) => fadeIn(exit, node),
+								}}>
 								<span>{menuItem.label}</span>
-							</Link>
+							</TransitionLink>
 						</li>
 					);
 				})}

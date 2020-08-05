@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+
 import Layout from '@/components/layout';
 
 export const query = graphql`
@@ -21,7 +22,7 @@ export const query = graphql`
 export default ({ data }) => {
 	const { page } = data;
 	return (
-		<Layout>
+		<Layout location="page">
 			<h1>{page.title}</h1>
 		</Layout>
 	);

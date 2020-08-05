@@ -1,29 +1,32 @@
 import { useEffect } from 'react';
 
-// We are excluding this from loading at build time in gatsby-node.js
 import LocomotiveScroll from 'locomotive-scroll';
-
-import { scroll } from '../theme';
 
 const Scroll = callbacks => {
 	useEffect(() => {
-		let locomotiveScroll;
-		locomotiveScroll = new LocomotiveScroll({
-			el: document.querySelector(scroll.container),
-			...scroll.options,
+		const scroll = new LocomotiveScroll({
+			el: document.querySelector('#___gatsby'),
+			// smooth: true,
+			smoothMobile: false,
+			getDirection: true,
+			touchMultiplier: 2.5,
+			lerp: 0.15,
 		});
-		locomotiveScroll.update();
+
+		scroll.update();
 
 		// Exposing to the global scope for ease of use.
-		window.scroll = locomotiveScroll;
+		window.scroll = scroll;
 
-		locomotiveScroll.on('scroll', func => {
+		scroll.on('scroll', ({ direction }) => {
 			// Update `data-direction` with scroll direction.
-			document.documentElement.setAttribute('data-direction', func.direction);
+			document.documentElement.setAttribute('data-direction', direction);
 		});
 
 		return () => {
-			if (locomotiveScroll) locomotiveScroll.destroy();
+			if (scroll) {
+				scroll.destroy();
+			}
 		};
 	}, [callbacks]);
 

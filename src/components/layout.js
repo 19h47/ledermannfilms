@@ -6,19 +6,19 @@ import Scroll from '@/components/scroll';
 
 import '@/stylesheets/styles.scss';
 
-const Layout = ({ children, location }) => {
-	return (
-		<div>
-			<div className="Site-wrapper">
-				<Header />
+const Layout = ({ children, location }) => (
+	<>
+		<div id="wrapper" className="Site-wrapper">
+			<Header />
 
-				<Scroll callbacks={location} />
+			<Scroll callbacks={location} />
 
-				<main className="Main">{children}</main>
-			</div>
-			<Footer />
+			<main id="main" className="Main">
+				{children}
+			</main>
 		</div>
-	);
-};
+		<Footer />
+	</>
+);
 
 export default Layout;

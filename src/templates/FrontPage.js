@@ -1,10 +1,12 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
+import Link from 'gatsby-plugin-transition-link';
 import Img from 'gatsby-image';
 
+import H0 from '@/components/h0';
 import Layout from '@/components/layout';
 import Seo from '@/components/seo';
-import H0 from '@/components/h0';
+import Socials from '@/components/socials';
 
 import Play from '@/assets/svg/play.inline.svg';
 import Flag from '@/assets/svg/flag.inline.svg';
@@ -87,7 +89,6 @@ export default ({ data }) => {
 	const {
 		page,
 		projects: { nodes: projects },
-		wp: { generalSettings: socials },
 	} = data;
 	const {
 		title,
@@ -96,7 +97,7 @@ export default ({ data }) => {
 	} = page;
 
 	return (
-		<Layout>
+		<Layout location="front-page">
 			<Seo title={title} />
 
 			<div className="Hero">
@@ -126,48 +127,7 @@ export default ({ data }) => {
 									</div>
 								</div>
 								<div className="col-7 offset-md-3 col-md-2 order-1 order-md-2 d-flex d-md-block justify-content-end">
-									<div className="Socials">
-										{socials && (
-											<ul className="Socials__items">
-												{socials.instagram && (
-													<li className="Socials__item">
-														<a
-															href={socials.instagram}
-															rel="noopener noreferer">
-															Ins.
-														</a>
-													</li>
-												)}
-												{socials.facebook && (
-													<li className="Socials__item">
-														<a
-															href={socials.facebook}
-															rel="noopener noreferer">
-															Fb.
-														</a>
-													</li>
-												)}
-												{socials.linkedin && (
-													<li className="Socials__item">
-														<a
-															href={socials.linkedin}
-															rel="noopener noreferer">
-															Li.
-														</a>
-													</li>
-												)}
-												{socials.youtube && (
-													<li className="Socials__item">
-														<a
-															href={socials.youtube}
-															rel="noopener noreferer">
-															Yt.
-														</a>
-													</li>
-												)}
-											</ul>
-										)}
-									</div>
+									<Socials />
 								</div>
 								<div className="col-14 order-3 d-md-none">
 									<hr />
@@ -223,7 +183,7 @@ export default ({ data }) => {
 				<div>
 					<div className="Site-container">
 						<div className="row">
-							<div className="col-12">
+							<div className="col-14">
 								<H0 texts={['Featured', 'Works']} />
 							</div>
 						</div>

@@ -6,7 +6,7 @@ import SiteDescription from '@/components/site-description';
 
 const Header = () => {
 	return (
-		<header className="Header">
+		<header className="Header" data-scroll data-scroll-sticky data-scroll-target="#wrapper">
 			<div className="Site-container">
 				<div className="row">
 					<div className="col-10 col-md-5">

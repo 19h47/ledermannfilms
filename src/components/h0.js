@@ -5,8 +5,6 @@ const H0 = ({ texts }) => {
 		texts = texts.split(/[\r\n]+/);
 	}
 
-	console.log(texts);
-
 	return (
 		<h2 className="H0" data-scroll>
 			{texts.map((text, index) => (
