@@ -23,5 +23,6 @@
 	}
 
 	&-wrapper {
+		@include padding(bottom 38 * 8px);
 	}
 }

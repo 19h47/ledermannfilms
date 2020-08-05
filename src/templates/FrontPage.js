@@ -97,7 +97,7 @@ export default ({ data }) => {
 	} = page;
 
 	return (
-		<Layout location="front-page">
+		<Layout>
 			<Seo title={title} />
 
 			<div className="Hero">

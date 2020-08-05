@@ -29,7 +29,7 @@ export default ({ data }) => {
 		allWpProjectCategory: { nodes: projectCategories },
 	} = data;
 
-	console.log(projectCategories);
+	// console.log(projectCategories);
 
 	return (
 		<Layout>

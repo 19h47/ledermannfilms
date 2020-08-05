@@ -22,7 +22,7 @@ export const query = graphql`
 export default ({ data }) => {
 	const { page } = data;
 	return (
-		<Layout location="page">
+		<Layout>
 			<h1>{page.title}</h1>
 		</Layout>
 	);

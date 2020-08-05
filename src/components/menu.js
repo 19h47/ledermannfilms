@@ -21,7 +21,11 @@ export default ({ className }) => {
 	`);
 
 	const fadeOut = ({ length }, node) => {
-		return gsap.to(node, { x: 100, duration: length, opacity: 0 });
+		return gsap.to(node, {
+			x: 100,
+			duration: length,
+			opacity: 0,
+		});
 	};
 
 	const fadeIn = ({ length }, node) => {
@@ -32,7 +36,6 @@ export default ({ className }) => {
 				x: 0,
 				duration: length,
 				opacity: 1,
-				// onComplete: () => window.scroll.update(),
 			},
 		);
 	};
