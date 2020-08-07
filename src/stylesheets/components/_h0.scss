@@ -12,7 +12,7 @@
 	@extend %font-weight-fine, %margin-0;
 
 	font-feature-settings: 'salt' on;
-	line-height: (192/232);
+	// line-height: (192/232);
 	perspective: 600px;
 
 	&__line {
@@ -27,11 +27,17 @@
 
 			transition: transform 0.8s map-get($easings, ease-out-cubic);
 		}
+
+		&:not(:first-child) {
+			@include margin(top -98px);
+		}
 	}
 
 	&.is-inview {
-		.H0__line span {
-			transform: none;
+		.H0__line {
+			span {
+				transform: none;
+			}
 		}
 
 		@for $i from 1 through 4 {

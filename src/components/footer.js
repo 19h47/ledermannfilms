@@ -2,6 +2,8 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Link from 'gatsby-plugin-transition-link';
 
+import H0 from '@/components/h0';
+
 const Footer = () => {
 	const { wpMenu } = useStaticQuery(graphql`
 		{
@@ -31,16 +33,20 @@ const Footer = () => {
 								return (
 									<li className="Footer__item" key={menuItem.id}>
 										<Link to={path}>
-											{0 !== index % 2 ? '↖ ' : ''}
-											{menuItem.label}
-											{0 === index % 2 ? ' ↗' : ''}
+											<H0
+												texts={`${0 !== index % 2 ? '↖ ' : ''}${
+													menuItem.label
+												}${0 === index % 2 ? ' ↗' : ''}`}
+											/>
 										</Link>
 									</li>
 								);
 							})}
 
 							<li className="Footer__item">
-								<button type="button">Contact ↗</button>
+								<button type="button">
+									<H0 texts={'Contact ↗'} />
+								</button>
 							</li>
 						</ul>
 					</div>

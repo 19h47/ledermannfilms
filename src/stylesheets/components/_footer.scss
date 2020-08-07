@@ -11,11 +11,11 @@
 	}
 
 	&__item {
-		@extend %font-weight-fine;
-		@include font-sizes(232);
-		@include padding(top 32px bottom 32px);
+		// @extend %font-weight-fine;
+		// @include font-sizes(232);
+		// @include padding(top 32px bottom 32px);
 
-		line-height: (192/232);
+		// line-height: (192/232);
 		border-bottom: 1px solid the_color(white);
 
 		&:nth-child(1) {
