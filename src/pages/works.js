@@ -5,6 +5,7 @@ import Link from 'gatsby-plugin-transition-link';
 
 import Layout from '@/components/layout';
 import H0 from '@/components/h0';
+import ProjectCard from '@/components/project-card';
 
 export const query = graphql`
 	query projectCategories {
@@ -13,6 +14,35 @@ export const query = graphql`
 				id
 				name
 				uri
+			}
+		}
+		allWpProject {
+			nodes {
+				id
+				title
+				uri
+				terms {
+					nodes {
+						... on WpProjectCategory {
+							id
+							name
+						}
+					}
+				}
+				featuredImage {
+					node {
+						localFile {
+							...HeroImage
+						}
+					}
+				}
+				customFields {
+					gallery {
+						localFile {
+							...HeroImage
+						}
+					}
+				}
 			}
 		}
 	}
@@ -27,9 +57,10 @@ const listItem = ({ id, uri, name }) => (
 export default ({ data }) => {
 	const {
 		allWpProjectCategory: { nodes: projectCategories },
+		allWpProject: { nodes: projects },
 	} = data;
 
-	// console.log(projectCategories);
+	console.log(projects);
 
 	return (
 		<Layout>
@@ -45,6 +76,20 @@ export default ({ data }) => {
 									<Link to="/works">All</Link>
 								</li>
 								{projectCategories.map(category => listItem(category))}
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div className="Site-container">
+					<div className="row">
+						<div className="col-14">
+							<ul>
+								{projects.map((project, index) => (
+									<li key={project.id}>
+										<ProjectCard project={project} index={index} />
+									</li>
+								))}
 							</ul>
 						</div>
 					</div>

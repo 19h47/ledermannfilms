@@ -22,5 +22,7 @@
 	svg {
 		@include margin(left 14px);
 		@include size($base-line-height-px);
+
+		fill: currentColor;
 	}
 }

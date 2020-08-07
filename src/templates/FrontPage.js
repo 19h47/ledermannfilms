@@ -1,12 +1,12 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Link from 'gatsby-plugin-transition-link';
 import Img from 'gatsby-image';
 
 import H0 from '@/components/h0';
 import Layout from '@/components/layout';
 import Seo from '@/components/seo';
 import Socials from '@/components/socials';
+import ProjectCard from '@/components/project-card';
 
 import Play from '@/assets/svg/play.inline.svg';
 import Flag from '@/assets/svg/flag.inline.svg';
@@ -106,7 +106,7 @@ export default ({ data }) => {
 						<div className="Hero__content">
 							<div className="row">
 								<div className="col-14 col-md-12 offset-md-1">
-									<H0 className="" texts={hero.title} />
+									<H0 texts={hero.title} />
 								</div>
 							</div>
 						</div>
@@ -189,40 +189,13 @@ export default ({ data }) => {
 						</div>
 						<ul className="Section--projects__items row">
 							{projects.map((project, index) => {
-								const children = (
-									<>
-										<div className="Card-project__thumbnail">
-											<Img
-												fluid={
-													project.featuredImage.node.localFile
-														.childImageSharp.fluid
-												}
-											/>
-										</div>
-
-										<header className="Card-project__header">
-											<p>{project.title}</p>
-											{project.terms && (
-												<p>{project.terms.nodes.map(term => term.name)}</p>
-											)}
-											<p>({index + 1})</p>
-										</header>
-									</>
-								);
-
 								return (
 									<li
 										className={`Section--projects__item ${
 											gridClassNames[index % 6]
 										}`}
 										key={index}>
-										{project.customFields.gallery ? (
-											<Link className="Card-project" to={project.link}>
-												{children}
-											</Link>
-										) : (
-											<div className="Card-project">{children}</div>
-										)}
+										<ProjectCard project={project} index={index} />
 									</li>
 								);
 							})}
