@@ -13,7 +13,8 @@ export const query = graphql`
 			nodes {
 				id
 				name
-				uri
+				link
+				count
 			}
 		}
 		allWpProject {
@@ -48,9 +49,12 @@ export const query = graphql`
 	}
 `;
 
-const listItem = ({ id, uri, name }) => (
-	<li key={id}>
-		<Link to={uri}>{name}</Link>
+const listItem = ({ id, link, name, count }) => (
+	<li className="Project-categories__item" key={id}>
+		<Link to={link}>
+			{name}
+			<span>{count}</span>
+		</Link>
 	</li>
 );
 
@@ -71,12 +75,16 @@ export default ({ data }) => {
 							<H0 texts={['All', 'Projects']} />
 						</div>
 						<div className="col-14">
-							<ul>
-								<li>
-									<Link to="/works">All</Link>
-								</li>
-								{projectCategories.map(category => listItem(category))}
-							</ul>
+							<div className="Project-categories">
+								<ul className="Project-categories__items">
+									<li className="Project-categories__item">
+										<Link to="/work">
+											All<span>{projects.length}</span>
+										</Link>
+									</li>
+									{projectCategories.map(category => listItem(category))}
+								</ul>
+							</div>
 						</div>
 					</div>
 				</div>

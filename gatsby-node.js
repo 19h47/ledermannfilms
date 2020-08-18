@@ -18,9 +18,17 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 	const {
 		data: {
 			allWpContentNode: { nodes: contentNodes },
+			allWpProjectCategory: { nodes: projectCategory },
 		},
 	} = await graphql(/* GraphQL */ `
 		query ALL_CONTENT_NODES {
+			allWpProjectCategory {
+				nodes {
+					nodeType
+					uri
+					id
+				}
+			}
 			allWpContentNode(
 				sort: { fields: modifiedGmt, order: DESC }
 				filter: { nodeType: { ne: "MediaItem" } }
@@ -38,6 +46,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 							... on WpFrontPageTemplate {
 								templateName
 							}
+							... on WpWorkPageTemplate {
+								templateName
+							}
 						}
 					}
 				}
@@ -46,6 +57,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 	`);
 
 	// dump(contentNodes);
+	// dump(projectCategory);
 
 	const contentTypeTemplateDirectory = `./src/templates/`;
 	const contentTypeTemplates = templates.filter(path =>
@@ -53,6 +65,21 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 	);
 
 	await Promise.all(
+		projectCategory.map(async node => {
+			const { nodeType, uri, id } = node;
+			const templatePath = `${contentTypeTemplateDirectory}ProjectCategory.js`;
+			const contentTypeTemplate = contentTypeTemplates.find(path => path === templatePath);
+
+			let component = resolve(contentTypeTemplate);
+
+			await actions.createPage({
+				component,
+				path: uri,
+				context: {
+					id,
+				},
+			});
+		}),
 		contentNodes.map(async node => {
 			const { nodeType, uri, id } = node;
 

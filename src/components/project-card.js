@@ -18,7 +18,7 @@ const ProjectCard = ({ project, index }) => {
 	);
 
 	return project.customFields.gallery ? (
-		<Link className="Card-project" to={project.link}>
+		<Link className="Card-project" to={project.uri}>
 			{children}
 		</Link>
 	) : (

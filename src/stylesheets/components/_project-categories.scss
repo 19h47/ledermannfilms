@@ -1,0 +1,56 @@
+/**
+ * Project categories
+ *
+ *
+ *
+ *
+ *
+ *
+ */
+.Project-categories {
+	&__items {
+		@extend %list-style-type-none;
+	}
+	&__item {
+		@extend %font-weight-light;
+		@include font-sizes(31);
+		@include margin(top 3 * 8px bottom 3 * 8px);
+
+		line-height: (32/31);
+
+		&:first-child {
+			@include margin(top 0);
+		}
+		&:last-child {
+			@include margin(bottom 0);
+		}
+
+		a {
+			@extend %position-relative;
+
+			span {
+				@extend .d-inline-block;
+				@extend %vertical-align-middle;
+				@include margin(bottom 8px left 4px);
+				@include font-sizes(16);
+
+				line-height: (24/16);
+			}
+
+			&[aria-current='page']::after {
+				@include absolute(top 50% right 0 bottom 0 left 50%);
+				@extend .d-block;
+				@include size(
+					#{(106 * 100) / $prototype-width-unitless}vw,
+					#{(56 * 100) / $prototype-width-unitless}vw
+				);
+
+				transform: translate(-50%, -50%);
+
+				background-image: url('../assets/images/oval.svg');
+				background-size: 100%;
+				content: '';
+			}
+		}
+	}
+}
