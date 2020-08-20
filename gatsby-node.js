@@ -49,6 +49,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 							... on WpWorkPageTemplate {
 								templateName
 							}
+							... on WpAboutPageTemplate {
+								templateName
+							}
 						}
 					}
 				}
@@ -82,6 +85,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 		}),
 		contentNodes.map(async node => {
 			const { nodeType, uri, id } = node;
+
+			if (['Client', 'Service'].includes(nodeType)) {
+				reporter.log(`${nodeType} doesn't need page`);
+				return;
+			}
 
 			const templatePath = `${contentTypeTemplateDirectory}${nodeType}.js`;
 

@@ -6,6 +6,12 @@
  *
  */
 .Hero {
+	@include margin(top 26 * 8px bottom 26 * 8px);
+
+	.gatsby-image-wrapper {
+		@include size(100%);
+	}
+
 	hr {
 		@include size(100%, 1px);
 		@include margin(top 3 * 8px bottom 3 * 8px);

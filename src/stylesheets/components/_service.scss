@@ -1,0 +1,24 @@
+/**
+ * Service
+ *
+ *
+ *
+ */
+.Service {
+	&__icon {
+		@include margin(left auto);
+		@include size(#{(194 * 100) / $prototype-width-unitless}vw, 26 * 8px);
+
+		svg {
+			@include size(100%);
+			fill: the_color(gray, dark);
+		}
+	}
+	&__title {
+		@include padding(bottom 3 * 8px);
+
+		border-bottom: 1px solid the_color(white);
+	}
+	&__content {
+	}
+}

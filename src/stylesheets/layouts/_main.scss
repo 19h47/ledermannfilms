@@ -8,4 +8,12 @@
 	@extend %position-relative;
 
 	z-index: 1;
+
+	& > *:first-child {
+		@include margin(top 0);
+	}
+
+	& > *:last-child {
+		@include margin(bottom 0);
+	}
 }

@@ -1,0 +1,22 @@
+/**
+ * Client
+ *
+ *
+ *
+ *
+ */
+.Client {
+	@include margin(bottom 9 * 8px);
+
+	&__image {
+		@include size(100%, 9 * 8px);
+		@include padding(bottom 3 * 8px);
+		@include margin(bottom 3 * 8px);
+
+		border-bottom: 1px solid the_color(white);
+
+		.gatsby-image-wrapper {
+			@include size(#{(151 * 100) / $prototype-width-unitless}vw, 100%);
+		}
+	}
+}

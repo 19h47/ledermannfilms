@@ -6,6 +6,8 @@
  *
  */
 .Section {
+	@include margin(top 26 * 8px bottom 26 * 8px);
+
 	&#{ & }--projects {
 		$this: &;
 
@@ -43,6 +45,7 @@
 			@include size(100%, 1px);
 
 			background-color: the_color(white);
+			border: none;
 		}
 
 		h2 {
@@ -58,5 +61,9 @@
 
 			line-height: (16/14);
 		}
+	}
+
+	&__inner {
+		@include margin(top 26 * 8px bottom 26 * 8px);
 	}
 }
