@@ -5,11 +5,11 @@ import Img from 'gatsby-image';
 const ProjectCard = ({ project, index }) => {
 	const children = (
 		<>
-			<div className="Card-project__thumbnail">
+			<div className="Project-card__thumbnail">
 				<Img fluid={project.featuredImage.node.localFile.childImageSharp.fluid} />
 			</div>
 
-			<header className="Card-project__header">
+			<header className="Project-card__header">
 				<p>{project.title}</p>
 				{project.terms && <p>{project.terms.nodes.map(term => term.name)}</p>}
 				<p>({index + 1})</p>
@@ -18,11 +18,11 @@ const ProjectCard = ({ project, index }) => {
 	);
 
 	return project.customFields.gallery ? (
-		<Link className="Card-project" to={project.uri}>
+		<Link className="Project-card" to={project.uri}>
 			{children}
 		</Link>
 	) : (
-		<div className="Card-project">{children}</div>
+		<div className="Project-card">{children}</div>
 	);
 };
 

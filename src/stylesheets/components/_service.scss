@@ -16,6 +16,7 @@
 	}
 	&__title {
 		@include padding(bottom 3 * 8px);
+		@include margin(bottom 3 * 8px);
 
 		border-bottom: 1px solid the_color(white);
 	}

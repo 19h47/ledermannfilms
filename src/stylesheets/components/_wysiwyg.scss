@@ -1,0 +1,16 @@
+/**
+ * WYSIWYG
+ *
+ *
+ *
+ *
+ *
+ */
+.Wysiwyg {
+	& > *:first-child {
+		@include margin(top 0);
+	}
+	& > *:last-child {
+		@include margin(bottom 0);
+	}
+}

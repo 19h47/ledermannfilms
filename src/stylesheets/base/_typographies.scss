@@ -15,20 +15,20 @@ h1,
 
 h2,
 .h2 {
-	@extend %font-weight-regular, %font-family-body;
-	@include font-sizes(30);
+	@extend %font-weight-light, %font-family-title;
+	@include font-sizes(54);
 	@include margin(top 1em bottom 1em);
 
-	line-height: (40/30);
+	line-height: (60/54);
 }
 
 h3,
 .h3 {
-	@extend %font-weight-regular, %font-style-italic, %font-family-title;
-	@include font-sizes(35);
+	@extend %font-weight-light, %font-family-title;
+	@include font-sizes(31);
 	@include margin(top 1em bottom 0);
 
-	line-height: (45/30);
+	line-height: (32/31);
 }
 
 h4,
