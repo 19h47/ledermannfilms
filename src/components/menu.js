@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import gsap from 'gsap';
 
 import { useStaticQuery, graphql } from 'gatsby';
 import TransitionLink from 'gatsby-plugin-transition-link';
 
+import { ContactsContext } from '@/contacts-context';
+
 export default ({ className }) => {
+	const { toggle } = useContext(ContactsContext);
+
 	const { wpMenu } = useStaticQuery(graphql`
 		{
 			wpMenu(slug: { eq: "primary" }) {
@@ -67,8 +71,9 @@ export default ({ className }) => {
 						</li>
 					);
 				})}
+
 				<li className="Menu__item">
-					<button className="smallcaps" type="button">
+					<button className="smallcaps" type="button" onClick={() => toggle()}>
 						<span>Contact</span>
 					</button>
 				</li>

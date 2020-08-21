@@ -49,6 +49,7 @@ export const query = graphql`
 			nodes {
 				title
 				link
+				uri
 				terms {
 					nodes {
 						... on WpProjectCategory {

@@ -29,7 +29,7 @@
 		}
 
 		&:not(:first-child) {
-			@include margin(top -98px);
+			@include margin(top -6 * 8px);
 		}
 	}
 

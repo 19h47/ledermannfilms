@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Link from 'gatsby-plugin-transition-link';
 
 import H0 from '@/components/h0';
 import ButtonScrollTo from '@/components/button-scroll-to';
 
+import { ContactsContext } from '@/contacts-context';
+
 const Footer = () => {
+	const { toggle } = useContext(ContactsContext);
 	const { wpMenu } = useStaticQuery(graphql`
 		{
 			wpMenu(slug: { eq: "footer" }) {
@@ -45,7 +48,7 @@ const Footer = () => {
 							})}
 
 							<li className="Footer__item">
-								<button type="button">
+								<button type="button" onClick={toggle}>
 									<H0 texts={'Contact ↗'} />
 								</button>
 							</li>

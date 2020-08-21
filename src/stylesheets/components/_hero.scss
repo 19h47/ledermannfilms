@@ -37,7 +37,7 @@
 		z-index: 2;
 
 		@include media-breakpoint-up(md) {
-			@include margin(bottom 16 * 8px);
+			@include margin(bottom 17 * 8px);
 		}
 	}
 
@@ -55,6 +55,12 @@
 
 		@include media-breakpoint-up(md) {
 			@include margin(top 6 * 8px);
+		}
+
+		.Socials {
+			@include font-sizes(14);
+
+			line-height: (16/14);
 		}
 	}
 

@@ -7,10 +7,6 @@
  *
  */
 .Socials {
-	@include font-sizes(14);
-
-	line-height: (16/14);
-
 	&__items {
 		@extend .d-flex;
 		@extend %list-style-type-none;

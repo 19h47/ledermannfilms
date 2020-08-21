@@ -1,8 +1,11 @@
 import React, { useRef, useEffect } from 'react';
 import Header from '@/components/header';
+import Contacts from '@/components/contacts';
 import Footer from '@/components/footer';
 
 import LocomotiveScroll from 'locomotive-scroll';
+
+import { ContactsProvider } from '@/contacts-context';
 
 import '@/stylesheets/styles.scss';
 
@@ -31,16 +34,19 @@ const Layout = ({ children }) => {
 	}, []);
 
 	return (
-		<div ref={scrollRef}>
-			<div id="wrapper" className="Site-wrapper">
-				<Header />
+		<ContactsProvider>
+			<div ref={scrollRef}>
+				<div id="wrapper" className="Site-wrapper">
+					<Header />
+					<Contacts />
 
-				<main id="main" className="Main">
-					{children}
-				</main>
+					<main id="main" className="Main">
+						{children}
+					</main>
+				</div>
+				<Footer />
 			</div>
-			<Footer />
-		</div>
+		</ContactsProvider>
 	);
 };
 
