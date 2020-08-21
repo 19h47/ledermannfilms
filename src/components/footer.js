@@ -3,6 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Link from 'gatsby-plugin-transition-link';
 
 import H0 from '@/components/h0';
+import ButtonScrollTo from '@/components/button-scroll-to';
 
 const Footer = () => {
 	const { wpMenu } = useStaticQuery(graphql`
@@ -64,7 +65,7 @@ const Footer = () => {
 								<Link to="/legal">Legal</Link>
 							</li>
 							<li>
-								<button type="button">⏏</button>
+								<ButtonScrollTo />
 							</li>
 						</ul>
 					</div>
