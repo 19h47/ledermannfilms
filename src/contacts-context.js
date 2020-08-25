@@ -10,7 +10,7 @@ const ContactsContext = createContext(initialState);
 function ContactsProvider({ children }) {
 	const [active, setActive] = useState(false); // Default contacts is inactive
 
-	// To toggle between on and off modes
+	// Toggle between on and off
 	const toggle = () => {
 		const isActive = !active;
 

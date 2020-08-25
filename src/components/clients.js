@@ -1,10 +1,10 @@
-import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
+import Img from "gatsby-image";
 
-import H0 from '@/components/h0';
+import H0 from "@/components/h0";
 
-import Label from '@/assets/svg/label.inline.svg';
+import Label from "@/assets/svg/label.inline.svg";
 
 function Clients() {
 	const {
@@ -49,7 +49,7 @@ function Clients() {
 							<h2>Main projects</h2>
 						</div>
 						<div className="col-4">
-							<div className="Section__header__diamond text-align-right">◈</div>
+							<div className="Section__header__diamond text-align-right">⦿</div>
 						</div>
 					</div>
 				</div>
@@ -58,7 +58,7 @@ function Clients() {
 			<div className="Site-container">
 				<div className="row">
 					<div className="col-14">
-						<H0 texts={['Clients']} />
+						<H0 texts={["Clients"]} />
 					</div>
 				</div>
 			</div>
@@ -74,16 +74,14 @@ function Clients() {
 							} = client;
 
 							return (
-								<li
-									className={`col-4${index % 3 !== 0 ? ' offset-1' : ''}`}
-									key={id}>
+								<li className={`col-4${index % 3 !== 0 ? " offset-1" : ""}`} key={id}>
 									<div className="Client">
 										<div className="Client__image">
 											<Img
 												fluid={image.localFile.childImageSharp.fluid}
 												imgStyle={{
-													objectFit: 'contain',
-													objectPosition: 'left center',
+													objectFit: "contain",
+													objectPosition: "left center",
 												}}
 											/>
 										</div>

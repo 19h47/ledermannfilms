@@ -175,7 +175,7 @@ export default ({ data }) => {
 								<h2>Main projects</h2>
 							</div>
 							<div className="col-4">
-								<div className="Section__header__diamond text-align-right">◈</div>
+								<div className="Section__header__diamond text-align-right">⦿</div>
 							</div>
 						</div>
 					</div>
