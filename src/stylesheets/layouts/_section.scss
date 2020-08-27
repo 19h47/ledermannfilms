@@ -8,36 +8,6 @@
 .Section {
 	@include margin(top 26 * 8px bottom 26 * 8px);
 
-	&#{ & }--projects {
-		$this: &;
-
-		.Section--projects__items {
-			@extend %list-style-type-none;
-			@include margin(top #{-28 * 8}px);
-		}
-
-		.Section--projects__item {
-			@include margin(top 8 * 11.5px bottom 8 * 11.5px);
-
-			&:nth-child(6n + 3) {
-				.Card-project {
-					@include margin(top 8 * 28px);
-				}
-			}
-			&:nth-child(6n + 5) {
-				.Card-project {
-					@include margin(top 8 * 12px);
-				}
-			}
-			&:first-child {
-				@include margin(top 0);
-			}
-			&:last-child {
-				@include margin(bottom 0);
-			}
-		}
-	}
-
 	&__header {
 		@include margin(bottom 8 * 26px);
 		hr {

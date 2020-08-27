@@ -9,7 +9,7 @@ import { ContactsProvider } from '@/contacts-context';
 
 import '@/stylesheets/styles.scss';
 
-const Layout = ({ children }) => {
+const Layout = ({ children, className }) => {
 	const scrollRef = useRef(null);
 
 	useEffect(() => {
@@ -36,7 +36,7 @@ const Layout = ({ children }) => {
 	return (
 		<ContactsProvider>
 			<div ref={scrollRef}>
-				<div id="wrapper" className="Site-wrapper">
+				<div id="wrapper" className={`Site-wrapper${className ? ` ${className}` : ''}`}>
 					<Header />
 					<Contacts />
 

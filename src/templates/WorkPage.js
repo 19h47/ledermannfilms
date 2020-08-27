@@ -5,11 +5,15 @@ import Link from 'gatsby-plugin-transition-link';
 
 import Layout from '@/components/layout';
 import H0 from '@/components/h0';
-import ProjectCard from '@/components/project-card';
+import Projects from '@/components/projects';
+import Seo from '@/components/seo';
 
 export const query = graphql`
-	query projectCategories {
-		allWpProjectCategory {
+	query workPage($id: String!) {
+		page: wpPage(id: { eq: $id }) {
+			title
+		}
+		projects: allWpProjectCategory {
 			nodes {
 				id
 				name
@@ -17,34 +21,8 @@ export const query = graphql`
 				count
 			}
 		}
-		allWpProject {
-			nodes {
-				id
-				title
-				uri
-				terms {
-					nodes {
-						... on WpProjectCategory {
-							id
-							name
-						}
-					}
-				}
-				featuredImage {
-					node {
-						localFile {
-							...HeroImage
-						}
-					}
-				}
-				customFields {
-					gallery {
-						localFile {
-							...HeroImage
-						}
-					}
-				}
-			}
+		totalCount: allWpProject {
+			totalCount
 		}
 	}
 `;
@@ -60,15 +38,15 @@ const listItem = ({ id, link, name, count }) => (
 
 export default ({ data }) => {
 	const {
-		allWpProjectCategory: { nodes: projectCategories },
-		allWpProject: { nodes: projects },
+		projects: { nodes: projectCategories },
+		page: { title },
+		totalCount: { totalCount },
 	} = data;
 
-	console.log(projects);
-
 	return (
-		<Layout>
-			<div className="Section Section--projects">
+		<Layout className="Work-page">
+			<Seo title={title} />
+			<div>
 				<div className="Site-container">
 					<div className="row">
 						<div className="col-14">
@@ -79,7 +57,7 @@ export default ({ data }) => {
 								<ul className="Project-categories__items">
 									<li className="Project-categories__item">
 										<Link to="/work">
-											All<span>{projects.length}</span>
+											All<span>{totalCount}</span>
 										</Link>
 									</li>
 									{projectCategories.map(category => listItem(category))}
@@ -88,17 +66,13 @@ export default ({ data }) => {
 						</div>
 					</div>
 				</div>
+			</div>
 
+			<div className="Section Section--projects">
 				<div className="Site-container">
 					<div className="row">
 						<div className="col-14">
-							<ul>
-								{projects.map((project, index) => (
-									<li key={project.id}>
-										<ProjectCard project={project} index={index} />
-									</li>
-								))}
-							</ul>
+							<Projects />
 						</div>
 					</div>
 				</div>

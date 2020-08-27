@@ -6,21 +6,11 @@ import H0 from '@/components/h0';
 import Layout from '@/components/layout';
 import Seo from '@/components/seo';
 import Socials from '@/components/socials';
-import ProjectCard from '@/components/project-card';
+import Projects from '@/components/projects';
 
 import Play from '@/assets/svg/play.inline.svg';
 import Flag from '@/assets/svg/flag.inline.svg';
 import Label from '@/assets/svg/label.inline.svg';
-
-const gridClassNames = [
-	'col-14 col-md-9 offset-md-5',
-	'col-14 col-md-4',
-	'col-14 col-md-4 offset-md-3',
-	'col-14 col-md-9',
-	'col-14 col-md-4 offset-md-2',
-	'col-14 col-md-4 offset-md-4',
-	'col-14 col-md-9 offset-md-5',
-];
 
 export const query = graphql`
 	query frontPage($id: String!) {
@@ -45,35 +35,6 @@ export const query = graphql`
 				}
 			}
 		}
-		projects: allWpProject {
-			nodes {
-				title
-				link
-				uri
-				terms {
-					nodes {
-						... on WpProjectCategory {
-							id
-							name
-						}
-					}
-				}
-				featuredImage {
-					node {
-						localFile {
-							...HeroImage
-						}
-					}
-				}
-				customFields {
-					gallery {
-						localFile {
-							...HeroImage
-						}
-					}
-				}
-			}
-		}
 		wp {
 			id
 			generalSettings {
@@ -87,10 +48,7 @@ export const query = graphql`
 `;
 
 export default ({ data }) => {
-	const {
-		page,
-		projects: { nodes: projects },
-	} = data;
+	const { page } = data;
 	const {
 		title,
 		customFields: { hero, content },
@@ -188,19 +146,7 @@ export default ({ data }) => {
 								<H0 texts={['Featured', 'Works']} />
 							</div>
 						</div>
-						<ul className="Section--projects__items row">
-							{projects.map((project, index) => {
-								return (
-									<li
-										className={`Section--projects__item ${
-											gridClassNames[index % 6]
-										}`}
-										key={index}>
-										<ProjectCard project={project} index={index} />
-									</li>
-								);
-							})}
-						</ul>
+						<Projects />
 					</div>
 				</div>
 			</div>
