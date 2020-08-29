@@ -6,7 +6,7 @@ const ProjectCard = ({ project, index }) => {
 	const children = (
 		<>
 			<div className="Project-card__thumbnail">
-				<Img fluid={project.featuredImage.node.localFile.childImageSharp.fluid} />
+				<Img fadeIn fluid={project.featuredImage.node.localFile.childImageSharp.fluid} />
 			</div>
 
 			<header className="Project-card__header">

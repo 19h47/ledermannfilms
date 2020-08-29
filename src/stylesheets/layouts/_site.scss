@@ -14,6 +14,7 @@
 	 */
 	&-container {
 		max-width: $container-width;
+		max-width: 94vw;
 
 		@extend %position-relative;
 

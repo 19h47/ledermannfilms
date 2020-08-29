@@ -95,7 +95,7 @@ export default ({ data }) => {
 						</footer>
 
 						<div className="Hero__thumbnail">
-							<Img fluid={thumbnail.localFile.childImageSharp.fluid} />
+							<Img fadeIn fluid={thumbnail.localFile.childImageSharp.fluid} />
 						</div>
 					</div>
 				</div>
