@@ -111,44 +111,50 @@ export default ({ data }) => {
 				</div>
 			</div>
 
-			<div className="Section">
-				<header className="Section__header">
-					<div className="Site-container">
-						<div className="row">
-							<div className="col-14">
-								<hr />
-							</div>
-						</div>
-						<div className="row">
-							<div className="col-5 d-none d-md-block">
-								<div className="Label">
-									<Label />
+			{gallery && (
+				<div className="Section">
+					<header className="Section__header">
+						<div className="Site-container">
+							<div className="row">
+								<div className="col-14">
+									<hr />
 								</div>
 							</div>
-							<div className="col-5">
-								<h2>Still frames</h2>
-							</div>
-							<div className="col-4">
-								<div className="Section__header__diamond text-align-right">⦿</div>
+							<div className="row">
+								<div className="col-5 d-none d-md-block">
+									<div className="Label">
+										<Label />
+									</div>
+								</div>
+								<div className="col-5">
+									<h2>Still frames</h2>
+								</div>
+								<div className="col-4">
+									<div className="Section__header__diamond text-align-right">
+										⦿
+									</div>
+								</div>
 							</div>
 						</div>
+					</header>
+					<div className="Site-container">
+						<ul className="Project__items row">
+							{gallery.map(image => {
+								console.log(image);
+								return (
+									<li
+										className={`Project__item ${layout(
+											image.customFields.layout,
+										)}`}
+										key={image.id}>
+										<Img fadeIn fluid={image.localFile.childImageSharp.fluid} />
+									</li>
+								);
+							})}
+						</ul>
 					</div>
-				</header>
-				<div className="Site-container">
-					<ul className="Project__items row">
-						{gallery.map(image => {
-							console.log(image);
-							return (
-								<li
-									className={`Project__item ${layout(image.customFields.layout)}`}
-									key={image.id}>
-									<Img fadeIn fluid={image.localFile.childImageSharp.fluid} />
-								</li>
-							);
-						})}
-					</ul>
 				</div>
-			</div>
+			)}
 		</Layout>
 	);
 };
