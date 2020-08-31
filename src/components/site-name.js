@@ -21,7 +21,7 @@ const SiteName = ({ delay }) => {
 			data-scroll
 			cover
 			direction="up"
-			bg="#121212">
+			bg="#000000">
 			<span className="Site-name__line">
 				<span style={{ transitionDelay: `${delay}s` }}>
 					<i>✦</i>

@@ -18,7 +18,7 @@ const ProjectCard = ({ project, index }) => {
 	);
 
 	return project.customFields.gallery ? (
-		<AniLink className="Project-card" to={project.uri} cover direction="up" bg="#121212">
+		<AniLink className="Project-card" to={project.uri} cover direction="up" bg="#000000">
 			{children}
 		</AniLink>
 	) : (

@@ -36,7 +36,7 @@ export default ({ className }) => {
 								to={path}
 								cover
 								direction="up"
-								bg="#121212">
+								bg="#000000">
 								<span>{menuItem.label}</span>
 							</AniLink>
 						</li>

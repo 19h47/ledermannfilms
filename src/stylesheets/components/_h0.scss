@@ -7,7 +7,7 @@
  *
  */
 .H0 {
-	@include font-sizes(54, 230);
+	@include font-sizes(54, 232);
 	@include margin(top 0 bottom 0);
 	@extend %font-weight-fine, %margin-0;
 

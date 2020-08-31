@@ -93,7 +93,7 @@ export default ({ data }) => {
 										to="/work/"
 										cover
 										direction="up"
-										bg="#121212">
+										bg="#000000">
 										<span>all projects</span>
 										<Th />
 									</AniLink>
