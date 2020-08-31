@@ -6,6 +6,7 @@ import Layout from '@/components/layout';
 import Seo from '@/components/seo';
 import Services from '@/components/services';
 import Clients from '@/components/clients';
+import Footer from '@/components/footer';
 
 import Flag from '@/assets/svg/flag.inline.svg';
 
@@ -71,8 +72,8 @@ export default ({ data }) => {
 			</div>
 
 			<Clients />
-
 			<Services />
+			<Footer />
 		</Layout>
 	);
 };

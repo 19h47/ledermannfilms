@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'gatsby-plugin-transition-link';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import Img from 'gatsby-image';
 
 const ProjectCard = ({ project, index }) => {
@@ -18,9 +18,9 @@ const ProjectCard = ({ project, index }) => {
 	);
 
 	return project.customFields.gallery ? (
-		<Link className="Project-card" to={project.uri}>
+		<AniLink className="Project-card" to={project.uri} cover direction="up" bg="#121212">
 			{children}
-		</Link>
+		</AniLink>
 	) : (
 		<div className="Project-card">{children}</div>
 	);

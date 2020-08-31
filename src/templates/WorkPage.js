@@ -7,6 +7,7 @@ import Layout from '@/components/layout';
 import H0 from '@/components/h0';
 import Projects from '@/components/projects';
 import Seo from '@/components/seo';
+import Footer from '@/components/footer';
 
 export const query = graphql`
 	query workPage($id: String!) {
@@ -77,6 +78,7 @@ export default ({ data }) => {
 					</div>
 				</div>
 			</div>
+			<Footer />
 		</Layout>
 	);
 };

@@ -7,6 +7,7 @@ import Layout from '@/components/layout';
 import Seo from '@/components/seo';
 import Socials from '@/components/socials';
 import Projects from '@/components/projects';
+import Footer from '@/components/footer';
 
 import Play from '@/assets/svg/play.inline.svg';
 import Flag from '@/assets/svg/flag.inline.svg';
@@ -141,6 +142,7 @@ export default ({ data }) => {
 					</div>
 				</div>
 			</div>
+			<Footer />
 		</Layout>
 	);
 };

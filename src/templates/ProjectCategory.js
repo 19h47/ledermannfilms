@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 
 import Layout from '@/components/layout';
 import H0 from '@/components/h0';
+import Footer from '@/components/footer';
 
 export const query = graphql`
 	query projectCategory($id: String!) {
@@ -59,6 +60,7 @@ export default ({ data }) => {
 					</div>
 				</div>
 			</div>
+			<Footer />
 		</Layout>
 	);
 };

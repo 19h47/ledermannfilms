@@ -2,7 +2,6 @@ import React, { useRef, useEffect } from 'react';
 
 import Header from '@/components/header';
 import Contacts from '@/components/contacts';
-import Footer from '@/components/footer';
 
 import LocomotiveScroll from 'locomotive-scroll';
 
@@ -45,7 +44,6 @@ const Layout = ({ children, className }) => {
 						{children}
 					</main>
 				</div>
-				<Footer />
 			</div>
 		</ContactsProvider>
 	);

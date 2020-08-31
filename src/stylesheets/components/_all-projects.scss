@@ -1,0 +1,17 @@
+/**
+ * All projects
+ *
+ *
+ *
+ *
+ *
+ *
+ */
+.All-projects {
+	@extend .d-flex, .align-items-center;
+
+	svg {
+		@include margin(left 3 * 8px);
+		@include size(2 * 8px);
+	}
+}

@@ -1,0 +1,29 @@
+/**
+ * Project
+ *
+ *
+ *
+ *
+ */
+.Project {
+	&__items {
+		@extend %list-style-type-none;
+	}
+
+	&__item {
+		@include margin(top 8.5 * 8px bottom 8.5 * 8px);
+
+		&:first-child {
+			@include margin(top 0);
+		}
+		&:last-child {
+			@include margin(bottom 0);
+		}
+
+		.gatsby-image-wrapper {
+			@extend %overflow-hidden;
+
+			border-radius: 3 * 8px;
+		}
+	}
+}
