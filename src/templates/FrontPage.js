@@ -35,15 +35,6 @@ export const query = graphql`
 				}
 			}
 		}
-		wp {
-			id
-			generalSettings {
-				youtube
-				linkedin
-				instagram
-				facebook
-			}
-		}
 	}
 `;
 

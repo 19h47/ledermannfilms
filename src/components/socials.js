@@ -3,7 +3,9 @@ import { graphql, useStaticQuery } from 'gatsby';
 
 const Socials = () => {
 	const {
-		wp: { generalSettings: items },
+		wp: {
+			generalSettings: { youtube, linkedin, instagram, facebook },
+		},
 	} = useStaticQuery(graphql`
 		{
 			wp {
@@ -19,38 +21,36 @@ const Socials = () => {
 
 	return (
 		<div className="Socials">
-			{items && (
-				<ul className="Socials__items">
-					{items.instagram && (
-						<li className="Socials__item">
-							<a target="_blank" href={items.instagram} rel="noreferrer noopener">
-								Ins.
-							</a>
-						</li>
-					)}
-					{items.facebook && (
-						<li className="Socials__item">
-							<a target="_blank" href={items.facebook} rel="noreferrer noopener">
-								Fb.
-							</a>
-						</li>
-					)}
-					{items.linkedin && (
-						<li className="Socials__item">
-							<a target="_blank" href={items.linkedin} rel="noreferrer noopener">
-								Li.
-							</a>
-						</li>
-					)}
-					{items.youtube && (
-						<li className="Socials__item">
-							<a target="_blank" href={items.youtube} rel="noreferrer noopener">
-								Yt.
-							</a>
-						</li>
-					)}
-				</ul>
-			)}
+			<ul className="Socials__items">
+				{instagram && (
+					<li className="Socials__item">
+						<a target="_blank" href={instagram} rel="noreferrer noopener">
+							Ins.
+						</a>
+					</li>
+				)}
+				{facebook && (
+					<li className="Socials__item">
+						<a target="_blank" href={facebook} rel="noreferrer noopener">
+							Fb.
+						</a>
+					</li>
+				)}
+				{linkedin && (
+					<li className="Socials__item">
+						<a target="_blank" href={linkedin} rel="noreferrer noopener">
+							Li.
+						</a>
+					</li>
+				)}
+				{youtube && (
+					<li className="Socials__item">
+						<a target="_blank" href={youtube} rel="noreferrer noopener">
+							Yt.
+						</a>
+					</li>
+				)}
+			</ul>
 		</div>
 	);
 };
