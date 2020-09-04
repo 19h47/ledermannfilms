@@ -18,7 +18,7 @@
 		"bootstrap": "^4.5.2",
 		"gatsby-plugin-transition-link": "^1.20.2",
 		"gsap": "^3.5.1",
-		"locomotive-scroll": "^3.5.4"
+		"locomotive-scroll": "^3.6.1"
 	},
 	"devDependencies": {
 		"@19h47/prettier-config": "^1.0.0",

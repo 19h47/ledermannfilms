@@ -22,7 +22,7 @@
 			@extend .d-inline-block;
 			transform-origin: center top;
 			transform-style: preserve-3d;
-			transform: translateY(100%);
+			transform: translate3d(0, 100%, 0);
 
 			transition: transform 0.8s map-get($easings, ease-out-cubic);
 		}

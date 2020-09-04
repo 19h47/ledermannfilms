@@ -9110,10 +9110,10 @@ lockfile@^1.0.4:
   dependencies:
     signal-exit "^3.0.2"
 
-locomotive-scroll@^3.5.4:
-  version "3.5.4"
-  resolved "https://registry.yarnpkg.com/locomotive-scroll/-/locomotive-scroll-3.5.4.tgz#0c5cc8d885f77efb5ca4355339b6fc33b4bc922c"
-  integrity sha512-uYE6aOGY9Pc4jPhQQQtn2Brw8MJN00J1Iy5DNfrw3S9hiVD5LzwwKEphHWs6Y0mOIEvcec99J+xCURUjIudgQA==
+locomotive-scroll@^3.6.1:
+  version "3.6.1"
+  resolved "https://registry.yarnpkg.com/locomotive-scroll/-/locomotive-scroll-3.6.1.tgz#c1414269d5e86df104eeefc65bdefc82dbba5ed6"
+  integrity sha512-Zsb+WrtWbBUP3s8usF6m10Zu7fXiC7kjd2vtwIml4CGQEDfOk+uckVk9HoMLYcZKdUOuLDnjL9xOheMxbuEt6w==
   dependencies:
     bezier-easing "^2.1.0"
     smoothscroll-polyfill "^0.4.4"
