@@ -13,9 +13,9 @@ const gridClassNames = [
 	'col-14 col-md-9 offset-md-5',
 ];
 
-function Projects() {
+function Projects({ projects }) {
 	const {
-		allWpProject: { nodes: projects },
+		allWpProject: { nodes: allProjects },
 	} = useStaticQuery(graphql`
 		{
 			allWpProject {
@@ -49,6 +49,10 @@ function Projects() {
 			}
 		}
 	`);
+
+	if (!projects) {
+		projects = allProjects;
+	}
 
 	return (
 		<ul className="Projects__items row">

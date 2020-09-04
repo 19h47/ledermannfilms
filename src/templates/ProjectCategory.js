@@ -4,6 +4,9 @@ import { graphql } from 'gatsby';
 import Layout from '@/components/layout';
 import H0 from '@/components/h0';
 import Footer from '@/components/footer';
+import Seo from '@/components/seo';
+import ProjectCategories from '@/components/project-categories';
+import Projects from '@/components/projects';
 
 export const query = graphql`
 	query projectCategory($id: String!) {
@@ -46,16 +49,32 @@ export const query = graphql`
 
 export default ({ data }) => {
 	const {
-		projectCategory: { name },
+		projectCategory: {
+			name,
+			projects: { nodes: projects },
+		},
 	} = data;
 
 	return (
 		<Layout>
-			<div className="Section Section--projects">
+			<Seo title={name} />
+			<div>
 				<div className="Site-container">
 					<div className="row">
 						<div className="col-14">
 							<H0 texts={[name]} />
+						</div>
+						<div className="col-14">
+							<ProjectCategories />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div className="Section Section--projects">
+				<div className="Site-container">
+					<div className="row">
+						<div className="col-14">
+							<Projects projects={projects} />
 						</div>
 					</div>
 				</div>

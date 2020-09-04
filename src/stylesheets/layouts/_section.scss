@@ -36,4 +36,8 @@
 	&__inner {
 		@include margin(top 26 * 8px bottom 26 * 8px);
 	}
+
+	&#{ & }--projects {
+		@include margin(top 0);
+	}
 }

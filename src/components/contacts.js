@@ -30,7 +30,7 @@ function Contacts() {
 			className={`Contacts${active ? ' is-active' : ''}`}
 			data-scroll
 			data-scroll-sticky
-			data-scroll-target="#___gatsby">
+			data-scroll-target="#wrapper">
 			<div className="Contacts__row justify-content-between">
 				<span>Contact informations</span>
 				<button className="Contacts__close" type="button" onClick={toggle}>

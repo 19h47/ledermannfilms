@@ -8,6 +8,11 @@
  *
  */
 .Project-categories {
+	@extend %position-relative;
+	@include margin(top 15 * 8px);
+
+	z-index: 1;
+
 	&__items {
 		@extend %list-style-type-none;
 	}
