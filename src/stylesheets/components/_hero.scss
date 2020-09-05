@@ -12,6 +12,24 @@
 		@include size(100%);
 	}
 
+	transition: visibility 0.7s map-get($easings, ease-out-expo),
+		opacity 0.7s map-get($easings, ease-out-expo);
+
+	&.is-hidden {
+		@include autoAlpha(0);
+	}
+
+	&.is-visible {
+		@include autoAlpha(1);
+	}
+
+	&.is-truncated {
+		@extend %overflow-hidden;
+		@include margin(bottom 0);
+
+		height: 71 * 8px;
+	}
+
 	hr {
 		@include size(100%, 1px);
 		@include margin(top 3 * 8px bottom 3 * 8px);

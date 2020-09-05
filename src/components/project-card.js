@@ -17,7 +17,7 @@ const ProjectCard = ({ project, index }) => {
 		</>
 	);
 
-	return project.customFields.gallery ? (
+	return project.customFields.gallery && 0 !== project.customFields.gallery.length ? (
 		<AniLink
 			className="Project-card"
 			to={project.uri}

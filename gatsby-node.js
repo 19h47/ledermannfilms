@@ -19,10 +19,18 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 		data: {
 			allWpContentNode: { nodes: contentNodes },
 			allWpProjectCategory: { nodes: projectCategory },
+			allWpProject: { nodes: projects },
 		},
 	} = await graphql(/* GraphQL */ `
 		query ALL_CONTENT_NODES {
 			allWpProjectCategory {
+				nodes {
+					nodeType
+					uri
+					id
+				}
+			}
+			allWpProject {
 				nodes {
 					nodeType
 					uri
@@ -59,8 +67,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 		}
 	`);
 
-	// dump(contentNodes);
+	dump(contentNodes);
 	// dump(projectCategory);
+	// dump(projects);
 
 	const contentTypeTemplateDirectory = `./src/templates/`;
 	const contentTypeTemplates = templates.filter(path =>
@@ -83,10 +92,49 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 				},
 			});
 		}),
+		projects.map(async (node, index) => {
+			const { nodeType, uri, id } = node;
+			const templatePath = `${contentTypeTemplateDirectory}${nodeType}.js`;
+			const contentTypeTemplate = contentTypeTemplates.find(path => path === templatePath);
+
+			const next =
+				index + 1 > projects.length - 1
+					? (projects[0] || {}).id
+					: (projects[index + 1] || {}).id;
+			const previous =
+				index - 1 < 0
+					? (projects[projects.length - 1] || {}).id
+					: (projects[index - 1] || {}).id;
+
+			dump({
+				uri,
+				index: index + 1,
+				next,
+				previous,
+			});
+
+			let component = resolve(contentTypeTemplate);
+
+			if (node.template && node.template.templateName !== 'Default') {
+				component = resolve(
+					`${contentTypeTemplateDirectory}${node.template.templateName}.js`,
+				);
+			}
+
+			await actions.createPage({
+				component,
+				path: uri,
+				context: {
+					id,
+					next,
+					previous,
+				},
+			});
+		}),
 		contentNodes.map(async node => {
 			const { nodeType, uri, id } = node;
 
-			if (['Client', 'Service'].includes(nodeType)) {
+			if (['Client', 'Service', 'Project'].includes(nodeType)) {
 				reporter.log(`${nodeType} doesn't need page`);
 				return;
 			}
@@ -119,9 +167,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 			await actions.createPage({
 				component,
 				path: uri,
-				context: {
-					id,
-				},
+				context: { id },
 			});
 		}),
 	);
