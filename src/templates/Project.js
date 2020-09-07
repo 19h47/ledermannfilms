@@ -8,6 +8,7 @@ import TransitionLink, { TransitionState } from 'gatsby-plugin-transition-link';
 import Layout from '@/components/layout';
 import Seo from '@/components/seo';
 import ProjectHero from '@/components/project-hero';
+import ProjectText from '@/components/project-text';
 
 import Label from '@/assets/svg/label.inline.svg';
 
@@ -54,6 +55,16 @@ export const query = graphql`
 						layout
 					}
 				}
+				content {
+					text {
+						en
+						fr
+					}
+					informations {
+						title
+						text
+					}
+				}
 			}
 		}
 	}
@@ -75,8 +86,21 @@ const ProjectInner = ({ mount, data }) => {
 	const { nextProject, project } = data;
 	const {
 		title,
-		customFields: { gallery },
+		customFields: {
+			gallery,
+			content: { text, informations },
+		},
 	} = project;
+
+	const tabs = [];
+
+	if (text.en) {
+		tabs.push({ title: 'English', content: text.en, id: 'en' });
+	}
+
+	if (text.fr) {
+		tabs.push({ title: 'Français', content: text.fr, id: 'fr' });
+	}
 
 	const exitTransition = {
 		length: TRANSITION_LENGTH,
@@ -102,6 +126,33 @@ const ProjectInner = ({ mount, data }) => {
 			<Seo title={title} />
 
 			<ProjectHero project={project} footer show={mount} />
+
+			<div className="Site-container">
+				<div className="row">
+					<div className="offset-md-5 col-md-9">
+						<ProjectText data={tabs} />
+					</div>
+				</div>
+			</div>
+
+			{informations && (
+				<div className="Site-container" style={{ marginTop: '120px' }}>
+					<div className="row">
+						<div className="offset-md-5 col-md-4">
+							<div className="Informations">
+								<ul className="Informations__items">
+									{informations.map((information, index) => (
+										<li className="Informations__item" key={index}>
+											<p>{information.title}</p>
+											<p>{information.text}</p>
+										</li>
+									))}
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			)}
 
 			{gallery && gallery.length !== 0 && (
 				<div className={`Section${mount ? ' is-visible' : ' is-hidden'}`}>

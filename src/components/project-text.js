@@ -1,0 +1,54 @@
+import React, { useRef, useEffect } from 'react';
+import Tabs from '@19h47/tabs';
+
+const ProjectText = ({ data }) => {
+	const tabsRef = useRef(null);
+
+	useEffect(() => {
+		if (tabsRef.current) {
+			const tabs = new Tabs(tabsRef.current, { hash: false });
+
+			tabs.init();
+
+			console.log(tabs);
+		}
+	}, [tabsRef]);
+
+	return (
+		<div className="Tabs" ref={tabsRef}>
+			<ul
+				className="Tabs__navigation"
+				role="tablist" // eslint-disable-line
+				aria-label="navigation">
+				{data.map((tab, index) => (
+					<li key={index}>
+						<button
+							type="button"
+							className={`${0 === index ? 'is-active' : ''}`}
+							role="tab"
+							aria-selected={`${0 === index ? true : false}`} // eslint-disable-line
+							aria-controls={`${tab.id}-tab`}
+							id={tab.id}>
+							{tab.title}
+						</button>
+					</li>
+				))}
+			</ul>
+			<div className="Tabs__content">
+				{data.map((tab, index) => (
+					<section
+						key={index}
+						className={`${0 === index ? 'is-active' : ''}`}
+						tabIndex="0" // eslint-disable-line
+						role="tabpanel"
+						aria-labelledby={tab.id}
+						id={`${tab.id}-tab`}
+						dangerouslySetInnerHTML={{ __html: tab.content }}
+					/>
+				))}
+			</div>
+		</div>
+	);
+};
+
+export default ProjectText;

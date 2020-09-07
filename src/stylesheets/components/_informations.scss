@@ -1,0 +1,26 @@
+/**
+ * Informations
+ *
+ *
+ *
+ */
+.Informations {
+	&__items {
+		@extend %list-style-type-none;
+	}
+	&__item {
+		@extend %text-transform-uppercase;
+		@extend .d-flex;
+		@include padding(top 2 * 8px bottom 2 * 8px);
+
+		border-bottom: 1px solid the_color(white);
+
+		p {
+			@extend %margin-0;
+
+			&:first-child {
+				width: percentage(159/441);
+			}
+		}
+	}
+}

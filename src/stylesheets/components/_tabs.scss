@@ -1,0 +1,61 @@
+/**
+ * Tabs
+ *
+ *
+ *
+ *
+ *
+ *
+ */
+.Tabs {
+	&__navigation {
+		@extend %list-style-type-none;
+		@extend .d-flex;
+		@include font-sizes(11);
+		@include margin(bottom 5 * 8px);
+
+		line-height: (16/11);
+
+		li {
+			@include margin(right 12px left 12px);
+
+			&:last-child {
+				@include margin(right 0);
+			}
+
+			&:first-child {
+				@include margin(left 0);
+			}
+		}
+
+		button {
+			@extend %text-transform-uppercase;
+			@include padding(top 8px bottom 8px);
+
+			color: the_color(gray, dark);
+			transition: color 0.3s map-get($easings, ease-out-expo);
+
+			&.is-active {
+				border-bottom: 1px solid the_color(white);
+				color: the_color(white);
+			}
+		}
+	}
+
+	&__content {
+		@include font-sizes(54);
+		@extend %font-weight-light;
+
+		line-height: (60/54);
+
+		section {
+			& > *:last-child {
+				@include margin(bottom 0);
+			}
+
+			& > *:first-child {
+				@include margin(top 0);
+			}
+		}
+	}
+}

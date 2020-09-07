@@ -15,6 +15,7 @@
 	},
 	"dependencies": {
 		"@19h47/architecture": "19h47/architecture",
+		"@19h47/tabs": "^5.0.1",
 		"bootstrap": "^4.5.2",
 		"gatsby-plugin-transition-link": "^1.20.2",
 		"gsap": "^3.5.1",
@@ -24,7 +25,7 @@
 		"@19h47/prettier-config": "^1.0.0",
 		"dotenv": "^8.2.0",
 		"gatsby": "2.24.53",
-		"gatsby-cli": "^2.12.91",
+		"gatsby-cli": "^2.12.92",
 		"gatsby-image": "^2.4.16",
 		"gatsby-plugin-alias-imports": "^1.0.5",
 		"gatsby-plugin-chakra-ui": "^0.1.4",

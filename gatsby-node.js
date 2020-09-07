@@ -67,7 +67,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 		}
 	`);
 
-	dump(contentNodes);
+	// dump(contentNodes);
 	// dump(projectCategory);
 	// dump(projects);
 
