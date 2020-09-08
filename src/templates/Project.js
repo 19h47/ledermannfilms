@@ -142,9 +142,13 @@ const ProjectInner = ({ mount, data }) => {
 							<div className="Informations">
 								<ul className="Informations__items">
 									{informations.map((information, index) => (
-										<li className="Informations__item" key={index}>
-											<p>{information.title}</p>
-											<p>{information.text}</p>
+										<li className="Informations__item" key={index} data-scroll>
+											<p style={{ transitionDelay: `${index * 0.1}s` }}>
+												{information.title}
+											</p>
+											<p style={{ transitionDelay: `${index * 0.1}s` }}>
+												{information.text}
+											</p>
 										</li>
 									))}
 								</ul>

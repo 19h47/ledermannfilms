@@ -9,8 +9,6 @@ const ProjectText = ({ data }) => {
 			const tabs = new Tabs(tabsRef.current, { hash: false });
 
 			tabs.init();
-
-			console.log(tabs);
 		}
 	}, [tabsRef]);
 
@@ -21,14 +19,15 @@ const ProjectText = ({ data }) => {
 				role="tablist" // eslint-disable-line
 				aria-label="navigation">
 				{data.map((tab, index) => (
-					<li key={index}>
+					<li key={index} data-scroll>
 						<button
 							type="button"
 							className={`${0 === index ? 'is-active' : ''}`}
 							role="tab"
 							aria-selected={`${0 === index ? true : false}`} // eslint-disable-line
 							aria-controls={`${tab.id}-tab`}
-							id={tab.id}>
+							id={tab.id}
+							style={{ transitionDelay: `${index * 0.1}s` }}>
 							{tab.title}
 						</button>
 					</li>
@@ -44,6 +43,7 @@ const ProjectText = ({ data }) => {
 						aria-labelledby={tab.id}
 						id={`${tab.id}-tab`}
 						dangerouslySetInnerHTML={{ __html: tab.content }}
+						data-scroll={`${0 === index ? true : false}`}
 					/>
 				))}
 			</div>

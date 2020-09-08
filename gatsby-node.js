@@ -106,12 +106,12 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 					? (projects[projects.length - 1] || {}).id
 					: (projects[index - 1] || {}).id;
 
-			dump({
-				uri,
-				index: index + 1,
-				next,
-				previous,
-			});
+			// dump({
+			// 	uri,
+			// 	index: index + 1,
+			// 	next,
+			// 	previous,
+			// });
 
 			let component = resolve(contentTypeTemplate);
 

@@ -9,7 +9,7 @@
 		@extend %list-style-type-none;
 	}
 	&__item {
-		@extend %text-transform-uppercase;
+		@extend %text-transform-uppercase, %overflow-hidden;
 		@extend .d-flex;
 		@include padding(top 2 * 8px bottom 2 * 8px);
 
@@ -18,8 +18,23 @@
 		p {
 			@extend %margin-0;
 
+			transform-style: preserve-3d;
+			transform: translate3d(0, 100%, 0);
+
+			transition: opacity 0.8s map-get($easings, ease-out-cubic),
+				transform 0.8s map-get($easings, ease-out-cubic);
+
+			opacity: 0;
+
 			&:first-child {
 				width: percentage(159/441);
+			}
+		}
+
+		&.is-inview {
+			p {
+				transform: none;
+				opacity: 1;
 			}
 		}
 	}

@@ -18,6 +18,7 @@
 
 		li {
 			@include margin(right 12px left 12px);
+			@extend %overflow-hidden;
 
 			&:last-child {
 				@include margin(right 0);
@@ -26,17 +27,33 @@
 			&:first-child {
 				@include margin(left 0);
 			}
+
+			&.is-inview {
+				button {
+					transform: none;
+					opacity: 1;
+				}
+			}
 		}
 
 		button {
 			@extend %text-transform-uppercase;
 			@include padding(top 8px bottom 8px);
 
+			border-bottom: 0 solid the_color(white);
 			color: the_color(gray, dark);
 			transition: color 0.3s map-get($easings, ease-out-expo);
 
+			transform-style: preserve-3d;
+			transform: translate3d(0, 100%, 0);
+
+			transition: opacity 0.8s map-get($easings, ease-out-cubic),
+				transform 0.8s map-get($easings, ease-out-cubic);
+
+			opacity: 0;
+
 			&.is-active {
-				border-bottom: 1px solid the_color(white);
+				border-bottom-width: 1px;
 				color: the_color(white);
 			}
 		}
@@ -55,6 +72,25 @@
 
 			& > *:first-child {
 				@include margin(top 0);
+			}
+
+			&[data-scroll='true'] {
+				&.is-inview {
+					p {
+						transform: none;
+						opacity: 1;
+					}
+				}
+				p {
+					transform-style: preserve-3d;
+					transform: translate3d(0, 100%, 0);
+					transition-delay: 0.1s;
+
+					transition: opacity 0.8s map-get($easings, ease-out-cubic),
+						transform 0.8s map-get($easings, ease-out-cubic);
+
+					opacity: 0;
+				}
 			}
 		}
 	}
