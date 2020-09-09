@@ -5,14 +5,11 @@ const ProjectText = ({ data }) => {
 
 	useEffect(() => {
 		const getModule = async () => {
-			const Tabs = await import('@19h47/tabs').then(module => module.default);
-			const tabs = new Tabs(tabsRef.current, { hash: false });
-
-			tabs.init();
+			return await import('@19h47/tabs').then(module => module.default);
 		};
 
 		if (tabsRef.current && window) {
-			getModule();
+			getModule().then(module => new module(tabsRef.current, { hash: false }).init());
 		}
 	}, [tabsRef]);
 
