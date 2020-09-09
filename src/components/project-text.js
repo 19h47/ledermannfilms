@@ -1,14 +1,18 @@
 import React, { useRef, useEffect } from 'react';
-import Tabs from '@19h47/tabs';
 
 const ProjectText = ({ data }) => {
 	const tabsRef = useRef(null);
 
 	useEffect(() => {
-		if (tabsRef.current) {
+		const getModule = async () => {
+			const Tabs = await import('@19h47/tabs').then(module => module.default);
 			const tabs = new Tabs(tabsRef.current, { hash: false });
 
 			tabs.init();
+		};
+
+		if (tabsRef.current && window) {
+			getModule();
 		}
 	}, [tabsRef]);
 
