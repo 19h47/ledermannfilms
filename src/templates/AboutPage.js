@@ -61,7 +61,7 @@ export default ({ data }) => {
 										backgroundColor={'#121212'}
 										durationFadeIn={1000}
 										fluid={featuredImage.remoteFile.childImageSharp.fluid}
-										style={{ transform: 'translate3d(0,112px,0)' }}
+										style={{ transform: `translate3d(0,${6.6666}vw,0)` }}
 									/>
 								</div>
 								<div className="col-7 col-md-2">
