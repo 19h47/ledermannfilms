@@ -10,8 +10,7 @@
 	@extend .d-flex, .align-items-center;
 	@extend %text-transform-uppercase;
 
-	@include font-sizes(11);
-
+	font-size: 11px;
 	line-height: (16/11);
 
 	&::before {

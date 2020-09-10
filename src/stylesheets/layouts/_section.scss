@@ -6,7 +6,7 @@
  *
  */
 .Section {
-	@include margin(top 26 * 8px bottom 26 * 8px);
+	@include margin(top #{(26 * $scale-factor)}px bottom #{(26 * $scale-factor)}px);
 
 	&__header {
 		@include margin(bottom 8 * 26px);
@@ -19,16 +19,15 @@
 		}
 
 		h2 {
-			@include font-sizes(14);
 			@include margin(top 0 bottom 0);
 			@extend %text-transform-uppercase;
 
+			font-size: 14px;
 			line-height: (16/14);
 		}
 
 		&__diamond {
-			@include font-sizes(14);
-
+			font-size: 14px;
 			line-height: (16/14);
 		}
 	}

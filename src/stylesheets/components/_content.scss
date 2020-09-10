@@ -7,7 +7,20 @@
  *
  */
 .Content {
-	@include margin(top 26 * 8px bottom 36 * 8px);
+	@media (max-aspect-ratio: 3/2) {
+		@include margin(
+			top #{((26 * $scale-factor) * 100) / $prototype-width-unitless}vw bottom #{(
+					(36 * $scale-factor) * 100
+				) / $prototype-width-unitless}vw
+		);
+	}
+	@media (min-aspect-ratio: 3/2) {
+		@include margin(
+			top #{((26 * $scale-factor) * 100) / $prototype-height-unitless}vh bottom #{(
+					(36 * $scale-factor) * 100
+				) / $prototype-height-unitless}vh
+		);
+	}
 
 	&__text {
 		p {
