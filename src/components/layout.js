@@ -15,7 +15,7 @@ const Layout = ({ children, className }) => {
 	useEffect(() => {
 		console.log('scroll');
 		const scroll = new LocomotiveScroll({
-			el: document.querySelector('#___gatsby'),
+			el: scrollRef.current,
 			smooth: true,
 			smoothMobile: false,
 			getDirection: true,
