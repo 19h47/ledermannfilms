@@ -15,7 +15,7 @@
 	transition: visibility 0.7s map-get($easings, ease-out-expo),
 		opacity 0.7s map-get($easings, ease-out-expo);
 
-	height: calc(100vh - 182px);
+	height: calc(100vh - #{(16 * 8)}px);
 
 	&.is-hidden {
 		@include autoAlpha(0);
@@ -45,13 +45,36 @@
 		@extend .d-flex, .flex-column, .justify-content-center;
 
 		border-radius: $base-line-height-px;
+
+		&::after {
+			@include absolute(top 0 right 0 bottom 0 left 0);
+
+			display: block;
+			content: '';
+			z-index: 2;
+			background: linear-gradient(
+					250.91deg,
+					rgba(the_color(gray, very-dark-03), 0) -88.6%,
+					rgba(the_color(gray, very-dark-03), 0.5) 100%
+				),
+				linear-gradient(
+					180deg,
+					rgba(the_color(gray, very-dark-03), 0) 0%,
+					the_color(gray, very-dark-03) 100%
+				),
+				linear-gradient(
+					0deg,
+					rgba(the_color(gray, very-dark-01), 0.25),
+					rgba(the_color(gray, very-dark-01), 0.25)
+				);
+		}
 	}
 
 	&__content {
 		// @include margin(top 18 * 8px bottom 6 * 8px);
 		@extend %position-relative;
 
-		z-index: 2;
+		z-index: 3;
 
 		@include media-breakpoint-up(md) {
 			// @include margin(bottom 17 * 8px);
@@ -67,7 +90,7 @@
 	&__footer {
 		@extend %position-relative;
 
-		z-index: 2;
+		z-index: 3;
 
 		// @include media-breakpoint-up(md) {
 		// 	@include margin(top 6 * 8px);
