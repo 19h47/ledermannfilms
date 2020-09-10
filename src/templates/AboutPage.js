@@ -35,8 +35,6 @@ export default ({ data }) => {
 		},
 	} = data;
 
-	console.log(featuredImage);
-
 	return (
 		<Layout>
 			<Seo title={title} />

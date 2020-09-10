@@ -13,6 +13,7 @@ const Layout = ({ children, className }) => {
 	const scrollRef = useRef(null);
 
 	useEffect(() => {
+		console.log('scroll');
 		const scroll = new LocomotiveScroll({
 			el: document.querySelector('#___gatsby'),
 			smooth: true,
@@ -31,10 +32,10 @@ const Layout = ({ children, className }) => {
 		});
 
 		return () => scroll.destroy();
-	}, []);
+	}, [scrollRef]);
 
 	return (
-		<ContactsProvider>
+		<ContactsProvider el={scrollRef}>
 			<div ref={scrollRef}>
 				<div id="wrapper" className={`Site-wrapper${className ? ` ${className}` : ''}`}>
 					<Header />

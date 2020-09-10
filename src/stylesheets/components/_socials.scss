@@ -7,6 +7,8 @@
  *
  */
 .Socials {
+	@include margin(top -8px bottom -8px);
+
 	&__items {
 		@extend .d-flex;
 		@extend %list-style-type-none;
@@ -20,6 +22,16 @@
 		}
 		&:last-child {
 			@include margin(right 0);
+		}
+
+		a {
+			@include padding(top 8px bottom 8px);
+
+			transition: border-bottom 0.3s map-get($easings, ease-out-expo);
+
+			&:hover {
+				border-bottom: 1px solid the_color(white);
+			}
 		}
 	}
 }

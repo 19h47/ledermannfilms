@@ -33,11 +33,22 @@
 
 	&__copyright {
 		@extend %list-style-type-none, %text-transform-uppercase;
-		@include margin(top 30px bottom 62px);
+		@include margin(top #{(30 - 8)}px bottom #{(62 - 8)}px);
 		@extend .d-flex, .justify-content-between;
 
 		@include font-sizes(14);
 
 		line-height: (16/14);
+
+		a {
+			@extend .d-inline-block;
+			@include padding(top 8px bottom 8px);
+
+			transition: border-bottom 0.3s map-get($easings, ease-out-expo);
+
+			&:hover {
+				border-bottom: 1px solid the_color(white);
+			}
+		}
 	}
 }

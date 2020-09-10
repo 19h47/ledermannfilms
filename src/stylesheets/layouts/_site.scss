@@ -24,7 +24,7 @@
 	}
 
 	&-wrapper {
-		@include padding(bottom 38 * 8px);
+		// @include padding(bottom 38 * 8px);
 
 		&.Project {
 			@include padding(bottom 0);

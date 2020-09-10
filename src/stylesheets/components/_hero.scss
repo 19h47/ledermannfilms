@@ -15,6 +15,8 @@
 	transition: visibility 0.7s map-get($easings, ease-out-expo),
 		opacity 0.7s map-get($easings, ease-out-expo);
 
+	height: calc(100vh - 102px);
+
 	&.is-hidden {
 		@include autoAlpha(0);
 	}
@@ -41,21 +43,21 @@
 		@extend %overflow-hidden, %position-relative;
 
 		border-radius: $base-line-height-px;
-		height: 88px * 8;
+		// height: 88px * 8;
 
-		@include media-breakpoint-up(md) {
-			height: 111px * 8;
-		}
+		// @include media-breakpoint-up(md) {
+		// 	height: 111px * 8;
+		// }
 	}
 
 	&__content {
-		@include margin(top 18 * 8px bottom 6 * 8px);
+		// @include margin(top 18 * 8px bottom 6 * 8px);
 		@extend %position-relative;
 
 		z-index: 2;
 
 		@include media-breakpoint-up(md) {
-			@include margin(bottom 17 * 8px);
+			// @include margin(bottom 17 * 8px);
 		}
 	}
 
@@ -67,13 +69,13 @@
 
 	&__footer {
 		@extend %position-relative;
-		@include margin(top 16 * 8px);
+		// @include margin(top 16 * 8px);
 
 		z-index: 2;
 
-		@include media-breakpoint-up(md) {
-			@include margin(top 6 * 8px);
-		}
+		// @include media-breakpoint-up(md) {
+		// 	@include margin(top 6 * 8px);
+		// }
 
 		.Socials {
 			@include font-sizes(14);

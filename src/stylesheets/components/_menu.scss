@@ -11,6 +11,8 @@
 
 	@extend .d-flex, .flex-row;
 
+	@include margin(top -8px bottom -8px);
+
 	&__items {
 		@extend %list-style-type-none;
 		@extend .d-flex, .flex-row;
@@ -32,7 +34,11 @@
 		button {
 			@extend .d-block;
 			@extend %overflow-hidden;
-			@include padding(right 12px left 12px);
+			@include padding(top 8px bottom 8px);
+			@include margin(right 12px left 12px);
+
+			border-bottom: 1px solid rgba(the_color(white), 0);
+			transition: border-bottom 0.3s map-get($easings, ease-out-expo);
 
 			span {
 				@extend .d-inline-block;
@@ -52,11 +58,18 @@
 				span {
 					transform: none;
 				}
+
+				&[aria-current='page'],
+				&:hover {
+					border-bottom: 1px solid the_color(white);
+				}
 			}
 
 			@for $i from 1 through 4 {
 				&:nth-child(#{$i}) a,
 				&:nth-child(#{$i}) button {
+					transition-delay: 0.4 + $i * 0.5s;
+
 					span {
 						transition-delay: 0.4 + $i * 0.1s;
 					}

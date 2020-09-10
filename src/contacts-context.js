@@ -7,7 +7,7 @@ const initialState = {
 
 const ContactsContext = createContext(initialState);
 
-function ContactsProvider({ children }) {
+function ContactsProvider({ el, children }) {
 	const [active, setActive] = useState(false); // Default contacts is inactive
 
 	// Toggle between on and off
@@ -18,7 +18,9 @@ function ContactsProvider({ children }) {
 	};
 
 	return (
-		<ContactsContext.Provider value={{ active, toggle }}>{children}</ContactsContext.Provider>
+		<ContactsContext.Provider value={{ el, active, toggle }}>
+			{children}
+		</ContactsContext.Provider>
 	);
 }
 
