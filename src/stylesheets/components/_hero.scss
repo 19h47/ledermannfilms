@@ -42,7 +42,7 @@
 
 	&__body {
 		@extend %overflow-hidden, %position-relative;
-		@extend .d-flex, .flex--column, .justify-content-center;
+		@extend .d-flex, .flex-column, .justify-content-center;
 
 		border-radius: $base-line-height-px;
 	}
