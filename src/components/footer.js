@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import Link from 'gatsby-plugin-transition-link';
 
 import H0 from '@/components/h0';
@@ -15,10 +16,9 @@ const Footer = () => {
 				name
 				menuItems {
 					nodes {
-						label
-						url
 						id
-						parentId
+						label
+						path
 					}
 				}
 			}
@@ -31,18 +31,17 @@ const Footer = () => {
 				<div className="row">
 					<div className="col-14">
 						<ul className="Footer__items">
-							{wpMenu.menuItems.nodes.map((menuItem, index) => {
-								const path = menuItem?.connectedNode?.node?.uri ?? menuItem.url;
-
+							{wpMenu.menuItems.nodes.map((item, index) => {
+								const { id, path, label } = item;
 								return (
-									<li className="Footer__item" key={menuItem.id}>
-										<Link to={path}>
+									<li className="Footer__item" key={id}>
+										<AniLink to={path} cover direction="up" bg="#000000">
 											<H0
-												texts={`${0 !== index % 2 ? '↖ ' : ''}${
-													menuItem.label
-												}${0 === index % 2 ? ' ↗' : ''}`}
+												texts={`${0 !== index % 2 ? '↖ ' : ''}${label}${
+													0 === index % 2 ? ' ↗' : ''
+												}`}
 											/>
-										</Link>
+										</AniLink>
 									</li>
 								);
 							})}

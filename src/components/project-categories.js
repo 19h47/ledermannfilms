@@ -2,9 +2,9 @@ import React from 'react';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import { graphql, useStaticQuery } from 'gatsby';
 
-const listItem = ({ id, link, name, count }) => (
+const listItem = ({ id, uri, name, count }) => (
 	<li className="Project-categories__item" key={id}>
-		<AniLink cover direction="up" bg="#000000" to={link}>
+		<AniLink cover direction="up" bg="#000000" to={uri}>
 			{name}
 			<span>{count}</span>
 		</AniLink>
@@ -21,7 +21,7 @@ const ProjectCategories = () => {
 				nodes {
 					id
 					name
-					link
+					uri
 					count
 				}
 			}

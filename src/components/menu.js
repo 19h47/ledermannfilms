@@ -15,7 +15,7 @@ export default ({ className }) => {
 				menuItems {
 					nodes {
 						label
-						url
+						path
 						id
 					}
 				}
@@ -27,13 +27,11 @@ export default ({ className }) => {
 		<div className={`Menu${className ? ` ${className}` : ''}`} data-scroll>
 			<ul className="Menu__items">
 				{wpMenu.menuItems.nodes.map(menuItem => {
-					const path = menuItem?.connectedNode?.node?.uri ?? menuItem.url;
-
 					return (
 						<li className="Menu__item" key={menuItem.id}>
 							<AniLink
 								className="smallcaps"
-								to={path}
+								to={menuItem.path}
 								cover
 								direction="up"
 								bg="#000000">
