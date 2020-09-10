@@ -4,12 +4,19 @@
  *
  *
  */
-@mixin font-sizes($mobile, $desktop: $mobile, $base: $base-font-size) {
-	font-size: #{($mobile / $base)}em;
-	// font-size: #{($mobile * 100) / $prototype-width-unitless}vw;
-
-	@include media-breakpoint-up(md) {
-		font-size: #{($desktop / $base)}em;
+@mixin font-sizes($desktop, $line-height: false, $base: $base-font-size) {
+	@media (max-aspect-ratio: 3/2) {
 		font-size: #{($desktop * 100) / $prototype-width-unitless}vw;
+
+		@if $line-height {
+			line-height: #{($line-height * 100) / $prototype-width-unitless}vw;
+		}
+	}
+	@media (min-aspect-ratio: 3/2) {
+		font-size: #{($desktop * 100) / $prototype-height-unitless}vh;
+
+		@if $line-height {
+			line-height: #{($line-height * 100) / $prototype-height-unitless}vh;
+		}
 	}
 }

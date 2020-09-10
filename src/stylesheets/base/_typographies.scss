@@ -56,7 +56,7 @@ h6,
 
 .smallcaps {
 	@extend %font-weight-regular, %text-transform-uppercase;
-	@include font-sizes(13);
 
+	font-size: 14px;
 	line-height: $base-line-height-px;
 }

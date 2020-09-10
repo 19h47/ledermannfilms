@@ -52,8 +52,8 @@ export default ({ data }) => {
 			<Seo title={title} />
 
 			<div className="Hero">
-				<div className="Site-container">
-					<div className="Hero__body">
+				<div className="Site-container h-100">
+					<div className="Hero__body h-100">
 						<div className="Hero__content">
 							<div className="row">
 								<div className="col-14 col-md-12 offset-md-1">

@@ -9,10 +9,10 @@
 	@extend .d-flex, .align-items-center;
 	@extend %text-transform-uppercase, %white-space-nowrap;
 	@include padding(top 13px right 16px bottom 13px left 16px);
-	@include font-sizes(14);
 
 	border: 1px solid the_color(white);
 	border-radius: 26px;
+	font-size: 14px;
 	line-height: (16/14);
 
 	@include media-breakpoint-up(md) {

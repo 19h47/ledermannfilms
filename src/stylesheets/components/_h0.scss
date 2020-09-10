@@ -7,7 +7,7 @@
  *
  */
 .H0 {
-	@include font-sizes(54, 232);
+	@include font-sizes(232, 192);
 	@include margin(top 0 bottom 0);
 	@extend %font-weight-fine, %margin-0;
 
@@ -27,9 +27,9 @@
 			transition: transform 0.8s map-get($easings, ease-out-cubic);
 		}
 
-		&:not(:first-child) {
-			@include margin(top -6 * 8px);
-		}
+		// &:not(:first-child) {
+		// 	@include margin(top -6 * 8px);
+		// }
 	}
 
 	&.is-inview {

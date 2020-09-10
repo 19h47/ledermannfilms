@@ -32,10 +32,11 @@
 	}
 
 	&__header {
-		@include font-sizes(14);
 		@extend .d-flex, .justify-content-between;
 		@extend %text-transform-uppercase, %overflow-hidden;
 		@include margin(top 8 * 3px);
+
+		font-size: 14px;
 
 		&.is-inview {
 			p {

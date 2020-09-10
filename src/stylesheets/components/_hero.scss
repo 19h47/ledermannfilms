@@ -15,7 +15,7 @@
 	transition: visibility 0.7s map-get($easings, ease-out-expo),
 		opacity 0.7s map-get($easings, ease-out-expo);
 
-	height: calc(100vh - 102px);
+	height: calc(100vh - 182px);
 
 	&.is-hidden {
 		@include autoAlpha(0);
@@ -37,17 +37,14 @@
 		@include margin(top 3 * 8px bottom 3 * 8px);
 
 		background-color: the_color(white);
+		border: none;
 	}
 
 	&__body {
 		@extend %overflow-hidden, %position-relative;
+		@extend .d-flex, .flex--column, .justify-content-center;
 
 		border-radius: $base-line-height-px;
-		// height: 88px * 8;
-
-		// @include media-breakpoint-up(md) {
-		// 	height: 111px * 8;
-		// }
 	}
 
 	&__content {
@@ -69,7 +66,6 @@
 
 	&__footer {
 		@extend %position-relative;
-		// @include margin(top 16 * 8px);
 
 		z-index: 2;
 
@@ -82,6 +78,13 @@
 
 			line-height: (16/14);
 		}
+
+		@media (max-aspect-ratio: 3/2) {
+			@include margin(top #{((16 * 8) * 100) / $prototype-width-unitless}vw);
+		}
+		@media (min-aspect-ratio: 3/2) {
+			@include margin(top #{((16 * 8) * 100) / $prototype-height-unitless}vh);
+		}
 	}
 
 	&__location {
@@ -91,8 +94,8 @@
 			.justify-content-md-between,
 			.align-items-md-center;
 		@extend %text-transform-uppercase;
-		@include font-sizes(14);
 
+		font-size: 14px;
 		line-height: (16/14);
 
 		svg {
