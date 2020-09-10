@@ -6,7 +6,7 @@
  *
  */
 .Hero {
-	@include margin(top 26 * 8px bottom 26 * 8px);
+	@include margin(top #{26 * $scale-factor}px bottom #{26 * $scale-factor}px);
 
 	.gatsby-image-wrapper {
 		@include size(100%);
@@ -15,7 +15,7 @@
 	transition: visibility 0.7s map-get($easings, ease-out-expo),
 		opacity 0.7s map-get($easings, ease-out-expo);
 
-	height: calc(100vh - #{(16 * 8)}px);
+	height: calc(100vh);
 
 	&.is-hidden {
 		@include autoAlpha(0);
@@ -42,7 +42,7 @@
 
 	&__body {
 		@extend %overflow-hidden, %position-relative;
-		@extend .d-flex, .flex-column, .justify-content-center;
+		@extend .d-flex, .flex-column, .justify-content-end;
 
 		border-radius: $base-line-height-px;
 
@@ -97,16 +97,21 @@
 		// }
 
 		.Socials {
-			@include font-sizes(14);
-
+			font-size: 14px;
 			line-height: (16/14);
 		}
 
 		@media (max-aspect-ratio: 3/2) {
-			@include margin(top #{((16 * 8) * 100) / $prototype-width-unitless}vw);
+			@include margin(
+				top #{((17 * 8) * 100) / $prototype-width-unitless}vw bottom #{((22 * 8) * 100) /
+					$prototype-width-unitless}vw
+			);
 		}
 		@media (min-aspect-ratio: 3/2) {
-			@include margin(top #{((16 * 8) * 100) / $prototype-height-unitless}vh);
+			@include margin(
+				top #{((17 * 8) * 100) / $prototype-height-unitless}vh bottom #{((22 * 8) * 100) /
+					$prototype-height-unitless}vh
+			);
 		}
 	}
 

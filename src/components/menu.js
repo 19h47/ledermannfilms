@@ -24,7 +24,7 @@ export default ({ className }) => {
 	`);
 
 	return !!wpMenu && !!wpMenu.menuItems && !!wpMenu.menuItems.nodes ? (
-		<div className={`Menu${className ? ` ${className}` : ''}`} data-scroll>
+		<div className={`Menu margin-right-2${className ? ` ${className}` : ''}`} data-scroll>
 			<ul className="Menu__items">
 				{wpMenu.menuItems.nodes.map(menuItem => {
 					return (

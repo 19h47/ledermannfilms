@@ -16,7 +16,7 @@ const SiteName = ({ delay }) => {
 
 	return (
 		<AniLink
-			className="Site-name smallcaps d-inline-block"
+			className="Site-name smallcaps d-inline-block margin-left-2"
 			to="/"
 			data-scroll
 			cover
