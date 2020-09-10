@@ -4,7 +4,7 @@ export const fragments = graphql`
 	fragment HeroImage on File {
 		childImageSharp {
 			fluid(maxWidth: 1502) {
-				...GatsbyImageSharpFluid
+				...GatsbyImageSharpFluid_withWebp_noBase64
 			}
 		}
 	}

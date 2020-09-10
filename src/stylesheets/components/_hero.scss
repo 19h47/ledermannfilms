@@ -6,7 +6,7 @@
  *
  */
 .Hero {
-	@include margin(top #{26 * $scale-factor}px bottom #{26 * $scale-factor}px);
+	// @include margin(top #{26 * $scale-factor}px bottom #{26 * $scale-factor}px);
 
 	.gatsby-image-wrapper {
 		@include size(100%);
@@ -15,7 +15,7 @@
 	transition: visibility 0.7s map-get($easings, ease-out-expo),
 		opacity 0.7s map-get($easings, ease-out-expo);
 
-	height: calc(100vh);
+	height: 100vh;
 
 	&.is-hidden {
 		@include autoAlpha(0);
@@ -29,7 +29,7 @@
 		@extend %overflow-hidden;
 		@include margin(bottom 0);
 
-		height: 71 * 8px;
+		height: #{(71 * $scale-factor)}px;
 	}
 
 	hr {
@@ -71,13 +71,15 @@
 	}
 
 	&__content {
-		// @include margin(top 18 * 8px bottom 6 * 8px);
 		@extend %position-relative;
 
 		z-index: 3;
 
-		@include media-breakpoint-up(md) {
-			// @include margin(bottom 17 * 8px);
+		@media (max-aspect-ratio: 3/2) {
+			@include margin(bottom #{((22 * 8) * 100) / $prototype-width-unitless}vw);
+		}
+		@media (min-aspect-ratio: 3/2) {
+			@include margin(bottom #{((22 * 8) * 100) / $prototype-height-unitless}vh);
 		}
 	}
 
@@ -92,26 +94,16 @@
 
 		z-index: 3;
 
-		// @include media-breakpoint-up(md) {
-		// 	@include margin(top 6 * 8px);
-		// }
-
 		.Socials {
 			font-size: 14px;
 			line-height: (16/14);
 		}
 
 		@media (max-aspect-ratio: 3/2) {
-			@include margin(
-				top #{((17 * 8) * 100) / $prototype-width-unitless}vw bottom #{((22 * 8) * 100) /
-					$prototype-width-unitless}vw
-			);
+			@include margin(bottom #{((22 * 8) * 100) / $prototype-width-unitless}vw);
 		}
 		@media (min-aspect-ratio: 3/2) {
-			@include margin(
-				top #{((17 * 8) * 100) / $prototype-height-unitless}vh bottom #{((22 * 8) * 100) /
-					$prototype-height-unitless}vh
-			);
+			@include margin(bottom #{((22 * 8) * 100) / $prototype-height-unitless}vh);
 		}
 	}
 
@@ -125,6 +117,13 @@
 
 		font-size: 14px;
 		line-height: (16/14);
+
+		opacity: 0;
+		transition: opacity 0.7s map-get($easings, ease-out-expo) 0.4s;
+
+		&.is-inview {
+			opacity: 1;
+		}
 
 		svg {
 			@include size(32px);

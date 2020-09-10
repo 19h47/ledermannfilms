@@ -40,32 +40,44 @@ export default ({ data }) => {
 			<Seo title={title} />
 
 			<div className="Hero">
-				<div className="Site-container">
-					<footer className="Hero__footer">
-						<div className="row d-flex align-items-end">
-							<div className="col-14 col-md-4">
-								<div
-									className="Wysiwyg"
-									dangerouslySetInnerHTML={{ __html: content }}
-								/>
-							</div>
+				<div className="Site-container h-100">
+					<div className="Hero__body h-100" style={{ overflow: 'visible' }}>
+						<footer className="Hero__footer" style={{ height: '100%' }}>
+							<div className="row d-flex align-items-end" style={{ height: '100%' }}>
+								<div className="col-14 col-md-4" data-scroll>
+									<div
+										className="Wysiwyg"
+										style={{ transitionDelay: '0.6s' }}
+										dangerouslySetInnerHTML={{ __html: content }}
+									/>
+								</div>
 
-							<div className="col-7 offset-md-1">
-								<Img fluid={featuredImage.remoteFile.childImageSharp.fluid} />
-							</div>
-							<div className="col-7 col-md-2">
-								<div className="Hero__location">
-									<Flag />
-									Based in
-									<br />
-									Neuchâtel, CH.
+								<div className="col-7 offset-md-1" style={{ height: '100%' }}>
+									<Img
+										imgStyle={{
+											objectFit: 'contain',
+										}}
+										fadeIn={true}
+										backgroundColor={'#121212'}
+										durationFadeIn={1000}
+										fluid={featuredImage.remoteFile.childImageSharp.fluid}
+										style={{ transform: 'translate3d(0,112px,0)' }}
+									/>
+								</div>
+								<div className="col-7 col-md-2">
+									<div className="Hero__location" data-scroll>
+										<Flag />
+										Based in
+										<br />
+										Neuchâtel, CH.
+									</div>
+								</div>
+								<div className="col-14 order-3 d-md-none">
+									<hr />
 								</div>
 							</div>
-							<div className="col-14 order-3 d-md-none">
-								<hr />
-							</div>
-						</div>
-					</footer>
+						</footer>
+					</div>
 				</div>
 			</div>
 

@@ -15,6 +15,13 @@
 	font-size: 14px;
 	line-height: (16/14);
 
+	opacity: 0;
+	transition: opacity 0.7s map-get($easings, ease-out-expo);
+
+	&.is-inview {
+		opacity: 1;
+	}
+
 	@include media-breakpoint-up(md) {
 		@include padding(right 52px left 52px);
 	}

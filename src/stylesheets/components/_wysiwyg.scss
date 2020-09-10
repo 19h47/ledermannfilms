@@ -7,6 +7,14 @@
  *
  */
 .Wysiwyg {
+	$this: &;
+
+	opacity: 0;
+	transition: 0.7s opacity map-get($easings, ease-out-expo);
+
+	@at-root .is-inview #{$this} {
+		opacity: 1;
+	}
 	& > *:first-child {
 		@include margin(top 0);
 	}

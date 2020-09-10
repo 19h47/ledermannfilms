@@ -3,15 +3,22 @@ import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import Img from 'gatsby-image';
 
 const ProjectCard = ({ project, index }) => {
+	const { terms, title } = project;
+
 	const children = (
 		<>
 			<div className="Project-card__thumbnail" data-scroll>
-				<Img fadeIn fluid={project.featuredImage.node.localFile.childImageSharp.fluid} />
+				<Img
+					fadeIn={true}
+					backgroundColor={'black'}
+					durationFadeIn={1000}
+					fluid={project.featuredImage.node.localFile.childImageSharp.fluid}
+				/>
 			</div>
 
 			<header className="Project-card__header" data-scroll>
-				<p>{project.title}</p>
-				{project.terms && <p>{project.terms.nodes.map(term => term.name)}</p>}
+				<p>{title}</p>
+				{terms && <p>{terms.nodes.map(term => term.name)}</p>}
 				<p>({index + 1})</p>
 			</header>
 		</>

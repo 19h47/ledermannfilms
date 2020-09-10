@@ -18,15 +18,12 @@
 		border-radius: $base-line-height-px;
 		max-width: 100%;
 
-		opacity: 0;
 		line-height: (16/14);
 		transform: translate3d(0, $grid-gutter-width * 2, 0);
-		transition: opacity 0.7s map-get($easings, ease-out-expo),
-			transform 0.7s map-get($easings, ease-out-expo);
+		transition: transform 0.7s map-get($easings, ease-out-expo);
 		transform-style: preserve-3d;
 
 		&.is-inview {
-			opacity: 1;
 			transform: translate3d(0, 0, 0);
 		}
 	}

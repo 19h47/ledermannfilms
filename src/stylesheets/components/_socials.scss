@@ -7,7 +7,15 @@
  *
  */
 .Socials {
+	$this: &;
+
 	@include margin(top -8px bottom -8px);
+
+	@at-root .is-inview #{$this} {
+		a {
+			transform: translate3d(0, 0, 0);
+		}
+	}
 
 	&__items {
 		@extend .d-flex;
@@ -15,6 +23,7 @@
 	}
 
 	&__item {
+		@extend %overflow-hidden;
 		@include margin(right 8px left 8px);
 
 		&:first-child {
@@ -26,8 +35,12 @@
 
 		a {
 			@include padding(top 8px bottom 8px);
+			@extend .d-inline-block;
 
-			transition: border-bottom 0.3s map-get($easings, ease-out-expo);
+			transition: border-bottom 0.3s map-get($easings, ease-out-expo),
+				transform 0.7s map-get($easings, ease-out-expo);
+			transform: translate3d(0, $grid-gutter-width * 2, 0);
+			transform-style: preserve-3d;
 
 			&:hover {
 				border-bottom: 1px solid the_color(white);

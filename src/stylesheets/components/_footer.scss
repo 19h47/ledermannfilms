@@ -31,8 +31,7 @@
 		@include margin(top #{(30 - 8)}px bottom #{(62 - 8)}px);
 		@extend .d-flex, .justify-content-between;
 
-		@include font-sizes(14);
-
+		font-size: 14px;
 		line-height: (16/14);
 
 		a {
