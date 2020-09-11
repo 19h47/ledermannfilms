@@ -7,6 +7,6 @@
  */
 .Work-page {
 	.Projects__items {
-		@include margin(top 8 * -65px);
+		@include aspect-ratio-size(-65 * $scale-factor, 'margin-top');
 	}
 }

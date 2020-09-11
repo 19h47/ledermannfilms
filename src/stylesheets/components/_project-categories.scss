@@ -18,10 +18,10 @@
 	}
 	&__item {
 		@extend %font-weight-light;
-		@include font-sizes(31);
-		@include margin(top 3 * 8px bottom 3 * 8px);
 
-		line-height: (32/31);
+		@include aspect-ratio-size(31, 'font-size');
+		@include aspect-ratio-size(32, 'line-height');
+		@include margin(top 3 * 8px bottom 3 * 8px);
 
 		&:first-child {
 			@include margin(top 0);
@@ -37,9 +37,9 @@
 				@extend .d-inline-block;
 				@extend %vertical-align-middle;
 				@include margin(bottom 8px left 4px);
-				@include font-sizes(16);
 
-				line-height: (24/16);
+				@include aspect-ratio-size(16, 'font-size');
+				@include aspect-ratio-size(24, 'line-height');
 			}
 
 			&[aria-current='page']::after {

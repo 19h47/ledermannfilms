@@ -32,7 +32,8 @@
 	&__text {
 		p {
 			@extend %font-weight-light;
-			@include font-sizes(54, 60);
+			@include aspect-ratio-size(54, 'font-size');
+			@include aspect-ratio-size(60, 'line-height');
 
 			font-feature-settings: 'salt' on;
 

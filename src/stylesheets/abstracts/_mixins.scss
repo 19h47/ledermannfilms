@@ -1,22 +1,14 @@
 /**
- * Font sizes
+ * Aspect ratio size
  *
- *
- *
+ * @param int value
+ * @param str property
  */
-@mixin font-sizes($desktop, $line-height: false, $base: $base-font-size) {
+@mixin aspect-ratio-size($value, $property) {
 	@media (max-aspect-ratio: 3/2) {
-		font-size: #{($desktop * 100) / $prototype-width-unitless}vw;
-
-		@if $line-height {
-			line-height: #{($line-height * 100) / $prototype-width-unitless}vw;
-		}
+		#{ $property }: vw_size($value);
 	}
 	@media (min-aspect-ratio: 3/2) {
-		font-size: #{($desktop * 100) / $prototype-height-unitless}vh;
-
-		@if $line-height {
-			line-height: #{($line-height * 100) / $prototype-height-unitless}vh;
-		}
+		#{ $property }: vh_size($value);
 	}
 }

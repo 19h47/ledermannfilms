@@ -8,20 +8,21 @@
 .Projects {
 	&__items {
 		@extend %list-style-type-none;
-		@include margin(top #{-28 * 8}px);
+		@include aspect-ratio-size(-28 * $scale-factor, 'margin-top');
 	}
 
 	&__item {
-		@include margin(top 8 * 11.5px bottom 8 * 11.5px);
+		@include aspect-ratio-size(12 * $scale-factor, 'margin-top');
+		@include aspect-ratio-size(12 * $scale-factor, 'margin-bottom');
 
 		&:nth-child(6n + 3) {
 			.Project-card {
-				@include margin(top 8 * 28px);
+				@include aspect-ratio-size(28 * $scale-factor, 'margin-top');
 			}
 		}
 		&:nth-child(6n + 5) {
 			.Project-card {
-				@include margin(top 8 * 12px);
+				@include aspect-ratio-size(12 * $scale-factor, 'margin-top');
 			}
 		}
 		&:first-child {

@@ -11,10 +11,10 @@
 	&__navigation {
 		@extend %list-style-type-none;
 		@extend .d-flex;
-		@include font-sizes(11);
-		@include margin(bottom 5 * 8px);
 
-		line-height: (16/11);
+		@include aspect-ratio-size(11, 'font-size');
+		@include aspect-ratio-size(16, 'line-height');
+		@include margin(bottom 5 * 8px);
 
 		li {
 			@include margin(right 12px left 12px);
@@ -60,10 +60,9 @@
 	}
 
 	&__content {
-		@include font-sizes(54);
+		@include aspect-ratio-size(54, 'font-size');
+		@include aspect-ratio-size(60, 'line-height');
 		@extend %font-weight-light;
-
-		line-height: (60/54);
 
 		section {
 			& > *:last-child {

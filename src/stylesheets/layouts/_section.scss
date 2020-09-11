@@ -6,10 +6,12 @@
  *
  */
 .Section {
-	@include margin(top #{(26 * $scale-factor)}px bottom #{(26 * $scale-factor)}px);
+	@include aspect-ratio-size(26 * $scale-factor, 'margin-top');
+	@include aspect-ratio-size(26 * $scale-factor, 'margin-bottom');
 
 	&__header {
-		@include margin(bottom 8 * 26px);
+		@include aspect-ratio-size(26 * $scale-factor, 'margin-bottom');
+
 		hr {
 			@include margin(bottom $base-line-height-px);
 			@include size(100%, 1px);
@@ -33,7 +35,8 @@
 	}
 
 	&__inner {
-		@include margin(top 26 * 8px bottom 26 * 8px);
+		@include aspect-ratio-size(26 * $scale-factor, 'margin-top');
+		@include aspect-ratio-size(26 * $scale-factor, 'margin-bottom');
 	}
 
 	&#{ & }--projects {

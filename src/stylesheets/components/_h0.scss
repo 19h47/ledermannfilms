@@ -7,9 +7,10 @@
  *
  */
 .H0 {
-	@include font-sizes(232, 232);
-	@include margin(top 0 bottom 0);
 	@extend %font-weight-fine, %margin-0;
+	@include aspect-ratio-size(232, 'font-size');
+	@include aspect-ratio-size(232, 'line-height');
+	@include margin(top 0 bottom 0);
 
 	font-feature-settings: 'salt' on;
 	perspective: 600px;
