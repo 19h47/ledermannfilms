@@ -11,7 +11,8 @@
 	}
 
 	&__item {
-		@include margin(top 8.5 * 8px bottom 8.5 * 8px);
+		@include aspect-ratio-size(8 * $scale-factor, 'margin-top');
+		@include aspect-ratio-size(8 * $scale-factor, 'margin-bottom');
 
 		&:first-child {
 			@include margin(top 0);

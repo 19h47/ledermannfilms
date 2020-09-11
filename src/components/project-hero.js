@@ -20,8 +20,8 @@ const ProjectHero = ({ project, footer = false, show = true, truncated = false }
 			className={`Hero${show ? ' is-visible' : ' is-hidden'}${
 				truncated ? ' is-truncated' : ''
 			}`}>
-			<div className="Site-container">
-				<div className="Hero__body">
+			<div className="Site-container h-100">
+				<div className="Hero__body h-100">
 					<div className="Hero__content">
 						<div className="row">
 							<div className="col-14 col-md-12 offset-md-1">
@@ -34,7 +34,11 @@ const ProjectHero = ({ project, footer = false, show = true, truncated = false }
 						<footer className="Hero__footer">
 							<div className="row d-flex align-items-end align-items-md-center">
 								<div className="col-14 col-md-6 offset-md-1 order-4 order-md-0">
-									<button className="Button" type="button">
+									<button
+										className="Button"
+										type="button"
+										data-scroll
+										style={{ transitionDelay: '0.6s' }}>
 										watch the video
 										<Play />
 									</button>

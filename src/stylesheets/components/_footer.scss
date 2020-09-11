@@ -38,7 +38,8 @@
 			@extend .d-inline-block;
 			@include padding(top 8px bottom 8px);
 
-			transition: border-bottom 0.3s map-get($easings, ease-out-expo);
+			transition: border-color 0.3s map-get($easings, ease-out-expo);
+			border-bottom: 1px solid rgba(the_color(white), 0);
 
 			&:hover {
 				border-bottom: 1px solid the_color(white);

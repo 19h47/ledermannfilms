@@ -30,19 +30,10 @@
 	}
 
 	&__text {
-		p {
-			@extend %font-weight-light;
-			@include aspect-ratio-size(54, 'font-size');
-			@include aspect-ratio-size(60, 'line-height');
+		@extend %font-weight-light;
+		@include aspect-ratio-size(54, 'font-size');
+		@include aspect-ratio-size(60, 'line-height');
 
-			font-feature-settings: 'salt' on;
-
-			&:first-child {
-				@include margin(top 0);
-			}
-			&:last-child {
-				@include margin(bottom 0);
-			}
-		}
+		font-feature-settings: 'salt' on;
 	}
 }

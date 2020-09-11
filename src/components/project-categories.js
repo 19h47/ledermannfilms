@@ -32,7 +32,11 @@ const ProjectCategories = () => {
 	`);
 
 	return (
-		<div className="Project-categories">
+		<div
+			className="Project-categories"
+			data-scroll
+			data-scroll-sticky
+			data-scroll-target="#wrapper">
 			<ul className="Project-categories__items">
 				<li className="Project-categories__item">
 					<AniLink cover direction="up" bg="#000000" to="/work/">

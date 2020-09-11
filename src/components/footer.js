@@ -9,7 +9,7 @@ import ButtonScrollTo from '@/components/button-scroll-to';
 import { ContactsContext } from '@/contacts-context';
 
 const Footer = () => {
-	const { el, toggle } = useContext(ContactsContext);
+	const { el, scroll, toggle } = useContext(ContactsContext);
 	const { wpMenu } = useStaticQuery(graphql`
 		{
 			wpMenu(slug: { eq: "footer" }) {
@@ -67,7 +67,7 @@ const Footer = () => {
 								<Link to="/legal">Legal</Link>
 							</li>
 							<li>
-								<ButtonScrollTo el={el} />
+								<ButtonScrollTo el={el} scroll={scroll} />
 							</li>
 						</ul>
 					</div>

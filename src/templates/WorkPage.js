@@ -25,15 +25,14 @@ export default ({ data }) => {
 	return (
 		<Layout className="Work-page">
 			<Seo title={title} />
-			<div>
-				<div className="Site-container">
-					<div className="row">
-						<div className="col-14">
-							<H0 texts={['All', 'Projects']} />
-						</div>
-						<div className="col-14">
-							<ProjectCategories />
-						</div>
+
+			<div className="Site-container">
+				<div className="row">
+					<div className="col-14">
+						<H0 texts={['All', 'Projects']} />
+					</div>
+					<div className="col-14">
+						<ProjectCategories />
 					</div>
 				</div>
 			</div>
@@ -47,6 +46,7 @@ export default ({ data }) => {
 					</div>
 				</div>
 			</div>
+
 			<Footer />
 		</Layout>
 	);

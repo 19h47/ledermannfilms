@@ -215,7 +215,7 @@ const ProjectInner = ({ mount, data }) => {
 									</div>
 								</div>
 								<div className="col-5">
-									<h2>NExt project</h2>
+									<h2>Next project</h2>
 								</div>
 								<div className="col-4">
 									<div className="Section__header__diamond text-align-right">

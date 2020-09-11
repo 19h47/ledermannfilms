@@ -12,8 +12,9 @@
 		@extend %list-style-type-none;
 		@extend .d-flex;
 
-		@include aspect-ratio-size(11, 'font-size');
-		@include aspect-ratio-size(16, 'line-height');
+		font-size: 11px;
+		min-height: (16/11);
+
 		@include margin(bottom 5 * 8px);
 
 		li {

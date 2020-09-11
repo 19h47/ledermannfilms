@@ -38,7 +38,7 @@
 			@include margin(right 12px left 12px);
 
 			border-bottom: 1px solid rgba(the_color(white), 0);
-			transition: border-bottom 0.3s map-get($easings, ease-out-expo);
+			transition: border-color 0.3s map-get($easings, ease-out-expo);
 
 			span {
 				@extend .d-inline-block;
