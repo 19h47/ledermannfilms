@@ -38,7 +38,3 @@ p {
 strong {
 	@extend %font-weight-bold;
 }
-
-[data-scroll-container] {
-	@extend %overflow-hidden;
-}
