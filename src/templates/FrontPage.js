@@ -2,8 +2,10 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
+import Content from '@/components/content';
 import H0 from '@/components/h0';
 import Layout from '@/components/layout';
+import SectionHeader from '@/components/section-header';
 import Seo from '@/components/seo';
 import Socials from '@/components/socials';
 import Projects from '@/components/projects';
@@ -11,7 +13,6 @@ import Footer from '@/components/footer';
 
 import Play from '@/assets/svg/play.inline.svg';
 import Flag from '@/assets/svg/flag.inline.svg';
-import Label from '@/assets/svg/label.inline.svg';
 
 export const query = graphql`
 	query frontPage($id: String!) {
@@ -109,43 +110,10 @@ export default ({ data }) => {
 				</div>
 			</div>
 
-			<div className="Content" data-scroll>
-				<div className="Site-container">
-					<div className="row">
-						<div className="col-14 offset-md-5 col-md-9">
-							<div
-								className="Content__text"
-								dangerouslySetInnerHTML={{ __html: content.text.en }}
-							/>
-						</div>
-					</div>
-				</div>
-			</div>
+			<Content text={content.text.en} />
 
 			<div className="Section Section--projects">
-				<header className="Section__header">
-					<div className="Site-container">
-						<div className="row">
-							<div className="col-14">
-								<hr />
-							</div>
-						</div>
-						<div className="row">
-							<div className="col-5 d-none d-md-block">
-								<div className="Label">
-									<Label />
-									Work
-								</div>
-							</div>
-							<div className="col-5">
-								<h2>Main projects</h2>
-							</div>
-							<div className="col-18 col-md-4">
-								<div className="Section__header__diamond text-align-right">⦿</div>
-							</div>
-						</div>
-					</div>
-				</header>
+				<SectionHeader />
 
 				<div>
 					<div className="Site-container">

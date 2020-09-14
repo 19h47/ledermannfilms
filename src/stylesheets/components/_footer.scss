@@ -28,12 +28,13 @@
 		}
 
 		&::after {
-			@include absolute(top 100% right 0 left 0);
+			@include absolute(right 0 bottom 0 left 0);
 			@include size(100%, 1px);
 			@extend .d-block;
 
 			background-color: the_color(white);
 			transition: transform 1s map-get($easings, ease-out-expo) 0.7s;
+			transform-style: preserve-3d;
 			content: '';
 
 			@at-root #{ $this }[data-scroll]#{ $this }--left::after {
@@ -75,8 +76,7 @@
 			}
 
 			a {
-				transition: border-color 0.3s map-get($easings, ease-out-expo),
-					transform 0.7s map-get($easings, ease-out-expo);
+				transition: transform 0.7s map-get($easings, ease-out-expo);
 			}
 		}
 
@@ -89,13 +89,25 @@
 
 		a {
 			@extend .d-inline-block;
+			@extend %position-relative;
 			@include padding(top 8px bottom 8px);
 
-			transition: border-color 0.3s map-get($easings, ease-out-expo);
-			border-bottom: 1px solid rgba(the_color(white), 0);
+			&::after {
+				@include absolute(right 0 bottom 0 left 0);
+				@extend .d-block;
+				@include size(100%, 1px);
 
-			&:hover {
-				border-bottom: 1px solid the_color(white);
+				background-color: the_color(white);
+				transform-style: preserve-3d;
+				transform: scaleX(0);
+				transform-origin: left center;
+				transition: transform 0.7s map-get($easings, ease-out-expo);
+
+				content: '';
+			}
+
+			&:hover::after {
+				transform: scaleX(1);
 			}
 		}
 	}

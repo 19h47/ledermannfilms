@@ -9,31 +9,6 @@
 	@include aspect-ratio-size(26 * $scale-factor, 'margin-top');
 	@include aspect-ratio-size(26 * $scale-factor, 'margin-bottom');
 
-	&__header {
-		@include aspect-ratio-size(26 * $scale-factor, 'margin-bottom');
-
-		hr {
-			@include margin(bottom $base-line-height-px);
-			@include size(100%, 1px);
-
-			background-color: the_color(white);
-			border: none;
-		}
-
-		h2 {
-			@include margin(top 0 bottom 0);
-			@extend %text-transform-uppercase;
-
-			font-size: 14px;
-			line-height: (16/14);
-		}
-
-		&__diamond {
-			font-size: 14px;
-			line-height: (16/14);
-		}
-	}
-
 	&__inner {
 		@include aspect-ratio-size(26 * $scale-factor, 'margin-top');
 		@include aspect-ratio-size(26 * $scale-factor, 'margin-bottom');

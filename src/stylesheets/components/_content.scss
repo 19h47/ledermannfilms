@@ -22,18 +22,30 @@
 		);
 	}
 
-	transition: opacity 0.7s map-get($easings, ease-out-expo) 0.6s;
-	opacity: 0;
-
-	&.is-inview {
-		opacity: 1;
-	}
-
 	&__text {
 		@extend %font-weight-light;
 		@include aspect-ratio-size(54, 'font-size');
 		@include aspect-ratio-size(60, 'line-height');
 
 		font-feature-settings: 'salt' on;
+
+		&[data-scroll='true'] {
+			.lineParent {
+				@extend %overflow-hidden;
+			}
+
+			.lineChild {
+				transition: transform 0.8s map-get($easings, ease-out-expo) 0.4s;
+				transform: translate3d(0, 100%, 0);
+				transform-origin: center top;
+				transform-style: preserve-3d;
+			}
+
+			&.is-inview {
+				.lineChild {
+					transform: none;
+				}
+			}
+		}
 	}
 }

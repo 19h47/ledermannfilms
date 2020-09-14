@@ -33,12 +33,9 @@
 		a,
 		button {
 			@extend .d-block;
-			@extend %overflow-hidden;
+			@extend %overflow-hidden, %position-relative;
 			@include padding(top 8px bottom 8px);
 			@include margin(right 12px left 12px);
-
-			border-bottom: 1px solid rgba(the_color(white), 0);
-			transition: border-color 0.3s map-get($easings, ease-out-expo);
 
 			span {
 				@extend .d-inline-block;
@@ -47,6 +44,24 @@
 				transform: translateY(100%);
 
 				transition: transform 0.8s map-get($easings, ease-out-cubic);
+			}
+
+			&::after {
+				@include absolute(right 0 bottom 0 left 0);
+				@extend .d-block;
+				@include size(100%, 1px);
+
+				background-color: the_color(white);
+				transform-style: preserve-3d;
+				transform: scaleX(0);
+				transform-origin: left center;
+				transition: transform 0.7s map-get($easings, ease-out-expo);
+
+				content: '';
+			}
+
+			&:hover::after {
+				transform: scaleX(1);
 			}
 		}
 	}
@@ -59,9 +74,8 @@
 					transform: none;
 				}
 
-				&[aria-current='page'],
-				&:hover {
-					border-bottom: 1px solid the_color(white);
+				&[aria-current='page']::after {
+					transform: scaleX(1);
 				}
 			}
 

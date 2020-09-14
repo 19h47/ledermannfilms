@@ -27,12 +27,9 @@ const ProjectText = ({ data }) => {
 	}, [tabsRef]);
 
 	useEffect(() => {
-		console.log(itemRefs);
-
 		return (
 			itemRefs.current.length &&
 			itemRefs.current.forEach(item => {
-				console.log(item);
 				new SplitText(item, { type: 'lines', linesClass: 'lineChild' });
 				new SplitText(item, { type: 'lines', linesClass: 'lineParent' });
 			})

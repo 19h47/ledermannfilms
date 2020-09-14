@@ -8,18 +8,18 @@
  */
 .Label {
 	@extend .d-flex, .align-items-center;
-	@extend %text-transform-uppercase;
+	@extend %text-transform-uppercase, %overflow-hidden;
 
 	font-size: 11px;
 	line-height: (16/11);
 
-	&::before {
+	span::before {
 		@extend .d-inline-block;
 		@include margin(right 8px);
 
 		content: '(';
 	}
-	&::after {
+	span::after {
 		@extend .d-inline-block;
 		@include margin(left 8px);
 
@@ -31,5 +31,15 @@
 		@include size(16px, 8px);
 
 		min-width: 16px;
+	}
+
+	&[data-scroll] span {
+		transition: transform 1s map-get($easings, ease-out-expo);
+		transform: translate3d(0, 100%, 0);
+		transform-style: preserve-3d;
+	}
+
+	&[data-scroll].is-inview span {
+		transform: translate3d(0, 0, 0);
 	}
 }

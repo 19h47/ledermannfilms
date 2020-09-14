@@ -3,8 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
 import H0 from '@/components/h0';
-
-import Label from '@/assets/svg/label.inline.svg';
+import SectionHeader from '@/components/section-header';
 
 function Clients() {
 	const {
@@ -31,29 +30,7 @@ function Clients() {
 
 	return (
 		<div className="Section">
-			<header className="Section__header">
-				<div className="Site-container">
-					<div className="row">
-						<div className="col-14">
-							<hr />
-						</div>
-					</div>
-					<div className="row">
-						<div className="col-5 d-none d-md-block">
-							<div className="Label">
-								<Label />
-								Work
-							</div>
-						</div>
-						<div className="col-5">
-							<h2>Main projects</h2>
-						</div>
-						<div className="col-4">
-							<div className="Section__header__diamond text-align-right">⦿</div>
-						</div>
-					</div>
-				</div>
-			</header>
+			<SectionHeader />
 
 			<div className="Site-container">
 				<div className="row">

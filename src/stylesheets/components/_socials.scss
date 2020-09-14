@@ -11,10 +11,21 @@
 
 	@include margin(top -8px bottom -8px);
 
-	@at-root .is-inview #{$this} {
-		a {
-			transform: translate3d(0, 0, 0);
+	@at-root .Hero [data-scroll] #{ $this } {
+		@for $i from 1 through 4 {
+			li:nth-child(#{$i}) a {
+				transition-delay: $i * 0.2s;
+			}
 		}
+		a {
+			transition: transform 0.7s map-get($easings, ease-out-expo);
+			transform: translate3d(0, $grid-gutter-width * 2, 0);
+			transform-style: preserve-3d;
+		}
+	}
+
+	@at-root .Hero [data-scroll].is-inview #{$this} a {
+		transform: translate3d(0, 0, 0);
 	}
 
 	&__items {
@@ -36,14 +47,24 @@
 		a {
 			@include padding(top 8px bottom 8px);
 			@extend .d-inline-block;
+			@extend %position-relative;
 
-			transition: border-bottom 0.3s map-get($easings, ease-out-expo),
-				transform 0.7s map-get($easings, ease-out-expo);
-			transform: translate3d(0, $grid-gutter-width * 2, 0);
-			transform-style: preserve-3d;
+			&::after {
+				@include absolute(right 0 bottom 0 left 0);
+				@extend .d-block;
+				@include size(100%, 1px);
 
-			&:hover {
-				border-bottom: 1px solid the_color(white);
+				background-color: the_color(white);
+				transform-style: preserve-3d;
+				transform: scaleX(0);
+				transform-origin: left center;
+				transition: transform 0.7s map-get($easings, ease-out-expo);
+
+				content: '';
+			}
+
+			&:hover::after {
+				transform: scaleX(1);
 			}
 		}
 	}

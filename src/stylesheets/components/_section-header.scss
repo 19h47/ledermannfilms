@@ -1,0 +1,65 @@
+/**
+ * Section header
+ *
+ *
+ *
+ *
+ */
+.Section-header {
+	@include aspect-ratio-size(26 * $scale-factor, 'margin-bottom');
+
+	hr {
+		@include margin(bottom $base-line-height-px);
+		@include size(100%, 1px);
+
+		background-color: the_color(white);
+		border: none;
+
+		&[data-scroll] {
+			transition: transform 1s map-get($easings, ease-out-expo) 0.7s;
+			transform: scaleX(0);
+			transform-style: preserve-3d;
+			transform-origin: left center;
+		}
+		&[data-scroll].is-inview {
+			transform: scaleX(1);
+		}
+	}
+
+	h2 {
+		@include margin(top 0 bottom 0);
+		@extend %text-transform-uppercase, %overflow-hidden;
+
+		font-size: 14px;
+		line-height: (16/14);
+
+		&[data-scroll] span {
+			@extend .d-inline-block;
+
+			transition: transform 1s map-get($easings, ease-out-expo) 0.7s;
+			transform: translate3d(0, 100%, 0);
+			transform-style: preserve-3d;
+		}
+		&[data-scroll].is-inview span {
+			transform: translate3d(0, 0, 0);
+		}
+	}
+
+	&__diamond {
+		@extend %overflow-hidden;
+
+		font-size: 14px;
+		line-height: (16/14);
+
+		&[data-scroll] span {
+			@extend .d-inline-block;
+
+			transition: transform 1s map-get($easings, ease-out-expo) 0.7s;
+			transform: translate3d(0, 100%, 0);
+			transform-style: preserve-3d;
+		}
+		&[data-scroll].is-inview span {
+			transform: translate3d(0, 0, 0);
+		}
+	}
+}
