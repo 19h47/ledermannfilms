@@ -49,7 +49,7 @@ export default ({ data }) => {
 	} = page;
 
 	return (
-		<Layout>
+		<Layout className="Front-page">
 			<Seo title={title} />
 
 			<div className="Hero">

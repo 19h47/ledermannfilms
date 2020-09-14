@@ -62,18 +62,18 @@ module.exports = {
 			},
 		},
 		`gatsby-plugin-netlify-cache`,
-		// {
-		// 	resolve: `gatsby-plugin-manifest`,
-		// 	options: {
-		// 		name: `Ledermann Films`,
-		// 		short_name: `ledermannfilms`,
-		// 		start_url: `.`,
-		// 		background_color: `#121212`,
-		// 		theme_color: `#121212`,
-		// 		display: `minimal-ui`,
-		// 		icon: `src/assets/images/icon.png`,
-		// 	},
-		// },
+		{
+			resolve: `gatsby-plugin-manifest`,
+			options: {
+				name: `Ledermann Films`,
+				short_name: `ledermannfilms`,
+				start_url: `.`,
+				background_color: `#121212`,
+				theme_color: `#121212`,
+				display: `minimal-ui`,
+				icon: `src/assets/images/icon.png`,
+			},
+		},
 		{
 			resolve: `gatsby-plugin-alias-imports`,
 			options: {

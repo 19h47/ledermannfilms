@@ -13,12 +13,10 @@ const Layout = ({ children, className }) => {
 	const scrollRef = useRef(null);
 
 	useEffect(() => {
-		console.log('scroll');
+		console.log(scrollRef.current);
 		const scroll = new LocomotiveScroll({
 			el: scrollRef.current,
 			smooth: true,
-			smoothMobile: false,
-			getDirection: true,
 			touchMultiplier: 2.5,
 			lerp: 0.15,
 		});
@@ -27,16 +25,16 @@ const Layout = ({ children, className }) => {
 
 		window.scroll = scroll;
 
-		scroll.on('scroll', ({ direction }) => {
-			document.documentElement.setAttribute('data-direction', direction);
-		});
+		// scroll.on('scroll', ({ direction }) => {
+		// 	document.documentElement.setAttribute('data-direction', direction);
+		// });
 
 		return () => scroll.destroy();
 	}, [scrollRef]);
 
 	return (
 		<ContactsProvider el={scrollRef}>
-			<div ref={scrollRef}>
+			<div ref={scrollRef} data-scroll-container>
 				<div id="wrapper" className={`Site-wrapper${className ? ` ${className}` : ''}`}>
 					<Header />
 					<Contacts />

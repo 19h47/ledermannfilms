@@ -8,7 +8,7 @@
  *
  */
 .Project-categories {
-	@extend %position-relative;
+	@extend %position-relative, %Pointer-events-none;
 	@include margin(top 15 * 8px);
 
 	z-index: 1;
@@ -31,7 +31,7 @@
 		}
 
 		a {
-			@extend %position-relative;
+			@extend %position-relative, %Pointer-events-auto;
 
 			span {
 				@extend .d-inline-block;
@@ -42,7 +42,7 @@
 				@include aspect-ratio-size(24, 'line-height');
 			}
 
-			&[aria-current='page']::after {
+			&::after {
 				@include absolute(top 50% right 0 bottom 0 left 50%);
 				@extend .d-block;
 				@include size(
@@ -51,10 +51,16 @@
 				);
 
 				transform: translate(-50%, -50%);
+				transition: opacity 0.7s map-get($easings, ease-out-expo);
+				opacity: 0;
 
 				background-image: url('../assets/images/oval.svg');
 				background-size: 100%;
 				content: '';
+			}
+
+			&[aria-current='page']::after {
+				opacity: 1;
 			}
 		}
 	}

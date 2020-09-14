@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
@@ -27,6 +27,8 @@ export const query = graphql`
 `;
 
 export default ({ data }) => {
+	const contentRef = useRef(null);
+
 	const {
 		page: {
 			title,
@@ -46,6 +48,7 @@ export default ({ data }) => {
 							<div className="row d-flex align-items-end" style={{ height: '100%' }}>
 								<div className="col-14 col-md-4" data-scroll>
 									<div
+										ref={contentRef}
 										className="Wysiwyg"
 										style={{ transitionDelay: '0.6s' }}
 										dangerouslySetInnerHTML={{ __html: content }}

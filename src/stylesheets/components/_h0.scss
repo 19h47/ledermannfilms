@@ -15,10 +15,7 @@
 	font-feature-settings: 'salt' on;
 	perspective: 600px;
 
-	&__line {
-		@extend .d-block;
-		// @extend %overflow-hidden;
-
+	[data-scroll] {
 		span {
 			@extend .d-inline-block;
 			transform-origin: center top;
@@ -27,8 +24,6 @@
 
 			transition: transform 0.8s map-get($easings, ease-out-cubic);
 		}
-
-		// clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 
 		@media (max-aspect-ratio: 3/2) {
 			clip-path: polygon(
@@ -46,12 +41,16 @@
 				0% calc(100% + #{vh_size(40)})
 			);
 		}
+	}
 
-		&.is-inview {
-			span {
-				transform: none;
-			}
+	[data-scroll].is-inview {
+		span {
+			transform: none;
 		}
+	}
+
+	&__line {
+		@extend .d-block;
 
 		&:not(:first-child) {
 			@media (max-aspect-ratio: 3/2) {
