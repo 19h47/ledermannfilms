@@ -6,8 +6,9 @@
   version "4.0.12"
   resolved "https://codeload.github.com/19h47/architecture/tar.gz/c7c332a32e7c6a805f638b69237b48c58141a95c"
   dependencies:
-    bootstrap "^4.5.0"
-    ress "2.0.4"
+    "@19h47/prettier-config" "^1.0.0"
+    bootstrap "^4.5.2"
+    ress "3.0.0"
 
 "@19h47/keycode@3.0.0":
   version "3.0.0"
@@ -1528,9 +1529,9 @@
     unist-util-visit "2.0.3"
 
 "@mdx-js/react@^1.5.2":
-  version "1.6.16"
-  resolved "https://registry.yarnpkg.com/@mdx-js/react/-/react-1.6.16.tgz#538eb14473194d0b3c54020cb230e426174315cd"
-  integrity sha512-+FhuSVOPo7+4fZaRwWuCSRUcZkJOkZu0rfAbBKvoCg1LWb1Td8Vzi0DTLORdSvgWNbU6+EL40HIgwTOs00x2Jw==
+  version "1.6.17"
+  resolved "https://registry.yarnpkg.com/@mdx-js/react/-/react-1.6.17.tgz#2c3a0ec3f9f5e03440f9d2f34296a79933d73231"
+  integrity sha512-UdzGY6/eeeJlGOWw0evhQfUxP/+DRt+530lqOkgNrYPyp6q2t1kr0Z0kukPAY9Bwv9lyIGMEm9jeNvBpRnYVgg==
 
 "@mdx-js/react@^2.0.0-next.4", "@mdx-js/react@^2.0.0-next.7":
   version "2.0.0-next.7"
@@ -2883,9 +2884,9 @@ babel-plugin-macros@^2.0.0, babel-plugin-macros@^2.8.0:
     resolve "^1.12.0"
 
 babel-plugin-remove-export-keywords@^1.6.5:
-  version "1.6.16"
-  resolved "https://registry.yarnpkg.com/babel-plugin-remove-export-keywords/-/babel-plugin-remove-export-keywords-1.6.16.tgz#e764b42e3c8e4a5ce3e2c996dc43b6348d5d94cf"
-  integrity sha512-JrB9ZASlMAfkRF+5NdgoQxgenhJxzXFEO1vrqsSDJdzLrC38L2wrvXF9mm1YLbrehkZxcrNz9UYDyARP4jaY9g==
+  version "1.6.17"
+  resolved "https://registry.yarnpkg.com/babel-plugin-remove-export-keywords/-/babel-plugin-remove-export-keywords-1.6.17.tgz#817165bc30a115aca8deb120292de499d60a8ab5"
+  integrity sha512-Rt5Xgv20z61AQyDqhchWeiVJAmixvjSgWvB0eybPxCCYIo4faPFkQhPHWkfX2U7C+5J9UXzIBlUiR5xs6x8jzg==
 
 babel-plugin-remove-graphql-queries@^2.9.18:
   version "2.9.18"
@@ -5382,9 +5383,9 @@ es-to-primitive@^1.2.1:
     is-symbol "^1.0.2"
 
 escalade@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/escalade/-/escalade-3.0.2.tgz#6a580d70edb87880f22b4c91d0d56078df6962c4"
-  integrity sha512-gPYAU37hYCUhW5euPeR+Y74F7BL+IBsV93j5cvGriSaD1aG6MGsqsV1yamRdrWrb2j3aiZvb0X+UBOWpx3JWtQ==
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/escalade/-/escalade-3.1.0.tgz#e8e2d7c7a8b76f6ee64c2181d6b8151441602d4e"
+  integrity sha512-mAk+hPSO8fLDkhV7V0dXazH5pDc6MrjBTPyD3VeKzxnVFjH1MIxbCdqGZB9O8+EwWakZs3ZCbDS4IpRt79V1ig==
 
 escape-goat@^2.0.0:
   version "2.1.1"
@@ -6529,11 +6530,6 @@ gatsby-plugin-catch-links@^2.3.11:
   dependencies:
     "@babel/runtime" "^7.10.3"
     escape-string-regexp "^1.0.5"
-
-gatsby-plugin-chakra-ui@^0.1.4:
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-chakra-ui/-/gatsby-plugin-chakra-ui-0.1.4.tgz#2e8fcb85fa75b5adc4265a937766b47a4717900d"
-  integrity sha512-RofWX5ytqB7UDGQfTflXmeHOgqLXvZj4TnDE8JZyHNWiYR0vJGxM/UXBdGzC/fBwcfZWG3FUUAONk0znlUY/OQ==
 
 gatsby-plugin-manifest@^2.4.28:
   version "2.4.28"
