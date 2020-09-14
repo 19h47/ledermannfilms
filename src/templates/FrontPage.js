@@ -69,9 +69,11 @@ export default ({ data }) => {
 										className="Button"
 										type="button"
 										data-scroll
-										style={{ transitionDelay: '0.6s' }}>
-										watch the showreel
-										<Play />
+										style={{ transitionDelay: '0.6s, 0s' }}>
+										<span>
+											Watch the showreel
+											<Play />
+										</span>
 									</button>
 								</div>
 								<div

@@ -6,20 +6,28 @@
  *
  */
 .Button {
-	@extend .d-flex, .align-items-center;
-	@extend %text-transform-uppercase, %white-space-nowrap;
+	// @extend .d-flex, .align-items-center;
+	@extend %text-transform-uppercase, %white-space-nowrap, %position-relative;
 	@include padding(top 13px right 16px bottom 13px left 16px);
 
-	border: 1px solid the_color(white);
+	border: 1px solid currentColor;
 	border-radius: 26px;
 	font-size: 14px;
 	line-height: (16/14);
 
 	opacity: 0;
-	transition: opacity 0.7s map-get($easings, ease-out-expo);
+	transition: opacity 0.7s map-get($easings, ease-out-expo),
+		border-color 0.7s map-get($easings, ease-out-expo);
 
-	&.is-inview {
+	&[data-scroll].is-inview {
 		opacity: 1;
+	}
+
+	span {
+		@extend %position-relative;
+		@extend .d-flex, .align-items-center;
+
+		z-index: 2;
 	}
 
 	@include media-breakpoint-up(md) {
@@ -31,5 +39,26 @@
 		@include size($base-line-height-px);
 
 		fill: currentColor;
+	}
+
+	&::after {
+		@include absolute(top 0 right 0 bottom 0 left 0);
+		@extend .d-block;
+
+		content: '';
+		border-radius: 26px;
+		transform: scale(0);
+		background-color: rgba(the_color(gray, very-dark-01), 0);
+		transition: transform 0.7s map-get($easings, ease-out-expo),
+			background-color 0.7s map-get($easings, ease-out-expo);
+		z-index: 1;
+	}
+
+	&:hover {
+		border-color: the_color(gray, very-dark-01);
+		&::after {
+			background-color: the_color(gray, very-dark-01);
+			transform: scale(1);
+		}
 	}
 }

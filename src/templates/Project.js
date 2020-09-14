@@ -7,6 +7,7 @@ import TransitionLink, { TransitionState } from 'gatsby-plugin-transition-link';
 
 import Layout from '@/components/layout';
 import Seo from '@/components/seo';
+import SectionHeader from '@/components/section-header';
 import ProjectHero from '@/components/project-hero';
 import ProjectText from '@/components/project-text';
 
@@ -160,30 +161,8 @@ const ProjectInner = ({ mount, data }) => {
 
 			{gallery && gallery.length !== 0 && (
 				<div className={`Section${mount ? ' is-visible' : ' is-hidden'}`}>
-					<header className="Section__header">
-						<div className="Site-container">
-							<div className="row">
-								<div className="col-14">
-									<hr />
-								</div>
-							</div>
-							<div className="row">
-								<div className="col-5 d-none d-md-block">
-									<div className="Label">
-										<Label />
-									</div>
-								</div>
-								<div className="col-5">
-									<h2>Still frames</h2>
-								</div>
-								<div className="col-4">
-									<div className="Section__header__diamond text-align-right">
-										⦿
-									</div>
-								</div>
-							</div>
-						</div>
-					</header>
+					<SectionHeader title="Still frames" />
+
 					<div className="Site-container">
 						<ul className="Project__items row">
 							{gallery.map(image => (

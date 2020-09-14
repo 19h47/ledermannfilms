@@ -38,9 +38,11 @@ const ProjectHero = ({ project, footer = false, show = true, truncated = false }
 										className="Button"
 										type="button"
 										data-scroll
-										style={{ transitionDelay: '0.6s' }}>
-										watch the video
-										<Play />
+										style={{ transitionDelay: '0.6s, 0s' }}>
+										<span>
+											Watch the showreel
+											<Play />
+										</span>
 									</button>
 								</div>
 								<div className="col-7 col-md-2 order-0 order-md-1"></div>
