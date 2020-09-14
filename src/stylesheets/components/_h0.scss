@@ -17,7 +17,7 @@
 
 	&__line {
 		@extend .d-block;
-		@extend %overflow-hidden;
+		// @extend %overflow-hidden;
 
 		span {
 			@extend .d-inline-block;
@@ -28,26 +28,37 @@
 			transition: transform 0.8s map-get($easings, ease-out-cubic);
 		}
 
+		// clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
+		@media (max-aspect-ratio: 3/2) {
+			clip-path: polygon(
+				0 0,
+				100% 0,
+				100% calc(100% + #{vw_size(40)}),
+				0% calc(100% + #{vw_size(40)})
+			);
+		}
+		@media (min-aspect-ratio: 3/2) {
+			clip-path: polygon(
+				0 0,
+				100% 0,
+				100% calc(100% + #{vh_size(40)}),
+				0% calc(100% + #{vh_size(40)})
+			);
+		}
+
+		&.is-inview {
+			span {
+				transform: none;
+			}
+		}
+
 		&:not(:first-child) {
 			@media (max-aspect-ratio: 3/2) {
 				@include margin(top #{((-6 * $scale-factor) * 100) / $prototype-width-unitless}vw);
 			}
 			@media (min-aspect-ratio: 3/2) {
 				@include margin(top #{((-6 * $scale-factor) * 100) / $prototype-height-unitless}vh);
-			}
-		}
-	}
-
-	&.is-inview {
-		.H0__line {
-			span {
-				transform: none;
-			}
-		}
-
-		@for $i from 1 through 4 {
-			.H0__line:nth-child(#{$i}) span {
-				transition-delay: 0.3 + $i * 0.1s;
 			}
 		}
 	}

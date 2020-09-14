@@ -97,7 +97,7 @@ export default ({ data }) => {
 							</div>
 						</footer>
 
-						<div className="Hero__thumbnail">
+						<div className="Hero__thumbnail" data-scroll>
 							<Img
 								fadeIn={true}
 								backgroundColor={'black'}
@@ -140,7 +140,7 @@ export default ({ data }) => {
 							<div className="col-5">
 								<h2>Main projects</h2>
 							</div>
-							<div className="col-4">
+							<div className="col-18 col-md-4">
 								<div className="Section__header__diamond text-align-right">⦿</div>
 							</div>
 						</div>

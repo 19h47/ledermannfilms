@@ -71,7 +71,7 @@
 	}
 
 	&__content {
-		@extend %position-relative;
+		@extend %position-relative, %margin-x-2, %margin-x-md-0;
 
 		z-index: 3;
 
@@ -87,10 +87,23 @@
 		@include absolute(top 0 right 0 bottom 0 left 0);
 
 		z-index: 1;
+
+		&[data-scroll] {
+			transform: translate3d(0, $grid-gutter-width * 10, 0);
+			transition: transform 1s map-get($easings, ease-out-expo),
+				opacity 0.7s map-get($easings, ease-out-expo);
+			transform-style: preserve-3d;
+			opacity: 0;
+		}
+
+		&[data-scroll].is-inview {
+			opacity: 1;
+			transform: translate3d(0, 0, 0);
+		}
 	}
 
 	&__footer {
-		@extend %position-relative;
+		@extend %position-relative, %margin-x-2, %margin-x-md-0;
 
 		z-index: 3;
 

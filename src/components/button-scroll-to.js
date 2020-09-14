@@ -20,7 +20,7 @@ const useAudio = url => {
 	return [playing, toggle];
 };
 
-const ButtonScrollTo = ({ el }) => {
+const ButtonScrollTo = ({ el, style }) => {
 	const scrollTo = () => window.scroll.scrollTo(el.current, 0);
 	const [playing, toggle] = useAudio('/eject.mp3');
 
@@ -28,6 +28,7 @@ const ButtonScrollTo = ({ el }) => {
 		display: 'flex',
 		alignItems: 'center',
 		height: '100%',
+		...style,
 	};
 
 	return (

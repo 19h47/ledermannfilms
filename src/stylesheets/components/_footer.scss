@@ -11,7 +11,9 @@
 	}
 
 	&__item {
-		border-bottom: 1px solid the_color(white);
+		$this: &;
+
+		@extend %position-relative;
 
 		&:nth-child(1) {
 			@extend %text-align-center;
@@ -24,15 +26,66 @@
 		&:nth-child(3) {
 			@extend %text-align-right;
 		}
+
+		&::after {
+			@include absolute(top 100% right 0 left 0);
+			@include size(100%, 1px);
+			@extend .d-block;
+
+			background-color: the_color(white);
+			transition: transform 1s map-get($easings, ease-out-expo) 0.7s;
+			content: '';
+
+			@at-root #{ $this }[data-scroll]#{ $this }--left::after {
+				transform-origin: left center;
+			}
+
+			@at-root #{ $this }[data-scroll]#{ $this }--right::after {
+				transform-origin: right center;
+			}
+
+			@at-root #{ $this }[data-scroll]::after {
+				transform: scaleX(0);
+			}
+
+			@at-root #{ $this }[data-scroll].is-inview::after {
+				transform: scaleX(1);
+			}
+		}
 	}
 
 	&__copyright {
-		@extend %list-style-type-none, %text-transform-uppercase;
+		@extend %list-style-type-none, %text-transform-uppercase, %overflow-hidden;
 		@include margin(top #{(30 - 8)}px bottom #{(62 - 8)}px);
 		@extend .d-flex, .justify-content-between;
 
 		font-size: 14px;
 		line-height: (16/14);
+
+		&[data-scroll] {
+			a,
+			button {
+				transform: translate3d(0, 100%, 0);
+				transform-origin: center top;
+				transform-style: preserve-3d;
+			}
+
+			button {
+				transition: transform 0.8s map-get($easings, ease-out-expo);
+			}
+
+			a {
+				transition: border-color 0.3s map-get($easings, ease-out-expo),
+					transform 0.7s map-get($easings, ease-out-expo);
+			}
+		}
+
+		&[data-scroll].is-inview {
+			a,
+			button {
+				transform: translate3d(0, 0, 0);
+			}
+		}
 
 		a {
 			@extend .d-inline-block;
