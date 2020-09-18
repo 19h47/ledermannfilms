@@ -78,7 +78,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
 	// dump(contentNodes);
 	// dump(projectCategory);
-	dump(projectsWithGallery);
+	// dump(projectsWithGallery);
 
 	const contentTypeTemplateDirectory = `./src/templates/`;
 	const contentTypeTemplates = templates.filter(path =>

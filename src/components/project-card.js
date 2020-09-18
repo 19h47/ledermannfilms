@@ -13,8 +13,6 @@ const ProjectCard = ({ project, index }) => {
 		},
 	} = project;
 
-	console.log(video);
-
 	const children = (
 		<>
 			<div className={`Project-card__body${video ? ' Project-card__body--has-video' : ''}`}>

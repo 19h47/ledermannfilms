@@ -35,6 +35,14 @@ export const query = graphql`
 						}
 					}
 					customFields {
+						hero {
+							title
+							video {
+								title
+								guid
+								mimeType
+							}
+						}
 						gallery {
 							localFile {
 								...HeroImage
