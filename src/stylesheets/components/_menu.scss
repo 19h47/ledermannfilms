@@ -54,13 +54,14 @@
 				background-color: the_color(white);
 				transform-style: preserve-3d;
 				transform: scaleX(0);
-				transform-origin: left center;
+				transform-origin: right center;
 				transition: transform 0.8s map-get($easings, ease-out-expo);
 
 				content: '';
 			}
 
 			&:hover::after {
+				transform-origin: left center;
 				transform: scaleX(1);
 			}
 		}
@@ -82,10 +83,10 @@
 			@for $i from 1 through 4 {
 				&:nth-child(#{$i}) a,
 				&:nth-child(#{$i}) button {
-					transition-delay: 0.4 + $i * 0.5s;
+					// transition-delay: (0.4 + $i) * 0.5s;
 
 					span {
-						transition-delay: 0.4 + $i * 0.1s;
+						transition-delay: (0.4 + $i) * 0.25s;
 					}
 				}
 			}

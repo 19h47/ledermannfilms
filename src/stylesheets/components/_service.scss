@@ -5,6 +5,8 @@
  *
  */
 .Service {
+	$this: &;
+
 	&__icon {
 		@include margin(left auto);
 		@include size(#{(194 * 100) / $prototype-width-unitless}vw, 26 * 8px);
@@ -15,10 +17,29 @@
 		}
 	}
 	&__title {
+		@extend %position-relative;
 		@include padding(bottom 3 * 8px);
 		@include margin(bottom 3 * 8px);
 
-		border-bottom: 1px solid the_color(white);
+		&::after {
+			@include absolute(right 0 bottom 0 left 0);
+			@include size(100%, 1px);
+			@extend .d-block;
+
+			background-color: the_color(white);
+			transition: transform 1.4s map-get($easings, ease-out-expo);
+			transform-origin: left center;
+			transform-style: preserve-3d;
+			content: '';
+
+			@at-root #{ $this }[data-scroll] #{ $this }__title::after {
+				transform: scaleX(0);
+			}
+
+			@at-root #{ $this }[data-scroll].is-inview #{ $this }__title::after {
+				transform: scaleX(1);
+			}
+		}
 	}
 	&__content {
 	}

@@ -6,17 +6,80 @@
  *
  */
 .Client {
-	@include margin(bottom 9 * 8px);
+	$this: &;
+
+	@include aspect-ratio-size(11 * $scale-factor, 'margin-bottom');
 
 	&__image {
+		@extend %position-relative, %overflow-hidden;
 		@include size(100%, 9 * 8px);
 		@include padding(bottom 3 * 8px);
-		@include margin(bottom 3 * 8px);
-
-		border-bottom: 1px solid the_color(white);
 
 		.gatsby-image-wrapper {
-			@include size(#{(151 * 100) / $prototype-width-unitless}vw, 100%);
+			@include aspect-ratio-size(151, 'width');
+			height: 100%;
+
+			@at-root #{ $this }[data-scroll] .gatsby-image-wrapper {
+				transition: transform 1.4s map-get($easings, ease-out-expo);
+				transform: translate3d(0, 100%, 0);
+			}
+
+			@at-root #{ $this }[data-scroll].is-inview .gatsby-image-wrapper {
+				transform: translate3d(0, 0, 0);
+			}
+		}
+
+		&::after {
+			@include absolute(right 0 bottom 0 left 0);
+			@include size(100%, 1px);
+			@extend .d-block;
+
+			background-color: the_color(white);
+			transition: transform 1.4s map-get($easings, ease-out-expo);
+			transform-origin: left center;
+			transform-style: preserve-3d;
+			content: '';
+
+			@at-root #{ $this }[data-scroll] #{ $this }__image::after {
+				transform: scaleX(0);
+			}
+
+			@at-root #{ $this }[data-scroll].is-inview #{ $this }__image::after {
+				transform: scaleX(1);
+			}
+		}
+	}
+
+	a {
+		@extend .d-inline-block;
+		@extend %position-relative;
+		@include padding(top #{$scale-factor}px bottom #{$scale-factor}px);
+		@include margin(top #{2 * $scale-factor}px);
+
+		&::before {
+			@include absolute(right 0 bottom 0 left 0);
+			@extend .d-block;
+			@include size(100%, 1px);
+
+			background-color: the_color(white);
+			transform-style: preserve-3d;
+			transform: scaleX(0);
+			transform-origin: right center;
+			transition: transform 0.8s map-get($easings, ease-out-expo);
+
+			content: '';
+		}
+
+		&::after {
+			@include absolute(bottom 0 left 100%);
+			@include margin(bottom #{$scale-factor}px left #{$scale-factor / 2}px);
+
+			content: '↗';
+		}
+
+		&:hover::before {
+			transform-origin: left center;
+			transform: scaleX(1);
 		}
 	}
 }

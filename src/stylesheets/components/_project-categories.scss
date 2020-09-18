@@ -9,7 +9,7 @@
  */
 .Project-categories {
 	@extend %position-relative, %Pointer-events-none;
-	@include margin(top 15 * 8px);
+	@include aspect-ratio-size(5 * $scale-factor, 'margin-top');
 
 	z-index: 1;
 
@@ -21,7 +21,7 @@
 
 		@include aspect-ratio-size(31, 'font-size');
 		@include aspect-ratio-size(32, 'line-height');
-		@include margin(top 3 * 8px bottom 3 * 8px);
+		@include margin(top 2 * 8px bottom 2 * 8px);
 
 		&:first-child {
 			@include margin(top 0);
@@ -32,35 +32,35 @@
 
 		a {
 			@extend %position-relative, %Pointer-events-auto;
+			@include padding(top 8px bottom 8px);
+			@extend .d-inline-block;
 
 			span {
-				@extend .d-inline-block;
-				@extend %vertical-align-middle;
-				@include margin(bottom 8px left 4px);
+				@include absolute(top 0 left 100%);
+				@include margin(top 8px left 4px);
 
 				@include aspect-ratio-size(16, 'font-size');
 				@include aspect-ratio-size(24, 'line-height');
 			}
 
 			&::after {
-				@include absolute(top 50% right 0 bottom 0 left 50%);
+				@include absolute(right 0 bottom 0 left 0);
 				@extend .d-block;
-				@include size(
-					#{(106 * 100) / $prototype-width-unitless}vw,
-					#{(56 * 100) / $prototype-width-unitless}vw
-				);
+				@include size(100%, 1px);
 
-				transform: translate(-50%, -50%);
-				transition: opacity 0.8s map-get($easings, ease-out-expo);
-				opacity: 0;
+				background-color: the_color(white);
+				transform-style: preserve-3d;
+				transform: scaleX(0);
+				transform-origin: right center;
+				transition: transform 0.8s map-get($easings, ease-out-expo);
 
-				background-image: url('../assets/images/oval.svg');
-				background-size: 100%;
 				content: '';
 			}
 
+			&:hover::after,
 			&[aria-current='page']::after {
-				opacity: 1;
+				transform-origin: left center;
+				transform: scaleX(1);
 			}
 		}
 	}

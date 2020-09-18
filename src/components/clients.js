@@ -54,7 +54,7 @@ function Clients() {
 								<li
 									className={`col-4${index % 3 !== 0 ? ' offset-1' : ''}`}
 									key={id}>
-									<div className="Client">
+									<div className="Client" data-scroll>
 										<div className="Client__image">
 											<Img
 												fluid={image.localFile.childImageSharp.fluid}
@@ -66,7 +66,7 @@ function Clients() {
 										</div>
 
 										<a href={link} target="_blank" rel="noopener noreferrer">
-											{title}&nbsp;↗
+											{title}
 										</a>
 									</div>
 								</li>

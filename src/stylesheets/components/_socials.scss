@@ -57,13 +57,14 @@
 				background-color: the_color(white);
 				transform-style: preserve-3d;
 				transform: scaleX(0);
-				transform-origin: left center;
+				transform-origin: right center;
 				transition: transform 0.8s map-get($easings, ease-out-expo);
 
 				content: '';
 			}
 
 			&:hover::after {
+				transform-origin: left center;
 				transform: scaleX(1);
 			}
 		}

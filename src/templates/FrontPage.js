@@ -83,10 +83,10 @@ export default ({ data }) => {
 										className="Hero__location"
 										data-scroll
 										style={{ transitionDelay: '0.9s' }}>
-										<Flag />
 										Based in
 										<br />
 										Neuchâtel, CH.
+										<Flag />
 									</div>
 								</div>
 								<div

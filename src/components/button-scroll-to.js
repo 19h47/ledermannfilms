@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 const useAudio = url => {
 	const [audio] = useState(typeof Audio !== 'undefined' && new Audio(url));
@@ -45,6 +46,14 @@ const ButtonScrollTo = ({ el, style }) => {
 			</button>
 		</>
 	);
+};
+
+ButtonScrollTo.defaultProps = {
+	style: {},
+};
+
+ButtonScrollTo.propTypes = {
+	style: PropTypes.object,
 };
 
 export default ButtonScrollTo;

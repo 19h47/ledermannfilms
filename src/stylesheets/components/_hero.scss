@@ -6,7 +6,7 @@
  *
  */
 .Hero {
-	// @include margin(top #{26 * $scale-factor}px bottom #{26 * $scale-factor}px);
+	@include aspect-ratio-size(103 * $scale-factor, 'height');
 
 	.gatsby-image-wrapper {
 		@include size(100%);
@@ -14,8 +14,6 @@
 
 	transition: visibility 0.8s map-get($easings, ease-out-expo),
 		opacity 0.8s map-get($easings, ease-out-expo);
-
-	height: 100vh;
 
 	&.is-hidden {
 		@include autoAlpha(0);
@@ -42,7 +40,7 @@
 
 	&__body {
 		@extend %overflow-hidden, %position-relative;
-		@extend .d-flex, .flex-column, .justify-content-end;
+		@extend .d-flex, .flex-column, .justify-content-start;
 
 		border-radius: $base-line-height-px;
 
@@ -72,15 +70,10 @@
 
 	&__content {
 		@extend %position-relative, %margin-x-2, %margin-x-md-0;
+		@include aspect-ratio-size(5 * $scale-factor, 'margin-top');
+		@include aspect-ratio-size(10 * $scale-factor, 'margin-bottom');
 
 		z-index: 3;
-
-		@media (max-aspect-ratio: 3/2) {
-			@include margin(bottom #{((22 * 8) * 100) / $prototype-width-unitless}vw);
-		}
-		@media (min-aspect-ratio: 3/2) {
-			@include margin(bottom #{((22 * 8) * 100) / $prototype-height-unitless}vh);
-		}
 	}
 
 	&__thumbnail {
@@ -105,19 +98,13 @@
 
 	&__footer {
 		@extend %position-relative, %margin-x-2, %margin-x-md-0;
+		@include aspect-ratio-size(22 * $scale-factor, 'margin-bottom');
 
 		z-index: 3;
 
 		.Socials {
 			font-size: 14px;
 			line-height: (16/14);
-		}
-
-		@media (max-aspect-ratio: 3/2) {
-			@include margin(bottom #{((22 * 8) * 100) / $prototype-width-unitless}vw);
-		}
-		@media (min-aspect-ratio: 3/2) {
-			@include margin(bottom #{((22 * 8) * 100) / $prototype-height-unitless}vh);
 		}
 	}
 
@@ -126,7 +113,7 @@
 			.flex-column,
 			.flex-md-row,
 			.justify-content-md-between,
-			.align-items-md-center;
+			.align-items-md-end;
 		@extend %text-transform-uppercase;
 
 		font-size: 14px;
@@ -140,7 +127,7 @@
 		}
 
 		svg {
-			@include size(32px);
+			@include size(#{2 * $scale-factor}px);
 		}
 	}
 }

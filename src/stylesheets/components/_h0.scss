@@ -9,13 +9,15 @@
 .H0 {
 	@extend %font-weight-fine, %margin-0;
 	@include aspect-ratio-size(232, 'font-size');
-	@include aspect-ratio-size(232, 'line-height');
 	@include margin(top 0 bottom 0);
 
 	font-feature-settings: 'salt' on;
-	perspective: 600px;
+	line-height: 1.4;
 
-	[data-scroll] {
+	&__line {
+		@extend .d-block;
+		@extend %overflow-hidden;
+
 		span {
 			@extend .d-inline-block;
 
@@ -26,40 +28,14 @@
 			transition: transform 0.8s map-get($easings, ease-out-cubic);
 		}
 
-		@media (max-aspect-ratio: #{$prototype-width-unitless}/#{$prototype-height-unitless}) {
-			clip-path: polygon(
-				0 0,
-				100% 0,
-				100% calc(100% + #{vw_size(40)}),
-				0% calc(100% + #{vw_size(40)})
-			);
+		&[data-scroll].is-inview {
+			span {
+				transform: none;
+			}
 		}
-		@media (min-aspect-ratio: #{$prototype-width-unitless}/#{$prototype-height-unitless}) {
-			clip-path: polygon(
-				0 0,
-				100% 0,
-				100% calc(100% + #{vh_size(40)}),
-				0% calc(100% + #{vh_size(40)})
-			);
-		}
-	}
-
-	[data-scroll].is-inview {
-		span {
-			transform: none;
-		}
-	}
-
-	&__line {
-		@extend .d-block;
 
 		&:not(:first-child) {
-			@media (max-aspect-ratio: #{$prototype-width-unitless}/#{$prototype-height-unitless}) {
-				transform: translate3d(0, vw_size(-6 * $scale-factor), 0);
-			}
-			@media (min-aspect-ratio: #{$prototype-width-unitless}/#{$prototype-height-unitless}) {
-				transform: translate3d(0, vh_size(-6 * $scale-factor), 0);
-			}
+			@include aspect-ratio-size(-16 * $scale-factor, 'margin-top');
 		}
 	}
 }

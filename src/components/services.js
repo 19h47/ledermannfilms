@@ -46,7 +46,7 @@ function Services() {
 								<li
 									className={`col-4${index % 3 !== 0 ? ' offset-1' : ''}`}
 									key={service.id}>
-									<div className="Service">
+									<div className="Service" data-scroll>
 										<div className="Service__icon">
 											<Icon />
 										</div>

@@ -84,8 +84,8 @@ export default ({ data }) => {
 				</div>
 			</div>
 
-			<Clients />
 			<Services />
+			<Clients />
 			<Footer />
 		</Layout>
 	);
