@@ -29,6 +29,9 @@ export const query = graphql`
 				hero {
 					title
 				}
+				gallery {
+					id
+				}
 			}
 		}
 
@@ -176,12 +179,14 @@ const ProjectInner = ({ mount, data }) => {
 				</div>
 			)}
 
-			<TransitionLink exit={exitTransition} entry={entryTransition} to={nextProject.uri}>
-				<div className="Section">
-					<SectionHeader title="Next project" label="" />
-				</div>
-				<ProjectHero truncated project={nextProject} />
-			</TransitionLink>
+			{nextProject.customFields.gallery && (
+				<TransitionLink exit={exitTransition} entry={entryTransition} to={nextProject.uri}>
+					<div className="Section">
+						<SectionHeader title="Next project" label="" />
+					</div>
+					<ProjectHero truncated project={nextProject} />
+				</TransitionLink>
+			)}
 		</Layout>
 	);
 };

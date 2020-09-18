@@ -35,6 +35,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 					nodeType
 					uri
 					id
+					customFields {
+						gallery {
+							id
+						}
+					}
 				}
 			}
 			allWpContentNode(
@@ -67,9 +72,13 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 		}
 	`);
 
+	const projectsWithGallery = projects.filter(
+		({ customFields }) => customFields.gallery && customFields.gallery.length,
+	);
+
 	// dump(contentNodes);
 	// dump(projectCategory);
-	// dump(projects);
+	dump(projectsWithGallery);
 
 	const contentTypeTemplateDirectory = `./src/templates/`;
 	const contentTypeTemplates = templates.filter(path =>
@@ -92,7 +101,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 				},
 			});
 		}),
-		projects.map(async (node, index) => {
+		projectsWithGallery.map(async (node, index) => {
 			const { nodeType, uri, id } = node;
 			const templatePath = `${contentTypeTemplateDirectory}${nodeType}.js`;
 			const contentTypeTemplate = contentTypeTemplates.find(path => path === templatePath);
