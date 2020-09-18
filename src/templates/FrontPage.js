@@ -10,6 +10,7 @@ import Seo from '@/components/seo';
 import Socials from '@/components/socials';
 import Projects from '@/components/projects';
 import Footer from '@/components/footer';
+import Video from '@/components/video';
 
 import Play from '@/assets/svg/play.inline.svg';
 import Flag from '@/assets/svg/flag.inline.svg';
@@ -29,6 +30,11 @@ export const query = graphql`
 			customFields {
 				hero {
 					title
+					video {
+						title
+						guid
+						mimeType
+					}
 				}
 				content {
 					text {
@@ -47,6 +53,21 @@ export default ({ data }) => {
 		customFields: { hero, content },
 		featuredImage: { node: thumbnail },
 	} = page;
+
+	const heroThumbnail = (
+		<div className="Hero__thumbnail" data-scroll>
+			<Img
+				fadeIn={true}
+				backgroundColor={'black'}
+				durationFadeIn={1000}
+				fluid={thumbnail.localFile.childImageSharp.fluid}
+			/>
+		</div>
+	);
+
+	const heroVideo = (
+		<Video className="Hero__video" src={hero.video.guid} type={hero.video.mimeType} />
+	);
 
 	return (
 		<Layout className="Front-page">
@@ -100,14 +121,7 @@ export default ({ data }) => {
 							</div>
 						</footer>
 
-						<div className="Hero__thumbnail" data-scroll>
-							<Img
-								fadeIn={true}
-								backgroundColor={'black'}
-								durationFadeIn={1000}
-								fluid={thumbnail.localFile.childImageSharp.fluid}
-							/>
-						</div>
+						{hero.video.guid ? heroVideo : heroThumbnail}
 					</div>
 				</div>
 			</div>
