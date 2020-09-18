@@ -10,8 +10,12 @@
 .All-projects {
 	@extend .d-flex, .align-items-center;
 
+	color: the_color(white);
+
 	svg {
 		@include margin(left 3 * 8px);
 		@include size(2 * 8px);
+
+		fill: currentColor;
 	}
 }

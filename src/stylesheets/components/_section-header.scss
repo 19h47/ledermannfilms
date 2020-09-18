@@ -6,7 +6,7 @@
  *
  */
 .Section-header {
-	@include aspect-ratio-size(26 * $scale-factor, 'margin-bottom');
+	@include aspect-ratio-size(18 * $scale-factor, 'margin-bottom');
 
 	hr {
 		@include margin(bottom $base-line-height-px);
