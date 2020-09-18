@@ -40,7 +40,8 @@ const Footer = () => {
 												? ' Footer__item--left'
 												: ' Footer__item--right'
 										}`}
-										key={id}>
+										key={id}
+										data-scroll>
 										<AniLink to={path} cover direction="up" bg="#000000">
 											<H0
 												texts={`${0 !== index % 2 ? '↖ ' : ''}${label}${

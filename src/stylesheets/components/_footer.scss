@@ -35,7 +35,7 @@
 			@extend .d-block;
 
 			background-color: the_color(white);
-			transition: transform 1s map-get($easings, ease-out-expo) 0.7s;
+			transition: transform 1.4s map-get($easings, ease-out-expo) 0.8s;
 			transform-style: preserve-3d;
 			content: '';
 
@@ -78,7 +78,7 @@
 			}
 
 			a {
-				transition: transform 0.7s map-get($easings, ease-out-expo);
+				transition: transform 0.8s map-get($easings, ease-out-expo);
 			}
 		}
 
@@ -103,7 +103,7 @@
 				transform-style: preserve-3d;
 				transform: scaleX(0);
 				transform-origin: left center;
-				transition: transform 0.7s map-get($easings, ease-out-expo);
+				transition: transform 0.8s map-get($easings, ease-out-expo);
 
 				content: '';
 			}

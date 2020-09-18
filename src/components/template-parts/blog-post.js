@@ -14,8 +14,8 @@ function BlogPost({ data }) {
 		<Layout>
 			<h1>{title}</h1>
 
-			{!!featuredImage?.node?.remoteFile?.childImageSharp && (
-				<Img fluid={featuredImage.node.remoteFile.childImageSharp.fluid} />
+			{!!featuredImage?.node?.localFile?.childImageSharp && (
+				<Img fluid={featuredImage.node.localFile.childImageSharp.fluid} />
 			)}
 
 			<p dangerouslySetInnerHTML={{ __html: content }} />

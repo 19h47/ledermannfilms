@@ -18,7 +18,7 @@
 			}
 		}
 		a {
-			transition: transform 0.7s map-get($easings, ease-out-expo);
+			transition: transform 0.8s map-get($easings, ease-out-expo);
 			transform: translate3d(0, $grid-gutter-width * 2, 0);
 			transform-style: preserve-3d;
 		}
@@ -58,7 +58,7 @@
 				transform-style: preserve-3d;
 				transform: scaleX(0);
 				transform-origin: left center;
-				transition: transform 0.7s map-get($easings, ease-out-expo);
+				transition: transform 0.8s map-get($easings, ease-out-expo);
 
 				content: '';
 			}

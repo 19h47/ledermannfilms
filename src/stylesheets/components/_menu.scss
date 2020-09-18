@@ -55,7 +55,7 @@
 				transform-style: preserve-3d;
 				transform: scaleX(0);
 				transform-origin: left center;
-				transition: transform 0.7s map-get($easings, ease-out-expo);
+				transition: transform 0.8s map-get($easings, ease-out-expo);
 
 				content: '';
 			}

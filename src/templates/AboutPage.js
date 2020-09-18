@@ -17,7 +17,7 @@ export const query = graphql`
 			content
 			featuredImage {
 				node {
-					remoteFile {
+					localFile {
 						...HeroImage
 					}
 				}
@@ -63,7 +63,7 @@ export default ({ data }) => {
 										fadeIn={true}
 										backgroundColor={'#121212'}
 										durationFadeIn={1000}
-										fluid={featuredImage.remoteFile.childImageSharp.fluid}
+										fluid={featuredImage.localFile.childImageSharp.fluid}
 										style={{ transform: `translate3d(0,${6.6666}vw,0)` }}
 									/>
 								</div>

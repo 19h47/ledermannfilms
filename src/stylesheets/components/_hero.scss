@@ -12,8 +12,8 @@
 		@include size(100%);
 	}
 
-	transition: visibility 0.7s map-get($easings, ease-out-expo),
-		opacity 0.7s map-get($easings, ease-out-expo);
+	transition: visibility 0.8s map-get($easings, ease-out-expo),
+		opacity 0.8s map-get($easings, ease-out-expo);
 
 	height: 100vh;
 
@@ -89,10 +89,11 @@
 		z-index: 1;
 
 		&[data-scroll] {
-			transform: translate3d(0, $grid-gutter-width * 10, 0);
-			transition: transform 1s map-get($easings, ease-out-expo),
-				opacity 0.7s map-get($easings, ease-out-expo);
+			transform: translate3d(0, 100%, 0);
+			transition: transform 1.4s map-get($easings, ease-out-expo),
+				opacity 0.8s map-get($easings, ease-out-expo);
 			transform-style: preserve-3d;
+
 			opacity: 0;
 		}
 
@@ -132,7 +133,7 @@
 		line-height: (16/14);
 
 		opacity: 0;
-		transition: opacity 0.7s map-get($easings, ease-out-expo) 0.4s;
+		transition: opacity 0.8s map-get($easings, ease-out-expo) 0.4s;
 
 		&.is-inview {
 			opacity: 1;

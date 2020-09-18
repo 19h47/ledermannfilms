@@ -16,8 +16,8 @@
 	line-height: (16/14);
 
 	opacity: 0;
-	transition: opacity 0.7s map-get($easings, ease-out-expo),
-		border-color 0.7s map-get($easings, ease-out-expo);
+	transition: opacity 0.8s map-get($easings, ease-out-expo),
+		border-color 0.8s map-get($easings, ease-out-expo);
 
 	&[data-scroll].is-inview {
 		opacity: 1;
@@ -49,8 +49,8 @@
 		border-radius: 26px;
 		transform: scale(0);
 		background-color: rgba(the_color(gray, very-dark-01), 0);
-		transition: transform 0.7s map-get($easings, ease-out-expo),
-			background-color 0.7s map-get($easings, ease-out-expo);
+		transition: transform 0.8s map-get($easings, ease-out-expo),
+			background-color 0.8s map-get($easings, ease-out-expo);
 		z-index: 1;
 	}
 

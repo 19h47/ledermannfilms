@@ -84,7 +84,7 @@
 				p {
 					transform-style: preserve-3d;
 					transform: translate3d(0, 100%, 0);
-					transition-delay: 0.1s;
+					transition-delay: 0.1.4s;
 
 					transition: opacity 0.8s map-get($easings, ease-out-cubic),
 						transform 0.8s map-get($easings, ease-out-cubic);

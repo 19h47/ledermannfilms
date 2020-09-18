@@ -34,7 +34,7 @@
 	}
 
 	&[data-scroll] span {
-		transition: transform 1s map-get($easings, ease-out-expo);
+		transition: transform 1.4s map-get($easings, ease-out-expo);
 		transform: translate3d(0, 100%, 0);
 		transform-style: preserve-3d;
 	}
