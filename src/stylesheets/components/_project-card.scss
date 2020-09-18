@@ -11,20 +11,54 @@
 
 	@extend .d-block;
 
-	&__thumbnail {
-		@include size(100%, auto);
-		@extend %overflow-hidden;
+	&__body {
+		@extend %overflow-hidden, %position-relative;
 
 		border-radius: $base-line-height-px;
+
+		&#{&}--has-video:hover {
+			#{$this}__thumbnail {
+				opacity: 0;
+			}
+
+			#{$this}__video {
+				opacity: 1;
+			}
+		}
+	}
+
+	&__thumbnail {
+		@include size(100%, auto);
+
 		max-width: 100%;
 
 		line-height: (16/14);
 		transform: translate3d(0, $grid-gutter-width * 2, 0);
-		transition: transform 0.8s map-get($easings, ease-out-expo);
+		transition: transform 0.8s map-get($easings, ease-out-expo),
+			opacity 0.8s map-get($easings, ease-out-expo);
 		transform-style: preserve-3d;
+
+		z-index: 2;
 
 		&.is-inview {
 			transform: translate3d(0, 0, 0);
+			z-index: 1;
+		}
+	}
+
+	&__video {
+		@include absolute(top 0 right 0 bottom 0 left 0);
+
+		transition: opacity 0.8s map-get($easings, ease-out-expo);
+		opacity: 0;
+
+		z-index: 1;
+
+		video {
+			@include size(100%);
+
+			object-fit: cover;
+			object-position: center;
 		}
 	}
 

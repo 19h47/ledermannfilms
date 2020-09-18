@@ -4,6 +4,7 @@ import Img from 'gatsby-image';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
 import H0 from '@/components/h0';
+import Video from '@/components/video';
 
 import Play from '@/assets/svg/play.inline.svg';
 import Th from '@/assets/svg/th.inline.svg';
@@ -14,6 +15,21 @@ const ProjectHero = ({ project, footer = false, show = true, truncated = false }
 		customFields: { hero },
 		featuredImage: { node: thumbnail },
 	} = project;
+
+	const heroThumbnail = (
+		<div className="Hero__thumbnail" data-scroll>
+			<Img
+				fadeIn={true}
+				backgroundColor={'black'}
+				durationFadeIn={1000}
+				fluid={thumbnail.localFile.childImageSharp.fluid}
+			/>
+		</div>
+	);
+
+	const heroVideo = (
+		<Video className="Hero__video" src={hero.video.guid} type={hero.video.mimeType} />
+	);
 
 	return (
 		<div
@@ -64,9 +80,7 @@ const ProjectHero = ({ project, footer = false, show = true, truncated = false }
 						</footer>
 					)}
 
-					<div className="Hero__thumbnail">
-						<Img fadeIn fluid={thumbnail.localFile.childImageSharp.fluid} />
-					</div>
+					{hero.video.guid ? heroVideo : heroThumbnail}
 				</div>
 			</div>
 		</div>

@@ -6,7 +6,7 @@ const Video = ({ src, type, className, ...props }) => (
 		data-scroll
 		className={className}
 		dangerouslySetInnerHTML={{
-			__html: `<video controls autoPlay muted playsInline preload loop>
+			__html: `<video autoPlay muted playsInline preload loop>
 				<source src=${src} type=${type} />
 				</video>`,
 		}}

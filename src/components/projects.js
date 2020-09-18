@@ -40,8 +40,13 @@ function Projects({ projects }) {
 					}
 					customFields {
 						gallery {
-							localFile {
-								...HeroImage
+							id
+						}
+						hero {
+							video {
+								title
+								guid
+								mimeType
 							}
 						}
 					}

@@ -104,7 +104,7 @@
 		z-index: 1;
 
 		video {
-			@include size(100);
+			@include size(100%);
 
 			object-position: center;
 			object-fit: cover;
