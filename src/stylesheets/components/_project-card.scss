@@ -17,9 +17,9 @@
 		border-radius: $base-line-height-px;
 
 		&#{&}--has-video:hover {
-			#{$this}__thumbnail {
-				opacity: 0;
-			}
+			// #{$this}__thumbnail {
+			// 	opacity: 0;
+			// }
 
 			#{$this}__video {
 				opacity: 1;

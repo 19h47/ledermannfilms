@@ -12,7 +12,7 @@ const Header = () => {
 					<div className="col-10 col-md-5">
 						<SiteName delay="0.04" />
 					</div>
-					<div className="col-5 d-none d-md-block" data-scroll>
+					<div className="col-5 d-none d-md-block">
 						<SiteDescription delay="0.4" />
 					</div>
 					<div className="col-4 d-none d-md-block">
