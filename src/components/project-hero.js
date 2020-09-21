@@ -62,9 +62,9 @@ const ProjectHero = ({ project, footer = false, show = true, truncated = false }
 									</button>
 								</div>
 								<div className="col-7 col-md-2 order-0 order-md-1"></div>
-								<div className="col-7 offset-md-3 col-md-2 order-1 order-md-2 d-flex d-md-block justify-content-end">
+								<div className="col-14 offset-md-3 col-md-2 order-1 order-md-2 d-flex d-md-block justify-content-between justify-content-md-end">
 									<AniLink
-										className="All-projects smallcaps"
+										className="All-projects smallcaps w-100 justify-content-between justify-content-md-start"
 										to="/work/"
 										cover
 										direction="up"

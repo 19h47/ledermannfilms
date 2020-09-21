@@ -6,14 +6,16 @@
  *
  */
 .Hero {
-	@include aspect-ratio-size(103 * $scale-factor, 'height');
-
 	.gatsby-image-wrapper {
 		@include size(100%);
 	}
 
 	transition: visibility 0.8s map-get($easings, ease-out-expo),
 		opacity 0.8s map-get($easings, ease-out-expo);
+
+	@include media-breakpoint-up(md) {
+		@include aspect-ratio-size(103 * $scale-factor, 'height');
+	}
 
 	&.is-hidden {
 		@include autoAlpha(0);
@@ -41,6 +43,7 @@
 	&__body {
 		@extend %overflow-hidden, %position-relative;
 		@extend .d-flex, .flex-column, .justify-content-start;
+		@extend %padding-x-6, %padding-x-md-0;
 
 		border-radius: $base-line-height-px;
 
@@ -139,7 +142,7 @@
 
 	&__location {
 		@extend .d-flex,
-			.flex-column,
+			.flex-column-reverse,
 			.flex-md-row,
 			.justify-content-md-between,
 			.align-items-md-end;
@@ -157,6 +160,7 @@
 
 		svg {
 			@include size(#{2 * $scale-factor}px);
+			@extend %margin-bottom-5, %margin-bottom-md-0;
 		}
 	}
 }

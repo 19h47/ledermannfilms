@@ -29,14 +29,15 @@
 
 	&__thumbnail {
 		@include size(100%, auto);
+		@extend %overflow-hidden;
 
 		max-width: 100%;
 
-		line-height: (16/14);
-		transform: translate3d(0, $grid-gutter-width * 2, 0);
+		transform: translate3d(0, 100%, 0);
 		transition: transform 0.8s map-get($easings, ease-out-expo),
 			opacity 0.8s map-get($easings, ease-out-expo);
 		transform-style: preserve-3d;
+		border-radius: $base-line-height-px;
 
 		z-index: 2;
 
@@ -49,7 +50,7 @@
 	&__video {
 		@include absolute(top 0 right 0 bottom 0 left 0);
 
-		transition: opacity 0.8s map-get($easings, ease-out-expo);
+		transition: opacity 1.4s map-get($easings, ease-out-expo);
 		opacity: 0;
 
 		z-index: 1;
@@ -84,7 +85,7 @@
 
 			@for $i from 1 through 3 {
 				&:nth-child(#{$i}) {
-					transition-delay: 0.3 + $i * 0.1.4s;
+					transition-delay: 0.3 + $i * 0.15s;
 				}
 			}
 		}

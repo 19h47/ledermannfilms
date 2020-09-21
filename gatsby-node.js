@@ -44,7 +44,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 			}
 			allWpContentNode(
 				sort: { fields: modifiedGmt, order: DESC }
-				filter: { nodeType: { ne: "MediaItem" } }
+				filter: { nodeType: { nin: ["Client", "Service", "Project", "MediaItem"] } }
 			) {
 				nodes {
 					nodeType
@@ -114,13 +114,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 				index - 1 < 0
 					? (projects[projects.length - 1] || {}).id
 					: (projects[index - 1] || {}).id;
-
-			// dump({
-			// 	uri,
-			// 	index: index + 1,
-			// 	next,
-			// 	previous,
-			// });
 
 			let component = resolve(contentTypeTemplate);
 

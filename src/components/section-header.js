@@ -20,7 +20,7 @@ function SectionHeader({ label = 'Work', title = 'Main projects' }) {
 							</span>
 						</div>
 					</div>
-					<div className="col-5">
+					<div className="col-7 col-md-5">
 						<h2 data-scroll>
 							<span
 								style={{ transitionDelay: '0.8s' }}
@@ -28,7 +28,7 @@ function SectionHeader({ label = 'Work', title = 'Main projects' }) {
 							/>
 						</h2>
 					</div>
-					<div className="col-4">
+					<div className="col-7 col-md-4">
 						<div className="Section-header__diamond text-align-right" data-scroll>
 							<span style={{ transitionDelay: '1s' }}>⦿</span>
 						</div>

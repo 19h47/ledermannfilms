@@ -8,7 +8,10 @@
 .Projects {
 	&__items {
 		@extend %list-style-type-none;
-		@include aspect-ratio-size(-28 * $scale-factor, 'margin-top');
+
+		@include media-breakpoint-up(md) {
+			@include aspect-ratio-size(-28 * $scale-factor, 'margin-top');
+		}
 	}
 
 	&__item {

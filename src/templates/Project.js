@@ -84,14 +84,14 @@ export const query = graphql`
 
 const layout = layout => {
 	if ('center' === layout) {
-		return 'col-14';
+		return 'col-14 col-md-14';
 	}
 
 	if ('right' === layout) {
-		return 'col-9';
+		return 'col-14 col-md-9';
 	}
 
-	return 'col-9 offset-md-5';
+	return 'col-14 col-md-9 offset-md-5';
 };
 
 const ProjectInner = ({ mount, data }) => {
@@ -139,16 +139,18 @@ const ProjectInner = ({ mount, data }) => {
 
 			<ProjectHero project={project} footer show={mount} />
 
-			<div className="Site-container">
-				<div className="row">
-					<div className="offset-md-5 col-md-9">
-						<ProjectText data={tabs} />
+			{tabs && (
+				<div className="Site-container">
+					<div className="row">
+						<div className="offset-md-5 col-md-9">
+							<ProjectText data={tabs} />
+						</div>
 					</div>
 				</div>
-			</div>
+			)}
 
 			{informations && (
-				<div className="Site-container" style={{ marginTop: '120px' }}>
+				<div className="Site-container">
 					<div className="row">
 						<div className="offset-md-5 col-md-4">
 							<div className="Informations">
@@ -170,7 +172,7 @@ const ProjectInner = ({ mount, data }) => {
 				</div>
 			)}
 
-			{gallery && gallery.length !== 0 && (
+			{gallery && gallery.length && (
 				<div className={`Section${mount ? ' is-visible' : ' is-hidden'}`}>
 					<SectionHeader title="Still frames" />
 
@@ -189,7 +191,7 @@ const ProjectInner = ({ mount, data }) => {
 				</div>
 			)}
 
-			{nextProject.customFields.gallery && (
+			{nextProject.customFields.gallery && nextProject.customFields.gallery.length && (
 				<TransitionLink exit={exitTransition} entry={entryTransition} to={nextProject.uri}>
 					<div className="Section">
 						<SectionHeader title="Next project" label="" />

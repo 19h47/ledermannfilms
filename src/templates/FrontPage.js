@@ -97,9 +97,7 @@ export default ({ data }) => {
 										</span>
 									</button>
 								</div>
-								<div
-									className="col-7 col-md-2 order-0 order-md-1"
-									style={{ height: '100%' }}>
+								<div className="col-7 col-md-2 order-0 order-md-1 h-100">
 									<div
 										className="Hero__location"
 										data-scroll
@@ -131,15 +129,13 @@ export default ({ data }) => {
 			<div className="Section Section--projects">
 				<SectionHeader />
 
-				<div>
-					<div className="Site-container">
-						<div className="row">
-							<div className="col-14">
-								<H0 texts={['Featured', 'Works']} />
-							</div>
+				<div className="Site-container">
+					<div className="row">
+						<div className="col-14">
+							<H0 texts={['Featured', 'Works']} />
 						</div>
-						<Projects />
 					</div>
+					<Projects />
 				</div>
 			</div>
 			<Footer />
