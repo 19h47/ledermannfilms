@@ -9,13 +9,15 @@
 	@include autoAlpha(0);
 	@include fixed(top 0 right 0);
 	@extend %font-weight-light;
-	@include padding(
-		top 5 * 8px right #{(88 * 100) / $prototype-width-unitless}vw bottom 5 * 8px left #{(
-				88 * 100
-			) / $prototype-width-unitless}vw
-	);
 
-	width: #{(619 * 100) / $prototype-width-unitless}vw;
+	@include aspect-ratio-size(4 * $scale-factor, 'padding-top');
+	@include aspect-ratio-size(11 * $scale-factor, 'padding-right');
+	@include aspect-ratio-size(4 * $scale-factor, 'padding-bottom');
+	@include aspect-ratio-size(11 * $scale-factor, 'padding-left');
+
+	@include media-breakpoint-up(md) {
+		width: #{(619 * 100) / $prototype-width-unitless}vw;
+	}
 
 	background-color: the_color(gray, very-dark-02);
 	border-radius: 0px 0px 0px 2 * 8px;

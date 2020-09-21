@@ -1,0 +1,70 @@
+/**
+ * Contacts mobile
+ *
+ *
+ * @author Jérémy Levron <jeremylevron@19h47.fr> (https://19h47.fr)
+ */
+.Contacts-mobile {
+	@extend %overflow-y-auto;
+	@include autoAlpha(0);
+	@include fixed(top 0 right 0 bottom 0 left 0);
+
+	@include aspect-ratio-size(4 * $scale-factor, 'padding-right');
+	@include aspect-ratio-size(4 * $scale-factor, 'padding-left');
+
+	background-color: the_color(gray, very-dark-02);
+
+	z-index: 5;
+
+	&.is-active {
+		@include autoAlpha(1);
+	}
+
+	.Socials {
+		@include margin(top 0 bottom 0);
+
+		.Socials__item {
+			@extend %margin-0;
+
+			a {
+				@extend %padding-0;
+			}
+		}
+
+		.Socials__items {
+			@extend .flex-column;
+		}
+	}
+
+	&__header {
+		@include aspect-ratio-size(7 * $scale-factor, 'padding-top');
+		@include aspect-ratio-size(7 * $scale-factor, 'padding-bottom');
+
+		button {
+			@extend .d-flex, .justify-content-between, .align-items-center;
+
+			color: the_color(white);
+			width: 100%;
+
+			svg {
+				@include size(12px);
+
+				fill: currentColor;
+			}
+		}
+	}
+
+	&__row {
+		@extend %font-weight-light;
+		@include aspect-ratio-size(7 * $scale-factor, 'padding-top');
+		@include aspect-ratio-size(7 * $scale-factor, 'padding-bottom');
+		border-bottom: 1px solid the_color(white);
+		font-size: 26px;
+
+		& > div:first-child {
+			@extend %text-transform-uppercase, %font-weight-regular;
+
+			font-size: 11px;
+		}
+	}
+}

@@ -6,10 +6,12 @@ import Link from 'gatsby-plugin-transition-link';
 import H0 from '@/components/h0';
 import ButtonScrollTo from '@/components/button-scroll-to';
 
-import { ContactsContext } from '@/contacts-context';
+import { ContactsContext } from '@/context/contacts-context';
+import { ScrollContext } from '@/context/scroll-context';
 
 const Footer = () => {
-	const { el, scroll, toggle } = useContext(ContactsContext);
+	const { toggle } = useContext(ContactsContext);
+	const { el } = useContext(ScrollContext);
 	const { wpMenu } = useStaticQuery(graphql`
 		{
 			wpMenu(slug: { eq: "footer" }) {
@@ -85,11 +87,7 @@ const Footer = () => {
 								</Link>
 							</li>
 							<li>
-								<ButtonScrollTo
-									el={el}
-									scroll={scroll}
-									style={{ transitionDelay: '0s, 1.1s' }}
-								/>
+								<ButtonScrollTo el={el} style={{ transitionDelay: '0s, 1.1s' }} />
 							</li>
 						</ul>
 					</div>

@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { graphql, useStaticQuery } from 'gatsby';
 
-const Socials = () => {
+const Socials = ({ abbr }) => {
 	const {
 		wp: {
 			generalSettings: { youtube, linkedin, instagram, facebook },
@@ -25,34 +26,42 @@ const Socials = () => {
 				{instagram && (
 					<li className="Socials__item">
 						<a target="_blank" href={instagram} rel="noreferrer noopener">
-							Ins.
+							{abbr ? 'Ins.' : 'Instagram'}
 						</a>
 					</li>
 				)}
 				{facebook && (
 					<li className="Socials__item">
 						<a target="_blank" href={facebook} rel="noreferrer noopener">
-							Fb.
+							{abbr ? 'Fb.' : 'Facebook'}
 						</a>
 					</li>
 				)}
 				{linkedin && (
 					<li className="Socials__item">
 						<a target="_blank" href={linkedin} rel="noreferrer noopener">
-							Li.
+							{abbr ? 'Li.' : 'LinkedIn'}
 						</a>
 					</li>
 				)}
 				{youtube && (
 					<li className="Socials__item">
 						<a target="_blank" href={youtube} rel="noreferrer noopener">
-							Yt.
+							{abbr ? 'Yt.' : 'YouTube'}
 						</a>
 					</li>
 				)}
 			</ul>
 		</div>
 	);
+};
+
+Socials.defaultProps = {
+	abbr: true,
+};
+
+Socials.propTypes = {
+	abbr: PropTypes.bool,
 };
 
 export default Socials;

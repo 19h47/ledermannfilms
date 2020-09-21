@@ -7,7 +7,8 @@
  *
  */
 .Header {
-	@include padding(top #{6 * $scale-factor}px bottom #{6 * $scale-factor}px);
+	@include aspect-ratio-size(6 * $scale-factor, 'padding-top');
+	@include aspect-ratio-size(6 * $scale-factor, 'padding-bottom');
 	@extend %position-relative;
 
 	z-index: 2;

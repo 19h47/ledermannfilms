@@ -44,7 +44,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 			}
 			allWpContentNode(
 				sort: { fields: modifiedGmt, order: DESC }
-				filter: { nodeType: { nin: ["Client", "Service", "Project", "MediaItem"] } }
+				filter: { nodeType: { nin: ["Client", "Service", "Project", "MediaItem", "Post"] } }
 			) {
 				nodes {
 					nodeType

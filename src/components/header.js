@@ -20,7 +20,7 @@ const Header = () => {
 					<div className="col-4 d-none d-md-block">
 						<Menu className="justify-content-end" />
 					</div>
-					<div className="col-4 d-md-none d-flex justify-content-end">
+					<div className="col-4 d-md-none d-flex justify-content-end align-items-center">
 						<button type="button" className="Grip-lines-button">
 							<GripLines />
 						</button>

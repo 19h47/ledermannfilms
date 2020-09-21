@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
-import { ContactsContext } from '@/contacts-context';
+import { ContactsContext } from '@/context/contacts-context';
 
 export default ({ className }) => {
 	const { toggle } = useContext(ContactsContext);
@@ -40,9 +40,8 @@ export default ({ className }) => {
 						</li>
 					);
 				})}
-
 				<li className="Menu__item">
-					<button className="smallcaps" type="button" onClick={() => toggle()}>
+					<button className="smallcaps" type="button" onClick={toggle}>
 						<span>Contact</span>
 					</button>
 				</li>

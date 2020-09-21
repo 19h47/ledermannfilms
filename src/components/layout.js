@@ -2,18 +2,22 @@ import React, { useRef, useEffect } from 'react';
 
 import Header from '@/components/header';
 import Contacts from '@/components/contacts';
+import ContactsMobile from '@/components/contacts-mobile';
 
 import LocomotiveScroll from 'locomotive-scroll';
 
-import { ContactsProvider } from '@/contacts-context';
+import { ScrollProvider } from '@/context/scroll-context';
+import { ContactsProvider } from '@/context/contacts-context';
+
+import useWindowWidth from '@/hooks/use-window-width';
 
 import '@/stylesheets/styles.scss';
 
 const Layout = ({ children, className }) => {
 	const scrollRef = useRef(null);
+	const width = useWindowWidth();
 
 	useEffect(() => {
-		console.log(scrollRef.current);
 		const scroll = new LocomotiveScroll({
 			el: scrollRef.current,
 			smooth: true,
@@ -33,18 +37,21 @@ const Layout = ({ children, className }) => {
 	}, [scrollRef]);
 
 	return (
-		<ContactsProvider el={scrollRef}>
+		<ScrollProvider el={scrollRef}>
+			{width < 784 && <ContactsMobile />}
 			<div ref={scrollRef} data-scroll-container>
 				<div id="wrapper" className={`Site-wrapper${className ? ` ${className}` : ''}`}>
-					<Header />
-					<Contacts />
+					<ContactsProvider>
+						<Header />
+						{width > 785 && <Contacts />}
 
-					<main id="main" className="Main">
-						{children}
-					</main>
+						<main id="main" className="Main">
+							{children}
+						</main>
+					</ContactsProvider>
 				</div>
 			</div>
-		</ContactsProvider>
+		</ScrollProvider>
 	);
 };
 

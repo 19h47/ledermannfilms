@@ -43,7 +43,7 @@
 	&__body {
 		@extend %overflow-hidden, %position-relative;
 		@extend .d-flex, .flex-column, .justify-content-start;
-		@extend %padding-x-6, %padding-x-md-0;
+		@extend %padding-x-5, %padding-x-md-0;
 
 		border-radius: $base-line-height-px;
 
@@ -72,7 +72,7 @@
 	}
 
 	&__content {
-		@extend %position-relative, %margin-x-2, %margin-x-md-0;
+		@extend %position-relative;
 		@include aspect-ratio-size(5 * $scale-factor, 'margin-top');
 		@include aspect-ratio-size(10 * $scale-factor, 'margin-bottom');
 
@@ -129,7 +129,7 @@
 	}
 
 	&__footer {
-		@extend %position-relative, %margin-x-2, %margin-x-md-0;
+		@extend %position-relative;
 		@include aspect-ratio-size(22 * $scale-factor, 'margin-bottom');
 
 		z-index: 3;
