@@ -1,8 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 
-import Tabs from '@19h47/tabs';
-
 import SplitText from '../vendors/SplitText';
 
 gsap.registerPlugin(SplitText);
@@ -12,12 +10,18 @@ const ProjectText = ({ data }) => {
 	const itemRefs = useRef([]);
 
 	useEffect(() => {
-		if (tabsRef.current) {
-			const tabs = new Tabs(tabsRef.current, { hash: false });
-			tabs.init();
+		const getModule = async () => {
+			return await import('@19h47/tabs').then(module => module.default);
+		};
 
-			tabs.tabs.forEach(tab => {
-				tab.on('Tab.activate', () => global.scroll.update());
+		if (tabsRef.current && global) {
+			getModule().then(module => {
+				const tabs = new module(tabsRef.current, { hash: false });
+				tabs.init();
+
+				tabs.tabs.forEach(tab => {
+					tab.on('Tab.activate', () => global.scroll.update());
+				});
 			});
 		}
 	}, [tabsRef]);
