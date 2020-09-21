@@ -27,7 +27,7 @@ const Layout = ({ children, className }) => {
 
 		scroll.update();
 
-		window.scroll = scroll;
+		global.scroll = scroll;
 
 		// scroll.on('scroll', ({ direction }) => {
 		// 	document.documentElement.setAttribute('data-direction', direction);

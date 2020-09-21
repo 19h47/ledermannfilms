@@ -117,19 +117,19 @@ const ProjectInner = ({ mount, data }) => {
 	const exitTransition = {
 		length: TRANSITION_LENGTH,
 		// trigger: () => {
-		// 	if (document) {
-		// 		document.body.style.overflow = 'hidden';
-		// 	}
+
+		// 		global.body.style.overflow = 'hidden';
+
 		// },
 	};
 
 	const entryTransition = {
 		delay: TRANSITION_LENGTH,
 		// trigger: () => {
-		// 	if (document && window) {
-		// 		window.scrollTo(0, 0);
+
+		// 		global.scrollTo(0, 0);
 		// 		document.body.style.overflow = 'visible';
-		// 	}
+
 		// },
 	};
 
