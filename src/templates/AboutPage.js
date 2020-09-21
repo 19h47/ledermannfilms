@@ -1,14 +1,18 @@
-import React, { useRef } from 'react';
+import React, { useRef, useLayoutEffect } from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
+import gsap from 'gsap';
+
+import SplitText from '../vendors/SplitText';
 
 import Layout from '@/components/layout';
+import Location from '@/components/location';
 import Seo from '@/components/seo';
 import Services from '@/components/services';
 import Clients from '@/components/clients';
 import Footer from '@/components/footer';
 
-import Flag from '@/assets/svg/flag.inline.svg';
+gsap.registerPlugin(SplitText);
 
 export const query = graphql`
 	query aboutPage($id: String!) {
@@ -36,6 +40,15 @@ export default ({ data }) => {
 			featuredImage: { node: featuredImage },
 		},
 	} = data;
+
+	useLayoutEffect(() => {
+		if (contentRef.current) {
+			new SplitText(contentRef.current, { type: 'lines', linesClass: 'lineChild' });
+			new SplitText(contentRef.current, { type: 'lines', linesClass: 'lineParent' });
+
+			return;
+		}
+	}, [contentRef]);
 
 	return (
 		<Layout>
@@ -67,13 +80,8 @@ export default ({ data }) => {
 										style={{ transform: `translate3d(0,${6.6666}vw,0)` }}
 									/>
 								</div>
-								<div className="col-7 col-md-2">
-									<div className="Hero__location" data-scroll>
-										<Flag />
-										Based in
-										<br />
-										Neuchâtel, CH.
-									</div>
+								<div className="col-7 col-md-2 order-0 order-md-1">
+									<Location />
 								</div>
 								<div className="col-14 order-3 d-md-none">
 									<hr />

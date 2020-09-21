@@ -52,7 +52,9 @@ function Clients() {
 
 							return (
 								<li
-									className={`col-4${index % 3 !== 0 ? ' offset-1' : ''}`}
+									className={`col-7 col-md-4${
+										index % 3 !== 0 ? ' offset-md-1' : ''
+									}`}
 									key={id}>
 									<div className="Client" data-scroll>
 										<div className="Client__image">

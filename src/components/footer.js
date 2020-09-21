@@ -65,9 +65,14 @@ const Footer = () => {
 					<div className="col-14">
 						<ul className="Footer__copyright" data-scroll>
 							<li>
-								<Link style={{ transitionDelay: '0s, 0.8s' }} to="/">
+								<AniLink
+									to="/"
+									cover
+									direction="up"
+									bg="#000000"
+									style={{ transitionDelay: '0s, 0.8s' }}>
 									© 2020 Julien Ledermann
-								</Link>
+								</AniLink>
 							</li>
 							<li>
 								<Link to="/credits" style={{ transitionDelay: '0s, 0.9s' }}>

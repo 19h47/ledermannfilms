@@ -9,7 +9,10 @@
 
 	&__icon {
 		@include margin(left auto);
-		@include size(#{(194 * 100) / $prototype-width-unitless}vw, 26 * 8px);
+
+		@include media-breakpoint-up(md) {
+			@include size(#{(194 * 100) / $prototype-width-unitless}vw, 26 * 8px);
+		}
 
 		svg {
 			@include size(100%);

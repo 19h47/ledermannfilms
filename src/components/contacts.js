@@ -48,7 +48,7 @@ function Contacts() {
 			</div>
 			<div className="Contacts__row">
 				<span>Mail</span>
-				{publicEmail}
+				<a href="mailto:{publicEmail}">{publicEmail}</a>
 			</div>
 			<div className="Contacts__row">
 				<span>Social</span>

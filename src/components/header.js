@@ -4,6 +4,8 @@ import Menu from '@/components/menu';
 import SiteName from '@/components/site-name';
 import SiteDescription from '@/components/site-description';
 
+import GripLines from '@/assets/svg/grip-lines.inline.svg';
+
 const Header = () => {
 	return (
 		<header className="Header" data-scroll data-scroll-sticky data-scroll-target="#wrapper">
@@ -17,6 +19,11 @@ const Header = () => {
 					</div>
 					<div className="col-4 d-none d-md-block">
 						<Menu className="justify-content-end" />
+					</div>
+					<div className="col-4 d-md-none d-flex justify-content-end">
+						<button type="button" className="Grip-lines-button">
+							<GripLines />
+						</button>
 					</div>
 				</div>
 			</div>

@@ -1,0 +1,16 @@
+/**
+ * Grip lines button
+ *
+ * @author Jérémy Levron <jeremylevron@19H47.fr> (https://19h47.fr)
+ */
+.Grip-lines-button {
+	@extend .d-flex;
+
+	color: the_color(white);
+
+	svg {
+		@include size(46px, 8px);
+
+		fill: the_color(white);
+	}
+}

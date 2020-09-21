@@ -5,6 +5,7 @@ import Img from 'gatsby-image';
 import Content from '@/components/content';
 import H0 from '@/components/h0';
 import Layout from '@/components/layout';
+import Location from '@/components/location';
 import SectionHeader from '@/components/section-header';
 import Seo from '@/components/seo';
 import Socials from '@/components/socials';
@@ -13,7 +14,6 @@ import Footer from '@/components/footer';
 import Video from '@/components/video';
 
 import Play from '@/assets/svg/play.inline.svg';
-import Flag from '@/assets/svg/flag.inline.svg';
 
 export const query = graphql`
 	query frontPage($id: String!) {
@@ -98,15 +98,7 @@ export default ({ data }) => {
 									</button>
 								</div>
 								<div className="col-7 col-md-2 order-0 order-md-1 h-100">
-									<div
-										className="Hero__location"
-										data-scroll
-										style={{ transitionDelay: '0.9s' }}>
-										Based in
-										<br />
-										Neuchâtel, CH.
-										<Flag />
-									</div>
+									<Location />
 								</div>
 								<div
 									className="col-7 offset-md-3 col-md-2 order-1 order-md-2 d-flex d-md-block justify-content-end"
