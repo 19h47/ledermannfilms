@@ -2,6 +2,7 @@ import React from 'react';
 
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
+import gsap from 'gsap';
 
 import TransitionLink, { TransitionState } from 'gatsby-plugin-transition-link';
 
@@ -10,8 +11,9 @@ import Seo from '@/components/seo';
 import SectionHeader from '@/components/section-header';
 import ProjectHero from '@/components/project-hero';
 import ProjectText from '@/components/project-text';
+import ProjectNext from '@/components/project-next';
 
-const TRANSITION_LENGTH = 1.5;
+const TRANSITION_LENGTH = 1;
 
 export const query = graphql`
 	query project($id: String!, $next: String) {
@@ -96,6 +98,9 @@ const layout = layout => {
 
 const ProjectInner = ({ mount, data }) => {
 	const { nextProject, project } = data;
+
+	console.log(mount);
+
 	const {
 		title,
 		customFields: {
@@ -116,30 +121,31 @@ const ProjectInner = ({ mount, data }) => {
 
 	const exitTransition = {
 		length: TRANSITION_LENGTH,
-		// trigger: () => {
+		trigger: ({ node }) => {
+			console.log('exitTransition', node);
 
-		// 		global.body.style.overflow = 'hidden';
+			global.scroll.update();
 
-		// },
+			gsap.to(node, { opacity: 0, duration: 1 });
+		},
 	};
 
 	const entryTransition = {
 		delay: TRANSITION_LENGTH,
-		// trigger: () => {
-
-		// 		global.scrollTo(0, 0);
-		// 		document.body.style.overflow = 'visible';
-
-		// },
+		trigger: ({ node }) => {
+			console.log('entryTransition', node);
+			global.scroll.update();
+			gsap.to(node, { autoAlpha: 1, duration: 1 });
+		},
 	};
 
 	return (
 		<Layout className="Project">
 			<Seo title={title} />
 
-			<ProjectHero project={project} footer show={mount} />
+			<ProjectHero project={project} footer />
 
-			{tabs && (
+			{tabs && tabs.length !== 0 && (
 				<div className="Site-container">
 					<div className="row">
 						<div className="offset-md-5 col-md-9">
@@ -173,7 +179,7 @@ const ProjectInner = ({ mount, data }) => {
 			)}
 
 			{gallery && gallery.length && (
-				<div className={`Section${mount ? ' is-visible' : ' is-hidden'}`}>
+				<div className="Section">
 					<SectionHeader title="Still frames" />
 
 					<div className="Site-container">
@@ -196,7 +202,7 @@ const ProjectInner = ({ mount, data }) => {
 					<div className="Section">
 						<SectionHeader title="Next project" label="" />
 					</div>
-					<ProjectHero truncated project={nextProject} />
+					<ProjectNext project={nextProject} />
 				</TransitionLink>
 			)}
 		</Layout>

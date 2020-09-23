@@ -73,12 +73,12 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 	`);
 
 	const projectsWithGallery = projects.filter(
-		({ customFields }) => customFields.gallery && customFields.gallery.length,
+		({ customFields }) => customFields.gallery !== null && customFields.gallery.length > 0,
 	);
 
 	// dump(contentNodes);
 	// dump(projectCategory);
-	// dump(projectsWithGallery);
+	dump(projectsWithGallery);
 
 	const contentTypeTemplateDirectory = `./src/templates/`;
 	const contentTypeTemplates = templates.filter(path =>
@@ -107,13 +107,13 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 			const contentTypeTemplate = contentTypeTemplates.find(path => path === templatePath);
 
 			const next =
-				index + 1 > projects.length - 1
-					? (projects[0] || {}).id
-					: (projects[index + 1] || {}).id;
+				index + 1 > projectsWithGallery.length - 1
+					? (projectsWithGallery[0] || {}).id
+					: (projectsWithGallery[index + 1] || {}).id;
 			const previous =
-				index - 1 < 0
-					? (projects[projects.length - 1] || {}).id
-					: (projects[index - 1] || {}).id;
+				0 > index - 1
+					? (projectsWithGallery[projectsWithGallery.length - 1] || {}).id
+					: (projectsWithGallery[index - 1] || {}).id;
 
 			let component = resolve(contentTypeTemplate);
 

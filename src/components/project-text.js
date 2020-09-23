@@ -27,13 +27,11 @@ const ProjectText = ({ data }) => {
 	}, [tabsRef]);
 
 	useEffect(() => {
-		return (
-			itemRefs.current.length &&
+		itemRefs.current.length &&
 			itemRefs.current.forEach(item => {
 				new SplitText(item, { type: 'lines', linesClass: 'lineChild' });
 				new SplitText(item, { type: 'lines', linesClass: 'lineParent' });
-			})
-		);
+			});
 	}, [itemRefs]);
 
 	return (

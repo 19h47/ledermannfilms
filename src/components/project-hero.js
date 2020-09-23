@@ -9,14 +9,14 @@ import Video from '@/components/video';
 import Play from '@/assets/svg/play.inline.svg';
 import Th from '@/assets/svg/th.inline.svg';
 
-const ProjectHero = ({ project, footer = false, show = true, truncated = false }) => {
+const ProjectHero = ({ project }) => {
 	const {
 		title,
 		customFields: { hero },
 		featuredImage: { node: thumbnail },
 	} = project;
 
-	const heroThumbnail = (
+	const heroThumbnail = thumbnail => (
 		<div className="Hero__thumbnail" data-scroll>
 			<Img
 				fadeIn={true}
@@ -27,15 +27,12 @@ const ProjectHero = ({ project, footer = false, show = true, truncated = false }
 		</div>
 	);
 
-	const heroVideo = (
-		<Video className="Hero__video" src={hero.video.guid} type={hero.video.mimeType} />
+	const heroVideo = video => (
+		<Video className="Hero__video" src={video.guid} type={video.mimeType} />
 	);
 
 	return (
-		<div
-			className={`Hero${show ? ' is-visible' : ' is-hidden'}${
-				truncated ? ' is-truncated' : ''
-			}`}>
+		<div className="Hero">
 			<div className="Site-container h-100">
 				<div className="Hero__body h-100">
 					<div className="Hero__content">
@@ -46,41 +43,41 @@ const ProjectHero = ({ project, footer = false, show = true, truncated = false }
 						</div>
 					</div>
 
-					{footer && (
-						<footer className="Hero__footer">
-							<div className="row d-flex align-items-end align-items-md-center">
-								<div className="col-14 col-md-6 offset-md-1 order-4 order-md-0">
-									<button
-										className="Button"
-										type="button"
-										data-scroll
-										style={{ transitionDelay: '0.6s, 0s' }}>
-										<span>
-											Watch the showreel
-											<Play />
-										</span>
-									</button>
-								</div>
-								<div className="col-7 col-md-2 order-0 order-md-1"></div>
-								<div className="col-14 offset-md-3 col-md-2 order-1 order-md-2 d-flex d-md-block justify-content-between justify-content-md-end">
-									<AniLink
-										className="All-projects smallcaps w-100 justify-content-between justify-content-md-start"
-										to="/work/"
-										cover
-										direction="up"
-										bg="#000000">
-										<span>all projects</span>
-										<Th />
-									</AniLink>
-								</div>
-								<div className="col-14 order-3 d-md-none">
-									<hr />
-								</div>
+					<footer className="Hero__footer">
+						<div className="row d-flex align-items-end align-items-md-center">
+							<div className="col-14 col-md-6 offset-md-1 order-4 order-md-0">
+								<button
+									className="Button"
+									type="button"
+									data-scroll
+									style={{ transitionDelay: '0.6s, 0s' }}>
+									<span>
+										Watch the showreel
+										<Play />
+									</span>
+								</button>
 							</div>
-						</footer>
-					)}
+							<div className="col-7 col-md-2 order-0 order-md-1"></div>
+							<div className="col-14 offset-md-3 col-md-2 order-1 order-md-2 d-flex d-md-block justify-content-between justify-content-md-end">
+								<AniLink
+									className="All-projects smallcaps w-100 justify-content-between justify-content-md-start"
+									to="/work/"
+									cover
+									direction="up"
+									bg="#000000">
+									<span>all projects</span>
+									<Th />
+								</AniLink>
+							</div>
+							<div className="col-14 order-3 d-md-none">
+								<hr />
+							</div>
+						</div>
+					</footer>
 
-					{hero.video.guid ? heroVideo : heroThumbnail}
+					{hero.video && hero.video.guid
+						? heroVideo(hero.video)
+						: heroThumbnail(thumbnail)}
 				</div>
 			</div>
 		</div>

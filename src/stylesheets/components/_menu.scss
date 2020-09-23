@@ -16,6 +16,8 @@
 	&__items {
 		@extend %list-style-type-none;
 		@extend .d-flex, .flex-row;
+
+		@include margin(right -12px left -12px);
 	}
 
 	&__item {

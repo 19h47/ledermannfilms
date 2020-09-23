@@ -1,0 +1,10 @@
+/**
+ * Project next
+ *
+ * @author Jérémy Levron <jeremylevon@19h47.fr> (https://19h47.fr)
+ */
+.Project-next {
+	@include media-breakpoint-up(md) {
+		@include aspect-ratio-size(103 * $scale-factor, 'height');
+	}
+}
