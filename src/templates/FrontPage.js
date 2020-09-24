@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
+import ButtonShowreel from '@/components/button-showreel';
 import Content from '@/components/content';
 import H0 from '@/components/h0';
 import Layout from '@/components/layout';
@@ -13,7 +14,7 @@ import Projects from '@/components/projects';
 import Footer from '@/components/footer';
 import Video from '@/components/video';
 
-import Play from '@/assets/svg/play.inline.svg';
+import { ModalProvider } from '@/context/modal-context';
 
 export const query = graphql`
 	query frontPage($id: String!) {
@@ -70,67 +71,64 @@ export default ({ data }) => {
 	);
 
 	return (
-		<Layout className="Front-page">
-			<Seo title={title} />
+		<>
+			<Layout className="Front-page">
+				<Seo title={title} />
 
-			<div className="Hero">
-				<div className="Site-container h-100">
-					<div className="Hero__body h-100">
-						<div className="Hero__content">
-							<div className="row">
-								<div className="col-14 col-md-12 offset-md-1">
-									<H0 texts={hero.title} />
+				<div className="Hero">
+					<div className="Site-container h-100">
+						<div className="Hero__body h-100">
+							<div className="Hero__content">
+								<div className="row">
+									<div className="col-14 col-md-12 offset-md-1">
+										<H0 texts={hero.title} />
+									</div>
 								</div>
 							</div>
+							<footer className="Hero__footer">
+								<div className="row d-flex align-items-end align-items-md-center">
+									<div className="col-14 col-md-6 offset-md-1 order-4 order-md-0">
+										{hero.video && hero.video.guid && (
+											<ModalProvider>
+												<ButtonShowreel video={heroVideo} />
+											</ModalProvider>
+										)}
+									</div>
+									<div className="col-7 col-md-2 order-0 order-md-1 h-100">
+										<Location />
+									</div>
+									<div
+										className="col-7 offset-md-3 col-md-2 order-1 order-md-2 d-flex d-md-block justify-content-end"
+										data-scroll>
+										<Socials />
+									</div>
+									<div className="col-14 order-3 d-md-none">
+										<hr />
+									</div>
+								</div>
+							</footer>
+
+							{hero.video && hero.video.guid ? heroVideo : heroThumbnail}
 						</div>
-						<footer className="Hero__footer">
-							<div className="row d-flex align-items-end align-items-md-center">
-								<div className="col-14 col-md-6 offset-md-1 order-4 order-md-0">
-									<button
-										className="Button"
-										type="button"
-										data-scroll
-										style={{ transitionDelay: '0.6s, 0s' }}>
-										<span>
-											Watch the showreel
-											<Play />
-										</span>
-									</button>
-								</div>
-								<div className="col-7 col-md-2 order-0 order-md-1 h-100">
-									<Location />
-								</div>
-								<div
-									className="col-7 offset-md-3 col-md-2 order-1 order-md-2 d-flex d-md-block justify-content-end"
-									data-scroll>
-									<Socials />
-								</div>
-								<div className="col-14 order-3 d-md-none">
-									<hr />
-								</div>
+					</div>
+				</div>
+
+				<Content text={content.text.en} />
+
+				<div className="Section Section--projects">
+					<SectionHeader />
+
+					<div className="Site-container">
+						<div className="row">
+							<div className="col-14">
+								<H0 texts={['Featured', 'Works']} />
 							</div>
-						</footer>
-
-						{hero.video.guid ? heroVideo : heroThumbnail}
-					</div>
-				</div>
-			</div>
-
-			<Content text={content.text.en} />
-
-			<div className="Section Section--projects">
-				<SectionHeader />
-
-				<div className="Site-container">
-					<div className="row">
-						<div className="col-14">
-							<H0 texts={['Featured', 'Works']} />
 						</div>
+						<Projects />
 					</div>
-					<Projects />
 				</div>
-			</div>
-			<Footer />
-		</Layout>
+				<Footer />
+			</Layout>
+		</>
 	);
 };

@@ -1,0 +1,27 @@
+/**
+ * Modal
+ *
+ * @author Jérémy Levron <jeremylevron@19h47.fr> (https://19h47.fr)
+ */
+.Modal {
+	@include fixed(top 0 right 0 bottom 0 left 0);
+	@include size(100vw, 100vh);
+
+	@extend %Pointer-events-auto;
+
+	@include aspect-ratio-size(6 * $scale-factor, 'padding-top');
+	@include aspect-ratio-size(6 * $scale-factor, 'padding-bottom');
+
+	background-color: the_color(gray, very-dark-01);
+
+	transition: opacity 0.3s map-get($easings, ease-out-expo),
+		visibility 0.3s map-get($easings, ease-out-expo);
+	z-index: 5;
+
+	button {
+		@include absolute(bottom 0 left 0);
+		@include aspect-ratio-size(10 * $scale-factor, 'margin-left');
+		@include aspect-ratio-size(9 * $scale-factor, 'margin-bottom');
+		z-index: 10;
+	}
+}

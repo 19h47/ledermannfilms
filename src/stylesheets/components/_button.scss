@@ -15,9 +15,12 @@
 	font-size: 14px;
 	line-height: (16/14);
 
-	opacity: 0;
 	transition: opacity 0.8s map-get($easings, ease-out-expo),
 		border-color 0.8s map-get($easings, ease-out-expo);
+
+	&[data-scroll] {
+		opacity: 0;
+	}
 
 	&[data-scroll].is-inview {
 		opacity: 1;
