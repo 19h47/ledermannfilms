@@ -6,7 +6,7 @@ import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import { ContactsContext } from '@/context/contacts-context';
 
 export default ({ className }) => {
-	const { toggle } = useContext(ContactsContext);
+	const { handleContacts } = useContext(ContactsContext);
 
 	const { wpMenu } = useStaticQuery(graphql`
 		{
@@ -41,7 +41,7 @@ export default ({ className }) => {
 					);
 				})}
 				<li className="Menu__item">
-					<button className="smallcaps" type="button" onClick={toggle}>
+					<button className="smallcaps" type="button" onClick={handleContacts}>
 						<span>Contact</span>
 					</button>
 				</li>

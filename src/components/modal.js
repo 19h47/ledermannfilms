@@ -12,7 +12,7 @@ const Modal = () => {
 					<div className="row h-100">
 						<div className="col-14 h-100 position-relative">
 							{modalContent}
-							<button class="Button" type="button" onClick={handleModal}>
+							<button className="Button" type="button" onClick={handleModal}>
 								Close
 							</button>
 						</div>

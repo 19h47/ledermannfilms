@@ -13,7 +13,7 @@ import Times from '@/assets/svg/times.inline.svg';
 function Contacts() {
 	const contactsRef = useRef(null);
 	const key = useInputEvent();
-	const { active, toggle, setActive } = useContext(ContactsContext);
+	const { active, handleContacts, setActive } = useContext(ContactsContext);
 	const {
 		wp: {
 			generalSettings: { address, publicEmail, phoneNumber },
@@ -51,7 +51,7 @@ function Contacts() {
 			ref={contactsRef}>
 			<div className="Contacts__row justify-content-between">
 				<span>Contact informations</span>
-				<button className="Contacts__close" type="button" onClick={toggle}>
+				<button className="Contacts__close" type="button" onClick={handleContacts}>
 					<span>Close</span>
 					<Times />
 				</button>

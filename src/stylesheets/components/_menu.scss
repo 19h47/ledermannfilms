@@ -43,7 +43,7 @@
 				@extend .d-inline-block;
 				transform-origin: center top;
 				transform-style: preserve-3d;
-				transform: translateY(100%);
+				transform: translateY(calc(100% + 8px));
 
 				transition: transform 0.8s map-get($easings, ease-out-cubic);
 			}

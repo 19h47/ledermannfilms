@@ -2,7 +2,7 @@ import React, { useState, createContext } from 'react';
 
 const initialState = {
 	active: false,
-	toggle: () => {},
+	handleContacts: () => {},
 };
 
 const ContactsContext = createContext(initialState);
@@ -10,14 +10,16 @@ const ContactsContext = createContext(initialState);
 function ContactsProvider({ children }) {
 	const [active, setActive] = useState(false);
 
-	const toggle = () => {
+	const handleContacts = () => {
 		const isActive = !active;
+
+		console.log(active);
 
 		setActive(isActive);
 	};
 
 	return (
-		<ContactsContext.Provider value={{ active, setActive, toggle }}>
+		<ContactsContext.Provider value={{ active, setActive, handleContacts }}>
 			{children}
 		</ContactsContext.Provider>
 	);
