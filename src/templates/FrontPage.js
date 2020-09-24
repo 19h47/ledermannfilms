@@ -66,8 +66,13 @@ export default ({ data }) => {
 		</div>
 	);
 
-	const heroVideo = (
-		<Video className="Hero__video" src={hero.video.guid} type={hero.video.mimeType} />
+	const heroVideo = ({ ...props }) => (
+		<Video
+			className="Hero__video"
+			src={hero.video.guid}
+			type={hero.video.mimeType}
+			{...props}
+		/>
 	);
 
 	return (
@@ -90,7 +95,7 @@ export default ({ data }) => {
 									<div className="col-14 col-md-6 offset-md-1 order-4 order-md-0">
 										{hero.video && hero.video.guid && (
 											<ModalProvider>
-												<ButtonShowreel video={heroVideo} />
+												<ButtonShowreel video={heroVideo()} />
 											</ModalProvider>
 										)}
 									</div>
@@ -108,7 +113,9 @@ export default ({ data }) => {
 								</div>
 							</footer>
 
-							{hero.video && hero.video.guid ? heroVideo : heroThumbnail}
+							{hero.video && hero.video.guid
+								? heroVideo({ 'data-scroll': true })
+								: heroThumbnail}
 						</div>
 					</div>
 				</div>

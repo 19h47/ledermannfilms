@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Video = ({ src, type, muted, autoPlay, className, ...props }) => {
+const Video = ({ src, type, muted, autoPlay, className, scroll, ...props }) => {
 	return (
 		<div
 			className={className}
@@ -10,6 +10,7 @@ const Video = ({ src, type, muted, autoPlay, className, ...props }) => {
 				<source src=${src} type=${type} />
 				</video>`,
 			}}
+			{...props}
 		/>
 	);
 };

@@ -29,8 +29,8 @@ const ProjectHero = ({ project }) => {
 		</div>
 	);
 
-	const heroVideo = video => (
-		<Video className="Hero__video" src={video.guid} type={video.mimeType} />
+	const heroVideo = ({ video, ...props }) => (
+		<Video className="Hero__video" src={video.guid} type={video.mimeType} {...props} />
 	);
 
 	return (
@@ -50,7 +50,7 @@ const ProjectHero = ({ project }) => {
 							<div className="col-14 col-md-6 offset-md-1 order-4 order-md-0">
 								{hero.video && hero.video.guid && (
 									<ModalProvider>
-										<ButtonShowreel video={heroVideo(hero.video)} />
+										<ButtonShowreel video={heroVideo({ video: hero.video })} />
 									</ModalProvider>
 								)}
 							</div>
@@ -73,7 +73,7 @@ const ProjectHero = ({ project }) => {
 					</footer>
 
 					{hero.video && hero.video.guid
-						? heroVideo(hero.video)
+						? heroVideo({ 'data-scroll': true, hero: hero.video })
 						: heroThumbnail(thumbnail)}
 				</div>
 			</div>
