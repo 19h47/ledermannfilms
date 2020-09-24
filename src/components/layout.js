@@ -41,17 +41,18 @@ const Layout = ({ children, className }) => {
 			{width < 784 && <ContactsMobile />}
 			<div ref={scrollRef} data-scroll-container>
 				<div id="wrapper" className={`Site-wrapper${className ? ` ${className}` : ''}`}>
+					<div
+						id="modal-root"
+						data-scroll
+						data-scroll-sticky
+						data-scroll-target="#wrapper"
+						style={{ position: 'fixed', top: 0, left: 0, zIndex: 10 }}
+					/>
 					<ContactsProvider>
 						<Header />
+
 						{width > 785 && <Contacts />}
 
-						<div
-							id="modal-root"
-							data-scroll
-							data-scroll-sticky
-							data-scroll-target="#wrapper"
-							style={{ position: 'fixed', top: 0, left: 0, zIndex: 10 }}
-						/>
 						<main id="main" className="Main">
 							{children}
 						</main>

@@ -19,7 +19,7 @@ const Modal = () => {
 					</div>
 				</div>
 			</div>,
-			document.querySelector('#modal-root'),
+			global.document.querySelector('#modal-root'),
 		);
 	} else return null;
 };

@@ -1,25 +1,21 @@
 import React, { useState, createContext } from 'react';
 
 const initialState = {
-	active: false,
+	contacts: false,
 	handleContacts: () => {},
 };
 
 const ContactsContext = createContext(initialState);
 
 function ContactsProvider({ children }) {
-	const [active, setActive] = useState(false);
+	const [contacts, setContacts] = useState(false);
 
 	const handleContacts = () => {
-		const isActive = !active;
-
-		console.log(active);
-
-		setActive(isActive);
+		setContacts(!contacts);
 	};
 
 	return (
-		<ContactsContext.Provider value={{ active, setActive, handleContacts }}>
+		<ContactsContext.Provider value={{ contacts, setContacts, handleContacts }}>
 			{children}
 		</ContactsContext.Provider>
 	);

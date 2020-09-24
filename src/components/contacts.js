@@ -13,7 +13,7 @@ import Times from '@/assets/svg/times.inline.svg';
 function Contacts() {
 	const contactsRef = useRef(null);
 	const key = useInputEvent();
-	const { active, handleContacts, setActive } = useContext(ContactsContext);
+	const { contacts, handleContacts, setContacts } = useContext(ContactsContext);
 	const {
 		wp: {
 			generalSettings: { address, publicEmail, phoneNumber },
@@ -30,21 +30,21 @@ function Contacts() {
 		}
 	`);
 
-	useOutsideClick(contactsRef, () => active && setActive(false));
+	useOutsideClick(contactsRef, () => contacts && setContacts(false));
 
 	useEffect(() => {
 		if (null === key) {
 			return;
 		}
 
-		if ('Escape' === key && active) {
-			setActive(false);
+		if ('Escape' === key && contacts) {
+			setContacts(false);
 		}
-	}, [key, active, setActive]);
+	}, [key, contacts, setContacts]);
 
 	return (
 		<div
-			className={`Contacts${active ? ' is-active' : ''}`}
+			className={`Contacts${contacts ? ' is-active' : ''}`}
 			data-scroll
 			data-scroll-sticky
 			data-scroll-target="#wrapper"
