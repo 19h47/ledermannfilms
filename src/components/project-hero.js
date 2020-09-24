@@ -73,7 +73,7 @@ const ProjectHero = ({ project }) => {
 					</footer>
 
 					{hero.video && hero.video.guid
-						? heroVideo({ 'data-scroll': true, hero: hero.video })
+						? heroVideo({ 'data-scroll': true, video: hero.video })
 						: heroThumbnail(thumbnail)}
 				</div>
 			</div>
