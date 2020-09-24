@@ -66,7 +66,7 @@ export default ({ data }) => {
 		</div>
 	);
 
-	const heroVideo = ({ ...props }) => (
+	const heroVideo = ({ ...props } = {}) => (
 		<Video
 			className="Hero__video"
 			src={hero.video.guid}
