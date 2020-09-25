@@ -1,32 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Video = ({ src, type, muted, autoPlay, className, scroll, ...props }) => {
-	return (
-		<div
-			className={className}
-			dangerouslySetInnerHTML={{
-				__html: `<video autoPlay muted=${muted} playsInline preload loop>
-				<source src=${src} type=${type} />
-				</video>`,
-			}}
-			{...props}
-		/>
-	);
-};
+const Video = ({ src, type, className, dataScroll, ...props }) => (
+	<div className={className} data-scroll={dataScroll}>
+		<video // eslint-disable-line
+			playsInline
+			{...props}>
+			<source src={src} type={type} />
+		</video>
+	</div>
+);
 
 export default Video;
 
 Video.defaultProps = {
+	src: '',
 	type: 'video/mp4',
-	muted: false,
-	autoPlay: true,
 	className: '',
+	autoPlay: true,
+	muted: true,
+	loop: true,
 };
 
 Video.propTypes = {
+	src: PropTypes.string,
 	type: PropTypes.string,
-	muted: PropTypes.bool,
-	autoPlay: PropTypes.bool,
 	className: PropTypes.string,
+	autoPlay: PropTypes.bool,
+	muted: PropTypes.bool,
+	loop: PropTypes.bool,
 };
