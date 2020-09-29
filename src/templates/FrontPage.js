@@ -68,9 +68,10 @@ export default ({ data }) => {
 
 	const heroVideo = ({ ...props } = {}) => (
 		<Video
-			className="Hero__video"
 			src={hero.video.guid}
 			type={hero.video.mimeType}
+			className="Hero__video"
+			dataScroll
 			{...props}
 		/>
 	);
@@ -113,9 +114,7 @@ export default ({ data }) => {
 								</div>
 							</footer>
 
-							{hero.video && hero.video.guid
-								? heroVideo({ 'data-scroll': true })
-								: heroThumbnail}
+							{hero.video && hero.video.guid ? heroVideo() : heroThumbnail}
 						</div>
 					</div>
 				</div>
