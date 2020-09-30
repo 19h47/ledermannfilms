@@ -20,8 +20,10 @@
 
 	&[data-scroll] {
 		opacity: 0;
+		transform: translate3d(0, #{$scale-factor * 2}px, 0);
 		transition: opacity 0.3s map-get($easings, ease-out-expo) 1.9s,
-			border-color 0.3s map-get($easings, ease-out-expo) 1.9s;
+			border-color 0.3s map-get($easings, ease-out-expo),
+			transform 0.3s map-get($easings, ease-out-expo) 1.9s;
 
 		#{ $this }__icon {
 			@extend %overflow-hidden;
@@ -35,6 +37,7 @@
 
 	&[data-scroll].is-inview {
 		opacity: 1;
+		transform: translate3d(0, 0, 0);
 
 		#{ $this }__icon {
 			svg {

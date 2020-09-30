@@ -55,7 +55,7 @@ export default ({ data }) => {
 		featuredImage: { node: thumbnail },
 	} = page;
 
-	const heroThumbnail = (
+	const heroThumbnail = thumbnail => (
 		<div className="Hero__thumbnail" data-scroll>
 			<Img
 				fadeIn={true}
@@ -66,12 +66,12 @@ export default ({ data }) => {
 		</div>
 	);
 
-	const heroVideo = ({ ...props } = {}) => (
+	const heroVideo = ({ video, scroll, ...props }) => (
 		<Video
-			src={hero.video.guid}
-			type={hero.video.mimeType}
+			src={video.guid}
+			type={video.mimeType}
 			className="Hero__video"
-			dataScroll
+			dataScroll={scroll}
 			{...props}
 		/>
 	);
@@ -96,7 +96,9 @@ export default ({ data }) => {
 									<div className="col-14 col-md-6 offset-md-1 order-4 order-md-0">
 										{hero.video && hero.video.guid && (
 											<ModalProvider>
-												<ButtonShowreel video={heroVideo()} />
+												<ButtonShowreel
+													video={heroVideo({ video: hero.video })}
+												/>
 											</ModalProvider>
 										)}
 									</div>
@@ -114,7 +116,9 @@ export default ({ data }) => {
 								</div>
 							</footer>
 
-							{hero.video && hero.video.guid ? heroVideo() : heroThumbnail}
+							{hero.video && hero.video.guid
+								? heroVideo({ video: hero.video, scroll: true })
+								: heroThumbnail(thumbnail)}
 						</div>
 					</div>
 				</div>
