@@ -14,8 +14,36 @@
 
 	svg {
 		@include margin(left 3 * 8px);
-		@include size(2 * 8px);
+		@include size(2 * 8px, 100%);
 
 		fill: currentColor;
+	}
+
+	&[data-scroll] {
+		@extend %overflow-hidden;
+
+		svg {
+			transition: 0.6s transform map-get($easings, custom) 2.4s,
+				0.6s opacity map-get($easings, custom) 2.4s;
+		}
+
+		span {
+			transition: 0.6s transform map-get($easings, custom) 2.2s,
+				0.6s opacity map-get($easings, custom) 2.2s;
+		}
+
+		span,
+		svg {
+			transform: translate3d(0, 100%, 0);
+			opacity: 0;
+		}
+	}
+
+	&[data-scroll].is-inview {
+		span,
+		svg {
+			transform: translate3d(0, 0, 0);
+			opacity: 1;
+		}
 	}
 }

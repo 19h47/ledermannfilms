@@ -19,7 +19,7 @@
 			transform-style: preserve-3d;
 			transform: translateY(100%);
 
-			transition: transform 0.8s map-get($easings, ease-out-cubic);
+			transition: transform 0.8s map-get($easings, custom);
 		}
 	}
 

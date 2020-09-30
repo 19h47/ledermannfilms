@@ -29,7 +29,7 @@ export default ({ data }) => {
 			<div className="Site-container">
 				<div className="row">
 					<div className="col-14">
-						<H0 texts={['All', 'Projects']} />
+						<H0 texts={['All', 'Projects']} delay={1.2} />
 					</div>
 					<div className="col-14">
 						<ProjectCategories />

@@ -8,10 +8,27 @@
 .Hero {
 	.gatsby-image-wrapper {
 		@include size(100%);
+
+		@at-root [data-scroll] .gatsby-image-wrapper {
+			img {
+				transform: translate3d(0, 100%, 0);
+				transition: transform 1.6s map-get($easings, custom),
+					opacity 0.8s map-get($easings, custom);
+				transform-style: preserve-3d;
+
+				opacity: 0;
+			}
+		}
+
+		@at-root [data-scroll].is-inview .gatsby-image-wrapper {
+			img {
+				opacity: 1;
+				transform: translate3d(0, 0, 0);
+			}
+		}
 	}
 
-	transition: visibility 0.8s map-get($easings, ease-out-expo),
-		opacity 0.8s map-get($easings, ease-out-expo);
+	transition: visibility 0.8s map-get($easings, custom), opacity 0.8s map-get($easings, custom);
 
 	@include media-breakpoint-up(md) {
 		@include aspect-ratio-size(103 * $scale-factor, 'height');
@@ -72,7 +89,7 @@
 		&[data-scroll] {
 			transform: translate3d(0, 100%, 0);
 			transition: transform 1.6s map-get($easings, custom),
-				opacity 0.8s map-get($easings, ease-out-expo);
+				opacity 0.8s map-get($easings, custom);
 			transform-style: preserve-3d;
 
 			opacity: 0;

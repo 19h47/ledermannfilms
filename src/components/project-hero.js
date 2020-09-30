@@ -75,9 +75,12 @@ const ProjectHero = ({ project }) => {
 									to="/work/"
 									cover
 									direction="up"
-									bg="#000000">
-									<span>all projects</span>
-									<Th />
+									bg="#000000"
+									data-scroll>
+									<div className="d-flex align-items-center">
+										<span>all projects</span>
+										<Th />
+									</div>
 								</AniLink>
 							</div>
 							<div className="col-14 order-3 d-md-none">

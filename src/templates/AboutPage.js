@@ -57,30 +57,32 @@ export default ({ data }) => {
 			<div className="Hero">
 				<div className="Site-container h-100">
 					<div className="Hero__body h-100" style={{ overflow: 'visible' }}>
-						<footer className="Hero__footer" style={{ height: '100%' }}>
-							<div className="row d-flex align-items-end" style={{ height: '100%' }}>
-								<div className="col-14 col-md-4" data-scroll>
+						<footer className="Hero__footer h-100">
+							<div className="row d-flex align-items-end h-100 ">
+								<div className="col-14 col-md-4 About-page__content" data-scroll>
 									<div
 										ref={contentRef}
 										className="Wysiwyg"
-										style={{ transitionDelay: '0.6s' }}
+										style={{ transitionDelay: '1.9s' }}
 										dangerouslySetInnerHTML={{ __html: content }}
 									/>
 								</div>
 
-								<div className="col-7 offset-md-1" style={{ height: '100%' }}>
-									<Img
-										imgStyle={{
-											objectFit: 'contain',
-										}}
-										fadeIn={true}
-										backgroundColor={'#121212'}
-										durationFadeIn={1000}
-										fluid={featuredImage.localFile.childImageSharp.fluid}
-										style={{ transform: `translate3d(0,${6.6666}vw,0)` }}
-									/>
+								<div className="col-5 offset-md-1 h-100">
+									<div data-scroll>
+										<Img
+											imgStyle={{
+												objectFit: 'contain',
+											}}
+											fadeIn={true}
+											backgroundColor={'#121212'}
+											durationFadeIn={1600}
+											fluid={featuredImage.localFile.childImageSharp.fluid}
+											style={{ maxWidth: '100%', maxHeight: '100%' }}
+										/>
+									</div>
 								</div>
-								<div className="col-7 col-md-2 order-0 order-md-1">
+								<div className="col-7 offset-md-2 col-md-2 order-0 order-md-1 About-page__location">
 									<Location />
 								</div>
 								<div className="col-14 order-3 d-md-none">

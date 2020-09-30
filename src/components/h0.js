@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const H0 = ({ texts }) => {
+const H0 = ({ texts, delay }) => {
 	if (typeof texts === 'string') {
 		texts = texts.split(/[\r\n]+/);
 	}
@@ -14,7 +14,7 @@ const H0 = ({ texts }) => {
 		<h2 className="H0">
 			{texts.map((text, index) => (
 				<span className="H0__line" key={index} data-scroll>
-					<span style={{ transitionDelay: `${1.2 + index * 0.2}s` }}>{text}</span>
+					<span style={{ transitionDelay: `${delay + index * 0.2}s` }}>{text}</span>
 				</span>
 			))}
 		</h2>
@@ -23,10 +23,12 @@ const H0 = ({ texts }) => {
 
 H0.defaultProps = {
 	texts: [],
+	delay: 0,
 };
 
 H0.propTypes = {
 	texts: PropTypes.oneOfType([PropTypes.array.isRequired, PropTypes.string.isRequired]),
+	delay: PropTypes.number,
 };
 
 export default H0;
