@@ -12,10 +12,10 @@ const Header = () => {
 			<div className="Site-container">
 				<div className="row">
 					<div className="col-10 col-md-5">
-						<SiteName delay="0.04" />
+						<SiteName delay="2.3" />
 					</div>
 					<div className="col-5 d-none d-md-block">
-						<SiteDescription delay="0.4" />
+						<SiteDescription delay="2.4" />
 					</div>
 					<div className="col-4 d-none d-md-block">
 						<Menu className="justify-content-end" />

@@ -8,15 +8,12 @@ const ButtonShowreel = ({ video }) => {
 	const { handleModal } = useContext(ModalContext);
 
 	return (
-		<button
-			className="Button"
-			type="button"
-			data-scroll
-			onClick={() => handleModal(video)}
-			style={{ transitionDelay: '0.6s, 0s' }}>
+		<button className="Button" type="button" data-scroll onClick={() => handleModal(video)}>
 			<span>
 				Watch the showreel
-				<Play />
+				<span class="Button__icon">
+					<Play />
+				</span>
 			</span>
 		</button>
 	);

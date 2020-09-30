@@ -88,7 +88,7 @@
 					// transition-delay: (0.4 + $i) * 0.5s;
 
 					span {
-						transition-delay: (0.4 + $i) * 0.25s;
+						transition-delay: 2.3s + ($i * 0.1);
 					}
 				}
 			}

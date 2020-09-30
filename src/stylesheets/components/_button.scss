@@ -6,6 +6,8 @@
  *
  */
 .Button {
+	$this: &;
+
 	// @extend .d-flex, .align-items-center;
 	@extend %text-transform-uppercase, %white-space-nowrap, %position-relative;
 	@include padding(top 18px right 16px bottom 18px left 16px);
@@ -16,15 +18,29 @@
 	// line-height: (16/14);
 	line-height: 1;
 
-	transition: opacity 0.8s map-get($easings, ease-out-expo),
-		border-color 0.8s map-get($easings, ease-out-expo);
-
 	&[data-scroll] {
 		opacity: 0;
+		transition: opacity 0.3s map-get($easings, ease-out-expo) 1.9s,
+			border-color 0.3s map-get($easings, ease-out-expo) 1.9s;
+
+		#{ $this }__icon {
+			@extend %overflow-hidden;
+
+			svg {
+				transform: translate3d(0, 100%, 0);
+				transition: 0.3s transform map-get($easings, custom) 2s;
+			}
+		}
 	}
 
 	&[data-scroll].is-inview {
 		opacity: 1;
+
+		#{ $this }__icon {
+			svg {
+				transform: translate3d(0, 0, 0);
+			}
+		}
 	}
 
 	span {

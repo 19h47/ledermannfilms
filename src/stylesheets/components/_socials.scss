@@ -14,12 +14,12 @@
 	@at-root .Hero [data-scroll] #{ $this } {
 		@for $i from 1 through 4 {
 			li:nth-child(#{$i}) a {
-				transition-delay: $i * 0.2s;
+				transition-delay: 2.1s + ($i * 0.1);
 			}
 		}
 		a {
-			transition: transform 0.8s map-get($easings, ease-out-expo);
-			transform: translate3d(0, $grid-gutter-width * 2, 0);
+			transition: transform 0.8s map-get($easings, custom);
+			transform: translate3d(0, 100%, 0);
 			transform-style: preserve-3d;
 		}
 	}

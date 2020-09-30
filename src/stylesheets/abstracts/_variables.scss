@@ -195,3 +195,14 @@ $directories: (
  *
  */
 $pi: 3.14159265359;
+
+/**
+ * Extend easings
+ *
+ */
+$easings: map-merge(
+	$easings,
+	(
+		custom: cubic-bezier(0.25, 1, 0.25, 1),
+	)
+);

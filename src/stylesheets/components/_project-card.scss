@@ -34,8 +34,8 @@
 		max-width: 100%;
 
 		transform: translate3d(0, 100%, 0);
-		transition: transform 0.8s map-get($easings, ease-out-expo),
-			opacity 0.8s map-get($easings, ease-out-expo);
+		transition: transform 1.4s map-get($easings, custom),
+			opacity 1.3s map-get($easings, custom) 0.3s;
 		transform-style: preserve-3d;
 		border-radius: $base-line-height-px;
 

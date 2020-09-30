@@ -71,7 +71,7 @@
 
 		&[data-scroll] {
 			transform: translate3d(0, 100%, 0);
-			transition: transform 1.4s map-get($easings, ease-out-expo),
+			transition: transform 1.6s map-get($easings, custom),
 				opacity 0.8s map-get($easings, ease-out-expo);
 			transform-style: preserve-3d;
 
@@ -99,11 +99,11 @@
 		}
 
 		&[data-scroll] {
-			transform: translate3d(0, 100%, 0);
-			transition: transform 1.4s map-get($easings, ease-out-expo),
-				opacity 0.8s map-get($easings, ease-out-expo);
+			transition: transform 1.4s map-get($easings, custom),
+				opacity 1.3s map-get($easings, custom) 0.3s;
 			transform-style: preserve-3d;
 
+			transform: translate3d(0, 100%, 0);
 			opacity: 0;
 		}
 
@@ -122,30 +122,6 @@
 		.Socials {
 			font-size: 14px;
 			line-height: (16/14);
-		}
-	}
-
-	&__location {
-		@extend .d-flex,
-			.flex-column-reverse,
-			.flex-md-row,
-			.justify-content-md-between,
-			.align-items-md-end;
-		@extend %text-transform-uppercase;
-
-		font-size: 14px;
-		line-height: (16/14);
-
-		opacity: 0;
-		transition: opacity 0.8s map-get($easings, ease-out-expo) 0.4s;
-
-		&.is-inview {
-			opacity: 1;
-		}
-
-		svg {
-			@include size(#{2 * $scale-factor}px);
-			@extend %margin-bottom-5, %margin-bottom-md-0;
 		}
 	}
 }
