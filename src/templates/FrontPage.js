@@ -106,7 +106,7 @@ export default ({ data }) => {
 										<Location />
 									</div>
 									<div
-										className="col-7 offset-md-3 col-md-2 order-1 order-md-2 d-flex d-md-block justify-content-end"
+										className="col-7 offset-md-2 offset-lg-3 col-md-2 order-1 order-md-2 d-flex d-md-block justify-content-end"
 										data-scroll>
 										<Socials />
 									</div>

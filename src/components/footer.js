@@ -28,7 +28,7 @@ const Footer = () => {
 	`);
 
 	return !!wpMenu && !!wpMenu.menuItems && !!wpMenu.menuItems.nodes ? (
-		<footer className="Footer">
+		<footer className="Footer" data-scroll data-scroll-call="footer" data-scroll-repeat>
 			<div className="Site-container">
 				<div className="row">
 					<div className="col-14">

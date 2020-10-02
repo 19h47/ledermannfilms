@@ -33,7 +33,7 @@ const ProjectCategories = () => {
 
 	return (
 		<div
-			className="Project-categories"
+			className="Project-categories is-active js-project-categories"
 			data-scroll
 			data-scroll-sticky
 			data-scroll-target="#wrapper">

@@ -20,6 +20,16 @@
 		&[data-scroll='true'] {
 			.lineParent {
 				clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
+				@for $i from 1 through 10 {
+					&:nth-child(#{$i}) .lineChild {
+						transition-delay: 0.3 + $i * 0.15s;
+					}
+				}
+
+				&:not(:first-child) {
+					@include aspect-ratio-size(-1 * $scale-factor, 'margin-top');
+				}
 			}
 
 			.lineChild {
@@ -29,6 +39,7 @@
 				transform: translate3d(0, 100%, 0);
 				transform-origin: center top;
 				transform-style: preserve-3d;
+				line-height: 1.4;
 			}
 
 			&.is-inview {

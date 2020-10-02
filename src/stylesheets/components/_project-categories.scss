@@ -11,15 +11,15 @@
 	@extend %position-relative, %Pointer-events-none;
 	@include aspect-ratio-size(5 * $scale-factor, 'margin-top');
 
+	transition: opacity 0.4s map-get($easings, custom), visibility 0.4s map-get($easings, custom);
 	z-index: 1;
 
 	&[data-scroll] {
-		transition: opacity 0.3s map-get($easings, custom) 1.9s;
-		opacity: 0;
+		@include autoAlpha(0);
 	}
 
-	&[data-scroll].is-inview {
-		opacity: 1;
+	&[data-scroll].is-inview.is-active {
+		@include autoAlpha(1);
 	}
 
 	&__items {

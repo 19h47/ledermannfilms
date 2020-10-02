@@ -9,13 +9,13 @@ import LocomotiveScroll from 'locomotive-scroll';
 import { ScrollProvider } from '@/context/scroll-context';
 import { ContactsProvider } from '@/context/contacts-context';
 
-import useWindowWidth from '@/hooks/use-window-width';
+import useWindowSizes from '@/hooks/use-window-sizes';
 
 import '@/stylesheets/styles.scss';
 
 const Layout = ({ children, className }) => {
 	const scrollRef = useRef(null);
-	const width = useWindowWidth();
+	const { width, height } = useWindowSizes();
 
 	useEffect(() => {
 		const scroll = new LocomotiveScroll({
@@ -33,8 +33,18 @@ const Layout = ({ children, className }) => {
 		// 	document.documentElement.setAttribute('data-direction', direction);
 		// });
 
+		scroll.on('call', (value, way, obj) => {
+			if (value === 'footer') {
+				if (way === 'enter') {
+					document.querySelector('.js-project-categories').classList.remove('is-active');
+				} else {
+					document.querySelector('.js-project-categories').classList.add('is-active');
+				}
+			}
+		});
+
 		return () => scroll.destroy();
-	}, [scrollRef]);
+	}, [height, scrollRef]);
 
 	return (
 		<ScrollProvider el={scrollRef}>
