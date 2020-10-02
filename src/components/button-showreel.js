@@ -11,7 +11,7 @@ const ButtonShowreel = ({ video }) => {
 		<button className="Button" type="button" data-scroll onClick={() => handleModal(video)}>
 			<span>
 				Watch the showreel
-				<span class="Button__icon">
+				<span className="Button__icon">
 					<Play />
 				</span>
 			</span>

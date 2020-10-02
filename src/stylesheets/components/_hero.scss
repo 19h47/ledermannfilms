@@ -31,7 +31,7 @@
 	transition: visibility 0.8s map-get($easings, custom), opacity 0.8s map-get($easings, custom);
 
 	@include media-breakpoint-up(md) {
-		@include aspect-ratio-size(103 * $scale-factor, 'height');
+		@include aspect-ratio-size(100 * $scale-factor, 'height');
 	}
 
 	hr {
@@ -44,7 +44,7 @@
 
 	&__body {
 		@extend %overflow-hidden, %position-relative;
-		@extend .d-flex, .flex-column, .justify-content-start;
+		@extend .d-flex, .flex-column, .justify-content-end;
 		@extend %padding-x-5, %padding-x-md-0;
 
 		border-radius: $base-line-height-px;
@@ -132,7 +132,7 @@
 
 	&__footer {
 		@extend %position-relative;
-		@include aspect-ratio-size(22 * $scale-factor, 'margin-bottom');
+		@include aspect-ratio-size(12 * $scale-factor, 'margin-bottom');
 
 		z-index: 3;
 
