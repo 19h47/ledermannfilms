@@ -152,7 +152,7 @@
 				.lineParent {
 					clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 
-					@for $i from 1 through 6 {
+					@for $i from 1 through 10 {
 						&:nth-child(#{$i}) .lineChild {
 							transition-delay: 0.3 + $i * 0.15s;
 						}
