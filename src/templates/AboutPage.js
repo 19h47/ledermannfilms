@@ -19,6 +19,11 @@ export const query = graphql`
 		page: wpPage(id: { eq: $id }) {
 			title
 			content
+			customFields {
+				hero {
+					content
+				}
+			}
 			featuredImage {
 				node {
 					localFile {
@@ -36,8 +41,10 @@ export default ({ data }) => {
 	const {
 		page: {
 			title,
-			content,
 			featuredImage: { node: featuredImage },
+			customFields: {
+				hero: { content },
+			},
 		},
 	} = data;
 
@@ -59,10 +66,11 @@ export default ({ data }) => {
 					<div className="Hero__body h-100" style={{ overflow: 'visible' }}>
 						<footer className="Hero__footer h-100">
 							<div className="row d-flex align-items-end h-100 ">
-								<div className="col-14 col-md-4 About-page__content" data-scroll>
-									<div
+								<div className="col-14 col-md-4">
+									<h3
+										className="Hero__footer__content"
+										data-scroll
 										ref={contentRef}
-										className="Wysiwyg"
 										style={{ transitionDelay: '1.9s' }}
 										dangerouslySetInnerHTML={{ __html: content }}
 									/>
@@ -82,7 +90,7 @@ export default ({ data }) => {
 										/>
 									</div>
 								</div>
-								<div className="col-7 offset-md-2 col-md-2 order-0 order-md-1 About-page__location">
+								<div className="col-7 offset-md-2 col-md-2 order-0 order-md-1">
 									<Location />
 								</div>
 								<div className="col-14 order-3 d-md-none">

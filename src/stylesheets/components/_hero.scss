@@ -31,8 +31,6 @@
 	transition: visibility 0.8s map-get($easings, custom), opacity 0.8s map-get($easings, custom);
 
 	@include media-breakpoint-up(md) {
-		// @include aspect-ratio-size(100 * $scale-factor, 'height');
-
 		@media (max-aspect-ratio: #{$prototype-width-unitless}/#{$prototype-height-unitless}) {
 			height: calc(100vh - #{vw_size(12 * $scale-factor)} - 24px);
 		}
@@ -82,9 +80,9 @@
 
 	&__content {
 		@extend %position-relative;
-		// @include aspect-ratio-size(5 * $scale-factor, 'margin-top');
-		// @include aspect-ratio-size(10 * $scale-factor, 'margin-bottom');
-		@include margin(top auto bottom auto) z-index: 3;
+		@include margin(top auto bottom auto);
+
+		z-index: 3;
 	}
 
 	&__thumbnail {
@@ -145,6 +143,41 @@
 		.Socials {
 			font-size: 14px;
 			line-height: (16/14);
+		}
+
+		&__content {
+			line-height: 1.4;
+
+			&[data-scroll] {
+				.lineParent {
+					clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
+					@for $i from 1 through 6 {
+						&:nth-child(#{$i}) .lineChild {
+							transition-delay: 0.3 + $i * 0.15s;
+						}
+					}
+
+					&:not(:first-child) {
+						@include aspect-ratio-size(-1 * $scale-factor, 'margin-top');
+					}
+				}
+
+				.lineChild {
+					@extend %white-space-nowrap;
+
+					transition: transform 0.8s map-get($easings, ease-out-expo) 0.4s;
+					transform: translate3d(0, 100%, 0);
+					transform-origin: center top;
+					transform-style: preserve-3d;
+				}
+
+				&.is-inview {
+					.lineChild {
+						transform: none;
+					}
+				}
+			}
 		}
 	}
 }
