@@ -31,7 +31,14 @@
 	transition: visibility 0.8s map-get($easings, custom), opacity 0.8s map-get($easings, custom);
 
 	@include media-breakpoint-up(md) {
-		@include aspect-ratio-size(100 * $scale-factor, 'height');
+		// @include aspect-ratio-size(100 * $scale-factor, 'height');
+
+		@media (max-aspect-ratio: #{$prototype-width-unitless}/#{$prototype-height-unitless}) {
+			height: calc(100vh - #{vw_size(12 * $scale-factor)} - 24px);
+		}
+		@media (min-aspect-ratio: #{$prototype-width-unitless}/#{$prototype-height-unitless}) {
+			height: calc(100vh - #{vh_size(12 * $scale-factor)} - 24px);
+		}
 	}
 
 	hr {
@@ -75,10 +82,9 @@
 
 	&__content {
 		@extend %position-relative;
-		@include aspect-ratio-size(5 * $scale-factor, 'margin-top');
-		@include aspect-ratio-size(10 * $scale-factor, 'margin-bottom');
-
-		z-index: 3;
+		// @include aspect-ratio-size(5 * $scale-factor, 'margin-top');
+		// @include aspect-ratio-size(10 * $scale-factor, 'margin-bottom');
+		@include margin(top auto bottom auto) z-index: 3;
 	}
 
 	&__thumbnail {
