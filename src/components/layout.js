@@ -34,11 +34,13 @@ const Layout = ({ children, className }) => {
 		// });
 
 		scroll.on('call', (value, way, obj) => {
-			if (value === 'footer') {
+			const $projectCategories = document.querySelector('.js-project-categories');
+
+			if ($projectCategories && value === 'footer') {
 				if (way === 'enter') {
-					document.querySelector('.js-project-categories').classList.remove('is-active');
+					$projectCategories.classList.remove('is-active');
 				} else {
-					document.querySelector('.js-project-categories').classList.add('is-active');
+					$projectCategories.classList.add('is-active');
 				}
 			}
 		});

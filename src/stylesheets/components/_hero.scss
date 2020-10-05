@@ -158,7 +158,7 @@
 
 					@for $i from 1 through 10 {
 						&:nth-child(#{$i}) .lineChild {
-							transition-delay: 0.3 + $i * 0.15s;
+							transition-delay: $i * 0.15s;
 						}
 					}
 
@@ -170,7 +170,7 @@
 				.lineChild {
 					@extend %white-space-nowrap;
 
-					transition: transform 0.8s map-get($easings, ease-out-expo) 0.4s;
+					transition: transform 1.4s map-get($easings, ease-out-expo) 0.4s;
 					transform: translate3d(0, 100%, 0);
 					transform-origin: center top;
 					transform-style: preserve-3d;

@@ -14,7 +14,7 @@ const H0 = ({ texts, delay }) => {
 		<h2 className="H0">
 			{texts.map((text, index) => (
 				<span className="H0__line" key={index} data-scroll>
-					<span style={{ transitionDelay: `${delay + index * 0.2}s` }}>{text}</span>
+					<span style={{ transitionDelay: `${index * 0.15 + delay}s` }}>{text}</span>
 				</span>
 			))}
 		</h2>
