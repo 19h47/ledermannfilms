@@ -87,7 +87,7 @@ export default ({ data }) => {
 							<div className="Hero__content">
 								<div className="row">
 									<div className="col-14 col-md-12 offset-md-1">
-										<H0 texts={hero.title} delay={1.2} />
+										<H0 texts={hero.title} delay={1} />
 									</div>
 								</div>
 							</div>

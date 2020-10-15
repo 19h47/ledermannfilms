@@ -13,7 +13,7 @@ import ProjectHero from '@/components/project-hero';
 import ProjectText from '@/components/project-text';
 import ProjectNext from '@/components/project-next';
 
-const TRANSITION_LENGTH = 2;
+const TRANSITION_LENGTH = 0.8;
 
 export const query = graphql`
 	query project($id: String!, $next: String) {
@@ -120,14 +120,18 @@ const ProjectInner = ({ mount, data }) => {
 	const exitTransition = {
 		length: TRANSITION_LENGTH,
 		trigger: ({ node }) => {
-			gsap.to(node, { opacity: 0, duration: 1, onComplete: () => global.scroll.update() });
+			gsap.to(node, { opacity: 0, duration: 0.4, onComplete: () => global.scroll.update() });
 		},
 	};
 
 	const entryTransition = {
 		delay: TRANSITION_LENGTH,
 		trigger: ({ node }) => {
-			gsap.to(node, { autoAlpha: 1, duration: 1, onComplete: () => global.scroll.update() });
+			gsap.to(node, {
+				autoAlpha: 1,
+				duration: 0.4,
+				onComplete: () => global.scroll.update(),
+			});
 		},
 	};
 

@@ -14,7 +14,7 @@
 	@at-root .Hero [data-scroll] #{ $this } {
 		@for $i from 1 through 4 {
 			li:nth-child(#{$i}) a {
-				transition-delay: 2.1s + ($i * 0.1);
+				transition-delay: 1.9s + ($i * 0.1);
 			}
 		}
 		a {

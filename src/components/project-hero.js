@@ -49,7 +49,7 @@ const ProjectHero = ({ project }) => {
 					<div className="Hero__content">
 						<div className="row">
 							<div className="col-14 col-md-12 offset-md-1">
-								<H0 texts={hero.title ? hero.title : title} />
+								<H0 delay={1} texts={hero.title ? hero.title : title} />
 							</div>
 						</div>
 					</div>

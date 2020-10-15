@@ -49,6 +49,7 @@
 
 				transition: transform 0.8s map-get($easings, custom);
 
+				&::before,
 				&::after {
 					@include absolute(right 0 bottom 0 left 0);
 					@extend .d-block;
@@ -63,7 +64,7 @@
 					content: '';
 				}
 
-				&:hover::after {
+				&:hover::before {
 					transform-origin: left center;
 					transform: scaleX(1);
 					transition-delay: 0s !important;
@@ -89,10 +90,10 @@
 				&:nth-child(#{$i}) a,
 				&:nth-child(#{$i}) button {
 					span {
-						transition-delay: 2.3s + ($i * 0.1);
+						transition-delay: 2.1s + ($i * 0.1);
 
 						&::after {
-							transition-delay: 2.3s + ($i * 0.1);
+							transition-delay: 2.1s + ($i * 0.1);
 						}
 					}
 				}

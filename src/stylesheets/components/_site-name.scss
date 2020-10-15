@@ -32,7 +32,6 @@
 	&.is-inview {
 		#{ $this }__line span {
 			transform: none;
-			transition-delay: 0.4 * 0.1.4s;
 		}
 	}
 }

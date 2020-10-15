@@ -21,16 +21,16 @@
 	&[data-scroll] {
 		opacity: 0;
 		transform: translate3d(0, #{$scale-factor * 2}px, 0);
-		transition: opacity 0.3s map-get($easings, ease-out-expo) 1.9s,
+		transition: opacity 0.3s map-get($easings, ease-out-expo) 1.7s,
 			border-color 0.3s map-get($easings, ease-out-expo),
-			transform 0.3s map-get($easings, ease-out-expo) 1.9s;
+			transform 0.3s map-get($easings, ease-out-expo) 1.7s;
 
 		#{ $this }__icon {
 			@extend %overflow-hidden;
 
 			svg {
 				transform: translate3d(0, 100%, 0);
-				transition: 0.3s transform map-get($easings, custom) 2s;
+				transition: 0.3s transform map-get($easings, custom) 1.8s;
 			}
 		}
 	}
