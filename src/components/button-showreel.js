@@ -4,13 +4,13 @@ import { ModalContext } from '@/context/modal-context';
 
 import Play from '@/assets/svg/play.inline.svg';
 
-const ButtonShowreel = ({ video }) => {
+const ButtonShowreel = ({ video, title = 'Watch the showreel' }) => {
 	const { handleModal } = useContext(ModalContext);
 
 	return (
 		<button className="Button" type="button" data-scroll onClick={() => handleModal(video)}>
 			<span>
-				Watch the showreel
+				{title}
 				<span className="Button__icon">
 					<Play />
 				</span>

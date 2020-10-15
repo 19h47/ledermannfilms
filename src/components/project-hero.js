@@ -60,6 +60,7 @@ const ProjectHero = ({ project }) => {
 								{hero.video && hero.video.guid && (
 									<ModalProvider>
 										<ButtonShowreel
+											title="Watch the video"
 											video={heroVideo({
 												video: hero.video,
 												muted: false,
