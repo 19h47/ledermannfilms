@@ -29,9 +29,9 @@
 		@extend %font-weight-light;
 
 		@include aspect-ratio-size(31, 'font-size');
-		@include aspect-ratio-size(32, 'line-height');
-		@include aspect-ratio-size(2 * $scale-factor, 'margin-top');
-		@include aspect-ratio-size(2 * $scale-factor, 'margin-bottom');
+		@include aspect-ratio-size(28, 'line-height');
+		// @include aspect-ratio-size(2 * $scale-factor, 'margin-top');
+		// @include aspect-ratio-size(2 * $scale-factor, 'margin-bottom');
 		// @include margin(top 2 * 8px bottom 2 * 8px);
 
 		&:first-child {
