@@ -83,7 +83,7 @@ export default ({ data }) => {
 
 				<div className="Hero">
 					<div className="Site-container h-100">
-						<div className="Hero__body h-100">
+						<div className="Hero__body has-gradient h-100">
 							<div className="Hero__content">
 								<div className="row">
 									<div className="col-14 col-md-12 offset-md-1">
