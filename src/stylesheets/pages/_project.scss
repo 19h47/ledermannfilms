@@ -35,6 +35,7 @@
 
 		.gatsby-image-wrapper {
 			@extend %overflow-hidden;
+			@include aspect-ratio-size(848, 'max-height');
 
 			border-radius: 3 * 8px;
 		}

@@ -16,6 +16,8 @@
 
 		border-radius: $base-line-height-px;
 
+		@include aspect-ratio-size(848, 'max-height');
+
 		&#{&}--has-video:hover {
 			// #{$this}__thumbnail {
 			// 	opacity: 0;
