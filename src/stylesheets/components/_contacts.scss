@@ -8,7 +8,7 @@
 .Contacts {
 	@include autoAlpha(0);
 	@include fixed(top 0 right 0);
-	@extend %font-weight-light;
+	@extend %font-weight-light, %overflow-hidden;
 
 	@include aspect-ratio-size(4 * $scale-factor, 'padding-top');
 	@include aspect-ratio-size(11 * $scale-factor, 'padding-right');
@@ -19,30 +19,30 @@
 		width: #{(619 * 100) / $prototype-width-unitless}vw;
 	}
 
-	background-color: the_color(gray, very-dark-02);
 	border-radius: 0px 0px 0px 2 * 8px;
 	z-index: 3;
 
-	transition: opacity 0.3s map-get($easings, ease-out-expo),
-		visibility 0.3s map-get($easings, ease-out-expo);
+	&__background {
+		@include absolute(top 0 right 0 bottom 0 left 0);
+		@include size(100%);
 
-	&.is-active {
-		@include autoAlpha(1);
-	}
+		transform: scaleY(0);
+		transform-origin: center 0;
+		background-color: the_color(gray, very-dark-02);
+		border-radius: 0px 0px 0px 2 * 8px;
 
-	span {
-		@extend %font-weight-regular, %text-transform-uppercase;
-
-		min-width: #{(97.46 * 100) / $prototype-width-unitless}vw;
+		z-index: 1;
 	}
 
 	&__row {
 		@include padding(top 2 * 8px bottom 2 * 8px);
 		@extend .d-flex, .align-items-end;
+		@extend %position-relative;
 		@include margin(bottom -1px);
 
-		border-bottom: 1px solid the_color(white);
 		white-space: pre-line;
+
+		z-index: 2;
 
 		&:first-child,
 		&:last-child {
@@ -50,10 +50,26 @@
 
 			border-bottom: none;
 		}
+
+		hr {
+			@include absolute(top 100% right 0 left 0);
+			@include size(100%, 1px);
+
+			background-color: the_color(white);
+			transform-origin: 0 center;
+			transform: scaleX(0);
+		}
+
+		span:first-child {
+			@extend %font-weight-regular, %text-transform-uppercase;
+
+			min-width: #{(97.46 * 100) / $prototype-width-unitless}vw;
+		}
 	}
 
 	&__close {
 		@extend .d-flex, .align-items-center;
+		@extend %overflow-hidden;
 
 		svg {
 			@include size(12px);
