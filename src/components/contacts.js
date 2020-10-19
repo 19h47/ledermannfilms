@@ -1,7 +1,7 @@
 import React, { useContext, useRef, useEffect } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { gsap } from 'gsap';
-import { CustomEase } from 'gsap/dist/CustomEase';
+import { CustomEase } from '../vendors/CustomEase';
 
 import Socials from '@/components/socials';
 
