@@ -7911,9 +7911,10 @@ graphql@^14.6.0, graphql@^14.7.0:
   dependencies:
     iterall "^1.2.2"
 
-gsap@./gsap-bonus.tgz:
+gsap@^3.5.1:
   version "3.5.1"
-  resolved "./gsap-bonus.tgz#4bd982a28e4c3d77d77f0bbb271ae2645f9bce7c"
+  resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.5.1.tgz#36cf76787d1758e749469d5e9cbe365c186544c4"
+  integrity sha512-EMV0RSUKZNeTUzLKAizGlwxVOUyif3/g8I3S1aA/hf3gbqwBvmQ02x1RdTBQNQMOpHCVBv9y/vaHwfctoAg8zw==
 
 gud@^1.0.0:
   version "1.0.0"

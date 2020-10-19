@@ -18,7 +18,7 @@
 		"@19h47/tabs": "^5.0.2",
 		"bootstrap": "^4.5.3",
 		"gatsby-plugin-transition-link": "^1.20.5",
-		"gsap": "./gsap-bonus.tgz",
+		"gsap": "^3.5.1",
 		"locomotive-scroll": "^3.6.1"
 	},
 	"devDependencies": {
