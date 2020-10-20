@@ -8,6 +8,8 @@
  *
  */
 .Tabs {
+	$this: &;
+
 	@include aspect-ratio-size(26 * $scale-factor, 'margin-top');
 	@include aspect-ratio-size(36 * $scale-factor, 'margin-bottom');
 
@@ -16,7 +18,7 @@
 		@extend .d-flex;
 
 		font-size: 11px;
-		min-height: (16/11);
+		line-height: (16/11);
 
 		@include margin(bottom 5 * 8px);
 
@@ -32,7 +34,7 @@
 				@include margin(left 0);
 			}
 
-			&.is-inview {
+			@at-root #{$this}.is-inview {
 				button {
 					transform: none;
 					opacity: 1;
@@ -45,7 +47,7 @@
 			@include padding(top 8px bottom 8px);
 
 			color: the_color(gray, dark);
-			transition: color 0.3s map-get($easings, ease-out-expo);
+			transition: color 0.3s map-get($easings, custom);
 
 			transform-style: preserve-3d;
 			transform: translate3d(0, 100%, 0);
@@ -64,7 +66,7 @@
 				transform-style: preserve-3d;
 				transform: scaleX(0);
 				transform-origin: right center;
-				transition: transform 0.8s map-get($easings, ease-out-expo);
+				transition: transform 0.8s map-get($easings, custom);
 
 				content: '';
 			}
@@ -87,6 +89,9 @@
 		@extend %font-weight-light;
 
 		section {
+			transition: 0.4s opacity map-get($easings, custom);
+			opacity: 0;
+
 			& > *:last-child {
 				@include margin(bottom 0);
 			}
@@ -95,23 +100,38 @@
 				@include margin(top 0);
 			}
 
-			&[data-scroll='true'] {
-				&.is-inview {
-					p {
-						transform: none;
-						opacity: 1;
-					}
-				}
-				p {
-					transform-style: preserve-3d;
-					transform: translate3d(0, 100%, 0);
-					transition-delay: 0.1.4s;
+			&.is-active {
+				opacity: 1;
+			}
+		}
 
-					transition: opacity 0.8s map-get($easings, ease-out-cubic),
-						transform 0.8s map-get($easings, ease-out-cubic);
+		.lineParent {
+			clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 
-					opacity: 0;
+			@for $i from 1 through 10 {
+				&:nth-child(#{$i}) .lineChild {
+					transition-delay: $i * 0.15s;
 				}
+			}
+
+			&:not(:first-child) {
+				@include aspect-ratio-size(-1 * $scale-factor, 'margin-top');
+			}
+		}
+
+		.lineChild {
+			@extend %white-space-nowrap;
+
+			transition: transform 1.8s map-get($easings, custom);
+			transform: translate3d(0, 100%, 0);
+			transform-origin: center top;
+			transform-style: preserve-3d;
+			line-height: 1.4;
+		}
+
+		@at-root #{$this}.is-inview section.is-active {
+			.lineChild {
+				transform: none;
 			}
 		}
 	}

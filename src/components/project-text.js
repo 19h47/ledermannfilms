@@ -16,7 +16,20 @@ const ProjectText = ({ data }) => {
 
 		if (tabsRef.current && global) {
 			getModule().then(module => {
-				const tabs = new module(tabsRef.current, { hash: false });
+				const tabs = new module(tabsRef.current, {
+					hash: false,
+					delay: 400,
+					callback() {
+						return new Promise(resolve =>
+							setTimeout(() => {
+								tabsRef.current
+									.querySelector(`[role="tabpanel"]#${this.controls}`)
+									.removeAttribute('hidden');
+								resolve();
+							}, 1),
+						);
+					},
+				});
 				tabs.init();
 
 				tabs.tabs.forEach(tab => {
@@ -35,14 +48,14 @@ const ProjectText = ({ data }) => {
 	}, [itemRefs]);
 
 	return (
-		<div className="Tabs" ref={tabsRef}>
+		<div className="Tabs" ref={tabsRef} data-scroll>
 			<ul
 				className="Tabs__navigation"
 				role="tablist" // eslint-disable-line
 				aria-label="navigation">
 				{data.map((tab, index) => {
 					return (
-						<li key={index} data-scroll>
+						<li key={index}>
 							<button
 								type="button"
 								className={`${0 === index ? 'is-active' : ''}`}
@@ -67,7 +80,6 @@ const ProjectText = ({ data }) => {
 						aria-labelledby={tab.id}
 						id={`${tab.id}-tab`}
 						dangerouslySetInnerHTML={{ __html: tab.content }}
-						data-scroll={`${0 === index ? true : false}`}
 						ref={el => (itemRefs.current[index] = el)}
 					/>
 				))}
