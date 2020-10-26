@@ -13,9 +13,6 @@
 	@include aspect-ratio-size(6 * $scale-factor, 'padding-bottom');
 
 	background-color: the_color(gray, very-dark-01);
-
-	transition: opacity 0.3s map-get($easings, ease-out-expo),
-		visibility 0.3s map-get($easings, ease-out-expo);
 	z-index: 5;
 
 	button {
@@ -24,4 +21,24 @@
 		@include aspect-ratio-size(9 * $scale-factor, 'margin-bottom');
 		z-index: 10;
 	}
+}
+
+.modal-enter {
+	opacity: 0;
+	transform: translate3d(0, 100%, 0);
+}
+.modal-enter-active {
+	opacity: 1;
+	transform: translate3d(0, 0, 0);
+	transition: transform 1.6s map-get($easings, custom), opacity 0.8s map-get($easings, custom);
+	transform-style: preserve-3d;
+}
+.modal-exit {
+	opacity: 1;
+}
+.modal-exit-active {
+	opacity: 0;
+	transform: translate3d(0, 100%, 0);
+	transition: transform 1.6s map-get($easings, custom), opacity 0.8s map-get($easings, custom);
+	transform-style: preserve-3d;
 }
