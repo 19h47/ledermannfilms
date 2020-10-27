@@ -1,7 +1,7 @@
 const React = require('react');
 
-const { ContactsProvider } = require('./src/context/contacts-context');
-const { ModalProvider } = require('./src/context/modal-context');
+const { ContactsProvider } = require('./src/context/contacts-context').default;
+const { ModalProvider } = require('./src/context/modal-context').default;
 
 exports.wrapRootElement = ({ element }) => (
 	<ContactsProvider>
