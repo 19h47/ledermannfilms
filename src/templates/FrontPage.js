@@ -7,14 +7,13 @@ import Content from '@/components/content';
 import H0 from '@/components/h0';
 import Layout from '@/components/layout';
 import Location from '@/components/location';
+
 import SectionHeader from '@/components/section-header';
 import Seo from '@/components/seo';
 import Socials from '@/components/socials';
 import Projects from '@/components/projects';
 import Footer from '@/components/footer';
 import Video from '@/components/video';
-
-import { ModalProvider } from '@/context/modal-context';
 
 export const query = graphql`
 	query frontPage($id: String!) {
@@ -95,11 +94,9 @@ export default ({ data }) => {
 								<div className="row d-flex align-items-end align-items-md-center">
 									<div className="col-14 col-md-6 offset-md-1 order-4 order-md-0">
 										{hero.video && hero.video.guid && (
-											<ModalProvider>
-												<ButtonShowreel
-													video={heroVideo({ video: hero.video })}
-												/>
-											</ModalProvider>
+											<ButtonShowreel
+												video={heroVideo({ video: hero.video })}
+											/>
 										)}
 									</div>
 									<div className="col-7 col-md-2 order-0 order-md-1 h-100">

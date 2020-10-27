@@ -1,24 +1,23 @@
 import React, { useContext } from 'react';
 import { createPortal } from 'react-dom';
-import { CSSTransition } from 'react-transition-group';
 
 import { ModalContext } from '@/context/modal-context';
 
 import Times from '@/assets/svg/times.inline.svg';
 
-const Modal = () => {
-	const { modalContent, handleModal, modal } = useContext(ModalContext);
+const Modal = ({ content }) => {
+	const { toggleModal, modal } = useContext(ModalContext);
 
-	const modalMarkup = (
-		<div className="Modal">
+	const modalContent = (
+		<div className={`Modal${modal ? ' is-active' : ''}`}>
 			<div className="Site-container h-100">
 				<div className="row h-100">
 					<div className="col-14 h-100 position-relative">
-						{modalContent}
+						{content}
 						<button
 							className="Button"
 							type="button"
-							onClick={handleModal}
+							onClick={toggleModal}
 							style={{
 								lineHeight: 1,
 								paddingTop: '16px',
@@ -41,12 +40,7 @@ const Modal = () => {
 		</div>
 	);
 
-	return createPortal(
-		<CSSTransition in={modal} timeout={1600} classNames="modal">
-			{modal ? modalMarkup : <div></div>}
-		</CSSTransition>,
-		global.document.body,
-	);
+	return createPortal(modalContent, global.document.body);
 };
 
 export default Modal;

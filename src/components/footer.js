@@ -10,7 +10,7 @@ import { ContactsContext } from '@/context/contacts-context';
 import { ScrollContext } from '@/context/scroll-context';
 
 const Footer = () => {
-	const { handleContacts } = useContext(ContactsContext);
+	const { toggleContacts } = useContext(ContactsContext);
 	const { el } = useContext(ScrollContext);
 	const { wpMenu } = useStaticQuery(graphql`
 		{
@@ -55,7 +55,7 @@ const Footer = () => {
 								);
 							})}
 							<li className="Footer__item Footer__item--right" data-scroll>
-								<button type="button" onClick={handleContacts}>
+								<button type="button" onClick={toggleContacts}>
 									<H0 texts={'Contact ↗'} />
 								</button>
 							</li>

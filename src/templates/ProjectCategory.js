@@ -19,12 +19,10 @@ export const query = graphql`
 					id
 					title
 					uri
-					terms {
+					projectCategories {
 						nodes {
-							... on WpProjectCategory {
-								id
-								name
-							}
+							id
+							name
 						}
 					}
 					featuredImage {

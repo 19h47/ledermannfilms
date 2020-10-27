@@ -1,21 +1,26 @@
 import React, { useContext } from 'react';
 
+import Modal from '@/components/modal';
+
 import { ModalContext } from '@/context/modal-context';
 
 import Play from '@/assets/svg/play.inline.svg';
 
 const ButtonShowreel = ({ video, title = 'Watch the showreel' }) => {
-	const { handleModal } = useContext(ModalContext);
+	const { toggleModal } = useContext(ModalContext);
 
 	return (
-		<button className="Button" type="button" data-scroll onClick={() => handleModal(video)}>
-			<span>
-				{title}
-				<span className="Button__icon">
-					<Play />
+		<>
+			<button className="Button" type="button" data-scroll onClick={() => toggleModal(video)}>
+				<span>
+					{title}
+					<span className="Button__icon">
+						<Play />
+					</span>
 				</span>
-			</span>
-		</button>
+			</button>
+			<Modal content={video} />
+		</>
 	);
 };
 

@@ -12,7 +12,14 @@
 	@include aspect-ratio-size(6 * $scale-factor, 'padding-top');
 	@include aspect-ratio-size(6 * $scale-factor, 'padding-bottom');
 
-	background-color: the_color(gray, very-dark-01);
+	transform: translate3d(0, 100%, 0);
+	transition: transform 1.6s map-get($easings, custom), opacity 0.8s map-get($easings, custom),
+		background-color 0.4s map-get($easings, custom) 2.4s;
+	transform-style: preserve-3d;
+
+	opacity: 0;
+
+	background-color: rgba(the_color(gray, very-dark-01), 0);
 	z-index: 5;
 
 	button {
@@ -21,24 +28,10 @@
 		@include aspect-ratio-size(9 * $scale-factor, 'margin-bottom');
 		z-index: 10;
 	}
-}
 
-.modal-enter {
-	opacity: 0;
-	transform: translate3d(0, 100%, 0);
-}
-.modal-enter-active {
-	opacity: 1;
-	transform: translate3d(0, 0, 0);
-	transition: transform 1.6s map-get($easings, custom), opacity 0.8s map-get($easings, custom);
-	transform-style: preserve-3d;
-}
-.modal-exit {
-	opacity: 1;
-}
-.modal-exit-active {
-	opacity: 0;
-	transform: translate3d(0, 100%, 0);
-	transition: transform 1.6s map-get($easings, custom), opacity 0.8s map-get($easings, custom);
-	transform-style: preserve-3d;
+	&.is-active {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+		background-color: the_color(gray, very-dark-01);
+	}
 }

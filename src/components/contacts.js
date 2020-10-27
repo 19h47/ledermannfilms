@@ -2,12 +2,12 @@ import React, { useContext, useRef, useEffect } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { gsap } from 'gsap';
 import { CustomEase } from '../vendors/CustomEase';
+import OutsideClickHandler from 'react-outside-click-handler';
 
 import Socials from '@/components/socials';
 
 import { ContactsContext } from '@/context/contacts-context';
 
-import useOutsideClick from '@/hooks/use-outside-click';
 import useInputEvent from '@/hooks/use-input-event';
 
 import Times from '@/assets/svg/times.inline.svg';
@@ -15,7 +15,7 @@ import Times from '@/assets/svg/times.inline.svg';
 gsap.registerPlugin(CustomEase);
 
 function Contacts() {
-	const contactsRef = useRef(null);
+	const contactsRef = useRef();
 	const titleRef = useRef(null);
 	const phoneRef = useRef(null);
 	const addressRef = useRef(null);
@@ -23,7 +23,7 @@ function Contacts() {
 	const socialsRef = useRef(null);
 
 	const key = useInputEvent();
-	const { contacts, handleContacts, setContacts } = useContext(ContactsContext);
+	const { contacts, toggleContacts, setContacts } = useContext(ContactsContext);
 	const {
 		wp: {
 			generalSettings: { address, publicEmail, phoneNumber },
@@ -40,8 +40,6 @@ function Contacts() {
 		}
 	`);
 
-	useOutsideClick(contactsRef, () => contacts && setContacts(false));
-
 	useEffect(() => {
 		if (null === key) {
 			return;
@@ -54,7 +52,6 @@ function Contacts() {
 
 	useEffect(() => {
 		console.log(contacts);
-
 		const timeline = gsap.timeline({
 			paused: true,
 			defaults: { ease: CustomEase.create('custom', 'M0,0,C0.25,0,0.25,1,1,1') },
@@ -159,43 +156,45 @@ function Contacts() {
 	}, [contacts]);
 
 	return (
-		<div
-			className="Contacts"
-			data-scroll
-			data-scroll-sticky
-			data-scroll-target="#wrapper"
-			ref={contactsRef}>
-			<div className="Contacts__row justify-content-between" ref={titleRef}>
-				<span className="js-title">Contact informations</span>
-				<button className="Contacts__close" type="button" onClick={handleContacts}>
-					<span>Close</span>
-					<Times />
-				</button>
+		<OutsideClickHandler onOutsideClick={() => setContacts(false)}>
+			<div
+				className="Contacts"
+				data-scroll
+				data-scroll-sticky
+				data-scroll-target="#wrapper"
+				ref={contactsRef}>
+				<div className="Contacts__row justify-content-between" ref={titleRef}>
+					<span className="js-title">Contact informations</span>
+					<button className="Contacts__close" type="button" onClick={toggleContacts}>
+						<span>Close</span>
+						<Times />
+					</button>
+				</div>
+				<div className="Contacts__row" ref={phoneRef}>
+					<span>Phone</span>
+					<span>{phoneNumber}</span>
+					<hr />
+				</div>
+				<div className="Contacts__row" ref={addressRef}>
+					<span>Address</span>
+					<span>{address}</span>
+					<hr />
+				</div>
+				<div className="Contacts__row" ref={mailRef}>
+					<span>Mail</span>
+					<span>
+						<a href="mailto:{publicEmail}">{publicEmail}</a>
+					</span>
+					<hr />
+				</div>
+				<div className="Contacts__row" ref={socialsRef}>
+					<span>Social</span>
+					<Socials />
+					<hr />
+				</div>
+				<div className="Contacts__background js-background"></div>
 			</div>
-			<div className="Contacts__row" ref={phoneRef}>
-				<span>Phone</span>
-				<span>{phoneNumber}</span>
-				<hr />
-			</div>
-			<div className="Contacts__row" ref={addressRef}>
-				<span>Address</span>
-				<span>{address}</span>
-				<hr />
-			</div>
-			<div className="Contacts__row" ref={mailRef}>
-				<span>Mail</span>
-				<span>
-					<a href="mailto:{publicEmail}">{publicEmail}</a>
-				</span>
-				<hr />
-			</div>
-			<div className="Contacts__row" ref={socialsRef}>
-				<span>Social</span>
-				<Socials />
-				<hr />
-			</div>
-			<div className="Contacts__background js-background"></div>
-		</div>
+		</OutsideClickHandler>
 	);
 }
 

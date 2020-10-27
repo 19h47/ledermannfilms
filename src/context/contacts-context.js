@@ -1,21 +1,16 @@
 import React, { useState, createContext } from 'react';
 
-const initialState = {
-	contacts: false,
-	handleContacts: () => {},
-};
-
-const ContactsContext = createContext(initialState);
+const ContactsContext = createContext();
 
 function ContactsProvider({ children }) {
 	const [contacts, setContacts] = useState(false);
 
-	const handleContacts = () => {
+	const toggleContacts = () => {
 		setContacts(!contacts);
 	};
 
 	return (
-		<ContactsContext.Provider value={{ contacts, setContacts, handleContacts }}>
+		<ContactsContext.Provider value={{ contacts, setContacts, toggleContacts }}>
 			{children}
 		</ContactsContext.Provider>
 	);

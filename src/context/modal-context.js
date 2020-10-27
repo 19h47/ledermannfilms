@@ -1,19 +1,15 @@
-import React, { createContext } from 'react';
-
-import useModal from '@/hooks/use-modal';
-import Modal from '@/components/modal';
+import React, { useState, createContext } from 'react';
 
 const ModalContext = createContext();
 
 function ModalProvider({ children }) {
-	const { modal, handleModal, modalContent } = useModal();
+	const [modal, setModal] = useState(false);
 
-	return (
-		<ModalContext.Provider value={{ modal, handleModal, modalContent }}>
-			<Modal />
-			{children}
-		</ModalContext.Provider>
-	);
+	const toggleModal = () => {
+		setModal(!modal);
+	};
+
+	return <ModalContext.Provider value={{ modal, toggleModal }}>{children}</ModalContext.Provider>;
 }
 
 export { ModalProvider, ModalContext };

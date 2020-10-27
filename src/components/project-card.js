@@ -6,7 +6,7 @@ import Video from '@/components/video';
 
 const ProjectCard = ({ project, index }) => {
 	const {
-		terms,
+		projectCategories,
 		title,
 		customFields: {
 			hero: { video },
@@ -31,7 +31,7 @@ const ProjectCard = ({ project, index }) => {
 
 			<header className="Project-card__header" data-scroll>
 				<p>{title}</p>
-				{terms && <p>{terms.nodes.map(term => term.name)}</p>}
+				{projectCategories && <p>{projectCategories.nodes.map(term => term.name)}</p>}
 				<p>({index + 1})</p>
 			</header>
 		</>

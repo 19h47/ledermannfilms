@@ -7,7 +7,6 @@ import ContactsMobile from '@/components/contacts-mobile';
 import LocomotiveScroll from 'locomotive-scroll';
 
 import { ScrollProvider } from '@/context/scroll-context';
-import { ContactsProvider } from '@/context/contacts-context';
 
 import useWindowSizes from '@/hooks/use-window-sizes';
 
@@ -60,15 +59,13 @@ const Layout = ({ children, className }) => {
 						style={{ position: 'fixed', top: 0, left: 0, zIndex: 10 }}
 					/>
 
-					<ContactsProvider>
-						<Header />
+					<Header />
 
-						{width > 785 && <Contacts />}
+					{width > 785 && <Contacts />}
 
-						<main id="main" className="Main">
-							{children}
-						</main>
-					</ContactsProvider>
+					<main id="main" className="Main">
+						{children}
+					</main>
 				</div>
 			</div>
 		</ScrollProvider>
