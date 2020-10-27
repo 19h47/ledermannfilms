@@ -40,7 +40,11 @@ const Modal = ({ content }) => {
 		</div>
 	);
 
-	return createPortal(modalContent, global.document.body);
+	if (typeof document !== `undefined`) {
+		return createPortal(modalContent, global.document.body);
+	} else {
+		return null;
+	}
 };
 
 export default Modal;
