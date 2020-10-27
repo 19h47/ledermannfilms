@@ -1,9 +1,9 @@
-const React = require('react');
+import React from 'react';
 
-const { ContactsProvider } = require('./src/context/contacts-context').default;
-const { ModalProvider } = require('./src/context/modal-context').default;
+import { ContactsProvider } from './src/context/contacts-context';
+import { ModalProvider } from './src/context/modal-context';
 
-exports.wrapRootElement = ({ element }) => (
+export const wrapRootElement = ({ element }) => (
 	<ContactsProvider>
 		<ModalProvider>{element}</ModalProvider>
 	</ContactsProvider>
