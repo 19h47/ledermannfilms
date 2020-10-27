@@ -51,7 +51,6 @@ function Contacts() {
 	}, [key, contacts, setContacts]);
 
 	useEffect(() => {
-		console.log(contacts);
 		const timeline = gsap.timeline({
 			paused: true,
 			defaults: { ease: CustomEase.create('custom', 'M0,0,C0.25,0,0.25,1,1,1') },
