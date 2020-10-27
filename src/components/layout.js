@@ -7,8 +7,6 @@ import ContactsMobile from '@/components/contacts-mobile';
 import LocomotiveScroll from 'locomotive-scroll';
 
 import { ScrollProvider } from '@/context/scroll-context';
-import { ContactsProvider } from '@/context/contacts-context';
-import { ModalProvider } from '@/context/modal-context';
 
 import useWindowSizes from '@/hooks/use-window-sizes';
 
@@ -50,33 +48,27 @@ const Layout = ({ children, className }) => {
 	}, [height, scrollRef]);
 
 	return (
-		<ContactsProvider>
-			<ModalProvider>
-				<ScrollProvider el={scrollRef}>
-					{width < 784 && <ContactsMobile />}
-					<div ref={scrollRef} data-scroll-container>
-						<div
-							id="wrapper"
-							className={`Site-wrapper${className ? ` ${className}` : ''}`}>
-							<div
-								data-scroll
-								data-scroll-sticky
-								data-scroll-target="#wrapper"
-								style={{ position: 'fixed', top: 0, left: 0, zIndex: 10 }}
-							/>
+		<ScrollProvider el={scrollRef}>
+			{width < 784 && <ContactsMobile />}
+			<div ref={scrollRef} data-scroll-container>
+				<div id="wrapper" className={`Site-wrapper${className ? ` ${className}` : ''}`}>
+					<div
+						data-scroll
+						data-scroll-sticky
+						data-scroll-target="#wrapper"
+						style={{ position: 'fixed', top: 0, left: 0, zIndex: 10 }}
+					/>
 
-							<Header />
+					<Header />
 
-							{width > 785 && <Contacts />}
+					{width > 785 && <Contacts />}
 
-							<main id="main" className="Main">
-								{children}
-							</main>
-						</div>
-					</div>
-				</ScrollProvider>
-			</ModalProvider>
-		</ContactsProvider>
+					<main id="main" className="Main">
+						{children}
+					</main>
+				</div>
+			</div>
+		</ScrollProvider>
 	);
 };
 
