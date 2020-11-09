@@ -18,7 +18,7 @@ const ProjectHero = ({ project }) => {
 		featuredImage: { node: thumbnail },
 	} = project;
 
-	const heroThumbnail = thumbnail => (
+	const thumbnailImage = thumbnail => (
 		<div className="Hero__thumbnail" data-scroll>
 			<Img
 				fadeIn={true}
@@ -32,8 +32,8 @@ const ProjectHero = ({ project }) => {
 	const heroVideo = ({ video, scroll, ...props }) => {
 		return (
 			<Video
-				src={video.guid}
-				type={video.mimeType}
+				src={video}
+				type="video/mp4"
 				className="Hero__video"
 				dataScroll={scroll}
 				{...scroll}
@@ -57,13 +57,15 @@ const ProjectHero = ({ project }) => {
 					<footer className="Hero__footer">
 						<div className="row d-flex align-items-end align-items-md-center">
 							<div className="col-14 col-md-6 offset-md-1 order-4 order-md-0">
-								{hero.video && hero.video.guid && (
+								{hero.video && (
 									<ModalProvider>
 										<ButtonShowreel
 											title="Watch the video"
 											video={heroVideo({
 												video: hero.video,
 												muted: false,
+												modal: 'true',
+												autoPlay: false,
 											})}
 										/>
 									</ModalProvider>
@@ -90,9 +92,9 @@ const ProjectHero = ({ project }) => {
 						</div>
 					</footer>
 
-					{hero.video && hero.video.guid
-						? heroVideo({ video: hero.video, scroll: true })
-						: heroThumbnail(thumbnail)}
+					{hero.thumbnail
+						? heroVideo({ video: hero.thumbnail, scroll: true })
+						: thumbnailImage(thumbnail)}
 				</div>
 			</div>
 		</div>

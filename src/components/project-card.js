@@ -9,13 +9,16 @@ const ProjectCard = ({ project, index }) => {
 		projectCategories,
 		title,
 		customFields: {
-			hero: { video },
+			hero: { thumbnail },
 		},
 	} = project;
 
 	const children = (
 		<>
-			<div className={`Project-card__body${video ? ' Project-card__body--has-video' : ''}`}>
+			<div
+				className={`Project-card__body${
+					thumbnail ? ' Project-card__body--has-video' : ''
+				}`}>
 				<div className="Project-card__thumbnail" data-scroll>
 					<Img
 						fadeIn={true}
@@ -24,8 +27,8 @@ const ProjectCard = ({ project, index }) => {
 						fluid={project.featuredImage.node.localFile.childImageSharp.fluid}
 					/>
 				</div>
-				{video && (
-					<Video className="Project-card__video" src={video.guid} type={video.mimeType} />
+				{thumbnail && (
+					<Video className="Project-card__video" src={thumbnail} type="video/mp4" />
 				)}
 			</div>
 

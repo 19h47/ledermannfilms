@@ -30,11 +30,8 @@ export const query = graphql`
 			customFields {
 				hero {
 					title
-					video {
-						title
-						guid
-						mimeType
-					}
+					video
+					thumbnail
 				}
 				content {
 					text {
@@ -67,8 +64,8 @@ export default ({ data }) => {
 
 	const heroVideo = ({ video, scroll, ...props }) => (
 		<Video
-			src={video.guid}
-			type={video.mimeType}
+			src={video}
+			type="video/mp4"
 			className="Hero__video"
 			dataScroll={scroll}
 			{...props}
@@ -93,9 +90,14 @@ export default ({ data }) => {
 							<footer className="Hero__footer">
 								<div className="row d-flex align-items-end align-items-md-center">
 									<div className="col-14 col-md-6 offset-md-1 order-4 order-md-0">
-										{hero.video && hero.video.guid && (
+										{hero.video && (
 											<ButtonShowreel
-												video={heroVideo({ video: hero.video })}
+												video={heroVideo({
+													video: hero.video,
+													autoPlay: false,
+													muted: false,
+													modal: 'true',
+												})}
 											/>
 										)}
 									</div>
@@ -113,8 +115,8 @@ export default ({ data }) => {
 								</div>
 							</footer>
 
-							{hero.video && hero.video.guid
-								? heroVideo({ video: hero.video, scroll: true })
+							{hero.thumbnail
+								? heroVideo({ video: hero.thumbnail, scroll: true })
 								: heroThumbnail(thumbnail)}
 						</div>
 					</div>

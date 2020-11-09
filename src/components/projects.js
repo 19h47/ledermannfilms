@@ -41,11 +41,8 @@ function Projects({ projects }) {
 							id
 						}
 						hero {
-							video {
-								title
-								guid
-								mimeType
-							}
+							video
+							thumbnail
 						}
 					}
 				}

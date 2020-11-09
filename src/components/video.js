@@ -1,15 +1,38 @@
-import React from 'react';
+import React, { useRef, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 
-const Video = ({ src, type, className, dataScroll, ...props }) => (
-	<div className={className} data-scroll={dataScroll}>
-		<video // eslint-disable-line
-			playsInline
-			{...props}>
-			<source src={src} type={type} />
-		</video>
-	</div>
-);
+import { ModalContext } from '@/context/modal-context';
+
+const Video = ({ src, type, className, dataScroll, ...props }) => {
+	const { modal } = useContext(ModalContext);
+	const videoRef = useRef();
+
+	useEffect(() => {
+		const video = videoRef.current;
+
+		if (props.modal === 'true') {
+			if (modal) {
+				video.muted = false;
+				video.currentTime = 0;
+				video.play();
+			} else {
+				video.muted = true;
+				video.pause();
+			}
+		}
+	}, [modal, videoRef, props.modal]);
+
+	return (
+		<div className={className} data-scroll={dataScroll}>
+			<video // eslint-disable-line
+				ref={videoRef}
+				playsInline
+				{...props}>
+				<source src={src} type={type} />
+			</video>
+		</div>
+	);
+};
 
 export default Video;
 
