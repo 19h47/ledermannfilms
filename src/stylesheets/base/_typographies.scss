@@ -23,9 +23,12 @@ h2,
 h3,
 .h3 {
 	@extend %font-weight-light, %font-family-title;
-	@include aspect-ratio-size(31, 'font-size');
-	@include aspect-ratio-size(32, 'line-height');
 	@include margin(top 1em bottom 0);
+
+	@include media-breakpoint-up(md) {
+		@include aspect-ratio-size(31, 'font-size');
+		@include aspect-ratio-size(32, 'line-height');
+	}
 }
 
 h4,

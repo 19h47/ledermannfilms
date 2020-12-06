@@ -7,11 +7,19 @@
 .Service {
 	$this: &;
 
+	@include margin(top #{2 * $scale-factor}px bottom #{2 * $scale-factor}px);
+
+	@include media-breakpoint-up(md) {
+		@include margin(top 0 bottom 0);
+	}
+
 	&__icon {
 		@include margin(left auto);
 
+		max-width: #{24 * $scale-factor}px;
+
 		@include media-breakpoint-up(md) {
-			@include size(#{(194 * 100) / $prototype-width-unitless}vw, 26 * 8px);
+			@include size(#{((24 * $scale-factor) * 100) / $prototype-width-unitless}vw, 26 * 8px);
 		}
 
 		svg {

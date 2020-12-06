@@ -84,9 +84,12 @@
 	}
 
 	&__content {
-		@include aspect-ratio-size(54, 'font-size');
-		@include aspect-ratio-size(60, 'line-height');
 		@extend %font-weight-light;
+
+		@include media-breakpoint-up(md) {
+			@include aspect-ratio-size(54, 'font-size');
+			@include aspect-ratio-size(60, 'line-height');
+		}
 
 		section {
 			transition: 0.4s opacity map-get($easings, custom);
@@ -127,6 +130,10 @@
 			transform-origin: center top;
 			transform-style: preserve-3d;
 			line-height: 1.4;
+
+			&:focus {
+				outline: none;
+			}
 		}
 
 		@at-root #{$this}.is-inview section.is-active {

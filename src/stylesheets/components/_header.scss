@@ -1,15 +1,16 @@
 /**
+ * Header
  *
- *
- *
- *
- *
- *
+ * @package LD
  */
 .Header {
-	@include aspect-ratio-size(6 * $scale-factor, 'padding-top');
-	@include aspect-ratio-size(6 * $scale-factor, 'padding-bottom');
 	@extend %position-relative;
+	@include padding(top #{7 * $scale-factor}px bottom #{3 * $scale-factor}px);
 
 	z-index: 2;
+
+	@include media-breakpoint-up(md) {
+		@include aspect-ratio-size(6 * $scale-factor, 'padding-top');
+		@include aspect-ratio-size(6 * $scale-factor, 'padding-bottom');
+	}
 }

@@ -12,10 +12,15 @@
 
 	&__text {
 		@extend %font-weight-light;
-		@include aspect-ratio-size(54, 'font-size');
-		@include aspect-ratio-size(60, 'line-height');
 
+		font-size: 26px;
+		line-height: (26/32);
 		font-feature-settings: 'salt' on;
+
+		@include media-breakpoint-up(md) {
+			@include aspect-ratio-size(54, 'font-size');
+			@include aspect-ratio-size(60, 'line-height');
+		}
 
 		&[data-scroll='true'] {
 			.lineParent {

@@ -66,7 +66,7 @@ export default ({ data }) => {
 					<div className="Hero__body h-100" style={{ overflow: 'visible' }}>
 						<footer className="Hero__footer h-100">
 							<div className="row d-flex align-items-end h-100 ">
-								<div className="col-14 col-md-4">
+								<div className="col-14 col-md-4 order-1 order-md-0">
 									<h3
 										className="Hero__footer__content"
 										data-scroll
@@ -76,7 +76,7 @@ export default ({ data }) => {
 									/>
 								</div>
 
-								<div className="col-5 offset-md-1 h-100">
+								<div className="col-8 col-md-5 offset-md-1 h-100">
 									<div data-scroll>
 										<Img
 											imgStyle={{
@@ -90,7 +90,7 @@ export default ({ data }) => {
 										/>
 									</div>
 								</div>
-								<div className="col-7 offset-md-2 col-md-2 order-0 order-md-1">
+								<div className="col-6 offset-md-2 col-md-2">
 									<Location />
 								</div>
 								<div className="col-14 order-3 d-md-none">

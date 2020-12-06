@@ -7,11 +7,9 @@ import H0 from '@/components/h0';
 import ButtonScrollTo from '@/components/button-scroll-to';
 
 import { ContactsContext } from '@/context/contacts-context';
-import { ScrollContext } from '@/context/scroll-context';
 
 const Footer = () => {
 	const { toggleContacts } = useContext(ContactsContext);
-	const { el } = useContext(ScrollContext);
 	const { wpMenu } = useStaticQuery(graphql`
 		{
 			wpMenu(slug: { eq: "footer" }) {
@@ -37,18 +35,16 @@ const Footer = () => {
 								const { id, path, label } = item;
 								return (
 									<li
-										className={`Footer__item${
-											0 !== index % 2
-												? ' Footer__item--left'
-												: ' Footer__item--right'
-										}`}
+										className={`Footer__item${0 !== index % 2
+											? ' Footer__item--left'
+											: ' Footer__item--right'
+											}`}
 										key={id}
 										data-scroll>
 										<AniLink to={path} cover direction="up" bg="#000000">
 											<H0
-												texts={`${0 !== index % 2 ? '↖ ' : ''}${label}${
-													0 === index % 2 ? ' ↗' : ''
-												}`}
+												texts={`${0 !== index % 2 ? '↖ ' : ''}${label}${0 === index % 2 ? ' ↗' : ''
+													}`}
 											/>
 										</AniLink>
 									</li>
@@ -65,7 +61,7 @@ const Footer = () => {
 				<div className="row">
 					<div className="col-14">
 						<ul className="Footer__copyright" data-scroll>
-							<li>
+							<li className="text-align-center">
 								<AniLink
 									to="/"
 									cover
@@ -80,13 +76,13 @@ const Footer = () => {
 									Credits
 								</Link>
 							</li>
-							<li>
+							<li className="text-align-right">
 								<Link to="/legal" style={{ transitionDelay: '0s, 1s' }}>
 									Legal
 								</Link>
 							</li>
 							<li>
-								<ButtonScrollTo el={el} style={{ transitionDelay: '0s, 1.1s' }} />
+								<ButtonScrollTo style={{ transitionDelay: '0s, 1.1s' }} />
 							</li>
 						</ul>
 					</div>

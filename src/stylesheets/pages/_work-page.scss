@@ -7,6 +7,8 @@
  */
 .Work-page {
 	.Projects__items {
-		@include aspect-ratio-size(-65 * $scale-factor, 'margin-top');
+		@include media-breakpoint-up(md) {
+			@include aspect-ratio-size(-65 * $scale-factor, 'margin-top');
+		}
 	}
 }

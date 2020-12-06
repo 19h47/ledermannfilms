@@ -8,12 +8,13 @@
 	&__items {
 		@extend %list-style-type-none;
 	}
+
 	&__item {
-		@extend %text-transform-uppercase, %overflow-hidden;
-		@extend .d-flex;
+		@extend %text-transform-uppercase, %overflow-hidden, %position-relative;
+		@extend .d-flex, .flex-column, .flex-md-row;
 		@include padding(top 2 * 8px bottom 2 * 8px);
 
-		border-bottom: 1px solid the_color(white);
+		// border-bottom: 1px solid the_color(white);
 
 		p {
 			@extend %margin-0;
@@ -31,10 +32,26 @@
 			}
 		}
 
+		&::after {
+			@include absolute(right 0 bottom 1px left 0);
+			@include size(100%, 1px);
+			@extend .d-block;
+
+			content: '';
+			transform: scaleX(0);
+			transform-origin: 0 center;
+			background-color: the_color(white);
+			transition: transform 0.8s map-get($easings, ease-out-cubic) 0.4s;
+		}
+
 		&.is-inview {
 			p {
 				transform: none;
 				opacity: 1;
+			}
+
+			&::after {
+				transform: scaleX(1);
 			}
 		}
 	}

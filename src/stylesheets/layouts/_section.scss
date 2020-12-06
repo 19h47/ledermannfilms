@@ -1,9 +1,7 @@
 /**
+ * Section
  *
- *
- *
- *
- *
+ * @package LD
  */
 .Section {
 	@include aspect-ratio-size(26 * $scale-factor, 'margin-top');

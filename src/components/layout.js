@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 
 import Header from '@/components/header';
 import Contacts from '@/components/contacts';
-import ContactsMobile from '@/components/contacts-mobile';
+import Navigation from '@/components/navigation';
 
 import LocomotiveScroll from 'locomotive-scroll';
 
@@ -14,7 +14,7 @@ import '@/stylesheets/styles.scss';
 
 const Layout = ({ children, className }) => {
 	const scrollRef = useRef(null);
-	const { width, height } = useWindowSizes();
+	const { height } = useWindowSizes();
 
 	useEffect(() => {
 		const scroll = new LocomotiveScroll({
@@ -24,9 +24,8 @@ const Layout = ({ children, className }) => {
 			lerp: 0.15,
 		});
 
-		scroll.update();
-
 		global.scroll = scroll;
+		global.scroll.update();
 
 		// scroll.on('scroll', ({ direction }) => {
 		// 	document.documentElement.setAttribute('data-direction', direction);
@@ -49,7 +48,6 @@ const Layout = ({ children, className }) => {
 
 	return (
 		<ScrollProvider el={scrollRef}>
-			{width < 784 && <ContactsMobile />}
 			<div ref={scrollRef} data-scroll-container>
 				<div id="wrapper" className={`Site-wrapper${className ? ` ${className}` : ''}`}>
 					<div
@@ -61,7 +59,8 @@ const Layout = ({ children, className }) => {
 
 					<Header />
 
-					{width > 785 && <Contacts />}
+					<Contacts />
+					<Navigation />
 
 					<main id="main" className="Main">
 						{children}

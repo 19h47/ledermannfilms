@@ -165,7 +165,7 @@ function Contacts() {
 				<div className="Contacts__row justify-content-between" ref={titleRef}>
 					<span className="js-title">Contact informations</span>
 					<button className="Contacts__close" type="button" onClick={toggleContacts}>
-						<span>Close</span>
+						<span className="d-none d-md-none">Close</span>
 						<Times />
 					</button>
 				</div>

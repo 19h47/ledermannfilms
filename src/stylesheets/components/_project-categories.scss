@@ -9,10 +9,15 @@
  */
 .Project-categories {
 	@extend %position-relative, %Pointer-events-none;
-	@include aspect-ratio-size(5 * $scale-factor, 'margin-top');
+	@include margin(top #{5 * $scale-factor}px bottom #{5 * $scale-factor}px);
 
 	transition: opacity 0.4s map-get($easings, custom), visibility 0.4s map-get($easings, custom);
 	z-index: 1;
+
+	@include media-breakpoint-up(md) {
+		@include aspect-ratio-size(5 * $scale-factor, 'margin-top');
+		@include margin(bottom 0);
+	}
 
 	&[data-scroll] {
 		@include autoAlpha(0);
@@ -28,11 +33,14 @@
 	&__item {
 		@extend %font-weight-light;
 
-		@include aspect-ratio-size(31, 'font-size');
-		@include aspect-ratio-size(28, 'line-height');
 		// @include aspect-ratio-size(2 * $scale-factor, 'margin-top');
 		// @include aspect-ratio-size(2 * $scale-factor, 'margin-bottom');
 		// @include margin(top 2 * 8px bottom 2 * 8px);
+
+		@include media-breakpoint-up(md) {
+			@include aspect-ratio-size(31, 'font-size');
+			@include aspect-ratio-size(28, 'line-height');
+		}
 
 		&:first-child {
 			@include margin(top 0);

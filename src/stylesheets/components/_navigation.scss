@@ -1,0 +1,88 @@
+/**
+ * Navigation
+ *
+ * @package LD
+ */
+.Navigation {
+	@include fixed(top 0 right 0 bottom 0 left 0);
+	@extend .flex-column, .d-flex;
+	@include autoAlpha(0);
+
+	z-index: 3;
+
+	@include padding(
+		top #{7 * $scale-factor}px right #{3 * $scale-factor}PX bottom #{7 * $scale-factor}px left #{3 *
+			$scale-factor}px
+	);
+
+	&__close {
+		@extend %overflow-hidden;
+		@include margin(left auto);
+
+		svg {
+			@include size(12px);
+
+			fill: currentColor;
+		}
+	}
+
+	&__header {
+		@extend .d-flex, .align-items-center;
+		@extend %position-relative, %overflow-hidden;
+
+		z-index: 2;
+	}
+
+	&__body {
+		@extend .d-flex, .align-items-center;
+		@extend %position-relative;
+
+		height: 100%;
+		z-index: 2;
+	}
+
+	&__items {
+		@extend %list-style-type-none;
+	}
+
+	&__item {
+		@include margin(top #{6 * $scale-factor}px bottom top #{6 * $scale-factor}px);
+		@extend %overflow-hidden;
+
+		font-size: 34px;
+		line-height: (34/34);
+
+		&:first-child {
+			@include margin(top 0);
+		}
+
+		&:last-child {
+			@include margin(bottom 0);
+		}
+
+		& > * {
+			@extend .d-inline-block;
+		}
+	}
+
+	&__footer {
+		@extend %position-relative;
+
+		z-index: 2;
+
+		a {
+			@extend .d-inline-block;
+		}
+	}
+
+	&__background {
+		@include absolute(top 0 right 0 bottom 0 left 0);
+		@include size(100%);
+
+		transform: scaleY(0);
+		transform-origin: center 0;
+		background-color: the_color(gray, very-dark-01);
+
+		z-index: 1;
+	}
+}

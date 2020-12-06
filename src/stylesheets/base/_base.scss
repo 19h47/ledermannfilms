@@ -6,10 +6,14 @@ html {
 	scroll-behavior: smooth;
 	background-color: the_color(gray, very-dark-01);
 	color: the_color(white);
+
+	&.has-scroll-smooth {
+		@extend %overflow-hidden;
+	}
 }
 
 body {
-	@extend %font-weight-regular, %font-family-body, %overflow-hidden;
+	@extend %font-weight-regular, %font-family-body;
 
 	-webkit-text-size-adjust: none;
 	-webkit-font-smoothing: subpixel-antialiased;

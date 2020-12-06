@@ -81,11 +81,10 @@
 	&__content {
 		@extend %position-relative;
 
-		@include aspect-ratio-size(42 * $scale-factor, 'margin-top');
-		@include aspect-ratio-size(5 * $scale-factor, 'margin-bottom');
-
 		@include media-breakpoint-up(md) {
 			@include margin(top auto bottom auto);
+			@include aspect-ratio-size(42 * $scale-factor, 'margin-top');
+			@include aspect-ratio-size(5 * $scale-factor, 'margin-bottom');
 		}
 
 		z-index: 3;

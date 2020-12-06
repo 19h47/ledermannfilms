@@ -64,7 +64,7 @@
 	&__copyright {
 		@extend %list-style-type-none, %text-transform-uppercase, %overflow-hidden;
 		@include margin(top #{(30 - 8)}px bottom #{(62 - 8)}px);
-		@extend .d-flex, .justify-content-between;
+		@extend .d-flex, .justify-content-between, .flex-column, .flex-md-row;
 
 		font-size: 14px;
 		line-height: (16/14);
