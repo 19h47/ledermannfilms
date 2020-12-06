@@ -56,13 +56,13 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 							... on WpDefaultTemplate {
 								templateName
 							}
-							... on WpFrontPageTemplate {
+							... on WpTemplate_FrontPage {
 								templateName
 							}
-							... on WpWorkPageTemplate {
+							... on WpTemplate_AboutPage {
 								templateName
 							}
-							... on WpAboutPageTemplate {
+							... on WpTemplate_WorkPage {
 								templateName
 							}
 						}
@@ -150,8 +150,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 				reporter.log(``);
 				reporter.log(``);
 				reporter.panic(
-					`[using-gatsby-source-wordpress] No template found at ${templatePath}\nfor single ${nodeType} ${
-						node.id
+					`[using-gatsby-source-wordpress] No template found at ${templatePath}\nfor single ${nodeType} ${node.id
 					} with path ${node.uri}\n\nAvailable templates:\n${contentTypeTemplates.join(
 						`\n`,
 					)}`,

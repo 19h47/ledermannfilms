@@ -16,17 +16,19 @@ const ProjectCard = ({ project, index }) => {
 	const children = (
 		<>
 			<div
-				className={`Project-card__body${
-					thumbnail ? ' Project-card__body--has-video' : ''
-				}`}>
-				<div className="Project-card__thumbnail" data-scroll>
-					<Img
-						fadeIn={true}
-						backgroundColor={'black'}
-						durationFadeIn={1000}
-						fluid={project.featuredImage.node.localFile.childImageSharp.fluid}
-					/>
-				</div>
+				className={`Project-card__body${thumbnail ? ' Project-card__body--has-video' : ''
+					}`}>
+
+				{project.featuredImage &&
+					<div className="Project-card__thumbnail" data-scroll>
+						<Img
+							fadeIn={true}
+							backgroundColor={'black'}
+							durationFadeIn={1000}
+							fluid={project.featuredImage.node.localFile.childImageSharp.fluid}
+						/>
+					</div>
+				}
 				{thumbnail && (
 					<Video className="Project-card__video" src={thumbnail} type="video/mp4" />
 				)}
@@ -51,8 +53,8 @@ const ProjectCard = ({ project, index }) => {
 			{children}
 		</AniLink>
 	) : (
-		<div className="Project-card">{children}</div>
-	);
+			<div className="Project-card">{children}</div>
+		);
 };
 
 export default ProjectCard;
