@@ -3,13 +3,9 @@
  */
 
 html {
-	scroll-behavior: smooth;
+	// scroll-behavior: smooth;
 	background-color: the_color(gray, very-dark-01);
 	color: the_color(white);
-
-	&.has-scroll-smooth {
-		@extend %overflow-hidden;
-	}
 }
 
 body {

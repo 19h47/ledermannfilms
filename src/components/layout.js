@@ -1,20 +1,14 @@
 import React, { useRef, useEffect } from 'react';
+import LocomotiveScroll from 'locomotive-scroll';
 
 import Header from '@/components/header';
 import Contacts from '@/components/contacts';
 import Navigation from '@/components/navigation';
 
-import LocomotiveScroll from 'locomotive-scroll';
-
-import { ScrollProvider } from '@/context/scroll-context';
-
-import useWindowSizes from '@/hooks/use-window-sizes';
-
 import '@/stylesheets/styles.scss';
 
 const Layout = ({ children, className }) => {
 	const scrollRef = useRef(null);
-	const { height } = useWindowSizes();
 
 	useEffect(() => {
 		const scroll = new LocomotiveScroll({
@@ -25,11 +19,6 @@ const Layout = ({ children, className }) => {
 		});
 
 		global.scroll = scroll;
-		global.scroll.update();
-
-		// scroll.on('scroll', ({ direction }) => {
-		// 	document.documentElement.setAttribute('data-direction', direction);
-		// });
 
 		scroll.on('call', (value, way, obj) => {
 			const $projectCategories = document.querySelector('.js-project-categories');
@@ -43,31 +32,29 @@ const Layout = ({ children, className }) => {
 			}
 		});
 
-		return () => scroll.destroy();
-	}, [height, scrollRef]);
+		return () => scroll.destroy()
+	});
 
 	return (
-		<ScrollProvider el={scrollRef}>
-			<div ref={scrollRef} data-scroll-container>
-				<div id="wrapper" className={`Site-wrapper${className ? ` ${className}` : ''}`}>
-					<div
-						data-scroll
-						data-scroll-sticky
-						data-scroll-target="#wrapper"
-						style={{ position: 'fixed', top: 0, left: 0, zIndex: 10 }}
-					/>
+		<div ref={scrollRef} data-scroll-container>
+			<div id="wrapper" className={`Site-wrapper${className ? ` ${className}` : ''}`}>
+				<div
+					data-scroll
+					data-scroll-sticky
+					data-scroll-target="#wrapper"
+					style={{ position: 'fixed', top: 0, left: 0, zIndex: 10 }}
+				/>
 
-					<Header />
+				<Header />
 
-					<Contacts />
-					<Navigation />
+				<Contacts />
+				<Navigation />
 
-					<main id="main" className="Main">
-						{children}
-					</main>
-				</div>
+				<main id="main" className="Main">
+					{children}
+				</main>
 			</div>
-		</ScrollProvider>
+		</div>
 	);
 };
 

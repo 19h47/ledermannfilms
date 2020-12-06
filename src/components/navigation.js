@@ -108,7 +108,8 @@ export default () => {
 									to={menuItem.path}
 									cover
 									direction="up"
-									bg="#000000">
+									bg="#000000"
+									onClick={toggleNavigation}>
 									<span>{menuItem.label}</span>
 								</AniLink>
 							</li>

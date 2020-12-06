@@ -58,6 +58,7 @@ export default ({ data }) => {
 		},
 	} = data;
 
+
 	return (
 		<Layout>
 			<Seo title={name} />
