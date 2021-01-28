@@ -43,7 +43,7 @@ export const query = graphql`
 	}
 `;
 
-export default ({ data }) => {
+const FrontPage = ({ data }) => {
 	const { page } = data;
 	const {
 		title,
@@ -141,3 +141,5 @@ export default ({ data }) => {
 		</>
 	);
 };
+
+export default FrontPage;

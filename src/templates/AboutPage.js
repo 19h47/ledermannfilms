@@ -35,7 +35,7 @@ export const query = graphql`
 	}
 `;
 
-export default ({ data }) => {
+const AboutPage = ({ data }) => {
 	const contentRef = useRef(null);
 
 	const {
@@ -108,3 +108,5 @@ export default ({ data }) => {
 		</Layout>
 	);
 };
+
+export default AboutPage;

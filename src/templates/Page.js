@@ -20,7 +20,7 @@ export const query = graphql`
 	}
 `;
 
-export default ({ data }) => {
+const Page = ({ data }) => {
 	const { page } = data;
 	return (
 		<Layout>
@@ -29,3 +29,5 @@ export default ({ data }) => {
 		</Layout>
 	);
 };
+
+export default Page;

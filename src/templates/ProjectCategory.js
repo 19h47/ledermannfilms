@@ -50,14 +50,13 @@ export const query = graphql`
 	}
 `;
 
-export default ({ data }) => {
+const ProjectCategory = ({ data }) => {
 	const {
 		projectCategory: {
 			name,
 			projects: { nodes: projects },
 		},
 	} = data;
-
 
 	return (
 		<Layout>
@@ -87,3 +86,5 @@ export default ({ data }) => {
 		</Layout>
 	);
 };
+
+export default ProjectCategory;

@@ -16,7 +16,7 @@ export const query = graphql`
 	}
 `;
 
-export default ({ data }) => {
+const WorkPage = ({ data }) => {
 	const {
 		page: { title },
 	} = data;
@@ -50,3 +50,5 @@ export default ({ data }) => {
 		</Layout>
 	);
 };
+
+export default WorkPage;

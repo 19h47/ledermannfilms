@@ -34,10 +34,19 @@
 		}
 
 		.gatsby-image-wrapper {
-			@extend %overflow-hidden;
-			@include aspect-ratio-size(848, 'max-height');
+			[aria-hidden='true'] {
+				@extend .d-none;
+			}
 
-			border-radius: 3 * 8px;
+			picture {
+				@extend %overflow-hidden;
+				@extend .d-flex, .align-items-center, .justify-content-center;
+				@include aspect-ratio-size(848, 'height');
+			}
+
+			img {
+				border-radius: 3 * 8px;
+			}
 		}
 	}
 }

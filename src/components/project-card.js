@@ -18,17 +18,24 @@ const ProjectCard = ({ project, index }) => {
 			<div
 				className={`Project-card__body${thumbnail ? ' Project-card__body--has-video' : ''
 					}`}>
-
-				{project.featuredImage &&
+				{project.featuredImage && (
 					<div className="Project-card__thumbnail" data-scroll>
 						<Img
 							fadeIn={true}
 							backgroundColor={'black'}
 							durationFadeIn={1000}
 							fluid={project.featuredImage.node.localFile.childImageSharp.fluid}
+							imgStyle={{
+								objectFit: 'contain',
+								height: 'auto',
+								width: 'auto',
+								maxWidth: '100%',
+								maxHeight: '100%',
+								position: 'relative',
+							}}
 						/>
 					</div>
-				}
+				)}
 				{thumbnail && (
 					<Video className="Project-card__video" src={thumbnail} type="video/mp4" />
 				)}

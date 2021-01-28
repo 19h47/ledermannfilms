@@ -4,7 +4,7 @@ import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import Layout from '@/components/layout';
 import H0 from '@/components/h0';
 
-export default () => (
+const Error404 = () => (
 	<Layout className="error404">
 		<div className="Site-container h-100">
 			<div className="row h-100">
@@ -28,3 +28,5 @@ export default () => (
 		</div>
 	</Layout>
 );
+
+export default Error404;

@@ -16,7 +16,7 @@
 
 		border-radius: $base-line-height-px;
 
-		@include aspect-ratio-size(848, 'max-height');
+		@include aspect-ratio-size(848, 'height');
 
 		&#{&}--has-video:hover {
 			// #{$this}__thumbnail {
@@ -30,22 +30,37 @@
 	}
 
 	&__thumbnail {
-		@include size(100%, auto);
-		@extend %overflow-hidden;
+		@include size(auto);
 
 		max-width: 100%;
+		max-height: 100%;
 
 		transform: translate3d(0, 100%, 0);
 		transition: transform 1.4s map-get($easings, custom),
 			opacity 1.3s map-get($easings, custom) 0.3s;
 		transform-style: preserve-3d;
-		border-radius: $base-line-height-px;
 
 		z-index: 2;
 
 		&.is-inview {
 			transform: translate3d(0, 0, 0);
 			z-index: 1;
+		}
+
+		.gatsby-image-wrapper {
+			[aria-hidden='true'] {
+				@extend .d-none;
+			}
+
+			picture {
+				@extend %overflow-hidden;
+				@extend .d-flex, .align-items-center, .justify-content-center;
+				@include aspect-ratio-size(848, 'height');
+			}
+
+			img {
+				border-radius: 3 * 8px;
+			}
 		}
 	}
 

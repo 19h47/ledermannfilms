@@ -179,7 +179,18 @@ const ProjectInner = ({ mount, data }) => {
 									className={`Project__item ${layout(image.customFields.layout)}`}
 									key={image.id}
 									data-scroll>
-									<Img fadeIn fluid={image.localFile.childImageSharp.fluid} />
+									<Img
+										fadeIn
+										fluid={image.localFile.childImageSharp.fluid}
+										imgStyle={{
+											objectFit: 'contain',
+											height: 'auto',
+											width: 'auto',
+											maxWidth: '100%',
+											maxHeight: '100%',
+											position: 'relative',
+										}}
+									/>
 								</li>
 							))}
 						</ul>
