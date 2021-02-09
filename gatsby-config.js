@@ -28,7 +28,7 @@ module.exports = {
 			},
 		},
 		{
-			resolve: `gatsby-source-wordpress-experimental`,
+			resolve: `gatsby-source-wordpress`,
 			options: {
 				url: process.env.WPGRAPHQL_URL || `https://wp.ledermannfilms.com/graphql`,
 				verbose: true,
@@ -84,5 +84,10 @@ module.exports = {
 				extensions: ['js'],
 			},
 		},
+		/**
+		 * this (optional) plugin enables Progressive Web App + Offline functionality
+		 * To learn more, visit: https://gatsby.dev/offline
+		 */
+		`gatsby-plugin-offline`,
 	],
 };

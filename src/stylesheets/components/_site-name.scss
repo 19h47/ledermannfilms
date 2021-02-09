@@ -10,11 +10,6 @@
 
 	@extend %white-space-nowrap;
 
-	i {
-		@extend .d-md-none;
-		@include margin(right 16px);
-	}
-
 	&__line {
 		@extend .d-block;
 		@extend %overflow-hidden;

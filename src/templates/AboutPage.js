@@ -76,7 +76,7 @@ const AboutPage = ({ data }) => {
 									/>
 								</div>
 
-								<div className="col-8 col-md-5 offset-md-1 h-100">
+								<div className="col-8 offset-3 col-md-5 offset-md-1 h-100">
 									<div data-scroll>
 										<Img
 											imgStyle={{
@@ -90,11 +90,8 @@ const AboutPage = ({ data }) => {
 										/>
 									</div>
 								</div>
-								<div className="col-6 offset-md-2 col-md-2">
+								<div className="col-14 offset-md-2 col-md-2">
 									<Location />
-								</div>
-								<div className="col-14 order-3 d-md-none">
-									<hr />
 								</div>
 							</div>
 						</footer>

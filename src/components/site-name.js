@@ -27,7 +27,6 @@ const SiteName = ({ delay, classes = [] }) => {
 		>
 			<span className="Site-name__line">
 				<span style={{ transitionDelay: `${delay}s` }}>
-					<i>✦</i>
 					{wp.generalSettings.title}
 				</span>
 			</span>

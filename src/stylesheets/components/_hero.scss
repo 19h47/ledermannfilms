@@ -50,7 +50,6 @@
 	&__body {
 		@extend %overflow-hidden, %position-relative;
 		@extend .d-flex, .flex-column, .justify-content-end;
-		@extend %padding-x-5, %padding-x-md-0;
 
 		border-radius: $base-line-height-px;
 
@@ -124,6 +123,16 @@
 
 			object-position: center;
 			object-fit: cover;
+
+			@at-root .Modal & {
+				object-position: center;
+				object-fit: contain;
+
+				@include media-breakpoint-up(md) {
+					object-position: center;
+					object-fit: cover;
+				}
+			}
 		}
 
 		&[data-scroll] {
