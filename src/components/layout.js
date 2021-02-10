@@ -13,8 +13,10 @@ const Layout = ({ children, className }) => {
 	useEffect(() => {
 		const scroll = new LocomotiveScroll({
 			el: scrollRef.current,
-			smooth: false,
+			smooth: true,
 		});
+
+		setTimeout(() => scroll.update(), 1)
 
 		global.scroll = scroll;
 
@@ -31,10 +33,10 @@ const Layout = ({ children, className }) => {
 		});
 
 		return () => scroll && scroll.destroy();
-	}, []);
+	});
 
 	return (
-		<div ref={scrollRef} >
+		<div ref={scrollRef} scroll-container>
 			<div id="wrapper" className={`Site-wrapper${className ? ` ${className}` : ''}`}>
 				<div
 					data-scroll
