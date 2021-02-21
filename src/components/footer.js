@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
-import Link from 'gatsby-plugin-transition-link';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
 
 import H0 from '@/components/h0';

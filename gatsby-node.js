@@ -173,24 +173,3 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 		}),
 	);
 };
-
-// exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
-// 	if (stage === 'build-html' || stage === 'develop-html') {
-// 		actions.setWebpackConfig({
-// 			module: {
-// 				rules: [
-// 					{
-// 						test: /locomotive-scroll/,
-// 						use: loaders.null(),
-// 					},
-// 				],
-// 				rules: [
-// 					{
-// 						test: /react-locomotive-scroll/,
-// 						use: loaders.null(),
-// 					},
-// 				],
-// 			},
-// 		});
-// 	}
-// };
