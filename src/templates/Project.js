@@ -199,7 +199,7 @@ const ProjectInner = ({ mount, data }) => {
 			)}
 
 			{nextProject.customFields.gallery && nextProject.customFields.gallery.length && (
-				<TransitionLink exit={exitTransition} entry={entryTransition} to={nextProject.uri}>
+				<TransitionLink className="d-block" exit={exitTransition} entry={entryTransition} to={nextProject.uri} preventScrollJump={false}>
 					<div className="Section">
 						<SectionHeader title="Next project" label="" />
 					</div>

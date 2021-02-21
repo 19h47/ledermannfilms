@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import { graphql, useStaticQuery } from 'gatsby';
+
+import { useLocomotiveScroll } from 'react-locomotive-scroll';
 
 const listItem = ({ id, uri, name, count }) => (
 	<li className="Project-categories__item" key={id}>
@@ -30,6 +32,26 @@ const ProjectCategories = () => {
 			}
 		}
 	`);
+
+
+
+	const { scroll } = useLocomotiveScroll();
+
+	useEffect(() => {
+		scroll && scroll.on('call', (value, way, obj) => {
+			const $projectCategories = global.document.querySelector('.js-project-categories');
+
+			if ($projectCategories && value === 'footer') {
+				if (way === 'enter') {
+					$projectCategories.classList.remove('is-active');
+				}
+				if (way === 'exit') {
+					$projectCategories.classList.add('is-active');
+				}
+			}
+		});
+	}, [scroll]);
+
 
 	return (
 		<div

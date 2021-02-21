@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useLocomotiveScroll } from 'react-locomotive-scroll';
 
 const useAudio = url => {
 	const [audio] = useState(typeof Audio !== 'undefined' && new Audio(url));
@@ -22,8 +23,8 @@ const useAudio = url => {
 };
 
 const ButtonScrollTo = ({ style }) => {
-	const scrollTo = () => global.scroll.scrollTo(global.scroll.el);
 	const [playing, toggle] = useAudio('/eject.mp3');
+	const { scroll } = useLocomotiveScroll();
 
 	const styles = {
 		display: 'flex',
@@ -39,7 +40,7 @@ const ButtonScrollTo = ({ style }) => {
 				className={`${playing ? 'is-playing' : 'is-paused'}`}
 				type="button"
 				onClick={() => {
-					scrollTo();
+					scroll.scrollTo(scroll.el);
 					toggle();
 				}}>
 				⏏

@@ -79,7 +79,8 @@ const ProjectHero = ({ project }) => {
 									cover
 									direction="up"
 									bg="#000000"
-									data-scroll>
+									data-scroll
+									preventScrollJump={false}>
 									<div className="d-flex align-items-center">
 										<span>all projects</span>
 										<Th />

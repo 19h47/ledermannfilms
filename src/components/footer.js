@@ -41,7 +41,12 @@ const Footer = () => {
 											}`}
 										key={id}
 										data-scroll>
-										<AniLink to={path} cover direction="up" bg="#000000">
+										<AniLink
+											to={path}
+											cover
+											direction="up"
+											bg="#000000"
+											preventScrollJump={false}>
 											<H0
 												texts={`${0 !== index % 2 ? '↖ ' : ''}${label}${0 === index % 2 ? ' ↗' : ''
 													}`}

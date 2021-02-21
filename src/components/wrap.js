@@ -5,7 +5,7 @@ export const Wrap = ({ children }) => {
 	const containerRef = useRef(null)
 
 	return <Fragment>
-		<LocomotiveScrollProvider options={{ smooth: true }} containerRef={containerRef}>
+		<LocomotiveScrollProvider options={{ smooth: true }} containerRef={containerRef} watch={[children]}>
 			<main data-scroll-container ref={containerRef}>
 				{children}
 			</main>
