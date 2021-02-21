@@ -1,10 +1,8 @@
 /**
  * Project card
  *
- *
- *
- *
- *
+ * @package WordPress
+ * @subpackage Ledermannfilms
  */
 .Project-card {
 	$this: &;
@@ -13,10 +11,10 @@
 
 	&__body {
 		@extend %overflow-hidden, %position-relative;
+		@include aspect-ratio-size(848, 'height');
 
 		border-radius: $base-line-height-px;
-
-		@include aspect-ratio-size(848, 'height');
+		width: 100%;
 
 		&#{&}--has-video:hover {
 			// #{$this}__thumbnail {
@@ -30,15 +28,14 @@
 	}
 
 	&__thumbnail {
-		@include size(auto);
-
-		max-width: 100%;
-		max-height: 100%;
+		@include size(100%);
+		@extend .d-flex, .align-items-center, .justify-content-center;
 
 		transform: translate3d(0, 100%, 0);
 		transition: transform 1.4s map-get($easings, custom),
 			opacity 1.3s map-get($easings, custom) 0.3s;
 		transform-style: preserve-3d;
+		will-change: transform;
 
 		z-index: 2;
 
@@ -47,20 +44,16 @@
 			z-index: 1;
 		}
 
-		.gatsby-image-wrapper {
-			[aria-hidden='true'] {
-				@extend .d-none;
-			}
+		img {
+			// @include aspect-ratio-size(848, 'height');
+			@include margin(right auto left auto);
 
-			picture {
-				@extend %overflow-hidden;
-				@extend .d-flex, .align-items-center, .justify-content-center;
-				@include aspect-ratio-size(848, 'height');
-			}
-
-			img {
-				border-radius: 3 * 8px;
-			}
+			max-height: 100%;
+			max-width: 100%;
+			width: auto;
+			border-radius: 3 * 8px;
+			object-fit: contain;
+			object-position: center;
 		}
 	}
 

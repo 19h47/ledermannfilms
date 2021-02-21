@@ -1,6 +1,6 @@
 import React from 'react';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
-import Img from 'gatsby-image';
+// import Img from 'gatsby-image';
 
 import Video from '@/components/video';
 
@@ -20,19 +20,12 @@ const ProjectCard = ({ project, index }) => {
 					}`}>
 				{project.featuredImage && (
 					<div className="Project-card__thumbnail" data-scroll>
-						<Img
-							fadeIn={true}
-							backgroundColor={'black'}
-							durationFadeIn={1000}
-							fluid={project.featuredImage.node.localFile.childImageSharp.fluid}
-							imgStyle={{
-								objectFit: 'contain',
-								height: 'auto',
-								width: 'auto',
-								maxWidth: '100%',
-								maxHeight: '100%',
-								position: 'relative',
-							}}
+						<img
+							src={project.featuredImage.node.localFile.childImageSharp.fluid.srcWebp}
+							srcSet={project.featuredImage.node.localFile.childImageSharp.fluid.srcSetWebp}
+							sizes={project.featuredImage.node.localFile.childImageSharp.fluid.sizes}
+							loading="lazy"
+							alt={title}
 						/>
 					</div>
 				)}
