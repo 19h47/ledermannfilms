@@ -1,34 +1,37 @@
-import React /*, { useEffect } */ from 'react';
+import React from 'react';
+import { useLocomotiveScroll } from 'react-locomotive-scroll';
 
 import Header from '@/components/header';
 import Contacts from '@/components/contacts';
 import Navigation from '@/components/navigation';
 
-import { useLocomotiveScroll } from 'react-locomotive-scroll';
+
+
 
 import '@/stylesheets/styles.scss';
 
 const Layout = ({ children, className }) => {
-	// const { scroll } = useLocomotiveScroll();
 
-	// scroll.on('call', (value, way, obj) => {
-	// 	const $projectCategories = document.querySelector('.js-project-categories');
+	if (typeof window !== `undefined`) {
+		const { scroll } = useLocomotiveScroll();
 
-	// 	if ($projectCategories && value === 'footer') {
-	// 		if (way === 'enter') {
-	// 			$projectCategories.classList.remove('is-active');
-	// 		}
-	// 		if (way === 'exit') {
-	// 			$projectCategories.classList.add('is-active');
-	// 		}
-	// 	}
-	// });
+		scroll.on('call', (value, way, obj) => {
+			const $projectCategories = global.document.querySelector('.js-project-categories');
+
+			if ($projectCategories && value === 'footer') {
+				if (way === 'enter') {
+					$projectCategories.classList.remove('is-active');
+				}
+				if (way === 'exit') {
+					$projectCategories.classList.add('is-active');
+				}
+			}
+		});
+	}
+
 
 	return (
-		<div
-			id="wrapper"
-			className={`Site-wrapper${className ? ` ${className}` : ''}`}
-			data-scroll-section>
+		<div id="wrapper" className={`Site-wrapper${className ? ` ${className}` : ''}`}>
 			<div
 				data-scroll
 				data-scroll-sticky

@@ -67,6 +67,7 @@ const Footer = () => {
 									cover
 									direction="up"
 									bg="#000000"
+									preventScrollJump={false}
 									style={{ transitionDelay: '0s, 0.8s' }}>
 									© 2020 Julien Ledermann
 								</AniLink>

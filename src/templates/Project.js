@@ -114,7 +114,7 @@ const ProjectInner = ({ mount, data }) => {
 	const exitTransition = {
 		length: TRANSITION_LENGTH,
 		trigger: ({ node }) => {
-			gsap.to(node, { opacity: 0, duration: 0.4, onComplete: () => global.scroll.update() });
+			gsap.to(node, { opacity: 0, duration: 0.4 });
 		},
 	};
 
@@ -124,7 +124,7 @@ const ProjectInner = ({ mount, data }) => {
 			gsap.to(node, {
 				autoAlpha: 1,
 				duration: 0.4,
-				onComplete: () => global.scroll.update(),
+
 			});
 		},
 	};

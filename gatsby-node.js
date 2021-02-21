@@ -184,6 +184,12 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
 						use: loaders.null(),
 					},
 				],
+				rules: [
+					{
+						test: /react-locomotive-scroll/,
+						use: loaders.null(),
+					},
+				],
 			},
 		});
 	}
