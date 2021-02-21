@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React /*, { useEffect } */ from 'react';
 
 import Header from '@/components/header';
 import Contacts from '@/components/contacts';
@@ -9,22 +9,20 @@ import { useLocomotiveScroll } from 'react-locomotive-scroll';
 import '@/stylesheets/styles.scss';
 
 const Layout = ({ children, className }) => {
-	useEffect(() => {
-		const { scroll } = useLocomotiveScroll();
+	// const { scroll } = useLocomotiveScroll();
 
-		scroll.on('call', (value, way, obj) => {
-			const $projectCategories = document.querySelector('.js-project-categories');
+	// scroll.on('call', (value, way, obj) => {
+	// 	const $projectCategories = document.querySelector('.js-project-categories');
 
-			if ($projectCategories && value === 'footer') {
-				if (way === 'enter') {
-					$projectCategories.classList.remove('is-active');
-				}
-				if (way === 'exit') {
-					$projectCategories.classList.add('is-active');
-				}
-			}
-		});
-	});
+	// 	if ($projectCategories && value === 'footer') {
+	// 		if (way === 'enter') {
+	// 			$projectCategories.classList.remove('is-active');
+	// 		}
+	// 		if (way === 'exit') {
+	// 			$projectCategories.classList.add('is-active');
+	// 		}
+	// 	}
+	// });
 
 	return (
 		<div
