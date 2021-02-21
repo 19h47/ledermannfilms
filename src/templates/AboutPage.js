@@ -78,15 +78,12 @@ const AboutPage = ({ data }) => {
 
 								<div className="col-8 offset-3 col-md-5 offset-md-1 h-100">
 									<div data-scroll>
-										<Img
-											imgStyle={{
-												objectFit: 'contain',
-											}}
-											fadeIn={true}
-											backgroundColor={'#121212'}
-											durationFadeIn={1600}
-											fluid={featuredImage.localFile.childImageSharp.fluid}
-											style={{ maxWidth: '100%', maxHeight: '100%' }}
+										<img src={featuredImage.localFile.childImageSharp.fluid.srcWebp}
+											srcSet={featuredImage.localFile.childImageSharp.fluid.srcSetWebp}
+											sizes={featuredImage.localFile.childImageSharp.fluid.sizes}
+											loading="lazy"
+											alt="About"
+											style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
 										/>
 									</div>
 								</div>

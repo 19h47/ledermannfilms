@@ -1,14 +1,17 @@
-import React, { useRef, Fragment } from 'react';
-import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
+import React, { useRef } from 'react';
+import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
 
 export const Wrap = ({ children }) => {
-	const containerRef = useRef(null)
+	const containerRef = useRef(null);
 
-	return <Fragment>
-		<LocomotiveScrollProvider options={{ smooth: true }} containerRef={containerRef} watch={[children]}>
+	return (
+		<LocomotiveScrollProvider
+			options={{ smooth: true }}
+			containerRef={containerRef}
+			watch={[children]}>
 			<main data-scroll-container ref={containerRef}>
 				{children}
 			</main>
 		</LocomotiveScrollProvider>
-	</Fragment>
-}
+	);
+};

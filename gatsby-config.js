@@ -17,7 +17,6 @@ module.exports = {
 	},
 	plugins: [
 		`gatsby-plugin-transition-link`,
-		`gatsby-plugin-loadable-components-ssr`,
 		`gatsby-plugin-sass`,
 		`gatsby-plugin-sharp`,
 		{

@@ -34,7 +34,8 @@ export default ({ className }) => {
 								to={menuItem.path}
 								cover
 								direction="up"
-								bg="#000000">
+								bg="#000000"
+								preventScrollJump={false}>
 								<span>{menuItem.label}</span>
 							</AniLink>
 						</li>
