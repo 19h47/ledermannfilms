@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Header from '@/components/header';
 import Contacts from '@/components/contacts';
@@ -9,9 +9,9 @@ import { useLocomotiveScroll } from 'react-locomotive-scroll';
 import '@/stylesheets/styles.scss';
 
 const Layout = ({ children, className }) => {
-	const { scroll } = document && useLocomotiveScroll();
+	useEffect(() => {
+		const { scroll } = useLocomotiveScroll();
 
-	scroll &&
 		scroll.on('call', (value, way, obj) => {
 			const $projectCategories = document.querySelector('.js-project-categories');
 
@@ -24,6 +24,7 @@ const Layout = ({ children, className }) => {
 				}
 			}
 		});
+	});
 
 	return (
 		<div
