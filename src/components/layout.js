@@ -9,7 +9,7 @@ import { useLocomotiveScroll } from 'react-locomotive-scroll';
 import '@/stylesheets/styles.scss';
 
 const Layout = ({ children, className }) => {
-	const { scroll } = useLocomotiveScroll();
+	const { scroll } = document && useLocomotiveScroll();
 
 	scroll &&
 		scroll.on('call', (value, way, obj) => {
