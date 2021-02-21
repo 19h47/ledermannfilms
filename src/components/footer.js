@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import Link from 'gatsby-plugin-transition-link';
+import { useLocomotiveScroll } from 'react-locomotive-scroll';
 
 import H0 from '@/components/h0';
 import ButtonScrollTo from '@/components/button-scroll-to';
@@ -24,6 +25,7 @@ const Footer = () => {
 			}
 		}
 	`);
+	const { scroll } = useLocomotiveScroll();
 
 	return !!wpMenu && !!wpMenu.menuItems && !!wpMenu.menuItems.nodes ? (
 		<footer className="Footer" data-scroll data-scroll-call="footer" data-scroll-repeat>
@@ -46,7 +48,14 @@ const Footer = () => {
 											cover
 											direction="up"
 											bg="#000000"
-											preventScrollJump={false}>
+											trigger={() => {
+												setTimeout(() => {
+													scroll.scrollTo(0, {
+														duration: 0,
+														disableLerp: true,
+													});
+												}, 800);
+											}}>
 											<H0
 												texts={`${0 !== index % 2 ? '↖ ' : ''}${label}${0 === index % 2 ? ' ↗' : ''
 													}`}
@@ -73,19 +82,51 @@ const Footer = () => {
 									direction="up"
 									bg="#000000"
 									preventScrollJump={false}
+									trigger={() => {
+
+										scroll.scrollTo(0, {
+											duration: 0,
+											disableLerp: true,
+										});
+
+									}}
 									style={{ transitionDelay: '0s, 0.8s' }}>
 									© 2021 Julien Ledermann
 								</AniLink>
 							</li>
 							<li>
 								<p className="margin-0" style={{ transitionDelay: '0s, 0.9s' }}>
-									By <a href="https://bastienallard.com/" rel="noreferrer" target="_blank">Bastien Allard</a> × <a href="https://19h47.fr" rel="noreferrer" target="_blank">19h47</a>
+									By{' '}
+									<a
+										href="https://bastienallard.com/"
+										rel="noreferrer"
+										target="_blank">
+										Bastien Allard
+									</a>{' '}
+									&{' '}
+									<a href="https://19h47.fr" rel="noreferrer" target="_blank">
+										19h47
+									</a>
 								</p>
 							</li>
 							<li className="text-align-right">
-								<Link to="/legal" style={{ transitionDelay: '0s, 1s' }}>
+								<AniLink
+									to="/legal"
+									style={{ transitionDelay: '0s, 1s' }}
+									cover
+									direction="up"
+									bg="#000000"
+									preventScrollJump={false}
+									trigger={() => {
+										setTimeout(() => {
+											scroll.scrollTo(0, {
+												duration: 0,
+												disableLerp: true,
+											});
+										}, 700);
+									}}>
 									Legal
-								</Link>
+								</AniLink>
 							</li>
 							<li>
 								<ButtonScrollTo style={{ transitionDelay: '0s, 1.1s' }} />

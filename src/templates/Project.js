@@ -2,9 +2,9 @@ import React from 'react';
 
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
-import gsap from 'gsap';
+import { useLocomotiveScroll } from 'react-locomotive-scroll';
 
-import TransitionLink, { TransitionState } from 'gatsby-plugin-transition-link';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
 import Layout from '@/components/layout';
 import Seo from '@/components/seo';
@@ -12,8 +12,6 @@ import SectionHeader from '@/components/section-header';
 import ProjectHero from '@/components/project-hero';
 import ProjectText from '@/components/project-text';
 import ProjectNext from '@/components/project-next';
-
-const TRANSITION_LENGTH = 0.8;
 
 export const query = graphql`
 	query project($id: String!, $next: String) {
@@ -90,8 +88,9 @@ const layout = layout => {
 	return 'col-14 col-md-9 offset-md-5';
 };
 
-const ProjectInner = ({ mount, data }) => {
+const Project = ({ data }) => {
 	const { nextProject, project } = data;
+	const { scroll } = useLocomotiveScroll();
 
 	const {
 		title,
@@ -110,24 +109,6 @@ const ProjectInner = ({ mount, data }) => {
 	if (text.fr) {
 		tabs.push({ title: 'Français', content: text.fr, id: 'fr' });
 	}
-
-	const exitTransition = {
-		length: TRANSITION_LENGTH,
-		trigger: ({ node }) => {
-			gsap.to(node, { opacity: 0, duration: 0.4 });
-		},
-	};
-
-	const entryTransition = {
-		delay: TRANSITION_LENGTH,
-		trigger: ({ node }) => {
-			gsap.to(node, {
-				autoAlpha: 1,
-				duration: 0.4,
-
-			});
-		},
-	};
 
 	return (
 		<Layout className="Project">
@@ -199,22 +180,29 @@ const ProjectInner = ({ mount, data }) => {
 			)}
 
 			{nextProject.customFields.gallery && nextProject.customFields.gallery.length && (
-				<TransitionLink className="d-block" exit={exitTransition} entry={entryTransition} to={nextProject.uri} preventScrollJump={false}>
+				<AniLink
+					className="d-block"
+					to={nextProject.uri}
+					cover
+					direction="up"
+					bg="#000000"
+					trigger={() => {
+						setTimeout(() => {
+							scroll.scrollTo(0, {
+								duration: 0,
+								disableLerp: true
+							})
+						}, 800);
+					}}
+					style={{ transitionDelay: '0s, 0.8s' }}>
 					<div className="Section">
 						<SectionHeader title="Next project" label="" />
 					</div>
 					<ProjectNext project={nextProject} />
-				</TransitionLink>
-			)}
-		</Layout>
-	);
-};
-
-const Project = ({ data }) => {
-	return (
-		<TransitionState>
-			{({ mount }) => <ProjectInner mount={mount} data={data} />}
-		</TransitionState>
+				</AniLink>
+			)
+			}
+		</Layout >
 	);
 };
 

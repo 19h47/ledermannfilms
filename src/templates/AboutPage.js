@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from 'react';
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
 import gsap from 'gsap';
 
 import SplitText from '../vendors/SplitText';

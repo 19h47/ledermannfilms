@@ -2,6 +2,7 @@ import React from 'react';
 
 import { graphql, useStaticQuery } from 'gatsby';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
+import { useLocomotiveScroll } from 'react-locomotive-scroll';
 
 const SiteName = ({ delay, classes = [] }) => {
 	const { wp } = useStaticQuery(graphql`
@@ -13,6 +14,7 @@ const SiteName = ({ delay, classes = [] }) => {
 			}
 		}
 	`);
+	const { scroll } = useLocomotiveScroll();
 
 	const className = `Site-name smallcaps d-inline-block ${classes.join(' ')}`;
 
@@ -24,13 +26,18 @@ const SiteName = ({ delay, classes = [] }) => {
 			cover
 			direction="up"
 			bg="#000000"
-		>
+			trigger={() => {
+				setTimeout(() => {
+					scroll.scrollTo(0, {
+						duration: 0,
+						disableLerp: true,
+					});
+				}, 100);
+			}}>
 			<span className="Site-name__line">
-				<span style={{ transitionDelay: `${delay}s` }}>
-					{wp.generalSettings.title}
-				</span>
+				<span style={{ transitionDelay: `${delay}s` }}>{wp.generalSettings.title}</span>
 			</span>
-		</AniLink >
+		</AniLink>
 	);
 };
 

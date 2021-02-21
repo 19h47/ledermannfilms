@@ -2,11 +2,13 @@ import React, { useContext } from 'react';
 
 import { useStaticQuery, graphql } from 'gatsby';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
+import { useLocomotiveScroll } from 'react-locomotive-scroll';
 
 import { ContactsContext } from '@/context/contacts-context';
 
 export default ({ className }) => {
 	const { toggleContacts } = useContext(ContactsContext);
+	const { scroll } = useLocomotiveScroll();
 
 	const { wpMenu } = useStaticQuery(graphql`
 		{
@@ -35,7 +37,14 @@ export default ({ className }) => {
 								cover
 								direction="up"
 								bg="#000000"
-								preventScrollJump={false}>
+								trigger={() => {
+									setTimeout(() => {
+										scroll.scrollTo(0, {
+											duration: 0,
+											disableLerp: true
+										})
+									}, 800);
+								}}>
 								<span>{menuItem.label}</span>
 							</AniLink>
 						</li>

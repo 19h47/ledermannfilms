@@ -1,6 +1,6 @@
 import React from 'react';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
-// import Img from 'gatsby-image';
+import { useLocomotiveScroll } from 'react-locomotive-scroll';
 
 import Video from '@/components/video';
 
@@ -12,6 +12,7 @@ const ProjectCard = ({ project, index }) => {
 			hero: { thumbnail },
 		},
 	} = project;
+	const { scroll } = useLocomotiveScroll();
 
 	const children = (
 		<>
@@ -49,7 +50,15 @@ const ProjectCard = ({ project, index }) => {
 			cover
 			direction="up"
 			bg="#000000"
-			data-scroll>
+			data-scroll
+			trigger={() => {
+				setTimeout(() => {
+					scroll.scrollTo(0, {
+						duration: 0,
+						disableLerp: true
+					})
+				}, 800);
+			}}>
 			{children}
 		</AniLink>
 	) : (

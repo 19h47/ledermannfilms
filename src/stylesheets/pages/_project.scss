@@ -41,7 +41,10 @@
 			picture {
 				@extend %overflow-hidden;
 				@extend .d-flex, .align-items-center, .justify-content-center;
-				@include aspect-ratio-size(848, 'height');
+
+				@include media-breakpoint-up(md) {
+					@include aspect-ratio-size(848, 'height');
+				}
 			}
 
 			img {

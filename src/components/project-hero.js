@@ -2,6 +2,7 @@ import React from 'react';
 
 import Img from 'gatsby-image';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
+import { useLocomotiveScroll } from 'react-locomotive-scroll';
 
 import ButtonShowreel from '@/components/button-showreel';
 import H0 from '@/components/h0';
@@ -17,6 +18,7 @@ const ProjectHero = ({ project }) => {
 		customFields: { hero },
 		featuredImage: { node: thumbnail },
 	} = project;
+	const { scroll } = useLocomotiveScroll();
 
 	const thumbnailImage = thumbnail => (
 		<div className="Hero__thumbnail" data-scroll>
@@ -80,7 +82,14 @@ const ProjectHero = ({ project }) => {
 									direction="up"
 									bg="#000000"
 									data-scroll
-									preventScrollJump={false}>
+									trigger={() => {
+										setTimeout(() => {
+											scroll.scrollTo(0, {
+												duration: 0,
+												disableLerp: true,
+											});
+										}, 800);
+									}}>
 									<div className="d-flex align-items-center">
 										<span>all projects</span>
 										<Th />

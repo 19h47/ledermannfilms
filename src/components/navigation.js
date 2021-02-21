@@ -4,6 +4,7 @@ import { CustomEase } from '../vendors/CustomEase';
 
 import { useStaticQuery, graphql } from 'gatsby';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
+import { useLocomotiveScroll } from 'react-locomotive-scroll';
 
 import { ContactsContext } from '@/context/contacts-context';
 import { NavigationContext } from '@/context/navigation-context';
@@ -16,6 +17,7 @@ import Times from '@/assets/svg/times.inline.svg';
 export default () => {
 	const { toggleContacts } = useContext(ContactsContext);
 	const { navigation, toggleNavigation } = useContext(NavigationContext);
+	const { scroll } = useLocomotiveScroll();
 
 	const navigationRef = useRef();
 	const headerRef = useRef();
@@ -109,7 +111,15 @@ export default () => {
 									cover
 									direction="up"
 									bg="#000000"
-									onClick={toggleNavigation}>
+									onClick={toggleNavigation}
+									trigger={() => {
+										setTimeout(() => {
+											scroll.scrollTo(0, {
+												duration: 0,
+												disableLerp: true
+											})
+										}, 800);
+									}}>
 									<span>{menuItem.label}</span>
 								</AniLink>
 							</li>
