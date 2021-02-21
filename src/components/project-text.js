@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import gsap from 'gsap';
+import { useLocomotiveScroll } from 'react-locomotive-scroll';
 
 import SplitText from '../vendors/SplitText';
 
@@ -8,13 +9,14 @@ gsap.registerPlugin(SplitText);
 const ProjectText = ({ data }) => {
 	const tabsRef = useRef(null);
 	const itemRefs = useRef([]);
+	const { scroll } = useLocomotiveScroll();
 
 	useEffect(() => {
 		const getModule = async () => {
 			return await import('@19h47/tabs').then(module => module.default);
 		};
 
-		if (tabsRef.current && global) {
+		if (tabsRef.current) {
 			getModule().then(module => {
 				const tabs = new module(tabsRef.current, {
 					hash: false,
@@ -33,11 +35,11 @@ const ProjectText = ({ data }) => {
 				tabs.init();
 
 				tabs.tabs.forEach(tab => {
-					tab.on('Tab.activate', () => global.scroll.update());
+					tab.on('Tab.activate', () => scroll.update());
 				});
 			});
 		}
-	}, [tabsRef]);
+	}, [tabsRef, scroll]);
 
 	useEffect(() => {
 		itemRefs.current.length &&

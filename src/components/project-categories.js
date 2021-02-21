@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import { graphql, useStaticQuery } from 'gatsby';
 
@@ -33,25 +33,20 @@ const ProjectCategories = () => {
 		}
 	`);
 
-
-
 	const { scroll } = useLocomotiveScroll();
 
-	useEffect(() => {
-		scroll && scroll.on('call', (value, way, obj) => {
-			const $projectCategories = global.document.querySelector('.js-project-categories');
+	scroll.on('call', (value, way, obj) => {
+		const $projectCategories = global.document.querySelector('.js-project-categories');
 
-			if ($projectCategories && value === 'footer') {
-				if (way === 'enter') {
-					$projectCategories.classList.remove('is-active');
-				}
-				if (way === 'exit') {
-					$projectCategories.classList.add('is-active');
-				}
+		if ($projectCategories && value === 'footer') {
+			if (way === 'enter') {
+				$projectCategories.classList.remove('is-active');
 			}
-		});
-	}, [scroll]);
-
+			if (way === 'exit') {
+				$projectCategories.classList.add('is-active');
+			}
+		}
+	});
 
 	return (
 		<div

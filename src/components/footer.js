@@ -74,13 +74,13 @@ const Footer = () => {
 									bg="#000000"
 									preventScrollJump={false}
 									style={{ transitionDelay: '0s, 0.8s' }}>
-									© 2020 Julien Ledermann
+									© 2021 Julien Ledermann
 								</AniLink>
 							</li>
 							<li>
-								<Link to="/credits" style={{ transitionDelay: '0s, 0.9s' }}>
-									Credits
-								</Link>
+								<p className="margin-0" style={{ transitionDelay: '0s, 0.9s' }}>
+									By <a href="https://bastienallard.com/" rel="noreferrer" target="_blank">Bastien Allard</a> × <a href="https://19h47.fr" rel="noreferrer" target="_blank">19h47</a>
+								</p>
 							</li>
 							<li className="text-align-right">
 								<Link to="/legal" style={{ transitionDelay: '0s, 1s' }}>

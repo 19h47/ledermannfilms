@@ -24,7 +24,17 @@ const Page = ({ data }) => {
 	const { page } = data;
 	return (
 		<Layout>
-			<h1>{page.title}</h1>
+			<div className="Section">
+				<div className="Site-container h-100">
+					<div className="row h-100">
+						<div className="col-14 col-md-10">
+							<h1>{page.title}</h1>
+							<div dangerouslySetInnerHTML={{ __html: page.content }} />
+						</div>
+					</div>
+				</div>
+			</div>
+
 			<Footer />
 		</Layout>
 	);

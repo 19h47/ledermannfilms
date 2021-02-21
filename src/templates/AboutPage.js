@@ -1,4 +1,4 @@
-import React, { useRef, useLayoutEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import gsap from 'gsap';
@@ -48,7 +48,7 @@ const AboutPage = ({ data }) => {
 		},
 	} = data;
 
-	useLayoutEffect(() => {
+	useEffect(() => {
 		if (contentRef.current) {
 			new SplitText(contentRef.current, { type: 'lines', linesClass: 'lineChild' });
 			new SplitText(contentRef.current, { type: 'lines', linesClass: 'lineParent' });
