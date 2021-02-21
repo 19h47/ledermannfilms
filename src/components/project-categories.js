@@ -35,7 +35,7 @@ const ProjectCategories = () => {
 
 	const { scroll } = useLocomotiveScroll();
 
-	scroll.on('call', (value, way, obj) => {
+	scromm && scroll.on('call', (value, way, obj) => {
 		const $projectCategories = global.document.querySelector('.js-project-categories');
 
 		if ($projectCategories && value === 'footer') {
