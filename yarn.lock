@@ -9467,7 +9467,7 @@ lockfile@^1.0.4:
   dependencies:
     signal-exit "^3.0.2"
 
-locomotive-scroll@4.1.0:
+locomotive-scroll@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/locomotive-scroll/-/locomotive-scroll-4.1.0.tgz#514e48d6aac56d934d99c5d164c4c5b168176323"
   integrity sha512-XZtvNO3CsnUHXmXgzbDaOv6LwXBQ2/P77IFUeZmj+EXCsaDiWwmjdctN1lV+m2PJevK2GLaTPD0ilNrZX6UQYw==
@@ -12205,6 +12205,13 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
+react-locomotive-scroll@^0.1.7:
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/react-locomotive-scroll/-/react-locomotive-scroll-0.1.7.tgz#9d11eae99ca72ce662397c640e0c65a27403dd54"
+  integrity sha512-24jlxtWETjJYkWRP2XjJSFe1fUK4HW3RyTNg8eVuFrJ0smBI/4d9X8fSTgBjM7fXzbJA5znC0FVOypGrfbEYqA==
+  dependencies:
+    use-resize-observer "6.1.0"
+
 react-outside-click-handler@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/react-outside-click-handler/-/react-outside-click-handler-1.3.0.tgz#3831d541ac059deecd38ec5423f81e80ad60e115"
@@ -12686,6 +12693,11 @@ requires-port@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
   integrity sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=
+
+resize-observer-polyfill@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
+  integrity sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==
 
 resolve-alpn@^1.0.0:
   version "1.0.0"
@@ -14807,6 +14819,13 @@ url@^0.11.0:
   dependencies:
     punycode "1.3.2"
     querystring "0.2.0"
+
+use-resize-observer@6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/use-resize-observer/-/use-resize-observer-6.1.0.tgz#d4d267a940dbf9c326da6042f8a4bb8c89d29729"
+  integrity sha512-SiPcWHiIQ1CnHmb6PxbYtygqiZXR0U9dNkkbpX9VYnlstUwF8+QqpUTrzh13pjPwcjMVGR+QIC+nvF5ujfFNng==
+  dependencies:
+    resize-observer-polyfill "^1.5.1"
 
 use@^3.1.0:
   version "3.1.1"
