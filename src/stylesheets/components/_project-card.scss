@@ -10,8 +10,7 @@
 	@extend .d-block;
 
 	&__body {
-		@extend %overflow-hidden, %position-relative;
-		@include aspect-ratio-size(848, 'height');
+		@extend %overflow-hidden, %position-relative, %text-align-center;
 
 		border-radius: $base-line-height-px;
 		width: 100%;
@@ -28,8 +27,8 @@
 	}
 
 	&__thumbnail {
-		@include size(100%);
-		@extend .d-flex, .align-items-center, .justify-content-center;
+		@extend .d-inline-block;
+		@extend %position-relative, %vertical-align-middle;
 
 		transform: translate3d(0, 100%, 0);
 		transition: transform 1.4s map-get($easings, custom),
@@ -45,23 +44,24 @@
 		}
 
 		img {
-			// @include aspect-ratio-size(848, 'height');
+			@include aspect-ratio-size(848, 'max-height');
 			@include margin(right auto left auto);
+			@extend .d-block;
 
+			border-radius: 3 * 8px;
 			max-height: 100%;
 			max-width: 100%;
 			width: auto;
-			border-radius: 3 * 8px;
-			object-fit: contain;
-			object-position: center;
 		}
 	}
 
 	&__video {
 		@include absolute(top 0 right 0 bottom 0 left 0);
+		@extend %overflow-hidden;
 
 		transition: opacity 1.4s map-get($easings, ease-out-expo);
 		opacity: 0;
+		border-radius: 3 * 8px;
 
 		z-index: 1;
 

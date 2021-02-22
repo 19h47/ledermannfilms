@@ -28,10 +28,10 @@ const ProjectCard = ({ project, index }) => {
 							loading="lazy"
 							alt={title}
 						/>
+						{thumbnail && (
+							<Video className="Project-card__video" src={thumbnail} type="video/mp4" />
+						)}
 					</div>
-				)}
-				{thumbnail && (
-					<Video className="Project-card__video" src={thumbnail} type="video/mp4" />
 				)}
 			</div>
 
