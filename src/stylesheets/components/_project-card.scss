@@ -7,19 +7,15 @@
 .Project-card {
 	$this: &;
 
-	@extend .d-block;
+	@extend .d-inline-block;
+
+	max-width: 100%;
 
 	&__body {
-		@extend %overflow-hidden, %position-relative, %text-align-center;
-
-		border-radius: $base-line-height-px;
-		width: 100%;
+		@extend %overflow-hidden, %position-relative, %vertical-align-middle;
+		@extend .d-inline-block;
 
 		&#{&}--has-video:hover {
-			// #{$this}__thumbnail {
-			// 	opacity: 0;
-			// }
-
 			#{$this}__video {
 				opacity: 1;
 			}

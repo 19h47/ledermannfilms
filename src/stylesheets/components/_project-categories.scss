@@ -1,18 +1,15 @@
 /**
  * Project categories
  *
- *
- *
- *
- *
- *
+ * @package WordPress
+ * @subpackage Ledermannfilms
  */
 .Project-categories {
 	@extend %position-relative, %Pointer-events-none;
 	@include margin(top #{5 * $scale-factor}px bottom #{5 * $scale-factor}px);
 
 	transition: opacity 0.4s map-get($easings, custom), visibility 0.4s map-get($easings, custom);
-	z-index: 1;
+	z-index: 5;
 
 	@include media-breakpoint-up(md) {
 		@include aspect-ratio-size(5 * $scale-factor, 'margin-top');

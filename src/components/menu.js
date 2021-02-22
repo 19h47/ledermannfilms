@@ -41,8 +41,9 @@ export default ({ className }) => {
 									setTimeout(() => {
 										scroll.scrollTo(0, {
 											duration: 0,
-											disableLerp: true
-										})
+											disableLerp: true,
+										});
+										scroll.update();
 									}, 800);
 								}}>
 								<span>{menuItem.label}</span>

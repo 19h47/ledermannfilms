@@ -191,8 +191,9 @@ const Project = ({ data }) => {
 							scroll.scrollTo(0, {
 								duration: 0,
 								disableLerp: true
-							})
-						}, 800);
+							});
+							scroll.update();
+						}, 700);
 					}}
 					style={{ transitionDelay: '0s, 0.8s' }}>
 					<div className="Section">

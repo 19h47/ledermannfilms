@@ -53,6 +53,7 @@ const Footer = () => {
 														duration: 0,
 														disableLerp: true,
 													});
+													scroll.update()
 												}, 800);
 											}}>
 											<H0

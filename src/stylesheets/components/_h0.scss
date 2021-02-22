@@ -1,13 +1,11 @@
 /**
  * H0
  *
- *
- *
- *
- *
+ * @package WordPress
+ * @subpackage Ledermannfilms
  */
 .H0 {
-	@extend %font-weight-fine, %margin-0;
+	@extend %font-weight-fine, %margin-0, %white-space-nowrap;
 	@include aspect-ratio-size(232, 'font-size');
 	@include margin(top 0 bottom 0);
 

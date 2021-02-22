@@ -23,13 +23,20 @@ const ProjectCard = ({ project, index }) => {
 					<div className="Project-card__thumbnail" data-scroll>
 						<img
 							src={project.featuredImage.node.localFile.childImageSharp.fluid.srcWebp}
-							srcSet={project.featuredImage.node.localFile.childImageSharp.fluid.srcSetWebp}
+							srcSet={
+								project.featuredImage.node.localFile.childImageSharp.fluid
+									.srcSetWebp
+							}
 							sizes={project.featuredImage.node.localFile.childImageSharp.fluid.sizes}
 							loading="lazy"
 							alt={title}
 						/>
 						{thumbnail && (
-							<Video className="Project-card__video" src={thumbnail} type="video/mp4" />
+							<Video
+								className="Project-card__video"
+								src={thumbnail}
+								type="video/mp4"
+							/>
 						)}
 					</div>
 				)}
@@ -55,9 +62,10 @@ const ProjectCard = ({ project, index }) => {
 				setTimeout(() => {
 					scroll.scrollTo(0, {
 						duration: 0,
-						disableLerp: true
-					})
-				}, 800);
+						disableLerp: true,
+					});
+					scroll.update();
+				}, 700);
 			}}>
 			{children}
 		</AniLink>
