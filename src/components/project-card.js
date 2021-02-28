@@ -30,14 +30,16 @@ const ProjectCard = ({ project, index }) => {
 							sizes={project.featuredImage.node.localFile.childImageSharp.fluid.sizes}
 							loading="lazy"
 							alt={title}
+							width={project.featuredImage.node.localFile.childImageSharp.fixed.width}
+							height={
+								project.featuredImage.node.localFile.childImageSharp.fixed.height
+							}
 						/>
-						{thumbnail && (
-							<Video
-								className="Project-card__video"
-								src={thumbnail}
-								type="video/mp4"
-							/>
-						)}
+						{thumbnail && (<Video
+							className="Project-card__video"
+							src={thumbnail}
+							type="video/mp4"
+						/>)}
 					</div>
 				)}
 			</div>
