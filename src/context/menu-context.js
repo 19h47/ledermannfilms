@@ -2,7 +2,7 @@ import React, { useState, createContext } from 'react';
 
 const initialState = {
 	active: false,
-	toggle: () => {},
+	toggle: () => { },
 };
 
 const MenuContext = createContext(initialState);
