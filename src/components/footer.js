@@ -99,12 +99,12 @@ const Footer = () => {
 									By{' '}
 									<a
 										href="https://bastienallard.com/"
-										rel="noreferrer"
+										rel="noopener noreferrer"
 										target="_blank">
-										Bastien Allard
+										Bast
 									</a>{' '}
 									&{' '}
-									<a href="https://19h47.fr" rel="noreferrer" target="_blank">
+									<a href="https://19h47.fr" rel="noopener noreferrer" target="_blank">
 										19h47
 									</a>
 								</p>
