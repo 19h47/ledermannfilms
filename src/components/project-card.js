@@ -11,35 +11,40 @@ const ProjectCard = ({ project, index }) => {
 		customFields: {
 			hero: { thumbnail },
 		},
+		featuredImage
 	} = project;
 	const { scroll } = useLocomotiveScroll();
+
+	console.log(featuredImage);
 
 	const children = (
 		<>
 			<div
 				className={`Project-card__body${thumbnail ? ' Project-card__body--has-video' : ''
 					}`}>
-				{project.featuredImage && (
+				{featuredImage && (
 					<div className="Project-card__thumbnail" data-scroll>
 						<img
-							src={project.featuredImage.node.localFile.childImageSharp.fluid.srcWebp}
+							src={featuredImage.node.localFile.childImageSharp.fluid.srcWebp}
 							srcSet={
-								project.featuredImage.node.localFile.childImageSharp.fluid
+								featuredImage.node.localFile.childImageSharp.fluid
 									.srcSetWebp
 							}
-							sizes={project.featuredImage.node.localFile.childImageSharp.fluid.sizes}
+							sizes={featuredImage.node.localFile.childImageSharp.fluid.sizes}
 							loading="lazy"
 							alt={title}
-							width={project.featuredImage.node.localFile.childImageSharp.fixed.width}
+							width={featuredImage.node.localFile.childImageSharp.gatsbyImageData.width}
 							height={
-								project.featuredImage.node.localFile.childImageSharp.fixed.height
+								featuredImage.node.localFile.childImageSharp.gatsbyImageData.height
 							}
 						/>
-						{thumbnail && (<Video
-							className="Project-card__video"
-							src={thumbnail}
-							type="video/mp4"
-						/>)}
+						{thumbnail && (
+							<Video
+								className="Project-card__video"
+								src={thumbnail}
+								type="video/mp4"
+							/>
+						)}
 					</div>
 				)}
 			</div>
@@ -72,8 +77,8 @@ const ProjectCard = ({ project, index }) => {
 			{children}
 		</AniLink>
 	) : (
-			<div className="Project-card">{children}</div>
-		);
+		<div className="Project-card">{children}</div>
+	);
 };
 
 export default ProjectCard;
