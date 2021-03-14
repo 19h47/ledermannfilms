@@ -6,7 +6,7 @@ import { useLocomotiveScroll } from 'react-locomotive-scroll';
 
 import { ContactsContext } from '@/context/contacts-context';
 
-export default ({ className }) => {
+const Menu = ({ className }) => {
 	const { toggleContacts } = useContext(ContactsContext);
 	const { scroll } = useLocomotiveScroll();
 
@@ -60,3 +60,5 @@ export default ({ className }) => {
 		</div>
 	) : null;
 };
+
+export default Menu;

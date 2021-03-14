@@ -14,7 +14,7 @@ import Socials from '@/components/socials';
 
 import Times from '@/assets/svg/times.inline.svg';
 
-export default () => {
+const Navigation = () => {
 	const { toggleContacts } = useContext(ContactsContext);
 	const { navigation, toggleNavigation } = useContext(NavigationContext);
 	const { scroll } = useLocomotiveScroll();
@@ -59,28 +59,28 @@ export default () => {
 		timeline.fromTo(
 			headerRef.current.querySelector('a'),
 			{ yPercent: 100, opacity: 0 },
-			{ yPercent: 0, opacity: 1, duration: 0.5 }
+			{ yPercent: 0, opacity: 1, duration: 0.5 },
 		);
 
 		timeline.fromTo(
 			headerRef.current.querySelector('button'),
 			{ yPercent: 100, opacity: 0 },
 			{ yPercent: 0, opacity: 1, duration: 0.5 },
-			'-=0.3'
+			'-=0.3',
 		);
 
 		timeline.fromTo(
 			[...bodyRef.current.querySelectorAll('.js-item')],
 			{ yPercent: 100, opacity: 0 },
 			{ yPercent: 0, opacity: 1, duration: 0.5, stagger: 0.05 },
-			'-=0.3'
+			'-=0.3',
 		);
 
 		timeline.fromTo(
 			[...footerRef.current.querySelectorAll('a')],
 			{ yPercent: 100, opacity: 0 },
 			{ yPercent: 0, opacity: 1, duration: 0.5, stagger: 0.05 },
-			'-=0.3'
+			'-=0.3',
 		);
 
 		timeline.reverse();
@@ -96,11 +96,13 @@ export default () => {
 		<div className="Navigation" ref={navigationRef}>
 			<div className="Navigation__header" ref={headerRef}>
 				<SiteName />
-				<button className="Navigation__close" type="button" onClick={toggleNavigation}> {/* eslint-disable-line jsx-a11y/control-has-associated-label */}
+				<button className="Navigation__close" type="button" onClick={toggleNavigation}>
+					{' '}
+					{/* eslint-disable-line jsx-a11y/control-has-associated-label */}
 					<Times />
 				</button>
 			</div>
-			<div className="Navigation__body" >
+			<div className="Navigation__body">
 				<ul className="Navigation__items" ref={bodyRef}>
 					{wpMenu.menuItems.nodes.map(menuItem => {
 						return (
@@ -116,8 +118,8 @@ export default () => {
 										setTimeout(() => {
 											scroll.scrollTo(0, {
 												duration: 0,
-												disableLerp: true
-											})
+												disableLerp: true,
+											});
 										}, 800);
 									}}>
 									<span>{menuItem.label}</span>
@@ -132,8 +134,12 @@ export default () => {
 					</li>
 				</ul>
 			</div>
-			<div className="Navigation__footer" ref={footerRef}><Socials /></div>
+			<div className="Navigation__footer" ref={footerRef}>
+				<Socials />
+			</div>
 			<div className="Navigation__background js-background"></div>
-		</div >
+		</div>
 	) : null;
 };
+
+export default Navigation;
