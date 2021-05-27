@@ -8,13 +8,7 @@ const ProjectHero = ({ project }) => {
 	const {
 		title,
 		customFields: { hero },
-		featuredImage: {
-			node: {
-				localFile: {
-					childImageSharp: { fluid },
-				},
-			},
-		},
+		featuredImage,
 	} = project;
 
 	return (
@@ -29,16 +23,16 @@ const ProjectHero = ({ project }) => {
 						</div>
 					</div>
 
-					{fluid && (
-						<div className="Hero__thumbnail" data-scroll>
+					<div className="Hero__thumbnail" data-scroll>
+						{featuredImage && featuredImage.node && featuredImage.node && (
 							<Img
 								fadeIn={true}
 								backgroundColor={'black'}
 								durationFadeIn={1000}
-								fluid={fluid}
+								fluid={featuredImage.node.localFile.childImageSharp.fluid}
 							/>
-						</div>
-					)}
+						)}
+					</div>
 				</div>
 			</div>
 		</div>

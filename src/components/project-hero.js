@@ -16,7 +16,7 @@ const ProjectHero = ({ project }) => {
 	const {
 		title,
 		customFields: { hero },
-		featuredImage: { node: thumbnail },
+		featuredImage,
 	} = project;
 	const { scroll } = useLocomotiveScroll();
 
@@ -104,7 +104,9 @@ const ProjectHero = ({ project }) => {
 
 					{hero.thumbnail
 						? heroVideo({ video: hero.thumbnail, scroll: true })
-						: thumbnailImage(thumbnail)}
+						: featuredImage && featuredImage.node && featuredImage.node.thumbnail
+							? thumbnailImage(featuredImage.node.thumbnail)
+							: ''}
 				</div>
 			</div>
 		</div>
