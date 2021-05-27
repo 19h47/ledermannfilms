@@ -11,7 +11,7 @@ const ProjectCard = ({ project, index }) => {
 		customFields: {
 			hero: { thumbnail },
 		},
-		featuredImage
+		featuredImage,
 	} = project;
 	const { scroll } = useLocomotiveScroll();
 
@@ -22,18 +22,17 @@ const ProjectCard = ({ project, index }) => {
 			<div
 				className={`Project-card__body${thumbnail ? ' Project-card__body--has-video' : ''
 					}`}>
-				{featuredImage && (
+				{featuredImage && featuredImage.node && featuredImage.node.localFile && (
 					<div className="Project-card__thumbnail" data-scroll>
 						<img
 							src={featuredImage.node.localFile.childImageSharp.fluid.srcWebp}
-							srcSet={
-								featuredImage.node.localFile.childImageSharp.fluid
-									.srcSetWebp
-							}
+							srcSet={featuredImage.node.localFile.childImageSharp.fluid.srcSetWebp}
 							sizes={featuredImage.node.localFile.childImageSharp.fluid.sizes}
 							loading="lazy"
 							alt={title}
-							width={featuredImage.node.localFile.childImageSharp.gatsbyImageData.width}
+							width={
+								featuredImage.node.localFile.childImageSharp.gatsbyImageData.width
+							}
 							height={
 								featuredImage.node.localFile.childImageSharp.gatsbyImageData.height
 							}

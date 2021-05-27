@@ -13,6 +13,7 @@
 
 	&__body {
 		@extend %overflow-hidden, %position-relative;
+		@include aspect-ratio-size(848, 'min-height');
 		// @extend .d-inline-block;
 
 		&#{&}--has-video:hover {
