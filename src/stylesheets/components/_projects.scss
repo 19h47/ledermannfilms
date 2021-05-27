@@ -1,9 +1,7 @@
 /**
  * Projects
  *
- *
- *
- *
+ * @author Jérémy Levron <jeremylevon@19h47.fr> (https://19h47.fr)
  */
 .Projects {
 	&__items {
@@ -18,21 +16,21 @@
 		@include aspect-ratio-size(12 * $scale-factor, 'margin-top');
 		@include aspect-ratio-size(12 * $scale-factor, 'margin-bottom');
 
-		&:nth-child(6n + 3) {
-			.Project-card {
-				@include aspect-ratio-size(28 * $scale-factor, 'margin-top');
-			}
-		}
-		&:nth-child(6n + 5) {
-			.Project-card {
-				@include aspect-ratio-size(12 * $scale-factor, 'margin-top');
-			}
-		}
-		&:first-child {
-			@include margin(top 0);
-		}
-		&:last-child {
-			@include margin(bottom 0);
-		}
+		// &:nth-child(6n + 3) {
+		// 	.Project-card {
+		// 		@include aspect-ratio-size(28 * $scale-factor, 'margin-top');
+		// 	}
+		// }
+		// &:nth-child(6n + 5) {
+		// 	.Project-card {
+		// 		@include aspect-ratio-size(12 * $scale-factor, 'margin-top');
+		// 	}
+		// }
+		// &:first-child {
+		// 	@include margin(top 0);
+		// }
+		// &:last-child {
+		// 	@include margin(bottom 0);
+		// }
 	}
 }

@@ -7,13 +7,13 @@
 .Project-card {
 	$this: &;
 
-	@extend .d-inline-block;
+	// @extend .d-inline-block;
 
 	max-width: 100%;
 
 	&__body {
-		@extend %overflow-hidden, %position-relative, %vertical-align-middle;
-		@extend .d-inline-block;
+		@extend %overflow-hidden, %position-relative;
+		// @extend .d-inline-block;
 
 		&#{&}--has-video:hover {
 			#{$this}__video {
@@ -23,14 +23,13 @@
 	}
 
 	&__thumbnail {
-		@extend .d-inline-block;
-		@extend %position-relative, %vertical-align-middle;
+		@extend %position-relative;
 
 		transform: translate3d(0, 100%, 0);
 		transition: transform 1.4s map-get($easings, custom),
 			opacity 1.3s map-get($easings, custom) 0.3s;
 		transform-style: preserve-3d;
-		will-change: transform;
+		will-change: transform, opacity;
 
 		z-index: 2;
 
@@ -47,7 +46,7 @@
 			border-radius: 3 * 8px;
 			max-height: 100%;
 			max-width: 100%;
-			width: auto;
+			// width: auto;
 			// height: 100%;
 			object-fit: cover;
 		}

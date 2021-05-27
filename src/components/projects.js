@@ -5,12 +5,7 @@ import ProjectCard from '@/components/project-card';
 
 const gridClassNames = [
 	'col-14 col-md-9 offset-md-5',
-	'col-14 col-md-4',
-	'col-14 col-md-4 offset-md-3',
-	'col-14 col-md-9',
-	'col-14 col-md-4 offset-md-2',
-	'col-14 col-md-4 offset-md-4',
-	'col-14 col-md-9 offset-md-5',
+	'col-14 col-md-6',
 ];
 
 function Projects({ projects }) {
@@ -58,7 +53,7 @@ function Projects({ projects }) {
 		<ul className="Projects__items row">
 			{projects.map((project, index) => {
 				return (
-					<li className={`Projects__item ${gridClassNames[index % 6]}`} key={index}>
+					<li className={`Projects__item ${gridClassNames[index % 2]}`} key={index}>
 						<ProjectCard project={project} index={index} />
 					</li>
 				);
