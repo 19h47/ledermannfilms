@@ -52,19 +52,20 @@ function Clients() {
 
 							return (
 								<li
-									className={`col-7 col-md-4${
-										index % 3 !== 0 ? ' offset-md-1' : ''
-									}`}
+									className={`col-7 col-md-4${index % 3 !== 0 ? ' offset-md-1' : ''
+										}`}
 									key={id}>
 									<div className="Client" data-scroll>
 										<div className="Client__image">
-											<Img
-												fluid={image.localFile.childImageSharp.fluid}
-												imgStyle={{
-													objectFit: 'contain',
-													objectPosition: 'left center',
-												}}
-											/>
+											{image && image.image.localFile && (
+												<Img
+													fluid={image.localFile.childImageSharp.fluid}
+													imgStyle={{
+														objectFit: 'contain',
+														objectPosition: 'left center',
+													}}
+												/>
+											)}
 										</div>
 
 										<a href={link} target="_blank" rel="noopener noreferrer">
