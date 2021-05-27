@@ -182,7 +182,7 @@ function Contacts() {
 				<div className="Contacts__row" ref={mailRef}>
 					<span>Mail</span>
 					<span>
-						<a href="mailto:{publicEmail}">{publicEmail}</a>
+						<a href={`mailto:${publicEmail}`}>{publicEmail}</a>
 					</span>
 					<hr />
 				</div>
