@@ -57,7 +57,7 @@ function Clients() {
 									key={id}>
 									<div className="Client" data-scroll>
 										<div className="Client__image">
-											{image && image.image.localFile && (
+											{image && image.localFile && (
 												<Img
 													fluid={image.localFile.childImageSharp.fluid}
 													imgStyle={{
