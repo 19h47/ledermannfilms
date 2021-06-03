@@ -87,8 +87,8 @@
 		@extend %font-weight-light;
 
 		@include media-breakpoint-up(md) {
-			@include aspect-ratio-size(54, 'font-size');
-			@include aspect-ratio-size(60, 'line-height');
+			@include aspect-ratio-size(27, 'font-size');
+			@include aspect-ratio-size(30, 'line-height');
 		}
 
 		section {
