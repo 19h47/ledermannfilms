@@ -38,12 +38,12 @@
 		}
 
 		img {
-			@include aspect-ratio-size(848, 'max-height');
+			// @include aspect-ratio-size(848, 'max-height');
 			@include margin(right auto left auto);
 			@extend .d-block;
 
 			border-radius: 3 * 8px;
-			max-height: 100%;
+			// max-height: 100%;
 			max-width: 100%;
 			// width: auto;
 			// height: 100%;
