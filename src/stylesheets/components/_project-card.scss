@@ -41,6 +41,7 @@
 			// @include aspect-ratio-size(848, 'max-height');
 			@include margin(right auto left auto);
 			@extend .d-block;
+			@include size(100%, auto);
 
 			border-radius: 3 * 8px;
 			// max-height: 100%;
