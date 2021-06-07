@@ -48,7 +48,7 @@ const FrontPage = ({ data }) => {
 	const {
 		title,
 		customFields: { hero, content },
-		featuredImage: { node: thumbnail },
+		featuredImage,
 	} = page;
 
 	const heroThumbnail = thumbnail => (
@@ -117,7 +117,7 @@ const FrontPage = ({ data }) => {
 
 							{hero.thumbnail
 								? heroVideo({ video: hero.thumbnail, scroll: true })
-								: heroThumbnail(thumbnail)}
+								: featuredImage ? heroThumbnail(featuredImage.node.thumbnail) : ''}
 						</div>
 					</div>
 				</div>
