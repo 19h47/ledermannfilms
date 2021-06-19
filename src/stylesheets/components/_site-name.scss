@@ -29,4 +29,9 @@
 			transform: none;
 		}
 	}
+
+	svg {
+		@include size(100%);
+		fill: the_color(white);
+	}
 }

@@ -14,7 +14,7 @@ const Header = () => {
 	return (
 		<header className="Header" data-scroll data-scroll-sticky data-scroll-target="#wrapper">
 			<div className="Site-container">
-				<div className="row">
+				<div className="row align-items-center">
 					<div className="col-10 col-lg-5">
 						<SiteName delay="2.1" classes={['margin-left-2']} />
 					</div>

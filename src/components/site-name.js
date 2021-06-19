@@ -1,19 +1,21 @@
 import React from 'react';
 
-import { graphql, useStaticQuery } from 'gatsby';
+// import { graphql, useStaticQuery } from 'gatsby';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
 
+import Logo from '@/assets/svg/logo.inline.svg';
+
 const SiteName = ({ delay, classes = [] }) => {
-	const { wp } = useStaticQuery(graphql`
-		{
-			wp {
-				generalSettings {
-					title
-				}
-			}
-		}
-	`);
+	// const { wp } = useStaticQuery(graphql`
+	// 	{
+	// 		wp {
+	// 			generalSettings {
+	// 				title
+	// 			}
+	// 		}
+	// 	}
+	// `);
 	const { scroll } = useLocomotiveScroll();
 
 	const className = `Site-name smallcaps d-inline-block ${classes.join(' ')}`;
@@ -35,7 +37,10 @@ const SiteName = ({ delay, classes = [] }) => {
 				}, 100);
 			}}>
 			<span className="Site-name__line">
-				<span style={{ transitionDelay: `${delay}s` }}>{wp.generalSettings.title}</span>
+				{/* <span style={{ transitionDelay: `${delay}s` }}>{wp.generalSettings.title}</span> */}
+				<span style={{ transitionDelay: `${delay}s` }}>
+					<Logo />
+				</span>
 			</span>
 		</AniLink>
 	);
