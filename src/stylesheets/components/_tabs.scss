@@ -11,7 +11,7 @@
 	$this: &;
 
 	@include aspect-ratio-size(26 * $scale-factor, 'margin-top');
-	@include aspect-ratio-size(36 * $scale-factor, 'margin-bottom');
+	@include aspect-ratio-size(18 * $scale-factor, 'margin-bottom');
 
 	&__navigation {
 		@extend %list-style-type-none;
