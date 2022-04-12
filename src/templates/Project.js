@@ -160,18 +160,20 @@ const Project = ({ data }) => {
 									className={`Project__item ${layout(image.customFields.layout)}`}
 									key={image.id}
 									data-scroll>
-									<Img
-										fadeIn
-										fluid={image.localFile.childImageSharp.fluid}
-										imgStyle={{
-											objectFit: 'contain',
-											height: 'auto',
-											width: 'auto',
-											maxWidth: '100%',
-											maxHeight: '100%',
-											position: 'relative',
-										}}
-									/>
+									{image && image.localFile && (
+										<Img
+											fadeIn
+											fluid={image.localFile.childImageSharp.fluid}
+											imgStyle={{
+												objectFit: 'contain',
+												height: 'auto',
+												width: 'auto',
+												maxWidth: '100%',
+												maxHeight: '100%',
+												position: 'relative',
+											}}
+										/>
+									)}
 								</li>
 							))}
 						</ul>
@@ -190,7 +192,7 @@ const Project = ({ data }) => {
 						setTimeout(() => {
 							scroll.scrollTo(0, {
 								duration: 0,
-								disableLerp: true
+								disableLerp: true,
 							});
 							scroll.update();
 						}, 700);
@@ -201,9 +203,8 @@ const Project = ({ data }) => {
 					</div>
 					<ProjectNext project={nextProject} />
 				</AniLink>
-			)
-			}
-		</Layout >
+			)}
+		</Layout>
 	);
 };
 
