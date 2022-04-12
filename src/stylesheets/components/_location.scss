@@ -3,12 +3,14 @@
  *
  * @author Jérémy Levron <jeremylevron@19h47.fr> (https://19h47.fr)
  */
+@use "sass:math";
+
 .Location {
 	@extend .d-flex, .flex-column;
 	@extend %text-transform-uppercase;
 
 	font-size: 14px;
-	line-height: (16/14);
+	line-height: math.div(16, 14);
 
 	div {
 		@extend %overflow-hidden;

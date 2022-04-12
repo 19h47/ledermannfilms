@@ -5,6 +5,9 @@
  * @package Gatsby
  * @subpackage LedermannFilms
  */
+@use "sass:list";
+@use "sass:math";
+
 .Hero {
 	.gatsby-image-wrapper {
 		@include size(100%);
@@ -31,10 +34,10 @@
 	transition: visibility 0.8s map-get($easings, custom), opacity 0.8s map-get($easings, custom);
 
 	@include media-breakpoint-up(md) {
-		@media (max-aspect-ratio: #{$prototype-width-unitless}/#{$prototype-height-unitless}) {
+		@media (max-aspect-ratio: list.slash($prototype-width-unitless, $prototype-height-unitless)) {
 			height: calc(100vh - #{vw_size(12 * $scale-factor)} - 24px);
 		}
-		@media (min-aspect-ratio: #{$prototype-width-unitless}/#{$prototype-height-unitless}) {
+		@media (min-aspect-ratio: list.slash($prototype-width-unitless, $prototype-height-unitless)) {
 			height: calc(100vh - #{vh_size(12 * $scale-factor)} - 24px);
 		}
 	}
@@ -158,7 +161,7 @@
 
 		.Socials {
 			font-size: 14px;
-			line-height: (16/14);
+			line-height: math.div(16, 14);
 		}
 
 		&__content {

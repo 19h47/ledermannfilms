@@ -6,6 +6,8 @@
  *
  *
  */
+@use "sass:math";
+
 .Content {
 	@include aspect-ratio-size(26 * $scale-factor, 'margin-top');
 	@include aspect-ratio-size(36 * $scale-factor, 'margin-bottom');
@@ -14,7 +16,7 @@
 		@extend %font-weight-light;
 
 		font-size: 26px;
-		line-height: (26/32);
+		line-height: math.div(26, 32);
 		font-feature-settings: 'salt' on;
 
 		@include media-breakpoint-up(md) {

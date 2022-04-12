@@ -4,6 +4,8 @@
  *
  *
  */
+@use "sass:math";
+
 .Informations {
 	&__items {
 		@extend %list-style-type-none;
@@ -28,7 +30,7 @@
 			opacity: 0;
 
 			&:first-child {
-				width: percentage(159/441);
+				width: percentage(math.div(159, 441));
 			}
 		}
 

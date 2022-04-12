@@ -58,7 +58,7 @@
 				@include absolute(top 0 left 100%);
 
 				@include aspect-ratio-size($scale-factor, 'margin-top');
-				@include aspect-ratio-size($scale-factor / 2, 'margin-left');
+				@include aspect-ratio-size($scale-factor * 0.5, 'margin-left');
 
 				@include aspect-ratio-size(16, 'font-size');
 				@include aspect-ratio-size(24, 'line-height');

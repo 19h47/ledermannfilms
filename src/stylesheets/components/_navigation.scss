@@ -3,6 +3,8 @@
  *
  * @package LD
  */
+@use "sass:math";
+
 .Navigation {
 	@include fixed(top 0 right 0 bottom 0 left 0);
 	@extend .flex-column, .d-flex;
@@ -50,7 +52,7 @@
 		@extend %overflow-hidden;
 
 		font-size: 34px;
-		line-height: (34/34);
+		line-height: math.div(34, 34);
 
 		&:first-child {
 			@include margin(top 0);

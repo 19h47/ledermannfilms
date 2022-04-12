@@ -51,7 +51,6 @@ module.exports = {
 				},
 			},
 		},
-		`gatsby-plugin-netlify-cache`,
 		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {

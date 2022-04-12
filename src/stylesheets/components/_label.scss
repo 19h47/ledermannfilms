@@ -6,12 +6,14 @@
  *
  *
  */
+@use "sass:math";
+
 .Label {
 	@extend .d-flex, .align-items-center;
 	@extend %text-transform-uppercase, %overflow-hidden;
 
 	font-size: 11px;
-	line-height: (16/11);
+	line-height: math.div(16, 11);
 
 	span::before {
 		@extend .d-inline-block;

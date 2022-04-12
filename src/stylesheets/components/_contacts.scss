@@ -5,6 +5,8 @@
  *
  *
  */
+@use "sass:math";
+
 .Contacts {
 	@include autoAlpha(0);
 	@include fixed(top 0 right 0 bottom 0 left 0);
@@ -19,7 +21,7 @@
 	z-index: 4;
 
 	@include media-breakpoint-up(md) {
-		width: #{(619 * 100) / $prototype-width-unitless}vw;
+		width: #{math.div(619 * 100, $prototype-width-unitless)}vw;
 		bottom: auto;
 		left: auto;
 
@@ -73,7 +75,7 @@
 			width: 50%;
 
 			@include media-breakpoint-up(md) {
-				min-width: #{(97.46 * 100) / $prototype-width-unitless}vw;
+				min-width: #{math.div(97.46 * 100, $prototype-width-unitless)}vw;
 			}
 		}
 	}

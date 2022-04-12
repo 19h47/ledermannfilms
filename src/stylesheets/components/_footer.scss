@@ -5,6 +5,8 @@
  *
  *
  */
+@use "sass:math";
+
 .Footer {
 	@extend %overflow-hidden;
 
@@ -67,7 +69,7 @@
 		@extend .d-flex, .justify-content-between, .flex-column, .flex-md-row;
 
 		font-size: 14px;
-		line-height: (16/14);
+		line-height: math.div(16, 14);
 
 		&[data-scroll] {
 			a,

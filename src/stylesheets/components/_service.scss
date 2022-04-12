@@ -4,6 +4,8 @@
  *
  *
  */
+@use "sass:math";
+
 .Service {
 	$this: &;
 
@@ -19,7 +21,7 @@
 		max-width: #{24 * $scale-factor}px;
 
 		@include media-breakpoint-up(md) {
-			@include size(#{((24 * $scale-factor) * 100) / $prototype-width-unitless}vw, 26 * 8px);
+			@include size(#{math.div((24 * $scale-factor) * 100, $prototype-width-unitless)}vw, 26 * 8px);
 		}
 
 		svg {

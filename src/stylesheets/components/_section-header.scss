@@ -5,6 +5,8 @@
  *
  *
  */
+@use "sass:math";
+
 .Section-header {
 	@include aspect-ratio-size(18 * $scale-factor, 'margin-bottom');
 
@@ -31,7 +33,7 @@
 		@extend %text-transform-uppercase, %overflow-hidden;
 
 		font-size: 14px;
-		line-height: (16/14);
+		line-height: math.div(16, 14);
 
 		&[data-scroll] span {
 			@extend .d-inline-block;
@@ -49,7 +51,7 @@
 		@extend %overflow-hidden;
 
 		font-size: 14px;
-		line-height: (16/14);
+		line-height: math.div(16, 14);
 
 		&[data-scroll] span {
 			@extend .d-inline-block;

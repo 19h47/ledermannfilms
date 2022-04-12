@@ -2,6 +2,8 @@
  * Base
  */
 
+@use "sass:math";
+
 html {
 	// scroll-behavior: smooth;
 	background-color: the_color(gray, very-dark-01);
@@ -18,7 +20,7 @@ body {
 	text-rendering: optimizeLegibility;
 
 	font-size: #{$base-font-size}px;
-	line-height: $base-line-height / $base-font-size;
+	line-height: math.div($base-line-height, $base-font-size);
 }
 
 a,

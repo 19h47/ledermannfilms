@@ -7,6 +7,8 @@
  *
  *
  */
+@use "sass:math";
+
 .Tabs {
 	$this: &;
 
@@ -18,7 +20,7 @@
 		@extend .d-flex;
 
 		font-size: 11px;
-		line-height: (16/11);
+		line-height: math.div(16, 11);
 
 		@include margin(bottom 5 * 8px);
 
