@@ -2,7 +2,7 @@
  * Base
  */
 
-@use "sass:math";
+@use 'sass:math';
 
 html {
 	// scroll-behavior: smooth;
@@ -27,6 +27,10 @@ a,
 button {
 	cursor: pointer;
 	outline: none;
+}
+
+button {
+	color: currentColor;
 }
 
 a {
