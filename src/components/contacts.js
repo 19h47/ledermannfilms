@@ -162,34 +162,46 @@ function Contacts() {
 				data-scroll-sticky
 				data-scroll-target="#wrapper"
 				ref={contactsRef}>
-				<div className="Contacts__row justify-content-between" ref={titleRef}>
-					<span className="js-title">Contact informations</span>
-					<button className="Contacts__close" type="button" onClick={toggleContacts}>
-						<span className="d-none d-md-none">Close</span>
+				<div
+					className="Contacts__row d-flex align-items-center align-items-md-end position-relative justify-content-between"
+					ref={titleRef}>
+					<span className="mb-0 text-uppercase js-title">Contact informations</span>
+					<button
+						className="overflow-hidden Contacts__close d-flex align-items-center"
+						type="button"
+						onClick={toggleContacts}>
 						<Times />
 					</button>
 				</div>
-				<div className="Contacts__row" ref={phoneRef}>
-					<span>Phone</span>
+				<div
+					className="Contacts__row d-flex align-items-center align-items-md-end position-relative"
+					ref={phoneRef}>
+					<span className="mb-0 text-uppercase">Phone</span>
 					<span>{phoneNumber}</span>
-					<hr />
+					<hr class="position-absolute top-100 end-0 start-0" />
 				</div>
-				<div className="Contacts__row" ref={addressRef}>
-					<span>Address</span>
+				<div
+					className="Contacts__row d-flex align-items-center align-items-md-end position-relative"
+					ref={addressRef}>
+					<span className="mb-0 text-uppercase">Address</span>
 					<span>{address}</span>
-					<hr />
+					<hr class="position-absolute top-100 end-0 start-0" />
 				</div>
-				<div className="Contacts__row" ref={mailRef}>
-					<span>Mail</span>
+				<div
+					className="Contacts__row d-flex align-items-center align-items-md-end position-relative"
+					ref={mailRef}>
+					<span className="mb-0 text-uppercase">Mail</span>
 					<span>
 						<a href={`mailto:${publicEmail}`}>{publicEmail}</a>
 					</span>
-					<hr />
+					<hr class="position-absolute top-100 end-0 start-0" />
 				</div>
-				<div className="Contacts__row" ref={socialsRef}>
-					<span>Social</span>
+				<div
+					className="Contacts__row d-flex align-items-center align-items-md-end position-relative"
+					ref={socialsRef}>
+					<span className="mb-0 text-uppercase">Social</span>
 					<Socials />
-					<hr />
+					<hr class="position-absolute top-100 end-0 start-0" />
 				</div>
 				<div className="Contacts__background js-background"></div>
 			</div>

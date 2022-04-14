@@ -5,7 +5,7 @@
  *
  *
  */
-@use "sass:math";
+@use 'sass:math';
 
 .Contacts {
 	@include autoAlpha(0);
@@ -45,23 +45,13 @@
 
 	&__row {
 		@include padding(top 2 * 8px bottom 2 * 8px);
-		@extend .d-flex, .align-items-center, .align-items-md-end;
-		@extend %position-relative;
 		@include margin(bottom -1px);
 
 		white-space: pre-line;
 
 		z-index: 2;
 
-		&:first-child,
-		&:last-child {
-			@include margin(bottom 0);
-
-			border-bottom: none;
-		}
-
 		hr {
-			@include absolute(top 100% right 0 left 0);
 			@include size(100%, 1px);
 
 			background-color: the_color(white);
@@ -81,9 +71,6 @@
 	}
 
 	&__close {
-		@extend .d-flex, .align-items-center;
-		@extend %overflow-hidden;
-
 		svg {
 			@include size(12px);
 			@include margin(left 2 * 8px);
