@@ -32,6 +32,7 @@ module.exports = {
 				url: process.env.WPGRAPHQL_URL || `https://wp.ledermannfilms.com/graphql`,
 				schema: {
 					timeout: 60000,
+					perPage: 50,
 				},
 				type: {
 					Post: {
