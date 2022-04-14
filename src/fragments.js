@@ -6,11 +6,7 @@ export const fragments = graphql`
 			fluid(maxWidth: 1502) {
 				...GatsbyImageSharpFluid_withWebp
 			}
-			gatsbyImageData
-			fixed {
-				width
-				height
-			}
+			gatsbyImageData(layout: FIXED)
 		}
 	}
 `;

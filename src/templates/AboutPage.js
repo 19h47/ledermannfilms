@@ -47,6 +47,8 @@ const AboutPage = ({ data }) => {
 		},
 	} = data;
 
+	console.log(featuredImage);
+
 	useEffect(() => {
 		if (contentRef.current) {
 			new SplitText(contentRef.current, { type: 'lines', linesClass: 'lineChild' });
@@ -65,7 +67,7 @@ const AboutPage = ({ data }) => {
 					<div className="Hero__body h-100" style={{ overflow: 'visible' }}>
 						<footer className="Hero__footer h-100">
 							<div className="row d-flex align-items-end h-100 ">
-								<div className="col-14 col-md-4 order-1 order-md-0">
+								<div className="order-1 col-14 col-md-4 order-md-0">
 									<h3
 										className="Hero__footer__content"
 										data-scroll
@@ -77,12 +79,25 @@ const AboutPage = ({ data }) => {
 
 								<div className="col-8 offset-3 col-md-5 offset-md-1 h-100">
 									<div data-scroll>
-										<img src={featuredImage.localFile.childImageSharp.fluid.srcWebp}
-											srcSet={featuredImage.localFile.childImageSharp.fluid.srcSetWebp}
-											sizes={featuredImage.localFile.childImageSharp.fluid.sizes}
+										<img
+											src={
+												featuredImage.localFile.childImageSharp.fluid
+													.srcWebp
+											}
+											srcSet={
+												featuredImage.localFile.childImageSharp.fluid
+													.srcSetWebp
+											}
+											sizes={
+												featuredImage.localFile.childImageSharp.fluid.sizes
+											}
 											loading="lazy"
 											alt="About"
-											style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
+											style={{
+												maxWidth: '100%',
+												maxHeight: '100%',
+												objectFit: 'contain',
+											}}
 										/>
 									</div>
 								</div>

@@ -26,13 +26,13 @@ const Menu = ({ className }) => {
 	`);
 
 	return !!wpMenu && !!wpMenu.menuItems && !!wpMenu.menuItems.nodes ? (
-		<div className={`Menu margin-right-2${className ? ` ${className}` : ''}`} data-scroll>
-			<ul className="Menu__items">
+		<div className={`Menu 	d-flex flex-row margin-right-2${className ? ` ${className}` : ''}`} data-scroll>
+			<ul className="flex-row Menu__items list-style-type-none d-flex">
 				{wpMenu.menuItems.nodes.map(menuItem => {
 					return (
-						<li className="Menu__item" key={menuItem.id}>
+						<li className="Menu__item d-block" key={menuItem.id}>
 							<AniLink
-								className="smallcaps"
+								className="overflow-hidden smallcaps d-block"
 								to={menuItem.path}
 								cover
 								direction="up"
@@ -46,14 +46,19 @@ const Menu = ({ className }) => {
 										scroll.update();
 									}, 800);
 								}}>
-								<span>{menuItem.label}</span>
+								<span className="d-inline-block position-relative">
+									{menuItem.label}
+								</span>
 							</AniLink>
 						</li>
 					);
 				})}
-				<li className="Menu__item">
-					<button className="smallcaps" type="button" onClick={toggleContacts}>
-						<span>Contact</span>
+				<li className="Menu__item d-block">
+					<button
+						className="overflow-hidden smallcaps d-block"
+						type="button"
+						onClick={toggleContacts}>
+						<span className="d-inline-block position-relative">Contact</span>
 					</button>
 				</li>
 			</ul>

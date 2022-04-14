@@ -178,14 +178,14 @@ function Contacts() {
 					ref={phoneRef}>
 					<span className="mb-0 text-uppercase">Phone</span>
 					<span>{phoneNumber}</span>
-					<hr class="position-absolute top-100 end-0 start-0" />
+					<hr className="position-absolute top-100 end-0 start-0" />
 				</div>
 				<div
 					className="Contacts__row d-flex align-items-center align-items-md-end position-relative"
 					ref={addressRef}>
 					<span className="mb-0 text-uppercase">Address</span>
 					<span>{address}</span>
-					<hr class="position-absolute top-100 end-0 start-0" />
+					<hr className="position-absolute top-100 end-0 start-0" />
 				</div>
 				<div
 					className="Contacts__row d-flex align-items-center align-items-md-end position-relative"
@@ -194,14 +194,14 @@ function Contacts() {
 					<span>
 						<a href={`mailto:${publicEmail}`}>{publicEmail}</a>
 					</span>
-					<hr class="position-absolute top-100 end-0 start-0" />
+					<hr className="position-absolute top-100 end-0 start-0" />
 				</div>
 				<div
 					className="Contacts__row d-flex align-items-center align-items-md-end position-relative"
 					ref={socialsRef}>
 					<span className="mb-0 text-uppercase">Social</span>
 					<Socials />
-					<hr class="position-absolute top-100 end-0 start-0" />
+					<hr className="position-absolute top-100 end-0 start-0" />
 				</div>
 				<div className="Contacts__background js-background"></div>
 			</div>

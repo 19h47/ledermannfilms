@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { getImage, GatsbyImage } from 'gatsby-plugin-image';
 
 import H0 from '@/components/h0';
 import SectionHeader from '@/components/section-header';
@@ -58,8 +58,12 @@ function Clients() {
 									<div className="Client" data-scroll>
 										<div className="Client__image">
 											{image && image.localFile && (
-												<Img
-													fluid={image.localFile.childImageSharp.fluid}
+												<GatsbyImage
+													image={
+														image.localFile.childImageSharp
+															.gatsbyImageData
+													}
+													style={{ width: '100%', maxWidth: '100%', height: '100%' }}
 													imgStyle={{
 														objectFit: 'contain',
 														objectPosition: 'left center',

@@ -1,27 +1,19 @@
 /**
  * Menu
  *
- *
- *
- *
- *
+ * @author Jérémy Levron <jeremylevron@19h47.fr> (https://19h47.fr)
  */
+
 .Menu {
 	$this: &;
-
-	@extend .d-flex, .flex-row;
 
 	@include margin(top -8px bottom -8px);
 
 	&__items {
-		@extend %list-style-type-none;
-		@extend .d-flex, .flex-row;
-
 		@include margin(right -12px left -12px);
 	}
 
 	&__item {
-		@extend .d-block;
 		@include margin(right 16px left 16px);
 
 		&:first-child {
@@ -34,14 +26,10 @@
 
 		a,
 		button {
-			@extend .d-block;
-			@extend %overflow-hidden;
 			@include margin(right 12px left 12px);
 
 			span {
 				@include padding(top 8px bottom 8px);
-				@extend .d-inline-block;
-				@extend %position-relative;
 
 				transform-origin: center top;
 				transform-style: preserve-3d;
@@ -52,8 +40,9 @@
 				&::before,
 				&::after {
 					@include absolute(right 0 bottom 0 left 0);
-					@extend .d-block;
 					@include size(100%, 1px);
+
+					@extend .d-block;
 
 					background-color: the_color(white);
 					transform-style: preserve-3d;

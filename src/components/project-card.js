@@ -31,10 +31,10 @@ const ProjectCard = ({ project, index }) => {
 							loading="lazy"
 							alt={title}
 							width={
-								featuredImage.node.localFile.childImageSharp.gatsbyImageData.width
+								featuredImage.node.localFile.childImageSharp.fluid.width
 							}
 							height={
-								featuredImage.node.localFile.childImageSharp.gatsbyImageData.height
+								featuredImage.node.localFile.childImageSharp.fluid.height
 							}
 						/>
 						{thumbnail && (

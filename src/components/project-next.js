@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 import H0 from '@/components/h0';
 
@@ -25,11 +25,11 @@ const ProjectHero = ({ project }) => {
 
 					<div className="Hero__thumbnail" data-scroll>
 						{featuredImage && featuredImage.node && featuredImage.node && (
-							<Img
+							<GatsbyImage
 								fadeIn={true}
 								backgroundColor={'black'}
 								durationFadeIn={1000}
-								fluid={featuredImage.node.localFile.childImageSharp.fluid}
+								image={featuredImage.node.localFile.childImageSharp.gatsbyImageData}
 							/>
 						)}
 					</div>

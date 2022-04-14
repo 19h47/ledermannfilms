@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
 
@@ -22,11 +22,11 @@ const ProjectHero = ({ project }) => {
 
 	const thumbnailImage = thumbnail => (
 		<div className="Hero__thumbnail" data-scroll>
-			<Img
+			<GatsbyImage
 				fadeIn={true}
 				backgroundColor={'black'}
 				durationFadeIn={1000}
-				fluid={thumbnail.localFile.childImageSharp.fluid}
+				image={thumbnail.localFile.childImageSharp.gatsbyImageData}
 			/>
 		</div>
 	);
@@ -58,7 +58,7 @@ const ProjectHero = ({ project }) => {
 
 					<footer className="Hero__footer">
 						<div className="row d-flex align-items-end align-items-md-center">
-							<div className="col-14 col-md-6 offset-md-1 order-4 order-md-0">
+							<div className="order-4 col-14 col-md-6 offset-md-1 order-md-0">
 								{hero.video && (
 									<ModalProvider>
 										<ButtonShowreel
@@ -74,7 +74,7 @@ const ProjectHero = ({ project }) => {
 								)}
 							</div>
 							<div className="col-7 col-md-2 order-0 order-md-1"></div>
-							<div className="col-14 offset-md-3 col-md-2 order-1 order-md-2 d-flex d-md-block justify-content-between justify-content-md-end">
+							<div className="order-1 col-14 offset-md-3 col-md-2 order-md-2 d-flex d-md-block justify-content-between justify-content-md-end">
 								<AniLink
 									className="All-projects smallcaps w-100 justify-content-between justify-content-md-start"
 									to="/work/"
@@ -96,7 +96,7 @@ const ProjectHero = ({ project }) => {
 									</div>
 								</AniLink>
 							</div>
-							<div className="col-14 order-3 d-md-none">
+							<div className="order-3 col-14 d-md-none">
 								<hr />
 							</div>
 						</div>

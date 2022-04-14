@@ -40,7 +40,7 @@
 		"gatsby-plugin-transition-link": "^1.20.5",
 		"gatsby-source-filesystem": "^4.12.1",
 		"gatsby-source-wordpress": "^6.12.1",
-		"gatsby-transformer-sharp": "4.12.1",
+		"gatsby-transformer-sharp": "^4.12.1",
 		"prettier": "^2.6.2",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",

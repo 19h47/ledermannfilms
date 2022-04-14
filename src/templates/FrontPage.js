@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 import ButtonShowreel from '@/components/button-showreel';
 import Content from '@/components/content';
@@ -53,11 +53,11 @@ const FrontPage = ({ data }) => {
 
 	const heroThumbnail = thumbnail => (
 		<div className="Hero__thumbnail" data-scroll>
-			<Img
+			<GatsbyImage
 				fadeIn={true}
 				backgroundColor={'black'}
 				durationFadeIn={1000}
-				fluid={thumbnail.localFile.childImageSharp.fluid}
+				image={thumbnail.localFile.childImageSharp.gatsbyImageData}
 			/>
 		</div>
 	);
@@ -89,7 +89,7 @@ const FrontPage = ({ data }) => {
 							</div>
 							<footer className="Hero__footer">
 								<div className="row d-flex align-items-end align-items-md-center">
-									<div className="col-14 col-md-6 offset-md-1 order-4 order-md-0">
+									<div className="order-4 col-14 col-md-6 offset-md-1 order-md-0">
 										{hero.video && (
 											<ButtonShowreel
 												video={heroVideo({
@@ -105,11 +105,11 @@ const FrontPage = ({ data }) => {
 										<Location />
 									</div>
 									<div
-										className="col-7 offset-md-2 offset-lg-3 col-md-2 order-1 order-md-2 d-flex d-md-block justify-content-end"
+										className="order-1 col-7 offset-md-2 offset-lg-3 col-md-2 order-md-2 d-flex d-md-block justify-content-end"
 										data-scroll>
 										<Socials />
 									</div>
-									<div className="col-14 order-3 d-md-none">
+									<div className="order-3 col-14 d-md-none">
 										<hr />
 									</div>
 								</div>

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
 
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
@@ -161,9 +161,10 @@ const Project = ({ data }) => {
 									key={image.id}
 									data-scroll>
 									{image && image.localFile && (
-										<Img
+										<GatsbyImage
 											fadeIn
-											fluid={image.localFile.childImageSharp.fluid}
+											image={image.localFile.childImageSharp.gatsbyImageData}
+											style={{ width: '100%', height: 'auto' }}
 											imgStyle={{
 												objectFit: 'contain',
 												height: 'auto',
