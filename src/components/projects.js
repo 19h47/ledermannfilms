@@ -9,8 +9,6 @@ const gridClassNames = [
 ];
 
 function Projects({ projects }) {
-
-
 	if (!projects) {
 		const {
 			allWpProject: { nodes: allProjects },
