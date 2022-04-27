@@ -10,9 +10,6 @@ require('dotenv').config({
 });
 
 module.exports = {
-	flags: {
-		PARALLEL_QUERY_RUNNING: true
-	},
 	siteMetadata: {
 		title: `Ledermann Films`,
 		description: `Freelance Film director and Photographer`,
@@ -22,6 +19,10 @@ module.exports = {
 		`gatsby-plugin-transition-link`,
 		`gatsby-plugin-sass`,
 		`gatsby-plugin-sharp`,
+		`gatsby-plugin-image`,
+		`gatsby-plugin-netlify`,
+		`gatsby-plugin-offline`,
+		`gatsby-transformer-sharp`,
 		{
 			resolve: `gatsby-source-filesystem`,
 			options: {
@@ -49,9 +50,6 @@ module.exports = {
 				},
 			},
 		},
-		`gatsby-plugin-image`,
-		`gatsby-plugin-sharp`,
-		`gatsby-transformer-sharp`,
 		{
 			resolve: 'gatsby-plugin-react-svg',
 			options: {
@@ -81,7 +79,5 @@ module.exports = {
 				extensions: ['js'],
 			},
 		},
-		`gatsby-plugin-offline`,
-		`gatsby-plugin-netlify`,
 	],
 };
