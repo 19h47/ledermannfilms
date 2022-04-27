@@ -9,43 +9,45 @@ const gridClassNames = [
 ];
 
 function Projects({ projects }) {
-	const {
-		allWpProject: { nodes: allProjects },
-	} = useStaticQuery(graphql`
-		{
-			allWpProject {
-				nodes {
-					id
-					title
-					uri
-					projectCategories {
-						nodes {
-							id
-							name
-						}
-					}
-					featuredImage {
-						node {
-							localFile {
-								...HeroImage
+
+
+	if (!projects) {
+		const {
+			allWpProject: { nodes: allProjects },
+		} = useStaticQuery(graphql`
+			{
+				allWpProject {
+					nodes {
+						id
+						title
+						uri
+						projectCategories {
+							nodes {
+								id
+								name
 							}
 						}
-					}
-					customFields {
-						gallery {
-							id
+						featuredImage {
+							node {
+								localFile {
+									...HeroImage
+								}
+							}
 						}
-						hero {
-							video
-							thumbnail
+						customFields {
+							gallery {
+								id
+							}
+							hero {
+								video
+								thumbnail
+							}
 						}
 					}
 				}
 			}
-		}
-	`);
+		`);
 
-	if (!projects) {
 		projects = allProjects;
 	}
 
