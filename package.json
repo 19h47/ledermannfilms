@@ -17,6 +17,7 @@
 		"@19h47/architecture": "19h47/19h47-architecture",
 		"@19h47/tabs": "5.4.1",
 		"bootstrap": "^5.0.1",
+		"gatsby-plugin-netlify": "^4.3.0",
 		"gsap": "^3.7.0",
 		"locomotive-scroll": "^4.1.4",
 		"react-locomotive-scroll": "^0.2.0",
