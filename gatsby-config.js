@@ -10,6 +10,9 @@ require('dotenv').config({
 });
 
 module.exports = {
+	flags: {
+		PARALLEL_QUERY_RUNNING: true
+	},
 	siteMetadata: {
 		title: `Ledermann Films`,
 		description: `Freelance Film director and Photographer`,
