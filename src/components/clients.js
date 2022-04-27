@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { getImage, GatsbyImage } from 'gatsby-plugin-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 import H0 from '@/components/h0';
 import SectionHeader from '@/components/section-header';
@@ -52,9 +52,9 @@ function Clients() {
 
 							return (
 								<li
-									className={`col-7 col-md-4${index % 3 !== 0 ? ' offset-md-1' : ''
-										}`}
-									key={id}>
+									className={`col-7 col-md-4${index % 3 !== 0 ? ' offset-md-1' : ''}`}
+									key={id}
+								>
 									<div className="Client" data-scroll>
 										<div className="Client__image">
 											{image && image.localFile && (
@@ -63,11 +63,16 @@ function Clients() {
 														image.localFile.childImageSharp
 															.gatsbyImageData
 													}
-													style={{ width: '100%', maxWidth: '100%', height: '100%' }}
+													style={{
+														width: '100%',
+														maxWidth: '100%',
+														height: '100%',
+													}}
 													imgStyle={{
 														objectFit: 'contain',
 														objectPosition: 'left center',
 													}}
+													alt={title}
 												/>
 											)}
 										</div>

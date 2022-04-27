@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 import ButtonShowreel from '@/components/button-showreel';
 import Content from '@/components/content';
@@ -51,13 +51,14 @@ const FrontPage = ({ data }) => {
 		featuredImage,
 	} = page;
 
+	const image = featuredImage?.node && getImage(featuredImage.node.localFile);
+
 	const heroThumbnail = thumbnail => (
 		<div className="Hero__thumbnail" data-scroll>
 			<GatsbyImage
-				fadeIn={true}
 				backgroundColor={'black'}
-				durationFadeIn={1000}
-				image={thumbnail.localFile.childImageSharp.gatsbyImageData}
+				image={thumbnail}
+				alt={title}
 			/>
 		</div>
 	);
@@ -117,7 +118,7 @@ const FrontPage = ({ data }) => {
 
 							{hero.thumbnail
 								? heroVideo({ video: hero.thumbnail, scroll: true })
-								: featuredImage ? heroThumbnail(featuredImage.node.thumbnail) : ''}
+								: image ? heroThumbnail(image) : ''}
 						</div>
 					</div>
 				</div>

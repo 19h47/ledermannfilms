@@ -1,6 +1,7 @@
 import React from 'react';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import Video from '@/components/video';
 
@@ -15,28 +16,16 @@ const ProjectCard = ({ project, index }) => {
 	} = project;
 	const { scroll } = useLocomotiveScroll();
 
-	console.log(featuredImage);
+	const image = getImage(featuredImage.node.localFile);
 
 	const children = (
 		<>
 			<div
 				className={`Project-card__body${thumbnail ? ' Project-card__body--has-video' : ''
 					}`}>
-				{featuredImage && featuredImage.node && featuredImage.node.localFile && (
+				{image && (
 					<div className="Project-card__thumbnail" data-scroll>
-						<img
-							src={featuredImage.node.localFile.childImageSharp.fluid.srcWebp}
-							srcSet={featuredImage.node.localFile.childImageSharp.fluid.srcSetWebp}
-							sizes={featuredImage.node.localFile.childImageSharp.fluid.sizes}
-							loading="lazy"
-							alt={title}
-							width={
-								featuredImage.node.localFile.childImageSharp.fluid.width
-							}
-							height={
-								featuredImage.node.localFile.childImageSharp.fluid.height
-							}
-						/>
+						<GatsbyImage image={image} alt={title} />
 						{thumbnail && (
 							<Video
 								className="Project-card__video"

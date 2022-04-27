@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { graphql } from 'gatsby';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import gsap from 'gsap';
 
 import SplitText from '../vendors/SplitText';
@@ -47,7 +48,8 @@ const AboutPage = ({ data }) => {
 		},
 	} = data;
 
-	console.log(featuredImage);
+	// console.log(featuredImage);
+	const image = getImage(featuredImage.localFile);
 
 	useEffect(() => {
 		if (contentRef.current) {
@@ -79,7 +81,13 @@ const AboutPage = ({ data }) => {
 
 								<div className="col-8 offset-3 col-md-5 offset-md-1 h-100">
 									<div data-scroll>
-										<img
+										<GatsbyImage image={image} alt="About"
+											style={{
+												maxWidth: '100%',
+												maxHeight: '100%',
+												objectFit: 'contain',
+											}} />
+										{/* <img
 											src={
 												featuredImage.localFile.childImageSharp.fluid
 													.srcWebp
@@ -98,7 +106,7 @@ const AboutPage = ({ data }) => {
 												maxHeight: '100%',
 												objectFit: 'contain',
 											}}
-										/>
+										/> */}
 									</div>
 								</div>
 								<div className="col-14 offset-md-2 col-md-2">

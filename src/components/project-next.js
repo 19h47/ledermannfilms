@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 import H0 from '@/components/h0';
 
@@ -10,6 +10,8 @@ const ProjectHero = ({ project }) => {
 		customFields: { hero },
 		featuredImage,
 	} = project;
+
+	const image = getImage(featuredImage.node.localFile);
 
 	return (
 		<div className="Project-next">
@@ -24,13 +26,8 @@ const ProjectHero = ({ project }) => {
 					</div>
 
 					<div className="Hero__thumbnail" data-scroll>
-						{featuredImage && featuredImage.node && featuredImage.node && (
-							<GatsbyImage
-								fadeIn={true}
-								backgroundColor={'black'}
-								durationFadeIn={1000}
-								image={featuredImage.node.localFile.childImageSharp.gatsbyImageData}
-							/>
+						{image && (
+							<GatsbyImage backgroundColor={'black'} alt={title} image={image} />
 						)}
 					</div>
 				</div>

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { graphql } from 'gatsby';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
 
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
@@ -155,28 +155,34 @@ const Project = ({ data }) => {
 
 					<div className="Site-container">
 						<ul className="Project__items row">
-							{gallery.map(image => (
-								<li
-									className={`Project__item ${layout(image.customFields.layout)}`}
-									key={image.id}
-									data-scroll>
-									{image && image.localFile && (
-										<GatsbyImage
-											fadeIn
-											image={image.localFile.childImageSharp.gatsbyImageData}
-											style={{ width: '100%', height: 'auto' }}
-											imgStyle={{
-												objectFit: 'contain',
-												height: 'auto',
-												width: 'auto',
-												maxWidth: '100%',
-												maxHeight: '100%',
-												position: 'relative',
-											}}
-										/>
-									)}
-								</li>
-							))}
+							{gallery.map(image => {
+								const img = getImage(image.localFile);
+
+								return (
+									<li
+										className={`Project__item ${layout(
+											image.customFields.layout,
+										)}`}
+										key={image.id}
+										data-scroll>
+										{img && (
+											<GatsbyImage
+												image={img}
+												alt=""
+												style={{ width: '100%', height: 'auto' }}
+												imgStyle={{
+													objectFit: 'contain',
+													height: 'auto',
+													width: 'auto',
+													maxWidth: '100%',
+													maxHeight: '100%',
+													position: 'relative',
+												}}
+											/>
+										)}
+									</li>
+								);
+							})}
 						</ul>
 					</div>
 				</div>

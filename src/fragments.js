@@ -3,7 +3,9 @@ import { graphql } from 'gatsby';
 export const fragments = graphql`
 	fragment HeroImage on File {
 		childImageSharp {
-			gatsbyImageData(layout: FIXED)
+			gatsbyImageData(
+				formats: [AUTO, WEBP]
+			)
 		}
 	}
 `;

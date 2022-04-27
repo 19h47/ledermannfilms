@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
 
@@ -20,14 +20,11 @@ const ProjectHero = ({ project }) => {
 	} = project;
 	const { scroll } = useLocomotiveScroll();
 
+	const image = getImage(featuredImage.node.localFile);
+
 	const thumbnailImage = thumbnail => (
 		<div className="Hero__thumbnail" data-scroll>
-			<GatsbyImage
-				fadeIn={true}
-				backgroundColor={'black'}
-				durationFadeIn={1000}
-				image={thumbnail.localFile.childImageSharp.gatsbyImageData}
-			/>
+			<GatsbyImage backgroundColor={'black'} image={thumbnail} alt={title} />
 		</div>
 	);
 
@@ -102,11 +99,7 @@ const ProjectHero = ({ project }) => {
 						</div>
 					</footer>
 
-					{hero.thumbnail
-						? heroVideo({ video: hero.thumbnail, scroll: true })
-						: featuredImage && featuredImage.node && featuredImage.node.thumbnail
-							? thumbnailImage(featuredImage.node.thumbnail)
-							: ''}
+					{hero.thumbnail ? heroVideo({ video: hero.thumbnail, scroll: true }) : (image ? thumbnailImage(image) : '')}
 				</div>
 			</div>
 		</div>

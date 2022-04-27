@@ -13,6 +13,41 @@
 // 4. Include any optional Bootstrap components as you like
 @import '~bootstrap/scss/grid';
 @import '~bootstrap/scss/utilities';
+
+$utilities: map-merge(
+	$utilities,
+	(
+		'top':
+			map-merge(
+				map-get($utilities, 'top'),
+				(
+					responsive: true,
+				)
+			),
+		'end':
+			map-merge(
+				map-get($utilities, 'end'),
+				(
+					responsive: true,
+				)
+			),
+		'bottom':
+			map-merge(
+				map-get($utilities, 'bottom'),
+				(
+					responsive: true,
+				)
+			),
+		'start':
+			map-merge(
+				map-get($utilities, 'start'),
+				(
+					responsive: true,
+				)
+			),
+	)
+);
+
 @import '~bootstrap/scss/utilities/api';
 
 // 5. Add additional custom code here
