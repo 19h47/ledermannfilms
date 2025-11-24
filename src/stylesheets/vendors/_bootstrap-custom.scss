@@ -4,11 +4,14 @@
 @import '~bootstrap/scss/functions';
 
 // 2. Include any default variable overrides here
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/variables-dark';
 @import 'bootstrap-variables';
 
 // 3. Include remainder of required Bootstrap stylesheets
-@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/maps';
 @import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/root';
 
 // 4. Include any optional Bootstrap components as you like
 @import '~bootstrap/scss/grid';
@@ -49,5 +52,3 @@ $utilities: map-merge(
 );
 
 @import '~bootstrap/scss/utilities/api';
-
-// 5. Add additional custom code here
